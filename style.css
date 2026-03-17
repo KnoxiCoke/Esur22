@@ -6,14 +6,17 @@
   --text:#e8eefc;
   --muted:#9aa8c7;
   --border:rgba(255,255,255,.08);
+  --border-strong:rgba(255,255,255,.14);
   --accent:#4b8cff;
   --accent-soft:rgba(75,140,255,.18);
+  --accent-faint:rgba(75,140,255,.08);
   --danger:#ff4a4a;
   --danger-soft:rgba(255,74,74,.18);
+  --danger-faint:rgba(255,74,74,.08);
   --disclaimer:#5a1f26;
   --radius:18px;
-  --radius-sm:12px;
   --shadow:0 10px 30px rgba(0,0,0,.18);
+  --shadow-soft:0 6px 18px rgba(0,0,0,.12);
   --maxw:920px;
 }
 
@@ -203,11 +206,16 @@ body.emergency .langswitch__btn.active{
 }
 
 .card--output{
+  position:relative;
   border-left:6px solid var(--accent);
+  background:
+    linear-gradient(180deg, rgba(75,140,255,.06), rgba(255,255,255,.03));
 }
 
 body.emergency .card--output{
   border-left-color:var(--danger);
+  background:
+    linear-gradient(180deg, rgba(255,74,74,.06), rgba(255,255,255,.03));
 }
 
 .seg{
@@ -227,6 +235,7 @@ body.emergency .card--output{
   padding:13px 12px;
   font-weight:900;
   line-height:1.25;
+  box-shadow:var(--shadow-soft);
 }
 
 .seg__btn.active,
@@ -306,6 +315,11 @@ input::placeholder{
   border:1px solid var(--border);
   border-radius:14px;
   background:rgba(255,255,255,.03);
+  transition:background-color .18s ease, border-color .18s ease;
+}
+
+.checklist label:hover{
+  background:rgba(255,255,255,.05);
 }
 
 .checklist input[type="checkbox"]{
@@ -318,6 +332,84 @@ input::placeholder{
 
 body.emergency .checklist input[type="checkbox"]{
   accent-color:var(--danger);
+}
+
+/* ========= VERFEINERTE OUTPUT-BOXEN ========= */
+
+.card--output .output{
+  display:grid;
+  gap:10px;
+}
+
+.card--output .output > div{
+  padding:11px 12px;
+  border:1px solid var(--border-strong);
+  border-radius:14px;
+  background:rgba(255,255,255,.035);
+  box-shadow:var(--shadow-soft);
+}
+
+.card--output .output > div strong{
+  font-weight:900;
+}
+
+.card--output .output > div:first-child{
+  background:var(--accent-faint);
+  border-color:rgba(75,140,255,.24);
+}
+
+body.emergency .card--output .output > div:first-child{
+  background:var(--danger-faint);
+  border-color:rgba(255,74,74,.24);
+}
+
+.card--output .output > div:last-child{
+  border-color:rgba(255,255,255,.18);
+}
+
+.card--output .output ul{
+  margin:0;
+  padding-left:18px;
+  border:1px solid var(--border-strong);
+  border-radius:14px;
+  background:rgba(255,255,255,.035);
+  padding-top:12px;
+  padding-right:12px;
+  padding-bottom:12px;
+  box-shadow:var(--shadow-soft);
+}
+
+.card--output .output li::marker{
+  color:var(--accent);
+}
+
+body.emergency .card--output .output li::marker{
+  color:var(--danger);
+}
+
+.card--subtle .output{
+  font-size:14px;
+}
+
+/* Schönere Tryptase-/Result-Boxen */
+#tryptaseOutput > div{
+  word-break:break-word;
+}
+
+/* Platzhalter im Switch etwas ruhiger */
+#switchOutput .hint{
+  padding:12px;
+  border:1px dashed var(--border-strong);
+  border-radius:14px;
+  background:rgba(255,255,255,.025);
+}
+
+/* NIHR / Assessment klarer */
+#nihrOutput > div:first-child,
+#flowOutput > div:first-child,
+#switchOutput > div:first-child,
+#tryptaseOutput > div:first-child{
+  font-size:15px;
 }
 
 .bottomnav{
@@ -404,5 +496,11 @@ body.emergency .checklist input[type="checkbox"]{
 
   .bottomnav{
     grid-template-columns:repeat(2,1fr);
+  }
+
+  .card--output .output > div,
+  .card--output .output ul{
+    padding-left:10px;
+    padding-right:10px;
   }
 }
