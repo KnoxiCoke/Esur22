@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
       app_title: "Radiology Contrast & Safety App",
       reset: "Reset",
 
-      disclaimer_line1: "Educational support tool based on ESUR CMSC guidance (2025) and related official sources.",
+      disclaimer_line1: "Educational tool. Follow local protocols.",
       disclaimer_line2: "Information only. Clinical decisions should follow local protocols, source documents and clinical judgement. No patient data are stored.",
       disclaimer_line3: "Contrast safety content adapted from ESUR Contrast Media Safety Committee guidance.",
 
@@ -342,9 +342,9 @@ document.addEventListener("DOMContentLoaded", function () {
       // Practice Changes tab — static UI
       changes_title: "Practice Changes 2025",
       changes_subtitle:
-        "ESUR-based summary of what changed from ESUR 10.0 (2018) to ESUR 2025. Educational support only.",
+        "ESUR 2025 vs ESUR 10.0 — key practical differences.",
       changes_intro:
-        "This tab highlights practice-relevant differences between ESUR 10.0 (2018) and ESUR 2025, with transparent source attribution. It is intended as educational support and not as a stand-alone clinical decision tool.",
+        "Compact overview of practice-relevant changes. Educational support only.",
       badge_practice_changing: "Practice-changing",
       badge_refined: "Refined",
       badge_structural: "Structural / terminological",
@@ -370,7 +370,7 @@ document.addEventListener("DOMContentLoaded", function () {
       app_title: "Radiology Contrast & Safety App",
       reset: "Zurücksetzen",
 
-      disclaimer_line1: "Didaktisches Support-Tool auf Grundlage der ESUR-CMSC-Guidance (2025) und verwandter offizieller Quellen.",
+      disclaimer_line1: "Didaktisches Support-Tool. Lokale Protokolle beachten..",
       disclaimer_line2: "Nur zur Information. Klinische Entscheidungen sollten lokalen Protokollen, den Quellendokumenten und der klinischen Beurteilung folgen. Es werden keine Patientendaten gespeichert.",
       disclaimer_line3: "Inhalt zur Kontrastmittelsicherheit adaptiert aus der Guidance des ESUR Contrast Media Safety Committee.",
 
@@ -676,9 +676,9 @@ document.addEventListener("DOMContentLoaded", function () {
       // Practice Changes tab — static UI
       changes_title: "Practice Changes 2025",
       changes_subtitle:
-        "ESUR-basierte Zusammenfassung der Unterschiede zwischen ESUR 10.0 (2018) und ESUR 2025. Nur zur didaktischen Unterstützung.",
+        "ESUR 2025 vs. ESUR 10.0 — wichtigste Praxisunterschiede.",
       changes_intro:
-        "Dieser Tab hebt praxisrelevante Unterschiede zwischen ESUR 10.0 (2018) und ESUR 2025 hervor und zeigt die Quellen transparent an. Er dient der didaktischen Unterstützung und nicht als eigenständiges klinisches Entscheidungstool.",
+        "Kompakte Übersicht praxisrelevanter Änderungen. Nur zur didaktischen Unterstützung.",
       badge_practice_changing: "Praxisrelevant verändert",
       badge_refined: "Präzisiert",
       badge_structural: "Strukturell / terminologisch",
