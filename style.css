@@ -897,12 +897,19 @@ body.emergency .checklist input[type="checkbox"] {
     padding: 6px 8px;
   }
 
-  .bottomnav__btn {
+   .bottomnav__btn {
     min-height: 40px;
-    font-size:  12px;
+    font-size: 12px;
     line-height: 1.1;
     padding: 6px 6px;
     border-radius: 12px;
+    border: 1px solid rgba(75, 140, 255, 0.22);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+  }
+
+  .bottomnav__btn.active {
+    border-color: rgba(75, 140, 255, 0.5);
+    box-shadow: inset 0 0 0 1px rgba(75, 140, 255, 0.12);
   }
 
   /* Mobile disclaimer: compact red, expandable with JS */
