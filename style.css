@@ -983,3 +983,155 @@ body.emergency .card--output .output li::marker{
     font-size:15px;
   }
 }
+/* ==========================================
+   MOBILE CLEANUP: DISCLAIMER + PRACTICE CHANGES
+   ========================================== */
+
+/* Practice Changes: Summary-Karten ausblenden.
+   Die Themen erscheinen nur noch als Accordion-Liste. */
+#changesSummaryGrid,
+.changes-grid {
+  display: none !important;
+}
+
+/* Bottomnav auf kleinen Screens etwas kompakter */
+@media (max-width: 768px) {
+  .bottomnav__btn {
+    font-size: 0.75rem !important;
+    line-height: 1.15 !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+  }
+}
+
+/* Mobile: Disclaimer entschärfen */
+@media (max-width: 768px) {
+  .sticky-disclaimer {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    width: auto !important;
+
+    margin: var(--topbar-height, 60px) 10px 0 !important;
+    padding: 6px 10px !important;
+
+    border-radius: 10px !important;
+    border: 1px solid rgba(245, 158, 11, 0.22) !important;
+    border-left: 3px solid rgba(245, 158, 11, 0.65) !important;
+
+    background: rgba(245, 158, 11, 0.08) !important;
+    color: var(--warn, #f59e0b) !important;
+
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+    text-align: left !important;
+    z-index: 1 !important;
+  }
+
+  .sticky-disclaimer span,
+  .sticky-disclaimer [data-i18n="disclaimer_line2"],
+  .sticky-disclaimer [data-i18n="disclaimer_line3"] {
+    display: none !important;
+  }
+
+  .sticky-disclaimer strong {
+    display: block !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .app {
+    padding-top: 14px !important;
+  }
+}
+
+/* Mobile: Practice Changes kompakter */
+@media (max-width: 768px) {
+  #view-changes .h1 {
+    font-size: 1.45rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  #view-changes .p-muted {
+    font-size: 0.85rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 0.9rem !important;
+  }
+
+  #view-changes .card {
+    padding: 0.85rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  #view-changes .changes-hero {
+    gap: 0.5rem !important;
+  }
+
+  #view-changes .changes-hero__text {
+    font-size: 0.82rem !important;
+    line-height: 1.35 !important;
+  }
+
+  #view-changes .changes-badges {
+    display: none !important;
+  }
+
+  #view-changes .changes-controls {
+    gap: 0.75rem !important;
+  }
+
+  #view-changes .changes-controls__label {
+    font-size: 0.72rem !important;
+    margin-bottom: 4px !important;
+  }
+
+  #view-changes .seg {
+    gap: 4px !important;
+    padding: 3px !important;
+  }
+
+  #view-changes .seg__btn {
+    padding: 8px 6px !important;
+    font-size: 0.76rem !important;
+    line-height: 1.15 !important;
+  }
+
+  #changesSearch {
+    margin-bottom: 0 !important;
+    padding: 10px 11px !important;
+  }
+
+  .changes-list {
+    margin-top: 0.75rem !important;
+    gap: 0.75rem !important;
+  }
+
+  .change-card__header {
+    padding: 0.85rem !important;
+  }
+
+  .change-card__body {
+    padding: 0 0.85rem 0.85rem !important;
+  }
+
+  .change-card__title {
+    font-size: 0.95rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .change-card__meta {
+    gap: 6px !important;
+  }
+
+  .change-pill {
+    font-size: 0.66rem !important;
+    padding: 3px 7px !important;
+  }
+
+  .change-section__content {
+    font-size: 0.88rem !important;
+    line-height: 1.45 !important;
+  }
+}
