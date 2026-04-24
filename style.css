@@ -1174,3 +1174,57 @@ body.emergency .checklist input[type="checkbox"] {
     gap: 8px;
   }
 }
+
+/* ==========================================
+   FINAL MOBILE OVERRIDES
+   ========================================== */
+
+@media (max-width: 768px) {
+  /* Keep bottom navigation in one row on mobile */
+  .bottomnav {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 6px !important;
+    padding: 7px !important;
+  }
+
+  .bottomnav__btn {
+    min-height: 42px !important;
+    font-size: 11px !important;
+    line-height: 1.1 !important;
+    padding: 7px 4px !important;
+    border-radius: 11px !important;
+  }
+
+  /* Make Practice Changes filter less tall */
+  #view-changes .changes-controls {
+    gap: 0.6rem !important;
+  }
+
+  #view-changes .changes-controls__block {
+    gap: 5px !important;
+  }
+
+  #view-changes .changes-controls__label {
+    font-size: 0.68rem !important;
+    margin-bottom: 2px !important;
+  }
+
+  /* Reading mode: Compare / Action mode side by side */
+  #view-changes .changes-controls__block:nth-of-type(2) .seg {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  #view-changes .card__title {
+    margin-bottom: 0.55rem !important;
+  }
+
+  #view-changes .card {
+    padding: 0.75rem !important;
+  }
+
+  #changesSearch {
+    min-height: 42px !important;
+    padding: 9px 11px !important;
+    font-size: 14px !important;
+  }
+}
