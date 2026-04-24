@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nav_hsr: "HSR",
       nav_thyroid: "Thyroid",
       nav_calculators: "Calculators",
-      nav_changes: "Practice Changes",
+      nav_changes: "Changes",
 
       // HSR main
       hsr_title: "HSR",
@@ -377,7 +377,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nav_hsr: "HSR",
       nav_thyroid: "Schilddrüse",
       nav_calculators: "Rechner",
-      nav_changes: "Practice Changes",
+      nav_changes: "Changes",
 
       // HSR main
       hsr_title: "HSR",
