@@ -2921,24 +2921,23 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function renderChanges() {
-    if (!changesSummaryGrid || !changesList) return;
+  if (!changesSummaryGrid || !changesList) return;
 
-    updateChangeControlButtons();
+  updateChangeControlButtons();
+  changesSummaryGrid.innerHTML = "";
 
-    const visible = getVisibleChanges();
+  const visible = getVisibleChanges();
 
-    if (!visible.length) {
-      const empty = `<div class="change-empty">${escapeHtml(t("changes_no_results"))}</div>`;
-      changesSummaryGrid.innerHTML = empty;
-      changesList.innerHTML = "";
-      return;
-    }
-
-    changesSummaryGrid.innerHTML = visible.map(renderChangeSummary).join("");
-    changesList.innerHTML = visible.map(renderChangeCard).join("");
-
-    attachChangeEvents();
+  if (!visible.length) {
+    const empty = `<div class="change-empty">${escapeHtml(t("changes_no_results"))}</div>`;
+    changesList.innerHTML = empty;
+    return;
   }
+
+  changesList.innerHTML = visible.map(renderChangeCard).join("");
+
+  attachChangeEvents();
+}
 
   function renderAll() {
     applyStaticTranslations();
