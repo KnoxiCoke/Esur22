@@ -1063,6 +1063,24 @@ body.emergency .checklist input[type="checkbox"] {
     border-radius: 11px !important;
   }
 
+  #view-changes [data-change-filter="medium"],
+  #view-changes [data-change-filter="low"] {
+    min-height: 30px !important;
+    padding: 5px 7px !important;
+    font-size: 0.68rem !important;
+    background: rgba(255, 255, 255, 0.025);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+    color: var(--muted);
+  }
+
+  #view-changes [data-change-filter="medium"].active,
+  #view-changes [data-change-filter="low"].active {
+    background: rgba(75, 140, 255, 0.08);
+    border-color: rgba(75, 140, 255, 0.18);
+    color: var(--text);
+  }
+
   #changesSearch {
     margin-bottom: 0 !important;
     min-height: 42px !important;
