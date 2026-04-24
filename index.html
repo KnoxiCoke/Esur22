@@ -33,7 +33,7 @@
   <section class="view" id="view-hsr">
     <h1 class="h1" data-i18n="hsr_title">HSR</h1>
     <p class="p-muted" data-i18n="hsr_subtitle">
-      Hypersensitivity guidance, empiric switch support, tryptase interpretation and NIHR red-flag check.
+      Hypersensitivity guidance, empiric switch support, tryptase interpretation and delayed reaction check.
     </p>
 
     <div class="card">
@@ -42,7 +42,7 @@
         <button class="seg__btn active" data-hsr-tab="guidance" type="button" data-i18n="hsr_guidance_tab">Guidance</button>
         <button class="seg__btn" data-hsr-tab="switch" type="button" data-i18n="hsr_switch_tab">Switch</button>
         <button class="seg__btn" data-hsr-tab="tryptase" type="button" data-i18n="hsr_tryptase_tab">Tryptase</button>
-        <button class="seg__btn" data-hsr-tab="nihr" type="button" data-i18n="hsr_nihr_tab">NIHR</button>
+        <button class="seg__btn" data-hsr-tab="nihr" type="button" data-i18n="hsr_nihr_tab">Delayed reaction check</button>
       </div>
     </div>
 
@@ -408,5 +408,101 @@
 </nav>
 
 <script src="./script.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const hsrTerminology = {
+    en: {
+      hsrSubtitle: "Hypersensitivity guidance, empiric switch support, tryptase interpretation and delayed reaction check.",
+      delayedCheck: "Delayed reaction check",
+      delayedDescription: "For delayed skin reactions after contrast media, including SCAR red flags.",
+      icmHint: "ICM group examples<br />Brand examples; availability and trademarks may vary by country.",
+      gbcaHint: "GBCA group examples<br />Brand examples; availability and trademarks may vary by country.",
+      unknownIcm: "Use when the involved ICM is not known.",
+      unknownGbca: "Use when the involved GBCA is not known.",
+      groupA: "Group A",
+      groupB: "Group B",
+      groupC: "Group C",
+      groupD: "Group D",
+      icmA: "Omnipaque (iohexol) \u00b7 Visipaque (iodixanol) \u00b7 Iomeron (iomeprol) \u00b7 Optiray (ioversol)",
+      icmB: "Iopamiro / Isovue (iopamidol)",
+      icmC: "Ultravist (iopromide)",
+      icmD: "Xenetix (iobitridol)",
+      gbcaA: "Dotarem / Clariscan (gadoterate meglumine)",
+      gbcaB: "Gadovist / Gadavist (gadobutrol) \u00b7 ProHance (gadoteridol)",
+      gbcaC: "Elucirem / Vueway (gadopiclenol)"
+    },
+    de: {
+      hsrSubtitle: "Hypersensitivit\u00e4ts-Guidance, empirische Switch-Hilfe, Tryptase-Interpretation und Sp\u00e4treaktions-Check.",
+      delayedCheck: "Sp\u00e4treaktions-Check",
+      delayedDescription: "F\u00fcr verz\u00f6gerte Hautreaktionen nach Kontrastmittelgabe inklusive SCAR-Warnzeichen.",
+      icmHint: "ICM-Gruppenbeispiele<br />Markenbeispiele; Verf\u00fcgbarkeit und Markenrechte k\u00f6nnen je nach Land variieren.",
+      gbcaHint: "GBCA-Gruppenbeispiele<br />Markenbeispiele; Verf\u00fcgbarkeit und Markenrechte k\u00f6nnen je nach Land variieren.",
+      unknownIcm: "Verwenden, wenn das ausl\u00f6sende ICM nicht bekannt ist.",
+      unknownGbca: "Verwenden, wenn das ausl\u00f6sende GBCA nicht bekannt ist.",
+      groupA: "Gruppe A",
+      groupB: "Gruppe B",
+      groupC: "Gruppe C",
+      groupD: "Gruppe D",
+      icmA: "Omnipaque (Iohexol) \u00b7 Visipaque (Iodixanol) \u00b7 Iomeron (Iomeprol) \u00b7 Optiray (Ioversol)",
+      icmB: "Iopamiro / Isovue (Iopamidol)",
+      icmC: "Ultravist (Iopromid)",
+      icmD: "Xenetix (Iobitridol)",
+      gbcaA: "Dotarem / Clariscan (Gadoters\u00e4ure / Gadoterat-Meglumin)",
+      gbcaB: "Gadovist / Gadavist (Gadobutrol) \u00b7 ProHance (Gadoteridol)",
+      gbcaC: "Elucirem / Vueway (Gadopiclenol)"
+    }
+  };
+
+  const setText = (selector, value) => {
+    document.querySelectorAll(selector).forEach((el) => {
+      el.textContent = value;
+    });
+  };
+
+  const setHtml = (selector, value) => {
+    document.querySelectorAll(selector).forEach((el) => {
+      el.innerHTML = value;
+    });
+  };
+
+  const patchHsrTerminology = () => {
+    const lang = document.documentElement.lang === "de" ? "de" : "en";
+    const text = hsrTerminology[lang];
+
+    setText('[data-i18n="hsr_subtitle"]', text.hsrSubtitle);
+    setText('[data-hsr-tab="nihr"]', text.delayedCheck);
+    setText('[data-i18n="nihr_title"]', text.delayedCheck);
+    setText('[data-i18n="nihr_subtitle"]', text.delayedDescription);
+    setText('[data-i18n="icm_unknown_hint"]', text.unknownIcm);
+    setText('[data-i18n="gbca_unknown_hint"]', text.unknownGbca);
+
+    setText('[data-seg="icm"][data-value="A"] > span', text.groupA);
+    setText('[data-seg="icm"][data-value="B"] > span', text.groupB);
+    setText('[data-seg="icm"][data-value="C"] > span', text.groupC);
+    setText('[data-seg="icm"][data-value="D"] > span', text.groupD);
+    setText('[data-seg="gbca"][data-value="A"] > span', text.groupA);
+    setText('[data-seg="gbca"][data-value="B"] > span', text.groupB);
+    setText('[data-seg="gbca"][data-value="C"] > span', text.groupC);
+
+    setHtml("#icmHint", text.icmHint);
+    setHtml("#gbcaHint", text.gbcaHint);
+    setText("#icm-group-a-names", text.icmA);
+    setText("#icm-group-b-names", text.icmB);
+    setText("#icm-group-c-names", text.icmC);
+    setText("#icm-group-d-names", text.icmD);
+    setText("#gbca-group-a-names", text.gbcaA);
+    setText("#gbca-group-b-names", text.gbcaB);
+    setText("#gbca-group-c-names", text.gbcaC);
+  };
+
+  patchHsrTerminology();
+  ["lang-en", "lang-de", "resetBtn"].forEach((id) => {
+    document.getElementById(id)?.addEventListener("click", () => {
+      window.setTimeout(patchHsrTerminology, 0);
+    });
+  });
+});
+</script>
 </body>
 </html>
