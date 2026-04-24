@@ -853,12 +853,6 @@ body.emergency .checklist input[type="checkbox"] {
    RESPONSIVE
    ========================= */
 
-@media (max-width: 900px) {
-  .changes-grid {
-    display: none !important;
-  }
-}
-
 @media (max-width: 720px) {
   .topbar {
     align-items: flex-start;
@@ -887,17 +881,6 @@ body.emergency .checklist input[type="checkbox"] {
     grid-template-columns: 1fr 1fr;
   }
 
-  .bottomnav {
-    gap: 8px;
-    padding: 8px;
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .bottomnav__btn {
-    font-size: 12px;
-    padding: 9px 6px;
-  }
-
   .change-card__header {
     padding: 13px;
   }
@@ -908,6 +891,20 @@ body.emergency .checklist input[type="checkbox"] {
 }
 
 @media (max-width: 768px) {
+  .bottomnav {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    padding: 6px 8px;
+  }
+
+  .bottomnav__btn {
+    min-height: 34px;
+    font-size: 11px;
+    line-height: 1.05;
+    padding: 5px 6px;
+    border-radius: 11px;
+  }
+
   /* Mobile disclaimer: compact red, expandable with JS */
   .sticky-disclaimer {
     position: static !important;
@@ -1016,13 +1013,13 @@ body.emergency .checklist input[type="checkbox"] {
   }
 
   #view-changes .card {
-    padding: 0.85rem !important;
+    padding: 0.75rem !important;
     margin-bottom: 0.75rem !important;
   }
 
   #view-changes .card__title {
     font-size: 0.95rem !important;
-    margin-bottom: 0.75rem !important;
+    margin-bottom: 0.55rem !important;
   }
 
   #view-changes .changes-badges {
@@ -1030,12 +1027,20 @@ body.emergency .checklist input[type="checkbox"] {
   }
 
   #view-changes .changes-controls {
-    gap: 0.75rem !important;
+    gap: 0.6rem !important;
+  }
+
+  #view-changes .changes-controls__block {
+    gap: 5px !important;
   }
 
   #view-changes .changes-controls__label {
-    font-size: 0.72rem !important;
-    margin-bottom: 4px !important;
+    font-size: 0.68rem !important;
+    margin-bottom: 2px !important;
+  }
+
+  #view-changes .changes-controls__block:nth-of-type(2) .seg {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 
   #view-changes .seg {
@@ -1053,12 +1058,14 @@ body.emergency .checklist input[type="checkbox"] {
 
   #changesSearch {
     margin-bottom: 0 !important;
-    padding: 10px 11px !important;
+    min-height: 42px !important;
+    padding: 9px 11px !important;
+    font-size: 14px !important;
   }
 
   .changes-list {
-    margin-top: 0.75rem !important;
-    gap: 0.65rem !important;
+    margin-top: 0.55rem !important;
+    gap: 0.5rem !important;
   }
 
   .change-card {
@@ -1068,11 +1075,12 @@ body.emergency .checklist input[type="checkbox"] {
   }
 
   .change-card__header {
-    padding: 0.78rem 0.85rem !important;
+    padding: 0.65rem 0.75rem !important;
   }
 
   .change-card__body {
-    padding: 0 0.85rem 0.85rem !important;
+    padding: 0 0.75rem 0.75rem !important;
+    gap: 0.5rem !important;
   }
 
   .change-card__titleline {
@@ -1088,8 +1096,8 @@ body.emergency .checklist input[type="checkbox"] {
   }
 
   .change-card__title {
-    font-size: 0.88rem !important;
-    line-height: 1.18 !important;
+    font-size: 0.84rem !important;
+    line-height: 1.16 !important;
   }
 
   .change-card__meta {
@@ -1097,9 +1105,9 @@ body.emergency .checklist input[type="checkbox"] {
   }
 
   .change-pill {
-    min-height: 22px !important;
-    font-size: 0.62rem !important;
-    padding: 3px 7px !important;
+    min-height: 20px !important;
+    font-size: 0.58rem !important;
+    padding: 2px 6px !important;
   }
 
   .change-pill--mode {
@@ -1116,22 +1124,23 @@ body.emergency .checklist input[type="checkbox"] {
   }
 
   .change-section__label {
-    padding: 8px 10px !important;
-    font-size: 0.66rem !important;
+    padding: 7px 9px !important;
+    font-size: 0.62rem !important;
   }
 
   .change-section__content {
-    padding: 10px !important;
-    font-size: 0.86rem !important;
-    line-height: 1.45 !important;
+    padding: 9px !important;
+    font-size: 0.84rem !important;
+    line-height: 1.4 !important;
   }
 
   .change-nested__head {
-    padding: 9px 10px !important;
+    padding: 8px 9px !important;
   }
 
   .change-nested__body {
-    padding: 10px !important;
+    padding: 9px !important;
+    gap: 0.5rem !important;
   }
 
   .change-ref {
@@ -1156,10 +1165,6 @@ body.emergency .checklist input[type="checkbox"] {
     padding: 12px;
   }
 
-  .bottomnav {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .card--output .output > div,
   .card--output .output ul {
     padding-left: 10px;
@@ -1172,59 +1177,5 @@ body.emergency .checklist input[type="checkbox"] {
 
   .change-card__titleline {
     gap: 8px;
-  }
-}
-
-/* ==========================================
-   FINAL MOBILE OVERRIDES
-   ========================================== */
-
-@media (max-width: 768px) {
-  /* Keep bottom navigation in one row on mobile */
-  .bottomnav {
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 6px !important;
-    padding: 7px !important;
-  }
-
-  .bottomnav__btn {
-    min-height: 42px !important;
-    font-size: 11px !important;
-    line-height: 1.1 !important;
-    padding: 7px 4px !important;
-    border-radius: 11px !important;
-  }
-
-  /* Make Practice Changes filter less tall */
-  #view-changes .changes-controls {
-    gap: 0.6rem !important;
-  }
-
-  #view-changes .changes-controls__block {
-    gap: 5px !important;
-  }
-
-  #view-changes .changes-controls__label {
-    font-size: 0.68rem !important;
-    margin-bottom: 2px !important;
-  }
-
-  /* Reading mode: Compare / Action mode side by side */
-  #view-changes .changes-controls__block:nth-of-type(2) .seg {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-
-  #view-changes .card__title {
-    margin-bottom: 0.55rem !important;
-  }
-
-  #view-changes .card {
-    padding: 0.75rem !important;
-  }
-
-  #changesSearch {
-    min-height: 42px !important;
-    padding: 9px 11px !important;
-    font-size: 14px !important;
   }
 }
