@@ -1,0 +1,54 @@
+name: Apply mobile input metadata patch
+
+on:
+  push:
+    branches:
+      - codex/mobile-input-pwa-metadata
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: ${{ !contains(github.event.head_commit.message, 'Add mobile input and PWA metadata') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/mobile-input-pwa-metadata
+      - name: Patch index.html
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+
+          path = Path('index.html')
+          data = path.read_bytes()
+          data = data.replace(
+              b'  <meta name="viewport" content="width=device-width, initial-scale=1.0" />\n  <title>Radiology Contrast & Safety App</title>',
+              b'  <meta name="viewport" content="width=device-width, initial-scale=1.0" />\n  <meta name="theme-color" content="#0F172B" />\n  <meta name="apple-mobile-web-app-capable" content="yes" />\n  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />\n  <title>Radiology Contrast & Safety App</title>',
+          )
+          replacements = {
+              b'<input type="number" id="baseline" placeholder="Baseline (ng/mL)" />': b'<input type="number" id="baseline" inputmode="decimal" aria-label="Baseline tryptase in ng/mL" placeholder="Baseline (ng/mL)" />',
+              b'<input type="number" id="acute" placeholder="Acute (ng/mL)" />': b'<input type="number" id="acute" inputmode="decimal" aria-label="Acute tryptase in ng/mL" placeholder="Acute (ng/mL)" />',
+              b'<input type="number" id="doseDlp" placeholder="DLP" data-i18n-placeholder="dose_dlp_placeholder" />': b'<input type="number" id="doseDlp" inputmode="decimal" aria-label="Dose length product" placeholder="DLP" data-i18n-placeholder="dose_dlp_placeholder" />',
+              b'<input type="number" id="washoutUnenhanced" placeholder="Unenhanced HU" data-i18n-placeholder="washout_unenhanced_placeholder" />': b'<input type="number" id="washoutUnenhanced" inputmode="decimal" aria-label="Unenhanced HU" placeholder="Unenhanced HU" data-i18n-placeholder="washout_unenhanced_placeholder" />',
+              b'<input type="number" id="washoutEnhanced" placeholder="Enhanced HU" data-i18n-placeholder="washout_enhanced_placeholder" />': b'<input type="number" id="washoutEnhanced" inputmode="decimal" aria-label="Enhanced HU" placeholder="Enhanced HU" data-i18n-placeholder="washout_enhanced_placeholder" />',
+              b'<input type="number" id="washoutDelayed" placeholder="Delayed HU" data-i18n-placeholder="washout_delayed_placeholder" />': b'<input type="number" id="washoutDelayed" inputmode="decimal" aria-label="Delayed HU" placeholder="Delayed HU" data-i18n-placeholder="washout_delayed_placeholder" />',
+              b'<input type="number" id="washoutDelayMin" placeholder="Delay (minutes, optional)" data-i18n-placeholder="washout_delay_placeholder" />': b'<input type="number" id="washoutDelayMin" inputmode="decimal" aria-label="Delay in minutes" placeholder="Delay (minutes, optional)" data-i18n-placeholder="washout_delay_placeholder" />',
+          }
+          for old, new in replacements.items():
+              data = data.replace(old, new)
+          path.write_bytes(data)
+
+          workflow = Path('.github/workflows/codex-mobile-input-pwa.yml')
+          if workflow.exists():
+              workflow.unlink()
+          PY
+      - name: Commit patch and remove workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html .github/workflows/codex-mobile-input-pwa.yml
+          git commit -m "Add mobile input and PWA metadata" || exit 0
+          git push
