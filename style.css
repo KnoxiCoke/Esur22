@@ -312,7 +312,7 @@ body.emergency .bottomnav__btn.active {
 }
 
 .hsr-subnav {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
 
 /* =========================
