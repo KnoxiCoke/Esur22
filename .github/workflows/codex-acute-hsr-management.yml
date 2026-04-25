@@ -1,0 +1,426 @@
+name: Apply acute HSR management patch
+
+on:
+  push:
+    branches:
+      - codex/acute-hsr-management
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: ${{ !contains(github.event.head_commit.message, 'Add acute HSR management module') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/acute-hsr-management
+      - name: Patch files
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+
+          def replace_once(text, old, new):
+              if old not in text:
+                  raise SystemExit(f'Missing replacement target: {old[:80]!r}')
+              return text.replace(old, new, 1)
+
+          index_path = Path('index.html')
+          index = index_path.read_text(encoding='utf-8')
+          index = replace_once(
+              index,
+              '      Hypersensitivity guidance, empiric switch support, tryptase interpretation and delayed reaction check.',
+              '      Previous-reaction planning, acute management, empiric switch support, tryptase interpretation and delayed reaction check.',
+          )
+          index = replace_once(
+              index,
+              '        <button class="seg__btn active" data-hsr-tab="guidance" type="button" data-i18n="hsr_guidance_tab">Guidance</button>\n        <button class="seg__btn" data-hsr-tab="switch" type="button" data-i18n="hsr_switch_tab">Switch</button>',
+              '        <button class="seg__btn active" data-hsr-tab="guidance" type="button" data-i18n="hsr_guidance_tab">Previous reaction</button>\n        <button class="seg__btn" data-hsr-tab="acute" type="button" data-i18n="hsr_acute_tab">Acute management</button>\n        <button class="seg__btn" data-hsr-tab="switch" type="button" data-i18n="hsr_switch_tab">Switch</button>',
+          )
+          acute_html = '''
+    <!-- HSR: ACUTE MANAGEMENT -->
+    <section class="subview" id="hsr-tab-acute" hidden>
+      <div class="card card--subtle">
+        <div class="card__title" data-i18n="acute_title">Acute management</div>
+        <div class="output hint" data-i18n="acute_subtitle">
+          ESUR acute algorithm. Follow local emergency protocol and verify medication concentration before administration.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__title" data-i18n="acute_immediate_title">Immediate assessment and general actions</div>
+        <div class="output" id="acuteImmediateOutput"></div>
+      </div>
+
+      <div class="card">
+        <div class="card__title" data-i18n="acute_severity_title">Severity selector</div>
+        <div class="seg seg--stack">
+          <button class="seg__btn active" data-seg="acuteSeverity" data-value="mild" type="button" data-i18n="acute_severity_mild">Mild reactions</button>
+          <button class="seg__btn" data-seg="acuteSeverity" data-value="moderate" type="button" data-i18n="acute_severity_moderate">Moderate reactions</button>
+          <button class="seg__btn" data-seg="acuteSeverity" data-value="severe" type="button" data-i18n="acute_severity_severe">Severe reactions</button>
+        </div>
+      </div>
+
+      <div class="card" id="acutePatternCard">
+        <div class="card__title" data-i18n="acute_pattern_title">Dominant reaction pattern</div>
+        <div class="seg seg--stack" id="acutePatternOptions">
+          <button class="seg__btn active" data-seg="acutePattern" data-value="mild_general" data-acute-severity="mild" type="button" data-i18n="acute_pattern_mild_general">Mild reactions</button>
+          <button class="seg__btn" data-seg="acutePattern" data-value="moderate_urticaria" data-acute-severity="moderate" type="button" data-i18n="acute_pattern_moderate_urticaria" hidden>Generalised urticaria / diffuse erythema</button>
+          <button class="seg__btn" data-seg="acutePattern" data-value="moderate_angioedema" data-acute-severity="moderate" type="button" data-i18n="acute_pattern_moderate_angioedema" hidden>Facial / angioedema</button>
+          <button class="seg__btn" data-seg="acutePattern" data-value="moderate_bronchospasm" data-acute-severity="moderate" type="button" data-i18n="acute_pattern_moderate_bronchospasm" hidden>Mild bronchospasm</button>
+          <button class="seg__btn" data-seg="acutePattern" data-value="severe_anaphylaxis" data-acute-severity="severe" type="button" data-i18n="acute_pattern_severe_anaphylaxis" hidden>Anaphylaxis</button>
+        </div>
+      </div>
+
+      <div class="card card--output">
+        <div class="card__title" data-i18n="acute_output_title">ESUR acute management</div>
+        <div class="output" id="acuteOutput"></div>
+      </div>
+    </section>
+'''
+          index = replace_once(index, '    </section>\n\n    <!-- HSR: SWITCH -->', '    </section>\n\n' + acute_html + '\n    <!-- HSR: SWITCH -->')
+          index_path.write_text(index, encoding='utf-8')
+
+          script_path = Path('script.js')
+          script = script_path.read_text(encoding='utf-8')
+          script = replace_once(script, '    hsrTab: "guidance",      // guidance | switch | tryptase | nihr', '    hsrTab: "guidance",      // guidance | acute | switch | tryptase | nihr')
+          script = replace_once(script, '    nihrCmtype: "icm",\n    icm: null,', '    nihrCmtype: "icm",\n    acuteSeverity: "mild",   // mild | moderate | severe\n    acutePattern: "mild_general",\n    icm: null,')
+          script = replace_once(script, '      hsr_subtitle: "Hypersensitivity guidance, empiric switch support, tryptase interpretation and delayed reaction check.",', '      hsr_subtitle: "Previous-reaction planning, acute management, empiric switch support, tryptase interpretation and delayed reaction check.",')
+          script = replace_once(script, '      hsr_guidance_tab: "Guidance",\n      hsr_switch_tab:', '      hsr_guidance_tab: "Previous reaction",\n      hsr_acute_tab: "Acute management",\n      hsr_switch_tab:')
+          script = replace_once(script, '      flow_title: "Guidance",', '      flow_title: "Previous reaction",')
+          script = replace_once(script, '      hsr_subtitle: "Hypersensitivitäts-Guidance, empirische Switch-Hilfe, Tryptase-Interpretation und Spätreaktions-Check.",', '      hsr_subtitle: "Planung nach früherer Reaktion, Akutmanagement, empirische Switch-Hilfe, Tryptase-Interpretation und Spätreaktions-Check.",')
+          script = replace_once(script, '      hsr_guidance_tab: "Guidance",\n      hsr_switch_tab:', '      hsr_guidance_tab: "Frühere Reaktion",\n      hsr_acute_tab: "Akutmanagement",\n      hsr_switch_tab:')
+          script = replace_once(script, '      flow_title: "Guidance",', '      flow_title: "Frühere Reaktion",')
+
+          en_block = '''      acute_title: "Acute management",
+      acute_subtitle:
+        "ESUR acute algorithm. Follow local emergency protocol and verify medication concentration before administration.",
+      acute_immediate_title: "Immediate assessment and general actions",
+      acute_severity_title: "Severity selector",
+      acute_pattern_title: "Dominant reaction pattern",
+      acute_output_title: "ESUR acute management",
+      acute_dose_reference_title: "Dose safety note",
+      acute_dose_reference_note:
+        "ESUR dose reference. Verify concentration, route, patient factors and local emergency protocol before administration.",
+      acute_severity_mild: "Mild reactions",
+      acute_severity_moderate: "Moderate reactions",
+      acute_severity_severe: "Severe reactions",
+      acute_pattern_mild_general: "Mild reactions",
+      acute_pattern_moderate_urticaria: "Generalised urticaria / diffuse erythema",
+      acute_pattern_moderate_angioedema: "Facial / angioedema",
+      acute_pattern_moderate_bronchospasm: "Mild bronchospasm",
+      acute_pattern_severe_anaphylaxis: "Anaphylaxis",
+      acute_section_clinical: "Clinical pattern / warning",
+      acute_section_management: "Management",
+      acute_section_escalation: "Escalation / rapid response",
+      acute_warning_label: "Warning",
+      acute_arrest_title: "Cardiac or respiratory arrest",
+      acute_immediate_actions: [
+        "History and physical exam by radiology physician.",
+        "A — Airway: wheezing, stridor.",
+        "B — Breathing: auscultation of lungs/throat, SaO₂.",
+        "C — Circulation: pulse, blood pressure, pulsations.",
+        "D — Disability: responsiveness.",
+        "E — Environment: inspection of the entire skin.",
+        "Stop infusing contrast agent and replace IV line with crystalloid.",
+        "Determine serum tryptase within 1–4 h in all moderate to severe reactions."
+      ],
+      acute_content: {
+        mild_general: {
+          clinical:
+            "Nasal congestion, sneezing, conjunctivitis, rhinorrhoea, cutaneous oedema, itchy throat, mild scattered urticaria, e.g. <10.",
+          management: [
+            "Reassure patient.",
+            "Maintain IV access.",
+            "IV drip 500 mL NaCl 0.9%.",
+            "Observation with regular intervals until symptoms resolve, minimum 30 minutes.",
+            "When vomiting is protracted: ondansetron 4 mg IV.",
+            "When persisting cutaneous reaction or itching: non-sedating H1-antihistamine, e.g. desloratadine 5 mg PO once daily or cetirizine 10 mg PO once daily."
+          ],
+          escalation: [
+            "When needed, consult rapid response team."
+          ]
+        },
+        moderate_urticaria: {
+          clinical: "Generalised urticaria / diffuse erythema.",
+          warning: "Cave hypotension.",
+          management: [
+            "IV 1000 mL NaCl 0.9% in 1 h.",
+            "H1-antihistamine IV, e.g. clemastine 2 mg.",
+            "When needed, repeat H1-antihistamine IV after 5 minutes.",
+            "When hypotensive (SBP <90): active elevation of legs."
+          ],
+          escalation: [
+            "When hypotensive (SBP <90): treat as anaphylaxis.",
+            "When needed, consult rapid response team."
+          ]
+        },
+        moderate_angioedema: {
+          clinical: "Facial / angioedema.",
+          warning: "Cave laryngeal oedema.",
+          management: [
+            "O₂ via mask 10–15 L/min.",
+            "IV 1000 mL NaCl 0.9% in 1 h.",
+            "H1-antihistamine IV, e.g. clemastine 2 mg.",
+            "When needed, repeat H1-antihistamine IV after 5 minutes."
+          ],
+          escalation: [
+            "If severe or stridor/laryngeal oedema: sitting position.",
+            "If severe or stridor/laryngeal oedema: treat as anaphylaxis.",
+            "If severe or stridor/laryngeal oedema: consult rapid response team."
+          ]
+        },
+        moderate_bronchospasm: {
+          clinical: "Mild bronchospasm.",
+          warning: "Cave respiratory threat.",
+          management: [
+            "O₂ via mask 10–15 L/min.",
+            "SABA dose-aerosol: 2–4 deep inhalations of 100 µg, or nebulization in 3 mL saline until improved, according to ESUR/source text.",
+            "When needed, repeat SABA nebulization until improved."
+          ],
+          escalation: [
+            "When increasing in severity: adrenaline 1 mg/mL, 0.5 mg IM.",
+            "When increasing in severity: when needed, repeat adrenaline 1 mg/mL, 0.5 mg IM after 5 minutes, guided by heart rate.",
+            "When protracted >5 h: consider adding corticosteroid slowly IV, e.g. prednisolone 50 mg.",
+            "When needed, consult rapid response team."
+          ]
+        },
+        severe_anaphylaxis: {
+          clinical: "Anaphylaxis.",
+          management: [
+            "Consult rapid response team.",
+            "O₂ via mask 10–15 L/min.",
+            "IV 500 mL NaCl 0.9% in 10 minutes.",
+            "When needed, repeat IV NaCl 0.9%.",
+            "Adrenaline 1 mg/mL, 0.5 mg IM.",
+            "When needed, repeat adrenaline 1 mg/mL, 0.5 mg IM after 5 minutes, guided by heart rate.",
+            "H1-antihistamine IV, e.g. clemastine 2 mg.",
+            "When needed, SABA dose-aerosol 2–10 deep inhalations of 100 µg or nebulization in 3 mL saline up to 1 hour, according to ESUR/source text.",
+            "Consider adding corticosteroid slowly IV, e.g. prednisolone 50 mg.",
+            "When needed, intubation and ICU."
+          ],
+          arrest: [
+            "CALL RESUSCITATION TEAM.",
+            "Start cardio-pulmonary resuscitation.",
+            "Adrenaline 0.1 mg/mL IV only via resuscitation team."
+          ]
+        }
+      },
+'''
+          de_block = '''      acute_title: "Akutmanagement",
+      acute_subtitle:
+        "ESUR-Akutalgorithmus. Lokales Notfallprotokoll beachten und Medikamentenkonzentration vor Gabe prüfen.",
+      acute_immediate_title: "Sofortbeurteilung und allgemeine Maßnahmen",
+      acute_severity_title: "Schweregrad-Auswahl",
+      acute_pattern_title: "Dominantes Reaktionsmuster",
+      acute_output_title: "ESUR-Akutmanagement",
+      acute_dose_reference_title: "Dosissicherheit",
+      acute_dose_reference_note:
+        "ESUR-Dosisreferenz. Vor Gabe Konzentration, Applikationsweg, Patientensituation und lokales Notfallprotokoll prüfen.",
+      acute_severity_mild: "Milde Reaktionen",
+      acute_severity_moderate: "Moderate Reaktionen",
+      acute_severity_severe: "Schwere Reaktionen",
+      acute_pattern_mild_general: "Milde Reaktionen",
+      acute_pattern_moderate_urticaria: "Generalisierte Urtikaria / diffuses Erythem",
+      acute_pattern_moderate_angioedema: "Faziales Ödem / Angioödem",
+      acute_pattern_moderate_bronchospasm: "Milder Bronchospasmus",
+      acute_pattern_severe_anaphylaxis: "Anaphylaxie",
+      acute_section_clinical: "Klinisches Muster / Warnhinweis",
+      acute_section_management: "Management",
+      acute_section_escalation: "Eskalation / Rapid Response",
+      acute_warning_label: "Warnhinweis",
+      acute_arrest_title: "Herz- oder Atemstillstand",
+      acute_immediate_actions: [
+        "Anamnese und körperliche Untersuchung durch Radiologin/Radiologen.",
+        "A — Airway/Atemweg: Giemen, Stridor.",
+        "B — Breathing/Atmung: Auskultation von Lunge/Rachen, SaO₂.",
+        "C — Circulation/Kreislauf: Puls, Blutdruck, Pulsationen.",
+        "D — Disability/Neurologie: Ansprechbarkeit.",
+        "E — Environment/Exposition: Inspektion der gesamten Haut.",
+        "Kontrastmittelinfusion stoppen und i.v.-Leitung mit kristalloider Infusion weiterführen.",
+        "Serumtryptase innerhalb von 1–4 h bei allen moderaten bis schweren Reaktionen bestimmen."
+      ],
+      acute_content: {
+        mild_general: {
+          clinical:
+            "Nasale Kongestion, Niesen, Konjunktivitis, Rhinorrhö, kutanes Ödem, juckender Hals, milde vereinzelte Urtikaria, z. B. <10.",
+          management: [
+            "Patientin/Patient beruhigen.",
+            "IV-Zugang belassen.",
+            "500 mL NaCl 0,9% i.v. als Infusion.",
+            "Regelmäßige Beobachtung bis zum Abklingen der Symptome, mindestens 30 Minuten.",
+            "Bei prolongiertem Erbrechen: Ondansetron 4 mg i.v.",
+            "Bei persistierender Hautreaktion oder Juckreiz: nicht sedierendes H1-Antihistaminikum, z. B. Desloratadin 5 mg p.o. 1× täglich oder Cetirizin 10 mg p.o. 1× täglich."
+          ],
+          escalation: [
+            "Bei Bedarf Rapid-Response-Team hinzuziehen."
+          ]
+        },
+        moderate_urticaria: {
+          clinical: "Generalisierte Urtikaria / diffuses Erythem.",
+          warning: "Achtung Hypotonie.",
+          management: [
+            "1000 mL NaCl 0,9% i.v. in 1 h.",
+            "H1-Antihistaminikum i.v., z. B. Clemastin 2 mg.",
+            "Bei Bedarf H1-Antihistaminikum i.v. nach 5 Minuten wiederholen.",
+            "Bei Hypotonie (SBP <90): Beine aktiv hochlagern."
+          ],
+          escalation: [
+            "Bei Hypotonie (SBP <90): wie Anaphylaxie behandeln.",
+            "Bei Bedarf Rapid-Response-Team hinzuziehen."
+          ]
+        },
+        moderate_angioedema: {
+          clinical: "Faziales Ödem / Angioödem.",
+          warning: "Achtung Larynxödem.",
+          management: [
+            "O₂ über Maske 10–15 L/min.",
+            "1000 mL NaCl 0,9% i.v. in 1 h.",
+            "H1-Antihistaminikum i.v., z. B. Clemastin 2 mg.",
+            "Bei Bedarf H1-Antihistaminikum i.v. nach 5 Minuten wiederholen."
+          ],
+          escalation: [
+            "Bei schwerem Verlauf oder Stridor/Larynxödem: sitzende Position.",
+            "Bei schwerem Verlauf oder Stridor/Larynxödem: wie Anaphylaxie behandeln.",
+            "Bei schwerem Verlauf oder Stridor/Larynxödem: Rapid-Response-Team hinzuziehen."
+          ]
+        },
+        moderate_bronchospasm: {
+          clinical: "Milder Bronchospasmus.",
+          warning: "Achtung respiratorische Bedrohung.",
+          management: [
+            "O₂ über Maske 10–15 L/min.",
+            "SABA-Dosieraerosol: 2–4 tiefe Inhalationen à 100 µg oder Vernebelung in 3 mL NaCl bis zur Besserung, gemäß ESUR/Quelltext.",
+            "Bei Bedarf SABA-Vernebelung bis zur Besserung wiederholen."
+          ],
+          escalation: [
+            "Bei zunehmender Schwere: Adrenalin 1 mg/mL, 0,5 mg i.m.",
+            "Bei zunehmender Schwere: bei Bedarf Adrenalin 1 mg/mL, 0,5 mg i.m. nach 5 Minuten wiederholen, herzfrequenzgesteuert.",
+            "Bei protrahiertem Verlauf >5 h: Kortikosteroid langsam i.v. erwägen, z. B. Prednisolon 50 mg.",
+            "Bei Bedarf Rapid-Response-Team hinzuziehen."
+          ]
+        },
+        severe_anaphylaxis: {
+          clinical: "Anaphylaxie.",
+          management: [
+            "Rapid-Response-Team hinzuziehen.",
+            "O₂ über Maske 10–15 L/min.",
+            "500 mL NaCl 0,9% i.v. in 10 Minuten.",
+            "Bei Bedarf NaCl 0,9% i.v. wiederholen.",
+            "Adrenalin 1 mg/mL, 0,5 mg i.m.",
+            "Bei Bedarf Adrenalin 1 mg/mL, 0,5 mg i.m. nach 5 Minuten wiederholen, herzfrequenzgesteuert.",
+            "H1-Antihistaminikum i.v., z. B. Clemastin 2 mg.",
+            "Bei Bedarf SABA-Dosieraerosol 2–10 tiefe Inhalationen à 100 µg oder Vernebelung in 3 mL NaCl bis zu 1 Stunde, gemäß ESUR/Quelltext.",
+            "Kortikosteroid langsam i.v. erwägen, z. B. Prednisolon 50 mg.",
+            "Bei Bedarf Intubation und ICU/Intensivstation."
+          ],
+          arrest: [
+            "REANIMATIONSTEAM RUFEN.",
+            "Kardiopulmonale Reanimation starten.",
+            "Adrenalin 0,1 mg/mL i.v. nur durch das Reanimationsteam."
+          ]
+        }
+      },
+'''
+          first = script.find('\n      nihr_title:')
+          if first == -1:
+              raise SystemExit('Missing EN nihr insertion point')
+          script = script[:first] + '\n' + en_block + script[first:]
+          de_pos = script.find('    de: {')
+          second = script.find('\n      nihr_title:', de_pos)
+          if second == -1:
+              raise SystemExit('Missing DE nihr insertion point')
+          script = script[:second] + '\n' + de_block + script[second:]
+
+          script = replace_once(script, '  const hsrTabs = {\n    guidance: document.getElementById("hsr-tab-guidance"),', '  const hsrTabs = {\n    guidance: document.getElementById("hsr-tab-guidance"),\n    acute: document.getElementById("hsr-tab-acute"),')
+          script = replace_once(script, '  const flowOutput = document.getElementById("flowOutput");\n  const flowSafety = document.getElementById("flowSafety");', '  const flowOutput = document.getElementById("flowOutput");\n  const flowSafety = document.getElementById("flowSafety");\n  const acuteImmediateOutput = document.getElementById("acuteImmediateOutput");\n  const acuteOutput = document.getElementById("acuteOutput");')
+          script = replace_once(script, '  function setSegment(seg, value) {\n    state[seg] = value;\n', '  function defaultAcutePattern(severity) {\n    if (severity === "moderate") return "moderate_urticaria";\n    if (severity === "severe") return "severe_anaphylaxis";\n    return "mild_general";\n  }\n\n  function setSegment(seg, value) {\n    state[seg] = value;\n\n    if (seg === "acuteSeverity") {\n      state.acutePattern = defaultAcutePattern(value);\n    }\n')
+          acute_render = '''
+  function renderAcuteList(items) {
+    return `<ul>${(items || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+  }
+
+  function renderAcuteManagement() {
+    const contentByPattern = t("acute_content");
+    if (!contentByPattern[state.acutePattern]) {
+      state.acutePattern = defaultAcutePattern(state.acuteSeverity);
+    }
+
+    document.querySelectorAll('.seg__btn[data-seg="acuteSeverity"]').forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.value === state.acuteSeverity);
+    });
+
+    document.querySelectorAll('.seg__btn[data-seg="acutePattern"]').forEach((btn) => {
+      const isVisible = btn.dataset.acuteSeverity === state.acuteSeverity;
+      btn.hidden = !isVisible;
+      btn.classList.toggle("active", isVisible && btn.dataset.value === state.acutePattern);
+    });
+
+    if (acuteImmediateOutput) {
+      acuteImmediateOutput.innerHTML = renderAcuteList(t("acute_immediate_actions"));
+    }
+
+    if (!acuteOutput) return;
+
+    const content = contentByPattern[state.acutePattern];
+    const warning = content.warning
+      ? `<div><strong>${escapeHtml(t("acute_warning_label"))}:</strong> ${escapeHtml(content.warning)}</div>`
+      : "";
+    const escalation = (content.escalation || []).length
+      ? renderAcuteList(content.escalation)
+      : "";
+    const arrest = (content.arrest || []).length
+      ? `
+        <div>
+          <strong>${escapeHtml(t("acute_arrest_title"))}:</strong>
+          ${renderAcuteList(content.arrest)}
+        </div>
+      `
+      : "";
+
+    acuteOutput.innerHTML = `
+      <div>
+        <strong>${escapeHtml(t("acute_section_clinical"))}</strong>
+        <div>${escapeHtml(content.clinical)}</div>
+        ${warning}
+      </div>
+      <div>
+        <strong>${escapeHtml(t("acute_section_management"))}</strong>
+        ${renderAcuteList(content.management)}
+      </div>
+      <div>
+        <strong>${escapeHtml(t("acute_section_escalation"))}</strong>
+        ${escalation}
+        ${arrest}
+      </div>
+      <div class="hint">
+        <strong>${escapeHtml(t("acute_dose_reference_title"))}:</strong> ${escapeHtml(t("acute_dose_reference_note"))}
+      </div>
+    `;
+  }
+'''
+          script = replace_once(script, '  function renderSwitch() {', acute_render + '\n  function renderSwitch() {')
+          script = replace_once(script, '    renderFlow();\n    renderSwitch();', '    renderFlow();\n    renderAcuteManagement();\n    renderSwitch();')
+          script = replace_once(script, '    state.nihrCmtype = "icm";\n    state.icm = null;', '    state.nihrCmtype = "icm";\n    state.acuteSeverity = "mild";\n    state.acutePattern = "mild_general";\n    state.icm = null;')
+          script = replace_once(script, '      nihrCmtype: "icm",\n      thyroidSituation: "elective",', '      nihrCmtype: "icm",\n      acuteSeverity: "mild",\n      acutePattern: "mild_general",\n      thyroidSituation: "elective",')
+          script = replace_once(script, '    "nihrCmtype",\n    "thyroidSituation",', '    "nihrCmtype",\n    "acuteSeverity",\n    "acutePattern",\n    "thyroidSituation",')
+          script_path.write_text(script, encoding='utf-8')
+
+          style_path = Path('style.css')
+          style = style_path.read_text(encoding='utf-8')
+          style = replace_once(style, '.hsr-subnav {\n  grid-template-columns: repeat(4, 1fr);\n}', '.hsr-subnav {\n  grid-template-columns: repeat(5, 1fr);\n}')
+          style_path.write_text(style, encoding='utf-8')
+
+          workflow = Path('.github/workflows/codex-acute-hsr-management.yml')
+          if workflow.exists():
+              workflow.unlink()
+          PY
+      - name: Commit patch and remove workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html script.js style.css .github/workflows/codex-acute-hsr-management.yml
+          git commit -m "Add acute HSR management module" || exit 0
+          git push
