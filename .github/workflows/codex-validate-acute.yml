@@ -1,0 +1,29 @@
+name: Validate acute HSR module
+
+on:
+  push:
+    branches:
+      - codex/acute-hsr-management
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    if: ${{ !contains(github.event.head_commit.message, 'Remove temporary acute HSR validation workflow') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/acute-hsr-management
+      - name: Check JavaScript syntax
+        run: node --check script.js
+      - name: Remove workflow after validation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm .github/workflows/codex-validate-acute.yml
+          git add .github/workflows/codex-validate-acute.yml
+          git commit -m "Remove temporary acute HSR validation workflow"
+          git push
