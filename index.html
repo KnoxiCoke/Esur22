@@ -36,7 +36,7 @@
   <section class="view" id="view-hsr">
     <h1 class="h1" data-i18n="hsr_title">HSR</h1>
     <p class="p-muted" data-i18n="hsr_subtitle">
-      Previous-reaction planning, acute management, empiric switch support, tryptase interpretation and delayed reaction check.
+      Previous-reaction planning, acute management, empiric switch support, tryptase interpretation and NIHR decision support.
     </p>
 
     <div class="card">
@@ -46,7 +46,7 @@
         <button class="seg__btn" data-hsr-tab="acute" type="button" data-i18n="hsr_acute_tab">Acute management</button>
         <button class="seg__btn" data-hsr-tab="switch" type="button" data-i18n="hsr_switch_tab">Switch</button>
         <button class="seg__btn" data-hsr-tab="tryptase" type="button" data-i18n="hsr_tryptase_tab">Tryptase</button>
-        <button class="seg__btn" data-hsr-tab="nihr" type="button" data-i18n="hsr_nihr_tab">Delayed reaction check</button>
+        <button class="seg__btn" data-hsr-tab="nihr" type="button" data-i18n="hsr_nihr_tab">NIHR</button>
       </div>
     </div>
 
@@ -217,8 +217,27 @@ ESUR acute algorithm. Follow local emergency protocol and verify medication conc
 
     <!-- HSR: NIHR -->
     <section class="subview" id="hsr-tab-nihr" hidden>
+      <div class="card card--subtle">
+        <div class="card__title" data-i18n="nihr_title">NIHR — non-immediate hypersensitivity reactions</div>
+        <div class="output hint" data-i18n="nihr_subtitle">
+          Use this module for previous delayed / non-immediate skin reactions after contrast media when re-administration is being considered. Screen for danger signs suggesting SCAR and follow the ESUR prevention pathway.
+        </div>
+      </div>
+
       <div class="card">
-        <div class="card__title" data-i18n="nihr_cmtype_title">Contrast type</div>
+        <div class="card__title" data-i18n="nihr_severity_title">Previous NIHR severity</div>
+        <div class="seg seg--stack">
+          <button class="seg__btn active" data-seg="nihrSeverity" data-value="mild" type="button" data-i18n="nihr_severity_mild">Mild skin reaction</button>
+          <button class="seg__btn" data-seg="nihrSeverity" data-value="moderate" type="button" data-i18n="nihr_severity_moderate">Moderate skin reaction</button>
+          <button class="seg__btn" data-seg="nihrSeverity" data-value="severe" type="button" data-i18n="nihr_severity_severe">Severe skin reaction / SCAR</button>
+        </div>
+        <div class="hint" style="margin-top:10px" data-i18n="nihr_severity_hint">
+          Mild: resolves without treatment. Moderate: resolves with outpatient treatment. Severe: hospital admission required.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__title" data-i18n="nihr_culprit_class_title">Previous culprit contrast class</div>
         <div class="seg">
           <button class="seg__btn active" data-seg="nihrCmtype" data-value="icm" type="button" data-i18n="icm_ct">ICM (CT)</button>
           <button class="seg__btn" data-seg="nihrCmtype" data-value="gbca" type="button" data-i18n="gbca_mri">GBCA (MRI)</button>
@@ -226,13 +245,20 @@ ESUR acute algorithm. Follow local emergency protocol and verify medication conc
       </div>
 
       <div class="card">
-        <div class="card__title" data-i18n="red_flags">Danger signs</div>
+        <div class="card__title" data-i18n="nihr_culprit_known_title">Culprit contrast medium known?</div>
+        <div class="seg">
+          <button class="seg__btn active" data-seg="nihrCulpritKnown" data-value="known" type="button" data-i18n="nihr_culprit_known">Culprit CM known</button>
+          <button class="seg__btn" data-seg="nihrCulpritKnown" data-value="unknown" type="button" data-i18n="nihr_culprit_unknown">Culprit CM unknown</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__title" data-i18n="nihr_danger_signs_title">Danger signs for SCAR</div>
         <div class="checklist">
+          <label><input type="checkbox" class="nihr-check" value="erosion" /> <span data-i18n="erosions">Erosive and/or haemorrhagic lesions</span></label>
           <label><input type="checkbox" class="nihr-check" value="blister" /> <span data-i18n="blistering">Blistering</span></label>
+          <label><input type="checkbox" class="nihr-check" value="skin_disruption" /> <span data-i18n="skin_disruption">Skin disruption / skin barrier disruption</span></label>
           <label><input type="checkbox" class="nihr-check" value="mucosa" /> <span data-i18n="mucosal_involvement">Mucosal involvement</span></label>
-          <label><input type="checkbox" class="nihr-check" value="erosion" /> <span data-i18n="erosions">Erosions</span></label>
-          <label><input type="checkbox" class="nihr-check" value="hemorrhagic" /> <span data-i18n="hemorrhagic_lesions">Hemorrhagic lesions</span></label>
-          <label><input type="checkbox" class="nihr-check" value="skin_disruption" /> <span data-i18n="skin_disruption">Skin disruption</span></label>
           <label><input type="checkbox" class="nihr-check" value="fever" /> <span data-i18n="fever">High fever</span></label>
           <label><input type="checkbox" class="nihr-check" value="organ_values" /> <span data-i18n="organ_values">Abnormal liver / kidney values</span></label>
           <label><input type="checkbox" class="nihr-check" value="lymphadenopathy" /> <span data-i18n="lymphadenopathy">Lymphadenopathy</span></label>
@@ -240,8 +266,15 @@ ESUR acute algorithm. Follow local emergency protocol and verify medication conc
       </div>
 
       <div class="card card--output">
-        <div class="card__title" data-i18n="assessment">Assessment</div>
+        <div class="card__title" data-i18n="nihr_recommendation_title">NIHR recommendation</div>
         <div class="output" id="nihrOutput"></div>
+      </div>
+
+      <div class="card card--subtle">
+        <div class="card__title" data-i18n="nihr_safety_note_title">Safety note</div>
+        <div class="output" data-i18n="nihr_safety_note">
+          ESUR-based support for previous NIHR. Consider contrast media cross-reactivity and increased NIHR risk with iso-osmolar dimeric iodine-based contrast media. Follow local protocols and drug allergy specialist advice.
+        </div>
       </div>
     </section>
   </section>
