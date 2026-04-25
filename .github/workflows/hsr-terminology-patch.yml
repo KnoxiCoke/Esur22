@@ -1,0 +1,157 @@
+name: Apply HSR terminology patch
+
+on:
+  push:
+    branches:
+      - codex/hsr-terminology-i18n
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: ${{ github.actor != 'github-actions[bot]' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/hsr-terminology-i18n
+      - name: Patch existing i18n strings
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          p = Path('script.js')
+          text = p.read_text(encoding='utf-8')
+
+          def replace_nth(pattern, replacement, nth):
+              global text
+              matches = list(re.finditer(pattern, text, flags=re.MULTILINE))
+              if len(matches) < nth:
+                  raise SystemExit(f'Pattern not found enough times: {pattern!r}')
+              match = matches[nth - 1]
+              repl = replacement(match) if callable(replacement) else replacement
+              text = text[:match.start()] + repl + text[match.end():]
+
+          def key_value(key, value, nth):
+              pattern = rf'(\s+{re.escape(key)}:\s*)"[^"]*",'
+              replace_nth(pattern, lambda m: f'{m.group(1)}"{value}",', nth)
+
+          def multiline_key_value(key, value, nth):
+              pattern = rf'(\s+{re.escape(key)}:\n\s*)"[^"]*",'
+              replace_nth(pattern, lambda m: f'{m.group(1)}"{value}",', nth)
+
+          key_value('hsr_subtitle', 'Hypersensitivity guidance, empiric switch support, tryptase interpretation and delayed reaction check.', 1)
+          key_value('hsr_nihr_tab', 'Delayed reaction check', 1)
+          key_value('nihr_title', 'Delayed reaction check', 1)
+          multiline_key_value('nihr_subtitle', 'For delayed skin reactions after contrast media, including SCAR red flags.', 1)
+          key_value('hsr_subtitle', 'Hypersensitivit\u00e4ts-Guidance, empirische Switch-Hilfe, Tryptase-Interpretation und Sp\u00e4treaktions-Check.', 2)
+          key_value('hsr_nihr_tab', 'Sp\u00e4treaktions-Check', 2)
+          key_value('nihr_title', 'Sp\u00e4treaktions-Check', 2)
+          multiline_key_value('nihr_subtitle', 'F\u00fcr verz\u00f6gerte Hautreaktionen nach Kontrastmittelgabe inklusive SCAR-Warnzeichen.', 2)
+          key_value('icm_unknown_hint', 'Use when the involved ICM is not known.', 1)
+          key_value('gbca_unknown_hint', 'Use when the involved GBCA is not known.', 1)
+          key_value('icm_unknown_hint', 'Verwenden, wenn das ausl\u00f6sende ICM nicht bekannt ist.', 2)
+          key_value('gbca_unknown_hint', 'Verwenden, wenn das ausl\u00f6sende GBCA nicht bekannt ist.', 2)
+
+          en_group_data = '''
+                icm_group_a_label: "Group A",
+                icm_group_b_label: "Group B",
+                icm_group_c_label: "Group C",
+                icm_group_d_label: "Group D",
+                gbca_group_a_label: "Group A",
+                gbca_group_b_label: "Group B",
+                gbca_group_c_label: "Group C",
+                icm_group_a_names:
+                  "Omnipaque (iohexol) \u00b7 Visipaque (iodixanol) \u00b7 Iomeron (iomeprol) \u00b7 Optiray (ioversol)",
+                icm_group_b_names: "Iopamiro / Isovue (iopamidol)",
+                icm_group_c_names: "Ultravist (iopromide)",
+                icm_group_d_names: "Xenetix (iobitridol)",
+                gbca_group_a_names: "Dotarem / Clariscan (gadoterate meglumine)",
+                gbca_group_b_names:
+                  "Gadovist / Gadavist (gadobutrol) \u00b7 ProHance (gadoteridol)",
+                gbca_group_c_names: "Elucirem / Vueway (gadopiclenol)",'''
+
+          de_group_data = '''
+                icm_group_a_label: "Gruppe A",
+                icm_group_b_label: "Gruppe B",
+                icm_group_c_label: "Gruppe C",
+                icm_group_d_label: "Gruppe D",
+                gbca_group_a_label: "Gruppe A",
+                gbca_group_b_label: "Gruppe B",
+                gbca_group_c_label: "Gruppe C",
+                icm_group_a_names:
+                  "Omnipaque (Iohexol) \u00b7 Visipaque (Iodixanol) \u00b7 Iomeron (Iomeprol) \u00b7 Optiray (Ioversol)",
+                icm_group_b_names: "Iopamiro / Isovue (Iopamidol)",
+                icm_group_c_names: "Ultravist (Iopromid)",
+                icm_group_d_names: "Xenetix (Iobitridol)",
+                gbca_group_a_names: "Dotarem / Clariscan (Gadoters\u00e4ure / Gadoterat-Meglumin)",
+                gbca_group_b_names:
+                  "Gadovist / Gadavist (Gadobutrol) \u00b7 ProHance (Gadoteridol)",
+                gbca_group_c_names: "Elucirem / Vueway (Gadopiclenol)",'''
+
+          replace_nth(r'(\s+gbca_unknown_hint:\s*"[^"]*",)', lambda m: m.group(1) + en_group_data, 1)
+          replace_nth(r'(\s+gbca_unknown_hint:\s*"[^"]*",)', lambda m: m.group(1) + de_group_data, 2)
+
+          hint_pattern = r'(\s+icm_hint:\n\s*)"[^"]*",\n(\s+gbca_hint:\n\s*)"[^"]*",'
+          replace_nth(hint_pattern, lambda m: f'{m.group(1)}"ICM group examples\\nBrand examples; availability and trademarks may vary by country.",\n{m.group(2)}"GBCA group examples\\nBrand examples; availability and trademarks may vary by country.",', 1)
+          replace_nth(hint_pattern, lambda m: f'{m.group(1)}"ICM-Gruppenbeispiele\\nMarkenbeispiele; Verf\u00fcgbarkeit und Markenrechte k\u00f6nnen je nach Land variieren.",\n{m.group(2)}"GBCA-Gruppenbeispiele\\nMarkenbeispiele; Verf\u00fcgbarkeit und Markenrechte k\u00f6nnen je nach Land variieren.",', 2)
+
+          start = text.find('    const setText = (id, value) => {')
+          end = text.find('    const baseline = document.getElementById("baseline");', start)
+          if start == -1 or end == -1:
+              raise SystemExit('applyStaticTranslations replacement region not found')
+          new_block = '''    const setText = (id, value) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = value;
+              };
+
+              const setMultilineText = (id, value) => {
+                const el = document.getElementById(id);
+                if (el) el.innerHTML = escapeHtml(value).replace(/\\n/g, "<br />");
+              };
+
+              const setGroupLabel = (seg, value, label) => {
+                const el = document.querySelector(`.seg__btn[data-seg="${seg}"][data-value="${value}"] > span`);
+                if (el) el.textContent = label;
+              };
+
+              setMultilineText("icmHint", t("icm_hint"));
+              setMultilineText("gbcaHint", t("gbca_hint"));
+              setText("switchNonvalidated", t("switch_nonvalidated"));
+
+              setGroupLabel("icm", "A", t("icm_group_a_label"));
+              setGroupLabel("icm", "B", t("icm_group_b_label"));
+              setGroupLabel("icm", "C", t("icm_group_c_label"));
+              setGroupLabel("icm", "D", t("icm_group_d_label"));
+              setGroupLabel("gbca", "A", t("gbca_group_a_label"));
+              setGroupLabel("gbca", "B", t("gbca_group_b_label"));
+              setGroupLabel("gbca", "C", t("gbca_group_c_label"));
+
+              setText("icm-group-a-names", t("icm_group_a_names"));
+              setText("icm-group-b-names", t("icm_group_b_names"));
+              setText("icm-group-c-names", t("icm_group_c_names"));
+              setText("icm-group-d-names", t("icm_group_d_names"));
+              setText("gbca-group-a-names", t("gbca_group_a_names"));
+              setText("gbca-group-b-names", t("gbca_group_b_names"));
+              setText("gbca-group-c-names", t("gbca_group_c_names"));
+
+          '''
+          text = text[:start] + new_block + text[end:]
+          p.write_text(text, encoding='utf-8', newline='')
+
+          ip = Path('index.html')
+          html = ip.read_text(encoding='utf-8')
+          html = html.replace('Hypersensitivity guidance, empiric switch support, tryptase interpretation and NIHR red-flag check.', 'Hypersensitivity guidance, empiric switch support, tryptase interpretation and delayed reaction check.', 1)
+          html = html.replace('data-i18n="hsr_nihr_tab">NIHR</button>', 'data-i18n="hsr_nihr_tab">Delayed reaction check</button>', 1)
+          ip.write_text(html, encoding='utf-8', newline='')
+      - name: Remove patch workflow and commit
+        shell: bash
+        run: |
+          rm -f .github/workflows/hsr-terminology-patch.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html script.js .github/workflows/hsr-terminology-patch.yml
+          git commit -m "Update HSR terminology in i18n"
+          git push origin HEAD:codex/hsr-terminology-i18n
