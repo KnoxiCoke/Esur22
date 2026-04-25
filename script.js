@@ -213,7 +213,7 @@ clinical: "Mild bronchospasm.",
 warning: "Cave respiratory threat.",
 management: [
   "O₂ via mask 10–15 L/min.",
-  "SABA dose-aerosol: 2–4 deep inhalations of 100 µg, or nebulization in 3 mL saline until improved, according to ESUR/source text.",
+  "SABA dose-aerosol: 2–3 deep inhalations of 100 µg, or nebulization in 3 mL saline until improved, according to ESUR/source text.",
   "When needed, repeat SABA nebulization until improved."
 ],
 escalation: [
@@ -680,7 +680,7 @@ clinical: "Milder Bronchospasmus.",
 warning: "Achtung respiratorische Bedrohung.",
 management: [
   "O₂ über Maske 10–15 L/min.",
-  "SABA-Dosieraerosol: 2–4 tiefe Inhalationen à 100 µg oder Vernebelung in 3 mL NaCl bis zur Besserung, gemäß ESUR/Quelltext.",
+  "SABA-Dosieraerosol: 2–3 tiefe Inhalationen à 100 µg oder Vernebelung in 3 mL NaCl bis zur Besserung, gemäß ESUR/Quelltext.",
   "Bei Bedarf SABA-Vernebelung bis zur Besserung wiederholen."
 ],
 escalation: [
