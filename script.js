@@ -341,6 +341,7 @@ document.addEventListener("DOMContentLoaded", function () {
       washout_delay_placeholder: "Delay (minutes, optional)",
       washout_placeholder: "Washout calculation will appear here after the JavaScript logic is connected.",
       washout_invalid: "Please enter valid numeric HU values.",
+      washout_no_enhancement: "No relevant enhancement pattern (Enhanced HU ≤ Unenhanced HU). Classical adrenal washout calculation is not applicable. Check ROI placement, phase selection and HU values.",
       washout_invalid_formula: "Washout calculation is not possible with these values. Check the HU inputs.",
       washout_absolute: "Absolute washout",
       washout_relative: "Relative washout",
@@ -691,6 +692,7 @@ document.addEventListener("DOMContentLoaded", function () {
       washout_delay_placeholder: "Delay (Minuten, optional)",
       washout_placeholder: "Die Washout-Berechnung erscheint hier, sobald die JavaScript-Logik verbunden ist.",
       washout_invalid: "Bitte gültige numerische HU-Werte eingeben.",
+      washout_no_enhancement: "Kein plausibles Enhancement-Muster (KM-HU ≤ Nativ-HU). Eine klassische Nebennieren-Washout-Berechnung ist nicht sinnvoll anwendbar. ROI-Platzierung, Phase und HU-Werte prüfen.",
       washout_invalid_formula: "Mit diesen Werten ist keine sinnvolle Washout-Berechnung möglich. Bitte die HU-Eingaben prüfen.",
       washout_absolute: "Absoluter Washout",
       washout_relative: "Relativer Washout",
@@ -2756,6 +2758,11 @@ document.addEventListener("DOMContentLoaded", function () {
       (delayMinRaw !== "" && (!isFinite(delayMin) || delayMin < 0))
     ) {
       washoutOutput.innerHTML = `<div class="hint">${escapeHtml(t("washout_invalid"))}</div>`;
+      return;
+    }
+
+    if (enhanced <= unenhanced) {
+      washoutOutput.innerHTML = `<div class="hint">${escapeHtml(t("washout_no_enhancement"))}</div>`;
       return;
     }
 
