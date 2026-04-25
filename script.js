@@ -282,7 +282,7 @@ arrest: [
       nihr_scar_actions: [
         "Immediate referral to a drug allergy specialist.",
         "Consider an alternative imaging modality.",
-        "Optimize allergy registrytion in the EHR.",
+        "Optimize allergy registration in the EHR.",
         "Do not give the group/class of contrast media to which the severe skin reaction occurred."
       ],
       nihr_scar_icm_rule:
