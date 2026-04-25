@@ -2627,9 +2627,26 @@ arrest: [
   }
 
   function setBodyMode() {
-    document.body.classList.toggle("emergency", state.situation === "emergency");
-  }
+  const hsrView = document.getElementById("view-hsr");
+  const guidanceView = document.getElementById("hsr-tab-guidance");
 
+  const isRelevantView =
+    hsrView &&
+    !hsrView.hidden &&
+    guidanceView &&
+    !guidanceView.hidden;
+
+  const isEmergencySelected = state.situation === "emergency";
+
+  document.body.classList.toggle(
+    "emergency",
+    isRelevantView && isEmergencySelected
+  );
+}
+  
+  document.addEventListener("click", function () {
+  window.requestAnimationFrame(setBodyMode);
+});
   function showMainView(name) {
     Object.keys(views).forEach((key) => {
       if (views[key]) views[key].hidden = key !== name;
@@ -3315,17 +3332,19 @@ ${renderAcuteList(content.arrest)}
 }
 
   function renderAll() {
-    applyStaticTranslations();
-    renderFlow();
-    renderAcuteManagement();
-    renderSwitch();
-    renderTryptase();
-    renderNihr();
-    renderThyroid();
-    renderDose();
-    renderWashout();
-    renderChanges();
-  }
+  setBodyMode();
+
+  applyStaticTranslations();
+  renderFlow();
+  renderAcuteManagement();
+  renderSwitch();
+  renderTryptase();
+  renderNihr();
+  renderThyroid();
+  renderDose();
+  renderWashout();
+  renderChanges();
+}
 
   function refreshComputedModulesAfterLanguageChange() {
     const baselineVal = document.getElementById("baseline")?.value ?? "";
