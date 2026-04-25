@@ -2730,8 +2730,15 @@ arrest: [
     });
 
     if (acuteImmediateOutput) {
-      acuteImmediateOutput.innerHTML = renderAcuteList(t("acute_immediate_actions"));
-    }
+  const immediateActions = t("acute_immediate_actions") || [];
+  const intro = immediateActions[0] || "";
+  const actions = immediateActions.slice(1);
+
+  acuteImmediateOutput.innerHTML = `
+    ${intro ? `<div>${escapeHtml(intro)}</div>` : ""}
+    ${renderAcuteList(actions)}
+  `;
+}
 
     if (!acuteOutput) return;
 
