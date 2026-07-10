@@ -4,7 +4,8 @@
   const assets = [
     "./hsr-2025-data-en.js",
     "./hsr-2025-data-de.js",
-    "./hsr-2025-app.js"
+    "./hsr-2025-app.js",
+    "./hsr-2025-hotfix.js"
   ];
 
   if (!document.querySelector('link[href="./hsr-2025.css"]')) {
