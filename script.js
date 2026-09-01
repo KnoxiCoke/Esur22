@@ -323,11 +323,16 @@ arrest: [
           "Never deny a patient a clinically well-indicated enhanced examination if alternative imaging strategies are not available."
         ],
         elective_severe: [
-          "Postponement of the examination should be considered when clinically feasible.",
-          "Referral for a formal allergy evaluation is strongly recommended.",
-          "If contrast-enhanced imaging remains necessary, use of an alternative contrast agent should be considered.",
-          "Availability of a rapid response (or resuscitation) team member should be ensured.",
-          "Observation for ≥30 minutes with intravenous access should be ensured."
+          "Refer the patient to a drug allergy specialist (if not done before).",
+          "Optimize the allergy registration in the electronic health record.",
+          "Have a trained rapid response (or resuscitation) team member nearby.",
+          "Postpone imaging to wait for the results of the allergy analysis.",
+          "Apply the advice of the drug allergy specialist for a safe iodine-based contrast medium or gadolinium-based contrast agent.",
+          "When the contrast medium is administered, observe the patient for at least 30 min with the IV line in place.",
+          "Be prepared and vigilant for a recurring immediate hypersensitivity reaction.",
+          "If an immediate hypersensitivity reaction recurs, referral to a drug allergy specialist is mandatory.",
+          "Consider an alternative imaging modality, or consider performing an unenhanced exam if the diagnostic yield is sufficient for the correct management of the patient.",
+          "Never deny a patient a clinically well-indicated enhanced examination if alternative imaging strategies are not available."
         ],
         elective_unclear: [
           "The previous reaction should be reviewed.",
@@ -357,10 +362,19 @@ arrest: [
           "Never deny a patient a clinically well-indicated enhanced examination if alternative imaging strategies are not available."
         ],
         emergency_severe: [
-          "If contrast-enhanced imaging is considered unavoidable, premedication may be considered in accordance with EAACI guidance.",
-          "Use of an alternative contrast agent should be considered.",
-          "Availability of a rapid response (or resuscitation) team member should be ensured.",
-          "Observation for ≥30 minutes with intravenous access should be ensured."
+          "Refer the patient to a drug allergy specialist (if not done before).",
+          "Optimize the allergy registration in the electronic health record.",
+          "Have a trained rapid response (or resuscitation) team member nearby.",
+          "Consider administration of premedication (EAACI guidelines).",
+          "Emergency premedication protocol: 50 mg prednisolone IV (or equivalent) ≥ 30 min before contrast medium administration.",
+          "Emergency premedication protocol: 2 mg clemastine IV (or equivalent) ≥ 30 min before contrast medium administration.",
+          "Context from Part 2: Routine premedication is not recommended. Premedication is optional in emergency situations where an unidentified culprit contrast medium led to a severe hypersensitivity reaction.",
+          "Choose a different iodine-based contrast medium or gadolinium-based contrast agent if the culprit contrast medium is known.",
+          "When the contrast medium is administered, observe the patient for at least 30 min with the IV line in place.",
+          "Be prepared and vigilant for a recurring immediate hypersensitivity reaction.",
+          "If an immediate hypersensitivity reaction recurs, referral to a drug allergy specialist is mandatory.",
+          "Consider an alternative imaging modality, or consider performing an unenhanced exam if the diagnostic yield is sufficient for the correct management of the patient.",
+          "Never deny a patient a clinically well-indicated enhanced examination if alternative imaging strategies are not available."
         ],
         emergency_unclear: [
           "If contrast agent administration is considered necessary, the potential risk of recurrence should be considered.",
@@ -747,11 +761,16 @@ arrest: [
           "Eine klinisch gut indizierte kontrastverstärkte Untersuchung nicht verweigern, wenn keine alternativen Bildgebungsstrategien verfügbar sind."
         ],
         elective_severe: [
-          "Ein Aufschub der Untersuchung sollte erwogen werden, wenn dies klinisch möglich ist.",
-          "Eine Überweisung zur formellen allergologischen Abklärung wird dringend empfohlen.",
-          "Wenn eine kontrastverstärkte Bildgebung weiterhin erforderlich ist, sollte die Verwendung eines alternativen Kontrastmittels erwogen werden.",
-          "Die Verfügbarkeit eines Mitglieds des Rapid-Response- oder Reanimationsteams sollte sichergestellt werden.",
-          "Eine Beobachtung für ≥30 Minuten mit intravenösem Zugang sollte sichergestellt werden."
+          "Die Patientin oder den Patienten an eine Fachperson für Arzneimittelallergien überweisen (falls noch nicht erfolgt).",
+          "Die Allergieregistrierung in der elektronischen Patientenakte optimieren.",
+          "Ein geschultes Mitglied des Rapid-Response-Teams (oder Reanimationsteams) in der Nähe haben.",
+          "Die Bildgebung aufschieben, um die Ergebnisse der Allergieanalyse abzuwarten.",
+          "Die Empfehlung der Fachperson für Arzneimittelallergien für ein sicheres iodhaltiges Kontrastmittel oder gadoliniumbasiertes Kontrastmittel umsetzen.",
+          "Wenn das Kontrastmittel verabreicht wird, die Patientin oder den Patienten mindestens 30 Minuten mit liegendem i.v.-Zugang beobachten.",
+          "Auf eine wiederkehrende unmittelbare Hypersensitivitätsreaktion vorbereitet und wachsam sein.",
+          "Wenn eine unmittelbare Hypersensitivitätsreaktion wieder auftritt, ist die Überweisung an eine Fachperson für Arzneimittelallergien verpflichtend.",
+          "Eine alternative Bildgebungsmodalität erwägen oder eine Untersuchung ohne Kontrastmittel erwägen, wenn die diagnostische Aussagekraft für die korrekte Patientenführung ausreicht.",
+          "Eine klinisch gut indizierte kontrastverstärkte Untersuchung nicht verweigern, wenn keine alternativen Bildgebungsstrategien verfügbar sind."
         ],
         elective_unclear: [
           "Die frühere Reaktion sollte überprüft werden.",
@@ -781,10 +800,19 @@ arrest: [
           "Eine klinisch gut indizierte kontrastverstärkte Untersuchung nicht verweigern, wenn keine alternativen Bildgebungsstrategien verfügbar sind."
         ],
         emergency_severe: [
-          "Wenn eine kontrastverstärkte Bildgebung als unvermeidbar erachtet wird, kann eine Prämedikation gemäss EAACI-Guidance erwogen werden.",
-          "Die Verwendung eines alternativen Kontrastmittels sollte erwogen werden.",
-          "Die Verfügbarkeit eines Mitglieds des Rapid-Response- oder Reanimationsteams sollte sichergestellt werden.",
-          "Eine Beobachtung für ≥30 Minuten mit intravenösem Zugang sollte sichergestellt werden."
+          "Die Patientin oder den Patienten an eine Fachperson für Arzneimittelallergien überweisen (falls noch nicht erfolgt).",
+          "Die Allergieregistrierung in der elektronischen Patientenakte optimieren.",
+          "Ein geschultes Mitglied des Rapid-Response-Teams (oder Reanimationsteams) in der Nähe haben.",
+          "Die Gabe einer Prämedikation erwägen (EAACI-Leitlinien).",
+          "Notfall-Prämedikationsprotokoll: 50 mg Prednisolon i.v. (oder Äquivalent) ≥ 30 min vor der Kontrastmittelgabe.",
+          "Notfall-Prämedikationsprotokoll: 2 mg Clemastin i.v. (oder Äquivalent) ≥ 30 min vor der Kontrastmittelgabe.",
+          "Kontext aus Part 2: Eine routinemäßige Prämedikation wird nicht empfohlen. Eine Prämedikation ist in Notfallsituationen optional, wenn ein nicht identifiziertes auslösendes Kontrastmittel zu einer schweren Hypersensitivitätsreaktion geführt hat.",
+          "Ein anderes iodhaltiges Kontrastmittel oder gadoliniumbasiertes Kontrastmittel wählen, sofern das auslösende Kontrastmittel bekannt ist.",
+          "Wenn das Kontrastmittel verabreicht wird, die Patientin oder den Patienten mindestens 30 Minuten mit liegendem i.v.-Zugang beobachten.",
+          "Auf eine wiederkehrende unmittelbare Hypersensitivitätsreaktion vorbereitet und wachsam sein.",
+          "Wenn eine unmittelbare Hypersensitivitätsreaktion wieder auftritt, ist die Überweisung an eine Fachperson für Arzneimittelallergien verpflichtend.",
+          "Eine alternative Bildgebungsmodalität erwägen oder eine Untersuchung ohne Kontrastmittel erwägen, wenn die diagnostische Aussagekraft für die korrekte Patientenführung ausreicht.",
+          "Eine klinisch gut indizierte kontrastverstärkte Untersuchung nicht verweigern, wenn keine alternativen Bildgebungsstrategien verfügbar sind."
         ],
         emergency_unclear: [
           "Wenn eine Kontrastmittelgabe als notwendig erachtet wird, sollte das potenzielle Risiko eines Wiederauftretens berücksichtigt werden.",
