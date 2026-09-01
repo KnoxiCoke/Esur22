@@ -1,0 +1,41 @@
+name: Apply NIHR_01
+
+on:
+  push:
+    paths:
+      - ".github/workflows/apply-nihr-01.yml"
+      - "tools/apply_nihr_01.py"
+  workflow_dispatch:
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Apply NIHR_01
+        run: python3 tools/apply_nihr_01.py
+
+      - name: Commit approved medical block
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add script.js index.html
+          if git diff --cached --quiet; then
+            echo "no changes"
+            exit 1
+          fi
+          git commit -m "NIHR_01: source-faithful NIHR pathways from Part 2 Table 2; logic guard; exclusive class rules"
+
+      - name: Remove temporary helper files and workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -f tools/apply_nihr_01.py tools/nihr_en_block.txt tools/nihr_de_block.txt tools/nihr_fn.js
+          rm -f .github/workflows/apply-nihr-01.yml
+          rmdir tools 2>/dev/null || true
+          git add -A
+          git commit -m "Remove temporary NIHR_01 helper files and workflow"
+          git push
