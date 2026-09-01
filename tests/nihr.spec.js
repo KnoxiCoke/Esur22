@@ -1,6 +1,5 @@
 // HSR_REGRESSION_01 baseline: bc7e4e3df7cf4f2dde5093ff9575c985b3c5048b
-const { test, expect } = require("@playwright/test");
-const { openApp, openHsrTab, clickSeg, nihrOutput } = require("./helpers/ui");
+const { test, expect, openApp, openHsrTab, clickSeg, nihrOutput } = require("./helpers/ui");
 
 const GUARD =
   "This combination is not represented as a separate management pathway in ESUR Part 2 Table 2";
