@@ -1,0 +1,51 @@
+      icm_rules: {
+        A: {
+          title: "Group A selected",
+          text: "Practical-experience suggestion: Alternative ICM from Group B or D (without classic carbamoyl sidechain).",
+          note: "High cross-reactivity between Group A and Group C."
+        },
+        B: {
+          title: "Group B selected",
+          text: "Practical-experience suggestion: Alternative ICM from Group A, C or D.",
+          note: ""
+        },
+        C: {
+          title: "Group C selected",
+          text: "Practical-experience suggestion: Alternative ICM from Group B (without classic or methyl-modified carbamoyl sidechain).",
+          note: "High cross-reactivity between Group C and Group A."
+        },
+        D: {
+          title: "Group D selected",
+          text: "Practical-experience suggestion: Alternative ICM from Group A or B (without methyl-modified carbamoyl sidechain).",
+          note: ""
+        },
+        unknown: {
+          title: "ICM unknown",
+          text: "Due to the higher likelihood that the involved ICM is from Group A: choose the alternative ICM from Group B or D.",
+          note: "High cross-reactivity between Group C and Group A. This is a practical-experience suggestion based on the optional, non-validated classification and is not a robust evidence-based recommendation."
+        }
+      },
+
+      gbca_rules: {
+        A: {
+          title: "Group A selected",
+          text: "Practical-experience suggestion: Alternative GBCA from Group B.",
+          note: ""
+        },
+        B: {
+          title: "Group B selected",
+          text: "Practical-experience suggestion: Alternative GBCA from Group A.",
+          note: ""
+        },
+        C: {
+          title: "Group C selected",
+          text: "Insufficient data for empiric change advice.",
+          note: ""
+        },
+        unknown: {
+          title: "GBCA unknown",
+          text: "It is not possible to recommend a regimen with certainty. Due to the probability of involvement, using a GBCA different from the one routinely administered is suggested.",
+          note: "This is based on practical experience and is not a robust evidence-based recommendation."
+        }
+      },
+
