@@ -1,0 +1,56 @@
+name: Apply 01B FIX2
+on:
+  push:
+    paths:
+      - ".github/workflows/apply-01b-fix2.yml"
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch previous and language specs
+        run: python3 tools_fix2.py
+        # inline below if tools file missing
+      - name: Inline patch
+        run: |
+          python3 << 'PY'
+          from pathlib import Path
+          p=Path('tests/previous-reaction.spec.js')
+          t=p.read_text()
+          t=t.replace(
+            'const { test, expect, openApp, openHsrTab, clickSeg, flowOutput } = require("./helpers/ui");',
+            'const { test, expect, openApp, openHsrTab, clickSeg, flowOutput, setLang } = require("./helpers/ui");'
+          )
+          if 'Optimize the allergy registration in the electronic health record' not in t.split('PREV_02')[1][:2500]:
+              t=t.replace(
+          '  await expect(out).toContainText("Optionally, refer the patient to a drug allergy specialist");\n  await expect(out).toContainText("choose a different iodine-based contrast medium or gadolinium-based contrast agent if the culprit contrast agent is known");\n  await expect(out).toContainText("Never deny a patient a clinically well-indicated enhanced examination");\n  await expect(out).not.toContainText("premedication");\n  await expect(out).not.toContainText("trained imaging or emergency room physician");\n  await expect(out).not.toContainText("rapid response");\n  await expect(out).not.toContainText("Postpone imaging");',
+          '  await expect(out).toContainText("Optionally, refer the patient to a drug allergy specialist");\n  await expect(out).toContainText("when the local drug allergy specialist capacity is sufficient");\n  await expect(out).toContainText("Optimize the allergy registration in the electronic health record");\n  await expect(out).toContainText("Apply the advice of the drug allergy specialist");\n  await expect(out).toContainText("choose a different iodine-based contrast medium or gadolinium-based contrast agent if the culprit contrast agent is known");\n  await expect(out).toContainText("at least 30 min with the IV line in place");\n  await expect(out).toContainText("Be prepared and vigilant");\n  await expect(out).toContainText("referral to a drug allergy specialist is mandatory");\n  await expect(out).toContainText("Consider an alternative imaging modality");\n  await expect(out).toContainText("Never deny a patient a clinically well-indicated enhanced examination");\n  await expect(out).not.toContainText("premedication");\n  await expect(out).not.toContainText("trained imaging or emergency room physician");\n  await expect(out).not.toContainText("rapid response");\n  await expect(out).not.toContainText("resuscitation");\n  await expect(out).not.toContainText("Postpone imaging");',
+          1)
+          if 'verpflichtend' not in t:
+              t=t.replace(
+          '  await expect(tab).toContainText("is mandatory");\n});',
+          '  await expect(tab).toContainText("is mandatory");\n  await setLang(page, "de");\n  await expect(tab).toContainText("Überweisung & Dokumentation");\n  await expect(tab).toContainText("verwendete Kontrastmittel angeben");\n  await expect(tab).toContainText("verpflichtend");\n});',
+          1)
+          p.write_text(t)
+          print('previous patched', 'verpflichtend' in t, 'Optimize the allergy' in t.split('PREV_02')[1][:3000])
+          p=Path('tests/language-reset.spec.js')
+          t=p.read_text()
+          t=t.replace('  await expect(flowOutput(page)).toContainText("Allergieanalyse");\n  await expect(page.locator("#lang-de")).toHaveClass(/active/);',
+                      '  await expect(flowOutput(page)).toContainText("Die Bildgebung aufschieben");\n  await expect(flowOutput(page)).toContainText("Allergieanalyse");\n  await expect(flowOutput(page)).toContainText("Die Empfehlung der Fachperson für Arzneimittelallergien");\n  await expect(page.locator("#lang-de")).toHaveClass(/active/);')
+          t=t.replace('  await expect(switchOutput(page)).toContainText("Gruppe B");\n  await setLang(page, "en");',
+                      '  await expect(switchOutput(page)).toContainText("Alternatives ICM aus Gruppe B");\n  await expect(switchOutput(page)).toContainText("Hohe Kreuzreaktivität zwischen Gruppe C und Gruppe A");\n  await setLang(page, "en");')
+          t=t.replace('  await expect(nihrOutput(page)).toContainText("gadoliniumbasiert");\n  await expect(nihrOutput(page)).not.toContainText("Avoid all iodine-based contrast media");',
+                      '  await expect(nihrOutput(page)).toContainText("alle gadoliniumbasierten Kontrastmittel vermeiden");\n  await expect(nihrOutput(page)).not.toContainText("alle iodhaltigen Kontrastmittel vermeiden");\n  await expect(nihrOutput(page)).not.toContainText("Avoid all iodine-based contrast media");')
+          p.write_text(t)
+          print('lang patched', 'Die Bildgebung aufschieben' in t, 'Alternatives ICM aus Gruppe B' in t, 'alle gadoliniumbasierten' in t)
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -f .github/workflows/apply-01b-fix2.yml
+          git add -A
+          git commit -m "HSR_REGRESSION_01B_FIX: harden PREV_02 GLOBAL_01 LANG assertions"
+          git push
