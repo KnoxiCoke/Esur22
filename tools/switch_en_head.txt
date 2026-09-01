@@ -1,0 +1,47 @@
+      switch_title: "Switch",
+      switch_subtitle:
+        "Optional, non-validated contrast-agent grouping and practical-experience suggestions for empiric switch consideration.",
+      contrast_type: "Contrast type",
+      nihr_cmtype_title: "Contrast type",
+      icm_ct: "ICM (CT)",
+      gbca_mri: "GBCA (MRI)",
+      icm_title: "ICM (iodine-based)",
+      gbca_title: "GBCA (gadolinium-based)",
+      possible_alternatives: "Possible alternatives",
+      safety_note: "Safety note",
+      switch_status_optional:
+        "This switch overview is optional and based on a non-validated classification and practical experience.",
+      switch_cmsc:
+        "The CMSC cannot make evidence-based recommendations on a robust scientific basis for change to an alternative contrast agent based on practical experience.",
+      switch_cr_structure:
+        "Cross-reactivity cannot be predicted on the basis of the chemical structure.",
+      switch_cr_frequency:
+        "Cross-reactivity can occur with a higher frequency among iodine-based contrast media with a N-(2,3-hydroxypropyl)-carbamoyl side chain and among macrocyclic gadolinium-based contrast agents.",
+      switch_best_option:
+        "The best option is to choose an alternative based on the results of an allergy evaluation.",
+      switch_brand_governance:
+        "Brand names are shown for product identification only. ESUR grouping and switch guidance are based on the generic contrast-agent substance.",
+      switch_safety_note:
+        "This switch overview is optional and based on a non-validated classification and practical experience. The CMSC cannot make evidence-based recommendations on a robust scientific basis for change to an alternative contrast agent based on practical experience. Cross-reactivity cannot be predicted on the basis of the chemical structure. The best option is to choose an alternative based on the results of an allergy evaluation.",
+      unknown: "Unknown",
+      icm_unknown_hint: "Use when the involved ICM is not known.",
+      gbca_unknown_hint: "Use when the involved GBCA is not known.",
+      icm_group_a_label: "Group A",
+      icm_group_b_label: "Group B",
+      icm_group_c_label: "Group C",
+      icm_group_d_label: "Group D",
+      gbca_group_a_label: "Group A",
+      gbca_group_b_label: "Group B",
+      gbca_group_c_label: "Group C",
+      icm_group_a_names:
+        "Omnipaque® — iohexol · Visipaque® — iodixanol · Iomeron® — iomeprol · Optiray® — ioversol",
+      icm_group_b_names: "Iopamiro® / Isovue® — iopamidol",
+      icm_group_c_names: "Ultravist® — iopromide",
+      icm_group_d_names: "Xenetix® — iobitridol",
+      gbca_group_a_names: "Dotarem® / Clariscan® — gadoterate meglumine",
+      gbca_group_b_names:
+        "ProHance® — gadoteridol · Gadovist® / Gadavist® — gadobutrol",
+      gbca_group_c_names: "Elucirem® / Vueway® — gadopiclenol",
+      switch_nonvalidated:
+        "This switch overview is optional and based on a non-validated classification and practical experience.",
+
