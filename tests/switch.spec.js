@@ -65,17 +65,25 @@ test("SWITCH_GBCA_UNK cannot recommend with certainty; different routinely admin
   await expect(out).toContainText("not a robust evidence-based recommendation");
 });
 test("SWITCH_BRAND_01 ICM brand names are visible product identifiers by group", async ({ page }) => {
-  await openApp(page); await openSwitch(page); await clickSeg(page, "cmtype", "icm");
-  await expect(page.locator("#icm-group-a-names")).toContainText("Omnipaque");
-  await expect(page.locator("#icm-group-a-names")).toContainText("iohexol");
-  await expect(page.locator("#icm-group-b-names")).toContainText("iopamidol");
-  await expect(page.locator("#icm-group-c-names")).toContainText("iopromide");
-  await expect(page.locator("#icm-group-d-names")).toContainText("iobitridol");
+  await openApp(page);
+  await openSwitch(page);
+  await clickSeg(page, "cmtype", "icm");
+  const a = page.locator("#icm-group-a-names");
+  await expect(a).toContainText("Omnipaque® — iohexol");
+  await expect(a).toContainText("Visipaque® — iodixanol");
+  await expect(a).toContainText("Iomeron® — iomeprol");
+  await expect(a).toContainText("Optiray® — ioversol");
+  await expect(page.locator("#icm-group-b-names")).toContainText("Iopamiro® / Isovue® — iopamidol");
+  await expect(page.locator("#icm-group-c-names")).toContainText("Ultravist® — iopromide");
+  await expect(page.locator("#icm-group-d-names")).toContainText("Xenetix® — iobitridol");
 });
 test("SWITCH_BRAND_02 GBCA brand names are visible product identifiers by group", async ({ page }) => {
-  await openApp(page); await openSwitch(page); await clickSeg(page, "cmtype", "gbca");
-  await expect(page.locator("#gbca-group-a-names")).toContainText("gadoterate meglumine");
-  await expect(page.locator("#gbca-group-b-names")).toContainText("gadoteridol");
-  await expect(page.locator("#gbca-group-b-names")).toContainText("gadobutrol");
-  await expect(page.locator("#gbca-group-c-names")).toContainText("gadopiclenol");
+  await openApp(page);
+  await openSwitch(page);
+  await clickSeg(page, "cmtype", "gbca");
+  await expect(page.locator("#gbca-group-a-names")).toContainText("Dotarem® / Clariscan® — gadoterate meglumine");
+  const b = page.locator("#gbca-group-b-names");
+  await expect(b).toContainText("ProHance® — gadoteridol");
+  await expect(b).toContainText("Gadovist® / Gadavist® — gadobutrol");
+  await expect(page.locator("#gbca-group-c-names")).toContainText("Elucirem® / Vueway® — gadopiclenol");
 });
