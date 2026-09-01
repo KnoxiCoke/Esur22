@@ -1,5 +1,5 @@
 // HSR_REGRESSION_01 baseline: bc7e4e3df7cf4f2dde5093ff9575c985b3c5048b
-const { test, expect, openApp, openHsrTab, clickSeg, flowOutput } = require("./helpers/ui");
+const { test, expect, openApp, openHsrTab, clickSeg, flowOutput, setLang } = require("./helpers/ui");
 
 async function setPrevious(page, situation, reaction) {
   await openHsrTab(page, "guidance");
@@ -130,11 +130,19 @@ test("PREV_02 emergency mild uses the same medical list with emergency title", a
   await expect(out).toContainText("Emergency imaging — prior mild immediate hypersensitivity reaction");
   await expect(out).toContainText("Interview the patient about their previous hypersensitivity reaction");
   await expect(out).toContainText("Optionally, refer the patient to a drug allergy specialist");
+  await expect(out).toContainText("when the local drug allergy specialist capacity is sufficient");
+  await expect(out).toContainText("Optimize the allergy registration in the electronic health record");
+  await expect(out).toContainText("Apply the advice of the drug allergy specialist");
   await expect(out).toContainText("choose a different iodine-based contrast medium or gadolinium-based contrast agent if the culprit contrast agent is known");
+  await expect(out).toContainText("at least 30 min with the IV line in place");
+  await expect(out).toContainText("Be prepared and vigilant");
+  await expect(out).toContainText("referral to a drug allergy specialist is mandatory");
+  await expect(out).toContainText("Consider an alternative imaging modality");
   await expect(out).toContainText("Never deny a patient a clinically well-indicated enhanced examination");
   await expect(out).not.toContainText("premedication");
   await expect(out).not.toContainText("trained imaging or emergency room physician");
   await expect(out).not.toContainText("rapid response");
+  await expect(out).not.toContainText("resuscitation");
   await expect(out).not.toContainText("Postpone imaging");
 });
 
@@ -148,6 +156,10 @@ test("GLOBAL_01 Previous Reaction referral and documentation block is visible in
   await setPrevious(page, "emergency", "severe");
   await expect(tab).toContainText("Referral & documentation");
   await expect(tab).toContainText("is mandatory");
+  await setLang(page, "de");
+  await expect(tab).toContainText("Überweisung & Dokumentation");
+  await expect(tab).toContainText("verwendete Kontrastmittel angeben");
+  await expect(tab).toContainText("verpflichtend");
 });
 
 test("PREV_ROUTING_01 previous-reaction tab is scoped to immediate reactions", async ({ page }) => {

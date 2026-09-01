@@ -24,7 +24,9 @@ test("LANG_01 previous elective moderate persists across EN-DE-EN", async ({ pag
   await setLang(page, "de");
   await expectSegActive(page, "situation", "elective");
   await expectSegActive(page, "reaction", "moderate");
+  await expect(flowOutput(page)).toContainText("Die Bildgebung aufschieben");
   await expect(flowOutput(page)).toContainText("Allergieanalyse");
+  await expect(flowOutput(page)).toContainText("Die Empfehlung der Fachperson für Arzneimittelallergien");
   await expect(page.locator("#lang-de")).toHaveClass(/active/);
   await setLang(page, "en");
   await expectSegActive(page, "situation", "elective");
@@ -59,7 +61,8 @@ test("LANG_03 switch ICM group C selection and rule persist across language chan
   await setLang(page, "de");
   await expectSegActive(page, "cmtype", "icm");
   await expectSegActive(page, "icm", "C");
-  await expect(switchOutput(page)).toContainText("Gruppe B");
+  await expect(switchOutput(page)).toContainText("Alternatives ICM aus Gruppe B");
+  await expect(switchOutput(page)).toContainText("Hohe Kreuzreaktivität zwischen Gruppe C und Gruppe A");
   await setLang(page, "en");
   await expectSegActive(page, "cmtype", "icm");
   await expectSegActive(page, "icm", "C");
@@ -94,7 +97,8 @@ test("LANG_05 NIHR SCAR GBCA state persists across EN-DE-EN", async ({ page }) =
   await expectSegActive(page, "nihrSeverity", "severe");
   await expectSegActive(page, "nihrCmtype", "gbca");
   await expect(page.locator('.nihr-check[value="erosion"]')).toBeChecked();
-  await expect(nihrOutput(page)).toContainText("gadoliniumbasiert");
+  await expect(nihrOutput(page)).toContainText("alle gadoliniumbasierten Kontrastmittel vermeiden");
+  await expect(nihrOutput(page)).not.toContainText("alle iodhaltigen Kontrastmittel vermeiden");
   await expect(nihrOutput(page)).not.toContainText("Avoid all iodine-based contrast media");
   await setLang(page, "en");
   await expectSegActive(page, "nihrSeverity", "severe");
