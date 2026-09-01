@@ -1,0 +1,40 @@
+name: Apply SWITCH_01
+
+on:
+  push:
+    paths:
+      - ".github/workflows/apply-switch-01.yml"
+  workflow_dispatch:
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Apply SWITCH_01
+        run: python3 tools/apply_switch_01.py
+
+      - name: Commit approved medical block
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add script.js index.html
+          if git diff --cached --quiet; then
+            echo "no changes"
+            exit 1
+          fi
+          git commit -m "SWITCH_01: Part 2 Table 1 practical-experience switch rules; brands as product ID only"
+
+      - name: Remove temporary helper files and workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -f tools/apply_switch_01.py tools/switch_en_head.txt tools/switch_de_head.txt tools/switch_en_rules.txt tools/switch_de_rules.txt
+          rm -f .github/workflows/apply-switch-01.yml
+          rmdir tools 2>/dev/null || true
+          git add -A
+          git commit -m "Remove temporary SWITCH_01 helper files and workflow"
+          git push
