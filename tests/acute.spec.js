@@ -1,6 +1,7 @@
 // HSR_REGRESSION_01 baseline: bc7e4e3df7cf4f2dde5093ff9575c985b3c5048b
-const { test, expect } = require("@playwright/test");
 const {
+  test,
+  expect,
   openApp,
   openHsrTab,
   clickSeg,
@@ -33,13 +34,27 @@ test("ACUTE_IMM_01 immediate actions present; hypotension prone rule absent", as
   await expect(imm).not.toContainText("raise legs");
 });
 
-test("FORB_04 acute does not show prone position or raise legs", async ({ page }) => {
+test("FORB_04 acute patterns do not show prone position or raise legs", async ({ page }) => {
   await openApp(page);
   await openAcute(page);
-  await expect(acuteImmediate(page)).not.toContainText("prone");
-  await expect(acuteImmediate(page)).not.toContainText("raise legs");
-  await expect(acuteOutput(page)).not.toContainText("prone");
-  await expect(acuteOutput(page)).not.toContainText("raise legs");
+  const steps = [
+    ["mild", "mild_general"],
+    ["moderate", "moderate_urticaria"],
+    ["moderate", "moderate_angioedema"],
+    ["moderate", "moderate_bronchospasm"],
+    ["severe", "severe_anaphylaxis"],
+  ];
+  for (const [severity, pattern] of steps) {
+    await clickSeg(page, "acuteSeverity", severity);
+    if (severity !== "severe") {
+      await clickSeg(page, "acutePattern", pattern);
+    }
+    for (const loc of [acuteImmediate(page), acuteOutput(page)]) {
+      await expect(loc).not.toContainText("prone position");
+      await expect(loc).not.toContainText("prone");
+      await expect(loc).not.toContainText("raise legs");
+    }
+  }
 });
 
 test("ACUTE_02 moderate diffuse urticaria management", async ({ page }) => {
