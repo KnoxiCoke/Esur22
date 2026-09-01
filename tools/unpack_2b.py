@@ -2,6 +2,7 @@
 import base64, gzip
 from pathlib import Path
 b = Path("tools/specs2b.b64").read_text().strip()
+b += "=" * ((4 - len(b) % 4) % 4)
 data = gzip.decompress(base64.b64decode(b)).decode("utf-8")
 for part in data.split("===FILE ")[1:]:
     name, content = part.split("===\n", 1)
