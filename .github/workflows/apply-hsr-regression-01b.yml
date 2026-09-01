@@ -1,0 +1,27 @@
+name: Apply HSR_REGRESSION_01B specs
+
+on:
+  push:
+    paths:
+      - ".github/workflows/apply-hsr-regression-01b.yml"
+  workflow_dispatch:
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unpack remaining specs
+        run: python3 tools/unpack_2b.py
+      - name: Commit specs and remove helpers
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -f tools/unpack_2b.py tools/specs2b.b64
+          rm -f .github/workflows/apply-hsr-regression-01b.yml
+          rmdir tools 2>/dev/null || true
+          git add -A
+          git commit -m "HSR_REGRESSION_01B: harden and complete HSR black-box regression suite"
+          git push
