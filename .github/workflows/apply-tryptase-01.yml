@@ -1,0 +1,41 @@
+name: Apply TRYPTASE_01
+
+on:
+  push:
+    paths:
+      - ".github/workflows/apply-tryptase-01.yml"
+      - "tools/apply_tryptase_01.py"
+  workflow_dispatch:
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Apply TRYPTASE_01
+        run: python3 tools/apply_tryptase_01.py
+
+      - name: Commit approved medical block
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add script.js index.html
+          if git diff --cached --quiet; then
+            echo "no changes"
+            exit 1
+          fi
+          git commit -m "TRYPTASE_01: align tryptase tab EN/DE with ESUR Part 2 Table 2 and p. 6813; remove highest-available-acute; show sampling"
+
+      - name: Remove temporary helper and workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -f tools/apply_tryptase_01.py
+          rm -f .github/workflows/apply-tryptase-01.yml
+          rmdir tools 2>/dev/null || true
+          git add -A
+          git commit -m "Remove temporary TRYPTASE_01 helper and workflow"
+          git push
