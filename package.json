@@ -1,0 +1,12 @@
+{
+  "name": "esur22-hsr-regression",
+  "private": true,
+  "description": "HSR_REGRESSION_01A black-box P0 suite. Baseline: bc7e4e3df7cf4f2dde5093ff9575c985b3c5048b",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.55.0"
+  }
+}
