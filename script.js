@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
       acute_severity_moderate: "Moderate reactions",
       acute_severity_severe: "Severe reactions",
       acute_pattern_mild_general: "Mild reactions",
-      acute_pattern_moderate_urticaria: "Generalised urticaria / diffuse erythema",
+      acute_pattern_moderate_urticaria: "Diffuse urticaria / diffuse erythema",
       acute_pattern_moderate_angioedema: "Facial / angioedema",
       acute_pattern_moderate_bronchospasm: "Mild bronchospasm",
       acute_pattern_severe_anaphylaxis: "Anaphylaxis",
@@ -170,17 +170,13 @@ escalation: [
 ]
         },
         moderate_urticaria: {
-clinical: "Generalised urticaria / diffuse erythema.",
-warning: "Cave hypotension.",
+clinical: "Diffuse urticaria / diffuse erythema.",
 management: [
-  "IV 1000 mL NaCl 0.9% in 1 h.",
-  "H1-antihistamine IV, e.g. clemastine 2 mg.",
-  "When needed, repeat H1-antihistamine IV after 5 minutes.",
-  "When hypotensive (SBP <90): active elevation of legs."
+  "Give chlorphenamine 20 mg or clemastine 2 mg IV.",
+  "Consider transferring the patient to a department with facilities for monitoring vital functions."
 ],
 escalation: [
-  "When hypotensive (SBP <90): treat as anaphylaxis.",
-  "When needed, consult rapid response team."
+  "If accompanied by hypotension, treat as anaphylaxis."
 ]
         },
         moderate_angioedema: {
@@ -555,7 +551,7 @@ arrest: [
       acute_severity_moderate: "Moderate Reaktionen",
       acute_severity_severe: "Schwere Reaktionen",
       acute_pattern_mild_general: "Milde Reaktionen",
-      acute_pattern_moderate_urticaria: "Generalisierte Urtikaria / diffuses Erythem",
+      acute_pattern_moderate_urticaria: "Diffuse Urtikaria / diffuses Erythem",
       acute_pattern_moderate_angioedema: "Faziales Ödem / Angioödem",
       acute_pattern_moderate_bronchospasm: "Milder Bronchospasmus",
       acute_pattern_severe_anaphylaxis: "Anaphylaxie",
@@ -591,17 +587,13 @@ escalation: [
 ]
         },
         moderate_urticaria: {
-clinical: "Generalisierte Urtikaria / diffuses Erythem.",
-warning: "Achtung Hypotonie.",
+clinical: "Diffuse Urtikaria / diffuses Erythem.",
 management: [
-  "1000 mL NaCl 0,9% i.v. in 1 h.",
-  "H1-Antihistaminikum i.v., z. B. Clemastin 2 mg.",
-  "Bei Bedarf H1-Antihistaminikum i.v. nach 5 Minuten wiederholen.",
-  "Bei Hypotonie (SBP <90): Beine aktiv hochlagern."
+  "Chlorphenamin 20 mg oder Clemastin 2 mg i.v. geben.",
+  "Verlegung in einen Bereich mit Überwachung der Vitalfunktionen erwägen."
 ],
 escalation: [
-  "Bei Hypotonie (SBP <90): wie Anaphylaxie behandeln.",
-  "Bei Bedarf Rapid-Response-Team hinzuziehen."
+  "Bei begleitender Hypotonie wie eine Anaphylaxie behandeln."
 ]
         },
         moderate_angioedema: {
