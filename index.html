@@ -26,8 +26,8 @@
 </header>
 
 <div class="sticky-disclaimer" id="stickyDisclaimer">
-  <strong data-i18n="disclaimer_line1">Educational tool based on ESUR CMSC guidance (2025).</strong>
-  <span data-i18n="disclaimer_line2">Information only. Does not replace clinical judgement or local protocols. No patient data stored.</span>
+  <strong data-i18n="disclaimer_line1">Educational tool. Follow local protocols.</strong>
+  <span data-i18n="disclaimer_line2">Information only. Clinical decisions should follow local protocols, source documents and clinical judgement. No patient data are stored.</span>
 </div>
 
 <main class="app">
@@ -52,8 +52,11 @@
 
     <!-- HSR: GUIDANCE -->
     <section class="subview" id="hsr-tab-guidance">
+      <div class="card card--subtle">
+        <div class="output hint" data-i18n="flow_routing_note">Educational support for prior immediate hypersensitivity reactions. For non-immediate reactions, use the NIHR module.</div>
+      </div>
       <div class="card">
-        <div class="card__title" data-i18n="flow_step1">Step 1 — Situation</div>
+        <div class="card__title" data-i18n="flow_step1">Step 1 — Clinical situation</div>
         <div class="seg">
           <button class="seg__btn active" data-seg="situation" data-value="elective" type="button" data-i18n="elective">Elective</button>
           <button class="seg__btn" data-seg="situation" data-value="emergency" type="button" data-i18n="emergency">Emergency</button>
@@ -72,6 +75,16 @@
       <div class="card card--output">
         <div class="card__title" data-i18n="recommendation">Recommendation</div>
         <div class="output" id="flowOutput"></div>
+      </div>
+
+      <div class="card card--subtle">
+        <div class="card__title" data-i18n="hsr_referral_title">Referral & documentation</div>
+        <div class="output">
+          <ul>
+            <li data-i18n="hsr_referral_specify">When referring the patient to a drug allergy specialist, always specify the used contrast medium.</li>
+            <li data-i18n="hsr_referral_document">Detailed documentation of the culprit contrast agent and the severity of the reaction, including a grading scheme, is mandatory.</li>
+          </ul>
+        </div>
       </div>
 
       <div class="card card--subtle">
@@ -107,10 +120,10 @@
         <div class="card__title" data-i18n="acute_pattern_title">Dominant reaction pattern</div>
         <div class="seg seg--stack" id="acutePatternOptions">
           <button class="seg__btn active" data-seg="acutePattern" data-value="mild_general" data-acute-severity="mild" type="button" data-i18n="acute_pattern_mild_general">Mild reactions</button>
-          <button class="seg__btn" data-seg="acutePattern" data-value="moderate_urticaria" data-acute-severity="moderate" type="button" data-i18n="acute_pattern_moderate_urticaria" hidden>Generalised urticaria / diffuse erythema</button>
-          <button class="seg__btn" data-seg="acutePattern" data-value="moderate_angioedema" data-acute-severity="moderate" type="button" data-i18n="acute_pattern_moderate_angioedema" hidden>Facial / angioedema</button>
+          <button class="seg__btn" data-seg="acutePattern" data-value="moderate_urticaria" data-acute-severity="moderate" type="button" data-i18n="acute_pattern_moderate_urticaria" hidden>Diffuse urticaria / diffuse erythema</button>
+          <button class="seg__btn" data-seg="acutePattern" data-value="moderate_angioedema" data-acute-severity="moderate" type="button" data-i18n="acute_pattern_moderate_angioedema" hidden>Facial edema without stridor</button>
           <button class="seg__btn" data-seg="acutePattern" data-value="moderate_bronchospasm" data-acute-severity="moderate" type="button" data-i18n="acute_pattern_moderate_bronchospasm" hidden>Mild bronchospasm</button>
-          <button class="seg__btn" data-seg="acutePattern" data-value="severe_anaphylaxis" data-acute-severity="severe" type="button" data-i18n="acute_pattern_severe_anaphylaxis" hidden>Anaphylaxis</button>
+          <button class="seg__btn" data-seg="acutePattern" data-value="severe_anaphylaxis" data-acute-severity="severe" type="button" data-i18n="acute_pattern_severe_anaphylaxis" hidden>Anaphylactic reaction or stridor</button>
         </div>
       </div>
 
@@ -229,7 +242,17 @@
       <div class="card card--subtle">
         <div class="card__title" data-i18n="nihr_title">NIHR — non-immediate hypersensitivity reactions</div>
         <div class="output hint" data-i18n="nihr_subtitle">
-          Use this module for previous delayed / non-immediate skin reactions after contrast media when re-administration is being considered. Screen for danger signs suggesting SCAR and follow the ESUR prevention pathway.
+          For a previous non-immediate hypersensitivity reaction to an iodine-based contrast medium or a gadolinium-based contrast agent when re-administration is being considered.
+        </div>
+      </div>
+
+      <div class="card card--subtle">
+        <div class="card__title" data-i18n="hsr_referral_title">Referral & documentation</div>
+        <div class="output">
+          <ul>
+            <li data-i18n="hsr_referral_specify">When referring the patient to a drug allergy specialist, always specify the used contrast medium.</li>
+            <li data-i18n="hsr_referral_document">Detailed documentation of the culprit contrast agent and the severity of the reaction, including a grading scheme, is mandatory.</li>
+          </ul>
         </div>
       </div>
 

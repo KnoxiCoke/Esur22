@@ -52,6 +52,14 @@ document.addEventListener("DOMContentLoaded", function () {
       flow_step1: "Step 1 — Clinical situation",
       flow_step2: "Step 2 — Prior reaction severity",
 
+      flow_routing_note:
+        "Educational support for prior immediate hypersensitivity reactions. For non-immediate reactions, use the NIHR module.",
+      hsr_referral_title: "Referral & documentation",
+      hsr_referral_specify:
+        "When referring the patient to a drug allergy specialist, always specify the used contrast medium.",
+      hsr_referral_document:
+        "Detailed documentation of the culprit contrast agent and the severity of the reaction, including a grading scheme, is mandatory.",
+
       elective: "Elective",
       emergency: "Emergency",
       mild: "Mild",
@@ -472,7 +480,7 @@ arrest: [
       app_title: "Radiology Contrast & Safety App",
       reset: "Zurücksetzen",
 
-      disclaimer_line1: "Didaktisches Support-Tool. Lokale Protokolle beachten..",
+      disclaimer_line1: "Didaktisches Support-Tool. Lokale Protokolle beachten.",
       disclaimer_line2: "Nur zur Information. Klinische Entscheidungen sollten lokalen Protokollen, den Quellendokumenten und der klinischen Beurteilung folgen. Es werden keine Patientendaten gespeichert.",
       disclaimer_line3: "Inhalt zur Kontrastmittelsicherheit adaptiert aus der Guidance des ESUR Contrast Media Safety Committee.",
 
@@ -493,6 +501,14 @@ arrest: [
       flow_subtitle: "Didaktische Orientierung bei früheren Hypersensitivitätsreaktionen auf Kontrastmittel.",
       flow_step1: "Schritt 1 — Klinische Situation",
       flow_step2: "Schritt 2 — Schweregrad der früheren Reaktion",
+
+      flow_routing_note:
+        "Didaktische Orientierung bei früheren unmittelbaren Hypersensitivitätsreaktionen. Bei nicht unmittelbaren Reaktionen das NIHR-Modul verwenden.",
+      hsr_referral_title: "Überweisung & Dokumentation",
+      hsr_referral_specify:
+        "Bei einer Überweisung an eine Fachperson für Arzneimittelallergien immer das verwendete Kontrastmittel angeben.",
+      hsr_referral_document:
+        "Eine detaillierte Dokumentation des auslösenden Kontrastmittels und des Schweregrads der Reaktion einschließlich eines Graduierungsschemas ist verpflichtend.",
 
       elective: "Elektiv",
       emergency: "Notfall",
@@ -2761,10 +2777,18 @@ ${renderAcuteList(content.arrest)}
   function calcTryptase() {
     if (!tryptaseOutput) return;
 
-    const baseline = Number(document.getElementById("baseline")?.value);
-    const acute = Number(document.getElementById("acute")?.value);
+    const baselineRaw = document.getElementById("baseline")?.value?.trim() ?? "";
+    const acuteRaw = document.getElementById("acute")?.value?.trim() ?? "";
 
-    if (!isFinite(baseline) || !isFinite(acute) || baseline < 0 || acute < 0) {
+    if (baselineRaw === "" || acuteRaw === "") {
+      tryptaseOutput.innerHTML = `<div class="hint">${escapeHtml(t("tryptase_invalid"))}</div>`;
+      return;
+    }
+
+    const baseline = Number(baselineRaw);
+    const acute = Number(acuteRaw);
+
+    if (!Number.isFinite(baseline) || !Number.isFinite(acute) || baseline < 0 || acute < 0) {
       tryptaseOutput.innerHTML = `<div class="hint">${escapeHtml(t("tryptase_invalid"))}</div>`;
       return;
     }
