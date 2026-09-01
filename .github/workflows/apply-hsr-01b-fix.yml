@@ -1,0 +1,33 @@
+name: Apply 01B FIX
+on:
+  push:
+    paths:
+      - ".github/workflows/apply-hsr-01b-fix.yml"
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch specs
+        run: |
+          python3 << 'PY'
+          from pathlib import Path
+          p=Path("tests/nihr.spec.js")
+          t=p.read_text()
+          old='const { test, expect } = require("@playwright/test");\nconst { openApp, openHsrTab, clickSeg, nihrOutput } = require("./helpers/ui");'
+          new='const { test, expect, openApp, openHsrTab, clickSeg, nihrOutput } = require("./helpers/ui");'
+          if old not in t:
+              raise SystemExit("nihr import missing")
+          p.write_text(t.replace(old,new,1))
+          print("nihr ok")
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -f .github/workflows/apply-hsr-01b-fix.yml
+          git add -A
+          git commit -m "HSR_REGRESSION_01B_FIX: use shared error fixture in NIHR specs"
+          git push
