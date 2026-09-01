@@ -192,17 +192,13 @@ escalation: [
         },
         moderate_bronchospasm: {
 clinical: "Mild bronchospasm.",
-warning: "Cave respiratory threat.",
 management: [
-  "O₂ via mask 10–15 L/min.",
-  "SABA dose-aerosol: 2–3 deep inhalations of 100 µg, or nebulization in 3 mL saline until improved, according to ESUR/source text.",
-  "When needed, repeat SABA nebulization until improved."
+  "Short-acting β2-agonist: 2–4 inhalations of 100 µg of salbutamol via inhalation (depending on severity), with option to repeat every 20 min, or via nebulization (2.5–5 µg diluted in 3 mL of saline solution) until clinical improvement.",
+  "Consider transferring the patient to a department with facilities for monitoring vital functions."
 ],
 escalation: [
-  "When increasing in severity: adrenaline 1 mg/mL, 0.5 mg IM.",
-  "When increasing in severity: when needed, repeat adrenaline 1 mg/mL, 0.5 mg IM after 5 minutes, guided by heart rate.",
-  "When protracted >5 h: consider adding corticosteroid slowly IV, e.g. prednisolone 50 mg.",
-  "When needed, consult rapid response team."
+  "In case of deterioration, give adrenaline 0.5 mg IM and consider consulting the rapid response team.",
+  "When bronchospasm increases in severity, consider repeating adrenaline 0.5 mg IM, guided by heart rate."
 ]
         },
         severe_anaphylaxis: {
@@ -605,17 +601,13 @@ escalation: [
         },
         moderate_bronchospasm: {
 clinical: "Milder Bronchospasmus.",
-warning: "Achtung respiratorische Bedrohung.",
 management: [
-  "O₂ über Maske 10–15 L/min.",
-  "SABA-Dosieraerosol: 2–3 tiefe Inhalationen à 100 µg oder Vernebelung in 3 mL NaCl bis zur Besserung, gemäß ESUR/Quelltext.",
-  "Bei Bedarf SABA-Vernebelung bis zur Besserung wiederholen."
+  "Kurzwirksamer β2-Agonist: 2–4 Inhalationen zu je 100 µg Salbutamol (abhängig vom Schweregrad), mit der Option zur Wiederholung alle 20 Minuten, oder per Vernebelung (2,5–5 µg verdünnt in 3 mL Kochsalzlösung) bis zur klinischen Besserung.",
+  "Verlegung in einen Bereich mit Überwachung der Vitalfunktionen erwägen."
 ],
 escalation: [
-  "Bei zunehmender Schwere: Adrenalin 1 mg/mL, 0,5 mg i.m.",
-  "Bei zunehmender Schwere: bei Bedarf Adrenalin 1 mg/mL, 0,5 mg i.m. nach 5 Minuten wiederholen, herzfrequenzgesteuert.",
-  "Bei protrahiertem Verlauf >5 h: Kortikosteroid langsam i.v. erwägen, z. B. Prednisolon 50 mg.",
-  "Bei Bedarf Rapid-Response-Team hinzuziehen."
+  "Bei Verschlechterung Adrenalin 0,5 mg i.m. geben und die Hinzuziehung des Rapid-Response-Teams erwägen.",
+  "Wenn der Bronchospasmus an Schwere zunimmt, Wiederholung von Adrenalin 0,5 mg i.m. erwägen, gesteuert anhand der Herzfrequenz."
 ]
         },
         severe_anaphylaxis: {
