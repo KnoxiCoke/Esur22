@@ -1,0 +1,132 @@
+name: Remove obsolete modules
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/remove-obsolete-modules.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove Thyroid Dose Washout code
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          script_path = Path('script.js')
+          s = script_path.read_text(encoding='utf-8')
+
+          def sub(pattern, repl, expected=None, flags=re.S | re.M, label=''):
+              global s
+              s2, n = re.subn(pattern, repl, s, flags=flags)
+              if expected is not None and n != expected:
+                  raise SystemExit(f'{label or pattern}: expected {expected} replacement(s), got {n}')
+              s = s2
+
+          # State and navigation metadata.
+          s = s.replace('mainNav: "hsr",          // hsr | thyroid | calculators | changes', 'mainNav: "hsr",          // hsr | changes')
+          sub(r'^\s{4}calcTab: "dose",\s*// dose \| washout\n', '', 1, label='calcTab state')
+          sub(r'\n    // Thyroid\n.*?\n    // Global\n', '\n    // Global\n', 1, label='thyroid/dose state block')
+
+          # Remove nav labels and complete Thyroid/Calculators translation blocks in both languages.
+          sub(r'^\s{6}nav_(?:thyroid|calculators):.*\n', '', 4, label='removed nav labels')
+          sub(r'\n      // Thyroid\n.*?\n      // Practice Changes tab — static UI\n', '\n      // Practice Changes tab — static UI\n', 2, label='i18n module blocks')
+
+          # Remove dose-only constants.
+          sub(r'\n  const doseFactors = \{.*?\n  const changesLibrary = \{', '\n  const changesLibrary = {', 1, label='dose constants')
+
+          # Remove removed main views and calculator subview map.
+          sub(r'^\s{4}(?:thyroid|calculators): document\.getElementById\("view-(?:thyroid|calculators)"\),\n', '', 2, label='removed view map entries')
+          sub(r'\n  const calcTabs = \{.*?\n  \};\n', '\n', 1, label='calcTabs map')
+          sub(r'^\s{2}const (?:thyroidOutput|doseOutput|washoutOutput) = .*;\n', '', 3, label='removed output refs')
+
+          # Remove calculator navigation helper.
+          sub(r'\n  function showCalcTab\(name\) \{.*?\n  \}\n', '\n', 1, label='showCalcTab')
+
+          # Remove complete Thyroid, Dose and Washout implementation block.
+          sub(r'\n  function renderThyroid\(\) \{.*?\n  function getChanges\(\) \{', '\n  function getChanges() {', 1, label='module functions')
+
+          # Remove render calls and language-refresh computations for removed modules.
+          s = re.sub(r'^\s{2}render(?:Thyroid|Dose|Washout)\(\);\n', '', s, flags=re.M)
+          sub(r'\n    const dlpVal = document\.getElementById\("doseDlp"\).*?\n    renderNihr\(\);', '\n    renderNihr();', 1, label='language refresh dose/washout block')
+          s = re.sub(r'^\s{4}renderThyroid\(\);\n', '', s, flags=re.M)
+
+          # Reset state: remove deleted module state, controls and inputs.
+          s = re.sub(r'^\s{4}state\.calcTab = "dose";\n', '', s, flags=re.M)
+          s = re.sub(r'^\s{4}state\.(?:thyroidSituation|thyroidStatus|thyroidMedication|thyroidRit|doseRegion) = .*;\n', '', s, flags=re.M)
+          s = re.sub(r'^\s{6}(?:thyroidSituation|thyroidStatus|thyroidMedication|thyroidRit|doseRegion): .*\n', '', s, flags=re.M)
+          sub(r'\n    document\.querySelectorAll\("\[data-calc-tab\]"\)\.forEach\(\(btn\) => \{.*?\n    \}\);\n', '\n', 1, label='reset calc-tab buttons')
+          s = re.sub(r'^\s{6}"(?:doseDlp|washoutUnenhanced|washoutEnhanced|washoutDelayed|washoutDelayMin)",?\n', '', s, flags=re.M)
+          sub(r'\n    if \(doseOutput\) \{.*?\n    \}\n', '\n', 1, label='reset dose output')
+          sub(r'\n    if \(washoutOutput\) \{.*?\n    \}\n', '\n', 1, label='reset washout output')
+          s = re.sub(r'^\s{4}showCalcTab\("dose"\);\n', '', s, flags=re.M)
+
+          # Event wiring: calculator subnav, segment types and calculator buttons.
+          sub(r'\n  // Calculator subnav\n.*?\n  // Generic segment buttons\n', '\n  // Generic segment buttons\n', 1, label='calculator subnav events')
+          s = re.sub(r'^\s{4}"(?:thyroidSituation|thyroidStatus|thyroidMedication|thyroidRit|doseRegion)",?\n', '', s, flags=re.M)
+          sub(r'\n  const calcDoseBtn = document\.getElementById\("calcDose"\);\n  if \(calcDoseBtn\) calcDoseBtn\.addEventListener\("click", calcDose\);\n', '\n', 1, label='dose button handler')
+          sub(r'\n  const calcWashoutBtn = document\.getElementById\("calcWashout"\);\n  if \(calcWashoutBtn\) calcWashoutBtn\.addEventListener\("click", calcWashout\);\n', '\n', 1, label='washout button handler')
+          s = s.replace('  // Calculator buttons\n', '  // Tryptase calculator\n')
+          s = re.sub(r'^\s{2}showCalcTab\("dose"\);\n', '', s, flags=re.M)
+
+          forbidden_script = [
+              'nav_thyroid', 'nav_calculators', 'thyroid_title', 'calculators_title',
+              'dose_input_title', 'washout_input_title', 'thyroidSituation', 'thyroidStatus',
+              'thyroidMedication', 'thyroidRit', 'doseRegion', 'calcTab', 'calcTabs',
+              'renderThyroid', 'renderDose', 'calcDose', 'renderWashout', 'calcWashout',
+              'doseFactors', 'doseComparisons', 'doseRegionLabels', 'thyroidOutput',
+              'doseOutput', 'washoutOutput', 'showCalcTab', 'data-calc-tab',
+              'view-thyroid', 'view-calculators'
+          ]
+          leftovers = [x for x in forbidden_script if x in s]
+          if leftovers:
+              raise SystemExit('Module-specific leftovers in script.js: ' + ', '.join(leftovers))
+
+          script_path.write_text(s, encoding='utf-8')
+
+          # Remove module-specific CSS selectors only; retain shared styling.
+          css_path = Path('style.css')
+          css = css_path.read_text(encoding='utf-8')
+          old1 = '''#switchOutput .hint,\n#thyroidOutput .hint,\n#doseOutput .hint,\n#washoutOutput .hint {'''
+          new1 = '''#switchOutput .hint {'''
+          if old1 not in css:
+              raise SystemExit('Expected output hint selector block not found in style.css')
+          css = css.replace(old1, new1, 1)
+
+          old2 = '''#nihrOutput > div:first-child,\n#flowOutput > div:first-child,\n#switchOutput > div:first-child,\n#tryptaseOutput > div:first-child,\n#thyroidOutput > div:first-child,\n#doseOutput > div:first-child,\n#washoutOutput > div:first-child {'''
+          new2 = '''#nihrOutput > div:first-child,\n#flowOutput > div:first-child,\n#switchOutput > div:first-child,\n#tryptaseOutput > div:first-child {'''
+          if old2 not in css:
+              raise SystemExit('Expected first-child selector block not found in style.css')
+          css = css.replace(old2, new2, 1)
+
+          for token in ('#thyroidOutput', '#doseOutput', '#washoutOutput'):
+              if token in css:
+                  raise SystemExit(f'CSS leftover: {token}')
+          css_path.write_text(css, encoding='utf-8')
+
+          # Confirm the production HTML remains clean.
+          html = Path('index.html').read_text(encoding='utf-8')
+          for token in ('view-thyroid', 'view-calculators', 'data-main-nav="thyroid"', 'data-main-nav="calculators"'):
+              if token in html:
+                  raise SystemExit(f'HTML leftover: {token}')
+
+          print('Cleanup checks passed.')
+          PY
+
+      - name: Commit cleanup
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add script.js style.css
+          git diff --cached --check
+          git commit -m "Remove Thyroid Dose and Washout modules completely"
+          git push
