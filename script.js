@@ -65,17 +65,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
       switch_title: "Switch",
       switch_subtitle:
-        "Educational support for empiric contrast agent switch consideration based on practical experience.",
+        "Optional, non-validated contrast-agent grouping and practical-experience suggestions for empiric switch consideration.",
       contrast_type: "Contrast type",
       nihr_cmtype_title: "Contrast type",
       icm_ct: "ICM (CT)",
       gbca_mri: "GBCA (MRI)",
-      icm_title: "ICM (iodinated)",
+      icm_title: "ICM (iodine-based)",
       gbca_title: "GBCA (gadolinium-based)",
       possible_alternatives: "Possible alternatives",
       safety_note: "Safety note",
+      switch_status_optional:
+        "This switch overview is optional and based on a non-validated classification and practical experience.",
+      switch_cmsc:
+        "The CMSC cannot make evidence-based recommendations on a robust scientific basis for change to an alternative contrast agent based on practical experience.",
+      switch_cr_structure:
+        "Cross-reactivity cannot be predicted on the basis of the chemical structure.",
+      switch_cr_frequency:
+        "Cross-reactivity can occur with a higher frequency among iodine-based contrast media with a N-(2,3-hydroxypropyl)-carbamoyl side chain and among macrocyclic gadolinium-based contrast agents.",
+      switch_best_option:
+        "The best option is to choose an alternative based on the results of an allergy evaluation.",
+      switch_brand_governance:
+        "Brand names are shown for product identification only. ESUR grouping and switch guidance are based on the generic contrast-agent substance.",
       switch_safety_note:
-        "These suggestions are based on practical experience only. Allergy evaluation remains preferable whenever available.",
+        "This switch overview is optional and based on a non-validated classification and practical experience. The CMSC cannot make evidence-based recommendations on a robust scientific basis for change to an alternative contrast agent based on practical experience. Cross-reactivity cannot be predicted on the basis of the chemical structure. The best option is to choose an alternative based on the results of an allergy evaluation.",
       unknown: "Unknown",
       icm_unknown_hint: "Use when the involved ICM is not known.",
       gbca_unknown_hint: "Use when the involved GBCA is not known.",
@@ -87,16 +99,16 @@ document.addEventListener("DOMContentLoaded", function () {
       gbca_group_b_label: "Group B",
       gbca_group_c_label: "Group C",
       icm_group_a_names:
-        "Omnipaque (iohexol) · Visipaque (iodixanol) · Iomeron (iomeprol) · Optiray (ioversol)",
-      icm_group_b_names: "Iopamiro / Isovue (iopamidol)",
-      icm_group_c_names: "Ultravist (iopromide)",
-      icm_group_d_names: "Xenetix (iobitridol)",
-      gbca_group_a_names: "Dotarem / Clariscan (gadoterate meglumine)",
+        "Omnipaque® — iohexol · Visipaque® — iodixanol · Iomeron® — iomeprol · Optiray® — ioversol",
+      icm_group_b_names: "Iopamiro® / Isovue® — iopamidol",
+      icm_group_c_names: "Ultravist® — iopromide",
+      icm_group_d_names: "Xenetix® — iobitridol",
+      gbca_group_a_names: "Dotarem® / Clariscan® — gadoterate meglumine",
       gbca_group_b_names:
-        "Gadovist / Gadavist (gadobutrol) · ProHance (gadoteridol)",
-      gbca_group_c_names: "Elucirem / Vueway (gadopiclenol)",
+        "ProHance® — gadoteridol · Gadovist® / Gadavist® — gadobutrol",
+      gbca_group_c_names: "Elucirem® / Vueway® — gadopiclenol",
       switch_nonvalidated:
-        "This switch overview is optional, non-validated guidance based on practical experience. It does not replace allergy evaluation or local decision-making.",
+        "This switch overview is optional and based on a non-validated classification and practical experience.",
 
       tryptase_title: "Serum tryptase",
       tryptase_sample_measure:
@@ -288,9 +300,9 @@ arrest: [
         "Individualize the approach following multidisciplinary consultation after a severe reaction to an unknown CM.",
 
             icm_hint:
-        "ICM group examples\nBrand examples; availability and trademarks may vary by country.",
+        "ESUR grouping is based on the generic contrast-agent substance. Brand names are shown for product identification only.\nGrouping according to ESUR Part 2 Fig. 2 / Fig. 3 and Table 1.",
       gbca_hint:
-        "GBCA group examples\nBrand examples; availability and trademarks may vary by country.",
+        "ESUR grouping is based on the generic contrast-agent substance. Brand names are shown for product identification only.\nGrouping according to ESUR Part 2 Fig. 2 / Fig. 3 and Table 1.",
 
       flow_titles: {
         elective_mild: "Elective imaging — prior mild immediate hypersensitivity reaction",
@@ -381,51 +393,51 @@ arrest: [
       icm_rules: {
         A: {
           title: "Group A selected",
-          text: "Alternative ICM from Group B or D may be considered.",
-          note: "High cross-reactivity has been reported between Group A and Group C. This suggestion is based on practical experience only."
+          text: "Practical-experience suggestion: Alternative ICM from Group B or D (without classic carbamoyl sidechain).",
+          note: "High cross-reactivity between Group A and Group C."
         },
         B: {
           title: "Group B selected",
-          text: "Alternative ICM from Group A, C or D may be considered.",
-          note: "This suggestion is based on practical experience only."
+          text: "Practical-experience suggestion: Alternative ICM from Group A, C or D.",
+          note: ""
         },
         C: {
           title: "Group C selected",
-          text: "Alternative ICM from Group B may be considered.",
-          note: "High cross-reactivity has been reported between Group C and Group A. This suggestion is based on practical experience only."
+          text: "Practical-experience suggestion: Alternative ICM from Group B (without classic or methyl-modified carbamoyl sidechain).",
+          note: "High cross-reactivity between Group C and Group A."
         },
         D: {
           title: "Group D selected",
-          text: "Alternative ICM from Group A or B may be considered.",
-          note: "This suggestion is based on practical experience only."
+          text: "Practical-experience suggestion: Alternative ICM from Group A or B (without methyl-modified carbamoyl sidechain).",
+          note: ""
         },
         unknown: {
           title: "ICM unknown",
-          text: "Alternative ICM from Group B or D may be considered.",
-          note: "This suggestion is based on practical experience only and reflects the higher likelihood that the involved ICM belongs to Group A."
+          text: "Due to the higher likelihood that the involved ICM is from Group A: choose the alternative ICM from Group B or D.",
+          note: "High cross-reactivity between Group C and Group A. This is a practical-experience suggestion based on the optional, non-validated classification and is not a robust evidence-based recommendation."
         }
       },
 
       gbca_rules: {
         A: {
           title: "Group A selected",
-          text: "Alternative GBCA from Group B may be considered.",
-          note: "This suggestion is based on practical experience only."
+          text: "Practical-experience suggestion: Alternative GBCA from Group B.",
+          note: ""
         },
         B: {
           title: "Group B selected",
-          text: "Alternative GBCA from Group A may be considered.",
-          note: "This suggestion is based on practical experience only."
+          text: "Practical-experience suggestion: Alternative GBCA from Group A.",
+          note: ""
         },
         C: {
           title: "Group C selected",
           text: "Insufficient data for empiric change advice.",
-          note: "Specialist input is preferable."
+          note: ""
         },
         unknown: {
           title: "GBCA unknown",
-          text: "No regimen can be recommended with certainty. Use of a GBCA different from the routinely administered agent may be considered.",
-          note: "This suggestion is based on practical experience only."
+          text: "It is not possible to recommend a regimen with certainty. Due to the probability of involvement, using a GBCA different from the one routinely administered is suggested.",
+          note: "This is based on practical experience and is not a robust evidence-based recommendation."
         }
       },
 
@@ -495,17 +507,29 @@ arrest: [
 
       switch_title: "Switch",
       switch_subtitle:
-        "Didaktische Orientierung zum empirischen Wechsel des Kontrastmittels auf Basis praktischer Erfahrung.",
+        "Optionale, nicht validierte Kontrastmittelgruppierung und Vorschläge aus praktischer Erfahrung zur empirischen Wechselorientierung.",
       contrast_type: "Kontrastmitteltyp",
       nihr_cmtype_title: "Kontrastmitteltyp",
       icm_ct: "ICM (CT)",
       gbca_mri: "GBCA (MRT)",
-      icm_title: "ICM (jodhaltig)",
-      gbca_title: "GBCA (gadoliniumhaltig)",
+      icm_title: "ICM (iodhaltig)",
+      gbca_title: "GBCA (gadoliniumbasiert)",
       possible_alternatives: "Mögliche Alternativen",
       safety_note: "Sicherheitshinweis",
+      switch_status_optional:
+        "Diese Switch-Übersicht ist optional und beruht auf einer nicht validierten Klassifikation sowie auf praktischer Erfahrung.",
+      switch_cmsc:
+        "Das CMSC kann keine evidenzbasierten Empfehlungen auf robuster wissenschaftlicher Grundlage für den Wechsel auf ein alternatives Kontrastmittel auf Basis praktischer Erfahrung geben.",
+      switch_cr_structure:
+        "Kreuzreaktivität lässt sich nicht auf Grundlage der chemischen Struktur vorhersagen.",
+      switch_cr_frequency:
+        "Kreuzreaktivität kann häufiger auftreten bei iodhaltigen Kontrastmitteln mit einer N-(2,3-Hydroxypropyl)-carbamoyl-Seitenkette und bei makrozyklischen gadoliniumbasierten Kontrastmitteln.",
+      switch_best_option:
+        "Die beste Option ist, eine Alternative anhand der Ergebnisse einer allergologischen Abklärung zu wählen.",
+      switch_brand_governance:
+        "Markennamen dienen ausschließlich der Produktidentifikation. Die ESUR-Gruppierung und die Switch-Orientierung beziehen sich auf den jeweiligen Wirkstoff des Kontrastmittels.",
       switch_safety_note:
-        "Diese Vorschläge beruhen nur auf praktischer Erfahrung. Eine allergologische Abklärung bleibt vorzuziehen, wenn verfügbar.",
+        "Diese Switch-Übersicht ist optional und beruht auf einer nicht validierten Klassifikation sowie auf praktischer Erfahrung. Das CMSC kann keine evidenzbasierten Empfehlungen auf robuster wissenschaftlicher Grundlage für den Wechsel auf ein alternatives Kontrastmittel auf Basis praktischer Erfahrung geben. Kreuzreaktivität lässt sich nicht auf Grundlage der chemischen Struktur vorhersagen. Die beste Option ist, eine Alternative anhand der Ergebnisse einer allergologischen Abklärung zu wählen.",
       unknown: "Unbekannt",
       icm_unknown_hint: "Verwenden, wenn das auslösende ICM nicht bekannt ist.",
       gbca_unknown_hint: "Verwenden, wenn das auslösende GBCA nicht bekannt ist.",
@@ -517,16 +541,16 @@ arrest: [
       gbca_group_b_label: "Gruppe B",
       gbca_group_c_label: "Gruppe C",
       icm_group_a_names:
-        "Omnipaque (Iohexol) · Visipaque (Iodixanol) · Iomeron (Iomeprol) · Optiray (Ioversol)",
-      icm_group_b_names: "Iopamiro / Isovue (Iopamidol)",
-      icm_group_c_names: "Ultravist (Iopromid)",
-      icm_group_d_names: "Xenetix (Iobitridol)",
-      gbca_group_a_names: "Dotarem / Clariscan (Gadotersäure / Gadoterat-Meglumin)",
+        "Omnipaque® — iohexol · Visipaque® — iodixanol · Iomeron® — iomeprol · Optiray® — ioversol",
+      icm_group_b_names: "Iopamiro® / Isovue® — iopamidol",
+      icm_group_c_names: "Ultravist® — iopromide",
+      icm_group_d_names: "Xenetix® — iobitridol",
+      gbca_group_a_names: "Dotarem® / Clariscan® — gadoterate meglumine",
       gbca_group_b_names:
-        "Gadovist / Gadavist (Gadobutrol) · ProHance (Gadoteridol)",
-      gbca_group_c_names: "Elucirem / Vueway (Gadopiclenol)",
+        "ProHance® — gadoteridol · Gadovist® / Gadavist® — gadobutrol",
+      gbca_group_c_names: "Elucirem® / Vueway® — gadopiclenol",
       switch_nonvalidated:
-        "Diese Switch-Übersicht ist eine optionale, nicht validierte Orientierung auf Basis praktischer Erfahrung. Sie ersetzt weder eine allergologische Abklärung noch lokale Entscheidungen.",
+        "Diese Switch-Übersicht ist optional und beruht auf einer nicht validierten Klassifikation sowie auf praktischer Erfahrung.",
 
       tryptase_title: "Serumtryptase",
       tryptase_sample_measure:
@@ -719,9 +743,9 @@ arrest: [
         "Nach einer schweren Reaktion auf ein unbekanntes Kontrastmittel das Vorgehen nach multidisziplinärer Konsultation individualisieren.",
 
             icm_hint:
-        "ICM-Gruppenbeispiele\nMarkenbeispiele; Verfügbarkeit und Markenrechte können je nach Land variieren.",
+        "Die ESUR-Gruppierung basiert auf dem jeweiligen Kontrastmittelwirkstoff. Markennamen werden ausschließlich zur Produktidentifikation angezeigt.\nGruppierung gemäß ESUR Part 2 Fig. 2 / Fig. 3 und Table 1.",
       gbca_hint:
-        "GBCA-Gruppenbeispiele\nMarkenbeispiele; Verfügbarkeit und Markenrechte können je nach Land variieren.",
+        "Die ESUR-Gruppierung basiert auf dem jeweiligen Kontrastmittelwirkstoff. Markennamen werden ausschließlich zur Produktidentifikation angezeigt.\nGruppierung gemäß ESUR Part 2 Fig. 2 / Fig. 3 und Table 1.",
 
       flow_titles: {
         elective_mild: "Elektive Bildgebung — frühere milde unmittelbare Hypersensitivitätsreaktion",
@@ -812,51 +836,51 @@ arrest: [
       icm_rules: {
         A: {
           title: "Gruppe A ausgewählt",
-          text: "Ein alternatives ICM aus Gruppe B oder D kann erwogen werden.",
-          note: "Eine hohe Kreuzreaktivität wurde zwischen Gruppe A und Gruppe C beschrieben. Dieser Vorschlag beruht nur auf praktischer Erfahrung."
+          text: "Vorschlag aus praktischer Erfahrung: Alternatives ICM aus Gruppe B oder D (ohne klassische Carbamoyl-Seitenkette).",
+          note: "Hohe Kreuzreaktivität zwischen Gruppe A und Gruppe C."
         },
         B: {
           title: "Gruppe B ausgewählt",
-          text: "Ein alternatives ICM aus Gruppe A, C oder D kann erwogen werden.",
-          note: "Dieser Vorschlag beruht nur auf praktischer Erfahrung."
+          text: "Vorschlag aus praktischer Erfahrung: Alternatives ICM aus Gruppe A, C oder D.",
+          note: ""
         },
         C: {
           title: "Gruppe C ausgewählt",
-          text: "Ein alternatives ICM aus Gruppe B kann erwogen werden.",
-          note: "Eine hohe Kreuzreaktivität wurde zwischen Gruppe C und Gruppe A beschrieben. Dieser Vorschlag beruht nur auf praktischer Erfahrung."
+          text: "Vorschlag aus praktischer Erfahrung: Alternatives ICM aus Gruppe B (ohne klassische oder methylmodifizierte Carbamoyl-Seitenkette).",
+          note: "Hohe Kreuzreaktivität zwischen Gruppe C und Gruppe A."
         },
         D: {
           title: "Gruppe D ausgewählt",
-          text: "Ein alternatives ICM aus Gruppe A oder B kann erwogen werden.",
-          note: "Dieser Vorschlag beruht nur auf praktischer Erfahrung."
+          text: "Vorschlag aus praktischer Erfahrung: Alternatives ICM aus Gruppe A oder B (ohne methylmodifizierte Carbamoyl-Seitenkette).",
+          note: ""
         },
         unknown: {
           title: "ICM unbekannt",
-          text: "Ein alternatives ICM aus Gruppe B oder D kann erwogen werden.",
-          note: "Dieser Vorschlag beruht nur auf praktischer Erfahrung und berücksichtigt die höhere Wahrscheinlichkeit, dass das beteiligte ICM zu Gruppe A gehört."
+          text: "Aufgrund der höheren Wahrscheinlichkeit, dass das beteiligte ICM aus Gruppe A stammt: das alternative ICM aus Gruppe B oder D wählen.",
+          note: "Hohe Kreuzreaktivität zwischen Gruppe C und Gruppe A. Dies ist ein Vorschlag aus praktischer Erfahrung auf Basis der optionalen, nicht validierten Klassifikation und keine robuste evidenzbasierte Empfehlung."
         }
       },
 
       gbca_rules: {
         A: {
           title: "Gruppe A ausgewählt",
-          text: "Ein alternatives GBCA aus Gruppe B kann erwogen werden.",
-          note: "Dieser Vorschlag beruht nur auf praktischer Erfahrung."
+          text: "Vorschlag aus praktischer Erfahrung: Alternatives GBCA aus Gruppe B.",
+          note: ""
         },
         B: {
           title: "Gruppe B ausgewählt",
-          text: "Ein alternatives GBCA aus Gruppe A kann erwogen werden.",
-          note: "Dieser Vorschlag beruht nur auf praktischer Erfahrung."
+          text: "Vorschlag aus praktischer Erfahrung: Alternatives GBCA aus Gruppe A.",
+          note: ""
         },
         C: {
           title: "Gruppe C ausgewählt",
-          text: "Für einen empirischen Wechsel besteht eine unzureichende Datenlage.",
-          note: "Fachärztlicher Input ist vorzuziehen."
+          text: "Unzureichende Datenlage für eine empirische Wechsel-Empfehlung.",
+          note: ""
         },
         unknown: {
           title: "GBCA unbekannt",
-          text: "Es kann kein Schema mit Sicherheit empfohlen werden. Die Verwendung eines anderen als des routinemässig eingesetzten GBCA kann erwogen werden.",
-          note: "Dieser Vorschlag beruht nur auf praktischer Erfahrung."
+          text: "Ein Schema kann nicht mit Sicherheit empfohlen werden. Aufgrund der Beteiligungswahrscheinlichkeit wird die Verwendung eines anderen als des routinemässig eingesetzten GBCA vorgeschlagen.",
+          note: "Dies beruht auf praktischer Erfahrung und ist keine robuste evidenzbasierte Empfehlung."
         }
       },
 
@@ -2483,7 +2507,7 @@ arrest: [
 
     setMultilineText("icmHint", t("icm_hint"));
     setMultilineText("gbcaHint", t("gbca_hint"));
-    setText("switchNonvalidated", t("switch_nonvalidated"));
+    fillSwitchPrinciples();
 
     setGroupLabel("icm", "A", t("icm_group_a_label"));
     setGroupLabel("icm", "B", t("icm_group_b_label"));
@@ -2668,6 +2692,23 @@ ${renderAcuteList(content.arrest)}
         <strong>${escapeHtml(t("acute_dose_reference_title"))}:</strong> ${escapeHtml(t("acute_dose_reference_note"))}
       </div>
     `;
+  }
+
+  function fillSwitchPrinciples() {
+    const items = [
+      t("switch_status_optional"),
+      t("switch_cmsc"),
+      t("switch_cr_structure"),
+      t("switch_cr_frequency"),
+      t("switch_best_option")
+    ];
+    const html =
+      `<ul>${items.map((line) => `<li>${escapeHtml(line)}</li>`).join("")}</ul>` +
+      `<div class="hint">${escapeHtml(t("switch_brand_governance"))}</div>`;
+    const top = document.getElementById("switchNonvalidated");
+    const safety = document.getElementById("switchSafety");
+    if (top) top.innerHTML = html;
+    if (safety) safety.innerHTML = html;
   }
 
   function renderSwitch() {
