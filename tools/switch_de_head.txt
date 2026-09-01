@@ -1,0 +1,47 @@
+      switch_title: "Switch",
+      switch_subtitle:
+        "Optionale, nicht validierte Kontrastmittelgruppierung und Vorschläge aus praktischer Erfahrung zur empirischen Wechselorientierung.",
+      contrast_type: "Kontrastmitteltyp",
+      nihr_cmtype_title: "Kontrastmitteltyp",
+      icm_ct: "ICM (CT)",
+      gbca_mri: "GBCA (MRT)",
+      icm_title: "ICM (iodhaltig)",
+      gbca_title: "GBCA (gadoliniumbasiert)",
+      possible_alternatives: "Mögliche Alternativen",
+      safety_note: "Sicherheitshinweis",
+      switch_status_optional:
+        "Diese Switch-Übersicht ist optional und beruht auf einer nicht validierten Klassifikation sowie auf praktischer Erfahrung.",
+      switch_cmsc:
+        "Das CMSC kann keine evidenzbasierten Empfehlungen auf robuster wissenschaftlicher Grundlage für den Wechsel auf ein alternatives Kontrastmittel auf Basis praktischer Erfahrung geben.",
+      switch_cr_structure:
+        "Kreuzreaktivität lässt sich nicht auf Grundlage der chemischen Struktur vorhersagen.",
+      switch_cr_frequency:
+        "Kreuzreaktivität kann häufiger auftreten bei iodhaltigen Kontrastmitteln mit einer N-(2,3-Hydroxypropyl)-carbamoyl-Seitenkette und bei makrozyklischen gadoliniumbasierten Kontrastmitteln.",
+      switch_best_option:
+        "Die beste Option ist, eine Alternative anhand der Ergebnisse einer allergologischen Abklärung zu wählen.",
+      switch_brand_governance:
+        "Markennamen dienen ausschließlich der Produktidentifikation. Die ESUR-Gruppierung und die Switch-Orientierung beziehen sich auf den jeweiligen Wirkstoff des Kontrastmittels.",
+      switch_safety_note:
+        "Diese Switch-Übersicht ist optional und beruht auf einer nicht validierten Klassifikation sowie auf praktischer Erfahrung. Das CMSC kann keine evidenzbasierten Empfehlungen auf robuster wissenschaftlicher Grundlage für den Wechsel auf ein alternatives Kontrastmittel auf Basis praktischer Erfahrung geben. Kreuzreaktivität lässt sich nicht auf Grundlage der chemischen Struktur vorhersagen. Die beste Option ist, eine Alternative anhand der Ergebnisse einer allergologischen Abklärung zu wählen.",
+      unknown: "Unbekannt",
+      icm_unknown_hint: "Verwenden, wenn das auslösende ICM nicht bekannt ist.",
+      gbca_unknown_hint: "Verwenden, wenn das auslösende GBCA nicht bekannt ist.",
+      icm_group_a_label: "Gruppe A",
+      icm_group_b_label: "Gruppe B",
+      icm_group_c_label: "Gruppe C",
+      icm_group_d_label: "Gruppe D",
+      gbca_group_a_label: "Gruppe A",
+      gbca_group_b_label: "Gruppe B",
+      gbca_group_c_label: "Gruppe C",
+      icm_group_a_names:
+        "Omnipaque® — iohexol · Visipaque® — iodixanol · Iomeron® — iomeprol · Optiray® — ioversol",
+      icm_group_b_names: "Iopamiro® / Isovue® — iopamidol",
+      icm_group_c_names: "Ultravist® — iopromide",
+      icm_group_d_names: "Xenetix® — iobitridol",
+      gbca_group_a_names: "Dotarem® / Clariscan® — gadoterate meglumine",
+      gbca_group_b_names:
+        "ProHance® — gadoteridol · Gadovist® / Gadavist® — gadobutrol",
+      gbca_group_c_names: "Elucirem® / Vueway® — gadopiclenol",
+      switch_nonvalidated:
+        "Diese Switch-Übersicht ist optional und beruht auf einer nicht validierten Klassifikation sowie auf praktischer Erfahrung.",
+
