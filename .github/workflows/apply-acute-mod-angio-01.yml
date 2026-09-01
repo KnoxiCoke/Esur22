@@ -1,0 +1,196 @@
+name: Apply ACUTE_MOD_ANGIO_01
+
+on:
+  push:
+    paths:
+      - ".github/workflows/apply-acute-mod-angio-01.yml"
+  workflow_dispatch:
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Apply ACUTE_MOD_ANGIO_01 replacements only
+        run: |
+          python3 << 'PY'
+          from pathlib import Path
+          p = Path('script.js')
+          t = p.read_text()
+
+          old_en_label = 'acute_pattern_moderate_angioedema: "Facial / angioedema",'
+          new_en_label = 'acute_pattern_moderate_angioedema: "Facial edema without stridor",'
+          old_de_label = 'acute_pattern_moderate_angioedema: "Faziales \u00d6dem / Angio\u00f6dem",'
+          new_de_label = 'acute_pattern_moderate_angioedema: "Faziales \u00d6dem ohne Stridor",'
+
+          old_en_block = '''        moderate_angioedema: {
+clinical: "Facial / angioedema.",
+warning: "Cave laryngeal oedema.",
+management: [
+  "O\u2082 via mask 10\u201315 L/min.",
+  "IV 1000 mL NaCl 0.9% in 1 h.",
+  "H1-antihistamine IV, e.g. clemastine 2 mg.",
+  "When needed, repeat H1-antihistamine IV after 5 minutes."
+],
+escalation: [
+  "If severe or stridor/laryngeal oedema: sitting position.",
+  "If severe or stridor/laryngeal oedema: treat as anaphylaxis.",
+  "If severe or stridor/laryngeal oedema: consult rapid response team."
+]
+        },'''
+
+          new_en_block = '''        moderate_angioedema: {
+clinical: "Facial edema without stridor.",
+management: [
+  "Give oxygen 10 to 15 L/min via a non-rebreathing mask.",
+  "Give chlorphenamine 20 mg or clemastine 2 mg IV.",
+  "Consider transferring the patient to a department with facilities for monitoring vital functions."
+],
+escalation: [
+  "If edema is severe, near airways, or if stridor develops, treat as anaphylaxis."
+]
+        },'''
+
+          old_de_block = '''        moderate_angioedema: {
+clinical: "Faziales \u00d6dem / Angio\u00f6dem.",
+warning: "Achtung Larynx\u00f6dem.",
+management: [
+  "O\u2082 \u00fcber Maske 10\u201315 L/min.",
+  "1000 mL NaCl 0,9% i.v. in 1 h.",
+  "H1-Antihistaminikum i.v., z. B. Clemastin 2 mg.",
+  "Bei Bedarf H1-Antihistaminikum i.v. nach 5 Minuten wiederholen."
+],
+escalation: [
+  "Bei schwerem Verlauf oder Stridor/Larynx\u00f6dem: sitzende Position.",
+  "Bei schwerem Verlauf oder Stridor/Larynx\u00f6dem: wie eine Anaphylaxie behandeln.",
+  "Bei schwerem Verlauf oder Stridor/Larynx\u00f6dem: Rapid-Response-Team hinzuziehen."
+]
+        },'''
+
+          new_de_block = '''        moderate_angioedema: {
+clinical: "Faziales \u00d6dem ohne Stridor.",
+management: [
+  "Sauerstoff 10 bis 15 L/min \u00fcber eine Nicht-R\u00fcckatmungsmaske geben.",
+  "Chlorphenamin 20 mg oder Clemastin 2 mg i.v. geben.",
+  "Verlegung in einen Bereich mit \u00dcberwachung der Vitalfunktionen erw\u00e4gen."
+],
+escalation: [
+  "Wenn das \u00d6dem schwer ist, in Atemwegsn\u00e4he liegt oder Stridor auftritt, wie eine Anaphylaxie behandeln."
+]
+        },'''
+
+          # Use the actual file characters, not the escaped literals above if they were double-escaped.
+          # Rebuild from the file's real text via unique anchors instead.
+          PY
+
+          python3 << 'PY'
+          from pathlib import Path
+          p = Path('script.js')
+          t = p.read_text(encoding='utf-8')
+
+          replacements = []
+
+          replacements.append((
+              'acute_pattern_moderate_angioedema: "Facial / angioedema",',
+              'acute_pattern_moderate_angioedema: "Facial edema without stridor",',
+          ))
+          replacements.append((
+              'acute_pattern_moderate_angioedema: "Faziales \u00d6dem / Angio\u00f6dem",',
+              'acute_pattern_moderate_angioedema: "Faziales \u00d6dem ohne Stridor",',
+          ))
+
+          old_en = '''        moderate_angioedema: {
+clinical: "Facial / angioedema.",
+warning: "Cave laryngeal oedema.",
+management: [
+  "O\u2082 via mask 10\u201315 L/min.",
+  "IV 1000 mL NaCl 0.9% in 1 h.",
+  "H1-antihistamine IV, e.g. clemastine 2 mg.",
+  "When needed, repeat H1-antihistamine IV after 5 minutes."
+],
+escalation: [
+  "If severe or stridor/laryngeal oedema: sitting position.",
+  "If severe or stridor/laryngeal oedema: treat as anaphylaxis.",
+  "If severe or stridor/laryngeal oedema: consult rapid response team."
+]
+        },'''
+          new_en = '''        moderate_angioedema: {
+clinical: "Facial edema without stridor.",
+management: [
+  "Give oxygen 10 to 15 L/min via a non-rebreathing mask.",
+  "Give chlorphenamine 20 mg or clemastine 2 mg IV.",
+  "Consider transferring the patient to a department with facilities for monitoring vital functions."
+],
+escalation: [
+  "If edema is severe, near airways, or if stridor develops, treat as anaphylaxis."
+]
+        },'''
+          old_de = '''        moderate_angioedema: {
+clinical: "Faziales \u00d6dem / Angio\u00f6dem.",
+warning: "Achtung Larynx\u00f6dem.",
+management: [
+  "O\u2082 \u00fcber Maske 10\u201315 L/min.",
+  "1000 mL NaCl 0,9% i.v. in 1 h.",
+  "H1-Antihistaminikum i.v., z. B. Clemastin 2 mg.",
+  "Bei Bedarf H1-Antihistaminikum i.v. nach 5 Minuten wiederholen."
+],
+escalation: [
+  "Bei schwerem Verlauf oder Stridor/Larynx\u00f6dem: sitzende Position.",
+  "Bei schwerem Verlauf oder Stridor/Larynx\u00f6dem: wie eine Anaphylaxie behandeln.",
+  "Bei schwerem Verlauf oder Stridor/Larynx\u00f6dem: Rapid-Response-Team hinzuziehen."
+]
+        },'''
+          new_de = '''        moderate_angioedema: {
+clinical: "Faziales \u00d6dem ohne Stridor.",
+management: [
+  "Sauerstoff 10 bis 15 L/min \u00fcber eine Nicht-R\u00fcckatmungsmaske geben.",
+  "Chlorphenamin 20 mg oder Clemastin 2 mg i.v. geben.",
+  "Verlegung in einen Bereich mit \u00dcberwachung der Vitalfunktionen erw\u00e4gen."
+],
+escalation: [
+  "Wenn das \u00d6dem schwer ist, in Atemwegsn\u00e4he liegt oder Stridor auftritt, wie eine Anaphylaxie behandeln."
+]
+        },'''
+
+          replacements.append((old_en, new_en))
+          replacements.append((old_de, new_de))
+
+          for i, (old, new) in enumerate(replacements):
+              n = t.count(old)
+              print(f'repl {i}: count={n} old_len={len(old)}')
+              if n != 1:
+                  raise SystemExit(f'replacement {i} expected 1 occurrence, found {n}')
+              t = t.replace(old, new, 1)
+
+          p.write_text(t, encoding='utf-8')
+          print('patched ok', p.stat().st_size)
+          PY
+
+      - name: Commit ACUTE_MOD_ANGIO_01 only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add script.js
+          if git diff --cached --quiet; then
+            echo "No script.js change"
+            exit 1
+          fi
+          git commit -m "ACUTE_MOD_ANGIO_01: align facial edema without stridor EN/DE with ESUR Part 1 Table 3 (journal p. 6806)"
+
+      - name: Remove temporary workflow and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -f .github/workflows/apply-acute-mod-angio-01.yml
+          git add -A .github/workflows/apply-acute-mod-angio-01.yml
+          if git diff --cached --quiet; then
+            echo "workflow already gone"
+          else
+            git commit -m "Remove temporary ACUTE_MOD_ANGIO_01 patch workflow"
+          fi
+          git push
