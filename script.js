@@ -57,7 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
       mild: "Mild",
       moderate: "Moderate",
       severe: "Severe",
-      unclear: "Unclear",
 
       recommendation: "Recommendation",
       safety_net: "Safety net",
@@ -292,11 +291,9 @@ arrest: [
         elective_mild: "Elective imaging — prior mild immediate hypersensitivity reaction",
         elective_moderate: "Elective imaging — prior moderate immediate hypersensitivity reaction",
         elective_severe: "Elective imaging — prior severe immediate hypersensitivity reaction",
-        elective_unclear: "Elective imaging — prior reaction severity unclear",
         emergency_mild: "Emergency imaging — prior mild immediate hypersensitivity reaction",
         emergency_moderate: "Emergency imaging — prior moderate immediate hypersensitivity reaction",
-        emergency_severe: "Emergency imaging — prior severe immediate hypersensitivity reaction",
-        emergency_unclear: "Emergency imaging — prior reaction severity unclear"
+        emergency_severe: "Emergency imaging — prior severe immediate hypersensitivity reaction"
       },
 
       flow_bullets: {
@@ -334,11 +331,6 @@ arrest: [
           "Consider an alternative imaging modality, or consider performing an unenhanced exam if the diagnostic yield is sufficient for the correct management of the patient.",
           "Never deny a patient a clinically well-indicated enhanced examination if alternative imaging strategies are not available."
         ],
-        elective_unclear: [
-          "The previous reaction should be reviewed.",
-          "Allergy documentation should be optimized.",
-          "If contrast agent administration remains necessary, clinical judgement and local protocols should guide further management."
-        ],
         emergency_mild: [
           "Interview the patient about their previous hypersensitivity reaction.",
           "Optionally, refer the patient to a drug allergy specialist (if not done before) when the local drug allergy specialist capacity is sufficient.",
@@ -375,11 +367,6 @@ arrest: [
           "If an immediate hypersensitivity reaction recurs, referral to a drug allergy specialist is mandatory.",
           "Consider an alternative imaging modality, or consider performing an unenhanced exam if the diagnostic yield is sufficient for the correct management of the patient.",
           "Never deny a patient a clinically well-indicated enhanced examination if alternative imaging strategies are not available."
-        ],
-        emergency_unclear: [
-          "If contrast agent administration is considered necessary, the potential risk of recurrence should be considered.",
-          "Availability of personnel trained in the management of acute hypersensitivity reactions should be ensured.",
-          "Clinical judgement and local protocols should guide further management."
         ]
       },
 
@@ -495,7 +482,6 @@ arrest: [
       mild: "Mild",
       moderate: "Moderat",
       severe: "Schwer",
-      unclear: "Unklar",
 
       recommendation: "Empfehlung",
       safety_net: "Safety net",
@@ -730,11 +716,9 @@ arrest: [
         elective_mild: "Elektive Bildgebung — frühere milde unmittelbare Hypersensitivitätsreaktion",
         elective_moderate: "Elektive Bildgebung — frühere moderate unmittelbare Hypersensitivitätsreaktion",
         elective_severe: "Elektive Bildgebung — frühere schwere unmittelbare Hypersensitivitätsreaktion",
-        elective_unclear: "Elektive Bildgebung — Schweregrad der früheren Reaktion unklar",
         emergency_mild: "Notfallbildgebung — frühere milde unmittelbare Hypersensitivitätsreaktion",
         emergency_moderate: "Notfallbildgebung — frühere moderate unmittelbare Hypersensitivitätsreaktion",
-        emergency_severe: "Notfallbildgebung — frühere schwere unmittelbare Hypersensitivitätsreaktion",
-        emergency_unclear: "Notfallbildgebung — Schweregrad der früheren Reaktion unklar"
+        emergency_severe: "Notfallbildgebung — frühere schwere unmittelbare Hypersensitivitätsreaktion"
       },
 
       flow_bullets: {
@@ -772,11 +756,6 @@ arrest: [
           "Eine alternative Bildgebungsmodalität erwägen oder eine Untersuchung ohne Kontrastmittel erwägen, wenn die diagnostische Aussagekraft für die korrekte Patientenführung ausreicht.",
           "Eine klinisch gut indizierte kontrastverstärkte Untersuchung nicht verweigern, wenn keine alternativen Bildgebungsstrategien verfügbar sind."
         ],
-        elective_unclear: [
-          "Die frühere Reaktion sollte überprüft werden.",
-          "Die Allergiedokumentation sollte optimiert werden.",
-          "Wenn eine Kontrastmittelgabe weiterhin erforderlich ist, sollten klinische Beurteilung und lokale Protokolle das weitere Vorgehen leiten."
-        ],
         emergency_mild: [
           "Die Patientin oder den Patienten zur früheren Hypersensitivitätsreaktion befragen.",
           "Optional die Patientin oder den Patienten an eine Fachperson für Arzneimittelallergien überweisen (falls noch nicht erfolgt), wenn die lokale Kapazität für Arzneimittelallergologie ausreicht.",
@@ -813,11 +792,6 @@ arrest: [
           "Wenn eine unmittelbare Hypersensitivitätsreaktion wieder auftritt, ist die Überweisung an eine Fachperson für Arzneimittelallergien verpflichtend.",
           "Eine alternative Bildgebungsmodalität erwägen oder eine Untersuchung ohne Kontrastmittel erwägen, wenn die diagnostische Aussagekraft für die korrekte Patientenführung ausreicht.",
           "Eine klinisch gut indizierte kontrastverstärkte Untersuchung nicht verweigern, wenn keine alternativen Bildgebungsstrategien verfügbar sind."
-        ],
-        emergency_unclear: [
-          "Wenn eine Kontrastmittelgabe als notwendig erachtet wird, sollte das potenzielle Risiko eines Wiederauftretens berücksichtigt werden.",
-          "Die Verfügbarkeit von Personal mit Schulung im Management akuter Hypersensitivitätsreaktionen sollte sichergestellt werden.",
-          "Klinische Beurteilung und lokale Protokolle sollten das weitere Vorgehen leiten."
         ]
       },
 
