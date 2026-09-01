@@ -10,9 +10,6 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - name: Patch previous and language specs
-        run: python3 tools_fix2.py
-        # inline below if tools file missing
       - name: Inline patch
         run: |
           python3 << 'PY'
@@ -23,18 +20,18 @@ jobs:
             'const { test, expect, openApp, openHsrTab, clickSeg, flowOutput } = require("./helpers/ui");',
             'const { test, expect, openApp, openHsrTab, clickSeg, flowOutput, setLang } = require("./helpers/ui");'
           )
-          if 'Optimize the allergy registration in the electronic health record' not in t.split('PREV_02')[1][:2500]:
-              t=t.replace(
-          '  await expect(out).toContainText("Optionally, refer the patient to a drug allergy specialist");\n  await expect(out).toContainText("choose a different iodine-based contrast medium or gadolinium-based contrast agent if the culprit contrast agent is known");\n  await expect(out).toContainText("Never deny a patient a clinically well-indicated enhanced examination");\n  await expect(out).not.toContainText("premedication");\n  await expect(out).not.toContainText("trained imaging or emergency room physician");\n  await expect(out).not.toContainText("rapid response");\n  await expect(out).not.toContainText("Postpone imaging");',
-          '  await expect(out).toContainText("Optionally, refer the patient to a drug allergy specialist");\n  await expect(out).toContainText("when the local drug allergy specialist capacity is sufficient");\n  await expect(out).toContainText("Optimize the allergy registration in the electronic health record");\n  await expect(out).toContainText("Apply the advice of the drug allergy specialist");\n  await expect(out).toContainText("choose a different iodine-based contrast medium or gadolinium-based contrast agent if the culprit contrast agent is known");\n  await expect(out).toContainText("at least 30 min with the IV line in place");\n  await expect(out).toContainText("Be prepared and vigilant");\n  await expect(out).toContainText("referral to a drug allergy specialist is mandatory");\n  await expect(out).toContainText("Consider an alternative imaging modality");\n  await expect(out).toContainText("Never deny a patient a clinically well-indicated enhanced examination");\n  await expect(out).not.toContainText("premedication");\n  await expect(out).not.toContainText("trained imaging or emergency room physician");\n  await expect(out).not.toContainText("rapid response");\n  await expect(out).not.toContainText("resuscitation");\n  await expect(out).not.toContainText("Postpone imaging");',
-          1)
-          if 'verpflichtend' not in t:
-              t=t.replace(
-          '  await expect(tab).toContainText("is mandatory");\n});',
-          '  await expect(tab).toContainText("is mandatory");\n  await setLang(page, "de");\n  await expect(tab).toContainText("Überweisung & Dokumentation");\n  await expect(tab).toContainText("verwendete Kontrastmittel angeben");\n  await expect(tab).toContainText("verpflichtend");\n});',
-          1)
+          needle='  await expect(out).toContainText("Optionally, refer the patient to a drug allergy specialist");\n  await expect(out).toContainText("choose a different iodine-based contrast medium or gadolinium-based contrast agent if the culprit contrast agent is known");\n  await expect(out).toContainText("Never deny a patient a clinically well-indicated enhanced examination");\n  await expect(out).not.toContainText("premedication");\n  await expect(out).not.toContainText("trained imaging or emergency room physician");\n  await expect(out).not.toContainText("rapid response");\n  await expect(out).not.toContainText("Postpone imaging");'
+          repl='  await expect(out).toContainText("Optionally, refer the patient to a drug allergy specialist");\n  await expect(out).toContainText("when the local drug allergy specialist capacity is sufficient");\n  await expect(out).toContainText("Optimize the allergy registration in the electronic health record");\n  await expect(out).toContainText("Apply the advice of the drug allergy specialist");\n  await expect(out).toContainText("choose a different iodine-based contrast medium or gadolinium-based contrast agent if the culprit contrast agent is known");\n  await expect(out).toContainText("at least 30 min with the IV line in place");\n  await expect(out).toContainText("Be prepared and vigilant");\n  await expect(out).toContainText("referral to a drug allergy specialist is mandatory");\n  await expect(out).toContainText("Consider an alternative imaging modality");\n  await expect(out).toContainText("Never deny a patient a clinically well-indicated enhanced examination");\n  await expect(out).not.toContainText("premedication");\n  await expect(out).not.toContainText("trained imaging or emergency room physician");\n  await expect(out).not.toContainText("rapid response");\n  await expect(out).not.toContainText("resuscitation");\n  await expect(out).not.toContainText("Postpone imaging");'
+          if needle not in t:
+              raise SystemExit('PREV_02 block missing')
+          t=t.replace(needle, repl, 1)
+          needle2='  await expect(tab).toContainText("is mandatory");\n});'
+          repl2='  await expect(tab).toContainText("is mandatory");\n  await setLang(page, "de");\n  await expect(tab).toContainText("Überweisung & Dokumentation");\n  await expect(tab).toContainText("verwendete Kontrastmittel angeben");\n  await expect(tab).toContainText("verpflichtend");\n});'
+          if needle2 not in t:
+              raise SystemExit('GLOBAL_01 tail missing')
+          t=t.replace(needle2, repl2, 1)
           p.write_text(t)
-          print('previous patched', 'verpflichtend' in t, 'Optimize the allergy' in t.split('PREV_02')[1][:3000])
+          print('previous ok')
           p=Path('tests/language-reset.spec.js')
           t=p.read_text()
           t=t.replace('  await expect(flowOutput(page)).toContainText("Allergieanalyse");\n  await expect(page.locator("#lang-de")).toHaveClass(/active/);',
@@ -43,8 +40,10 @@ jobs:
                       '  await expect(switchOutput(page)).toContainText("Alternatives ICM aus Gruppe B");\n  await expect(switchOutput(page)).toContainText("Hohe Kreuzreaktivität zwischen Gruppe C und Gruppe A");\n  await setLang(page, "en");')
           t=t.replace('  await expect(nihrOutput(page)).toContainText("gadoliniumbasiert");\n  await expect(nihrOutput(page)).not.toContainText("Avoid all iodine-based contrast media");',
                       '  await expect(nihrOutput(page)).toContainText("alle gadoliniumbasierten Kontrastmittel vermeiden");\n  await expect(nihrOutput(page)).not.toContainText("alle iodhaltigen Kontrastmittel vermeiden");\n  await expect(nihrOutput(page)).not.toContainText("Avoid all iodine-based contrast media");')
+          if 'Die Bildgebung aufschieben' not in t or 'Alternatives ICM aus Gruppe B' not in t or 'alle gadoliniumbasierten Kontrastmittel vermeiden' not in t:
+              raise SystemExit('language patch incomplete')
           p.write_text(t)
-          print('lang patched', 'Die Bildgebung aufschieben' in t, 'Alternatives ICM aus Gruppe B' in t, 'alle gadoliniumbasierten' in t)
+          print('language ok')
           PY
       - name: Commit
         run: |
