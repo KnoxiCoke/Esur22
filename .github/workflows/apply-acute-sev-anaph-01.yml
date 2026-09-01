@@ -1,0 +1,41 @@
+name: Apply ACUTE_SEV_ANAPH_01
+
+on:
+  push:
+    paths:
+      - ".github/workflows/apply-acute-sev-anaph-01.yml"
+      - "tools/apply_acute_sev_anaph_01.py"
+  workflow_dispatch:
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Apply ACUTE_SEV_ANAPH_01
+        run: python3 tools/apply_acute_sev_anaph_01.py
+
+      - name: Commit approved medical block
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add script.js
+          if git diff --cached --quiet; then
+            echo "script.js unchanged"
+            exit 1
+          fi
+          git commit -m "ACUTE_SEV_ANAPH_01: align anaphylaxis/stridor and arrest EN/DE with ESUR Part 1 Table 3 (journal p. 6805-6806)"
+
+      - name: Remove temporary helper and workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -f tools/apply_acute_sev_anaph_01.py
+          rm -f .github/workflows/apply-acute-sev-anaph-01.yml
+          rmdir tools 2>/dev/null || true
+          git add -A
+          git commit -m "Remove temporary ACUTE_SEV_ANAPH_01 helper and workflow"
+          git push
