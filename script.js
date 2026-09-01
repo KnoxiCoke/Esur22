@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
       acute_severity_severe: "Severe reactions",
       acute_pattern_mild_general: "Mild reactions",
       acute_pattern_moderate_urticaria: "Diffuse urticaria / diffuse erythema",
-      acute_pattern_moderate_angioedema: "Facial / angioedema",
+      acute_pattern_moderate_angioedema: "Facial edema without stridor",
       acute_pattern_moderate_bronchospasm: "Mild bronchospasm",
       acute_pattern_severe_anaphylaxis: "Anaphylaxis",
       acute_section_clinical: "Clinical pattern / warning",
@@ -180,18 +180,14 @@ escalation: [
 ]
         },
         moderate_angioedema: {
-clinical: "Facial / angioedema.",
-warning: "Cave laryngeal oedema.",
+clinical: "Facial edema without stridor.",
 management: [
-  "O₂ via mask 10–15 L/min.",
-  "IV 1000 mL NaCl 0.9% in 1 h.",
-  "H1-antihistamine IV, e.g. clemastine 2 mg.",
-  "When needed, repeat H1-antihistamine IV after 5 minutes."
+  "Give oxygen 10 to 15 L/min via a non-rebreathing mask.",
+  "Give chlorphenamine 20 mg or clemastine 2 mg IV.",
+  "Consider transferring the patient to a department with facilities for monitoring vital functions."
 ],
 escalation: [
-  "If severe or stridor/laryngeal oedema: sitting position.",
-  "If severe or stridor/laryngeal oedema: treat as anaphylaxis.",
-  "If severe or stridor/laryngeal oedema: consult rapid response team."
+  "If edema is severe, near airways, or if stridor develops, treat as anaphylaxis."
 ]
         },
         moderate_bronchospasm: {
@@ -552,7 +548,7 @@ arrest: [
       acute_severity_severe: "Schwere Reaktionen",
       acute_pattern_mild_general: "Milde Reaktionen",
       acute_pattern_moderate_urticaria: "Diffuse Urtikaria / diffuses Erythem",
-      acute_pattern_moderate_angioedema: "Faziales Ödem / Angioödem",
+      acute_pattern_moderate_angioedema: "Faziales Ödem ohne Stridor",
       acute_pattern_moderate_bronchospasm: "Milder Bronchospasmus",
       acute_pattern_severe_anaphylaxis: "Anaphylaxie",
       acute_section_clinical: "Klinisches Muster / Warnhinweis",
@@ -597,18 +593,14 @@ escalation: [
 ]
         },
         moderate_angioedema: {
-clinical: "Faziales Ödem / Angioödem.",
-warning: "Achtung Larynxödem.",
+clinical: "Faziales Ödem ohne Stridor.",
 management: [
-  "O₂ über Maske 10–15 L/min.",
-  "1000 mL NaCl 0,9% i.v. in 1 h.",
-  "H1-Antihistaminikum i.v., z. B. Clemastin 2 mg.",
-  "Bei Bedarf H1-Antihistaminikum i.v. nach 5 Minuten wiederholen."
+  "Sauerstoff 10 bis 15 L/min über eine Nicht-Rückatmungsmaske geben.",
+  "Chlorphenamin 20 mg oder Clemastin 2 mg i.v. geben.",
+  "Verlegung in einen Bereich mit Überwachung der Vitalfunktionen erwägen."
 ],
 escalation: [
-  "Bei schwerem Verlauf oder Stridor/Larynxödem: sitzende Position.",
-  "Bei schwerem Verlauf oder Stridor/Larynxödem: wie Anaphylaxie behandeln.",
-  "Bei schwerem Verlauf oder Stridor/Larynxödem: Rapid-Response-Team hinzuziehen."
+  "Wenn das Ödem schwer ist, in Atemwegsnähe liegt oder Stridor auftritt, wie eine Anaphylaxie behandeln."
 ]
         },
         moderate_bronchospasm: {
