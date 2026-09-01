@@ -1,15 +1,21 @@
 // UI helpers only. No medical decision logic.
 // HSR_REGRESSION_01 baseline: bc7e4e3df7cf4f2dde5093ff9575c985b3c5048b
+const { test: base, expect } = require("@playwright/test");
+
+const test = base.extend({
+  page: async ({ page }, use) => {
+    const errors = [];
+    page.on("pageerror", (err) => errors.push(`pageerror: ${err}`));
+    page.on("console", (msg) => {
+      if (msg.type() === "error") errors.push(`console.error: ${msg.text()}`);
+    });
+    await use(page);
+    expect(errors, errors.join("\n")).toEqual([]);
+  },
+});
 
 async function openApp(page) {
-  const errors = [];
-  page.on("pageerror", (err) => errors.push(String(err)));
-  page.on("console", (msg) => {
-    if (msg.type() === "error") errors.push(`console.error: ${msg.text()}`);
-  });
   await page.goto("/index.html", { waitUntil: "domcontentloaded" });
-  page._hsrErrors = errors;
-  return errors;
 }
 
 async function openHsrTab(page, tab) {
@@ -18,6 +24,10 @@ async function openHsrTab(page, tab) {
 
 async function clickSeg(page, seg, value) {
   await page.locator(`.seg__btn[data-seg="${seg}"][data-value="${value}"]`).click();
+}
+
+async function expectSegActive(page, seg, value) {
+  await expect(page.locator(`.seg__btn[data-seg="${seg}"][data-value="${value}"]`)).toHaveClass(/active/);
 }
 
 function flowOutput(page) {
@@ -57,9 +67,12 @@ async function resetApp(page) {
 }
 
 module.exports = {
+  test,
+  expect,
   openApp,
   openHsrTab,
   clickSeg,
+  expectSegActive,
   flowOutput,
   acuteOutput,
   acuteImmediate,
