@@ -53,9 +53,10 @@ test("CHG_SMOKE_03 relevance filter reduces visible cards by level", async ({ pa
 test("CHG_SMOKE_04 search filters the card list without leaving the Changes view", async ({ page }) => {
   await openApp(page);
   await openChangesView(page);
-  await page.locator("#changesSearch").fill("extravasation");
+  // Token unique to laboratory_interference flatten text; not a medical assertion.
+  await page.locator("#changesSearch").fill("egfr-based");
   await expect(page.locator("#changesList [data-change-card]")).toHaveCount(1);
-  await expect(page.locator('[data-change-card="extravasation"]')).toHaveCount(1);
+  await expect(page.locator('[data-change-card="laboratory_interference"]')).toHaveCount(1);
   await expect(page.locator("#view-changes")).toBeVisible();
 });
 
