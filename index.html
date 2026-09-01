@@ -236,25 +236,26 @@
       <div class="card">
         <div class="card__title" data-i18n="nihr_severity_title">Previous NIHR severity</div>
         <div class="seg seg--stack">
-          <button class="seg__btn active" data-seg="nihrSeverity" data-value="mild" type="button" data-i18n="nihr_severity_mild">Mild skin reaction</button>
-          <button class="seg__btn" data-seg="nihrSeverity" data-value="moderate" type="button" data-i18n="nihr_severity_moderate">Moderate skin reaction</button>
-          <button class="seg__btn" data-seg="nihrSeverity" data-value="severe" type="button" data-i18n="nihr_severity_severe">Severe skin reaction / SCAR</button>
+          <button class="seg__btn active" data-seg="nihrSeverity" data-value="mild" type="button" data-i18n="nihr_severity_mild">Mild</button>
+          <button class="seg__btn" data-seg="nihrSeverity" data-value="moderate" type="button" data-i18n="nihr_severity_moderate">Moderate</button>
+          <button class="seg__btn" data-seg="nihrSeverity" data-value="severe" type="button" data-i18n="nihr_severity_severe">Severe</button>
         </div>
         <div class="hint" data-i18n="nihr_severity_hint">
-          Mild: resolves without treatment. Moderate: resolves with outpatient treatment. Severe: hospital admission required.
+          Mild: skin lesions resolve without treatment. Moderate: skin lesions resolve with outpatient treatment. Severe: hospital admission is required for treatment.
         </div>
       </div>
 
       <div class="card">
         <div class="card__title" data-i18n="nihr_culprit_class_title">Previous culprit contrast class</div>
         <div class="seg">
-          <button class="seg__btn active" data-seg="nihrCmtype" data-value="icm" type="button" data-i18n="icm_ct">ICM (CT)</button>
-          <button class="seg__btn" data-seg="nihrCmtype" data-value="gbca" type="button" data-i18n="gbca_mri">GBCA (MRI)</button>
+          <button class="seg__btn active" data-seg="nihrCmtype" data-value="icm" type="button" data-i18n="nihr_cmtype_icm">ICM</button>
+          <button class="seg__btn" data-seg="nihrCmtype" data-value="gbca" type="button" data-i18n="nihr_cmtype_gbca">GBCA</button>
+          <button class="seg__btn" data-seg="nihrCmtype" data-value="unknown" type="button" data-i18n="nihr_cmtype_unknown">Contrast class unknown</button>
         </div>
       </div>
 
       <div class="card">
-        <div class="card__title" data-i18n="nihr_culprit_known_title">Culprit contrast medium known?</div>
+        <div class="card__title" data-i18n="nihr_culprit_known_title">Exact culprit contrast medium known?</div>
         <div class="seg">
           <button class="seg__btn active" data-seg="nihrCulpritKnown" data-value="known" type="button" data-i18n="nihr_culprit_known">Culprit CM known</button>
           <button class="seg__btn" data-seg="nihrCulpritKnown" data-value="unknown" type="button" data-i18n="nihr_culprit_unknown">Culprit CM unknown</button>
@@ -262,15 +263,12 @@
       </div>
 
       <div class="card">
-        <div class="card__title" data-i18n="nihr_danger_signs_title">Danger signs for SCAR</div>
+        <div class="card__title" data-i18n="nihr_danger_signs_title">Danger signs</div>
         <div class="checklist">
           <label><input type="checkbox" class="nihr-check" value="erosion" /> <span data-i18n="erosions">Erosive and/or haemorrhagic lesions</span></label>
-          <label><input type="checkbox" class="nihr-check" value="blister" /> <span data-i18n="blistering">Blistering</span></label>
-          <label><input type="checkbox" class="nihr-check" value="skin_disruption" /> <span data-i18n="skin_disruption">Skin disruption / skin barrier disruption</span></label>
+          <label><input type="checkbox" class="nihr-check" value="blister_skin" /> <span data-i18n="blistering">Blistering and skin disruption</span></label>
           <label><input type="checkbox" class="nihr-check" value="mucosa" /> <span data-i18n="mucosal_involvement">Mucosal involvement</span></label>
-          <label><input type="checkbox" class="nihr-check" value="fever" /> <span data-i18n="fever">High fever</span></label>
-          <label><input type="checkbox" class="nihr-check" value="organ_values" /> <span data-i18n="organ_values">Abnormal liver / kidney values</span></label>
-          <label><input type="checkbox" class="nihr-check" value="lymphadenopathy" /> <span data-i18n="lymphadenopathy">Lymphadenopathy</span></label>
+          <label><input type="checkbox" class="nihr-check" value="extracutaneous" /> <span data-i18n="extracutaneous_involvement">Extracutaneous organ involvement (high fever, abnormal liver/kidney values, lymphadenopathy)</span></label>
         </div>
       </div>
 
@@ -279,12 +277,7 @@
         <div class="output" id="nihrOutput"></div>
       </div>
 
-      <div class="card card--subtle">
-        <div class="card__title" data-i18n="nihr_safety_note_title">Safety note</div>
-        <div class="output" data-i18n="nihr_safety_note">
-          ESUR-based support for previous NIHR. Consider contrast media cross-reactivity and increased NIHR risk with iso-osmolar dimeric iodine-based contrast media. Follow local protocols and drug allergy specialist advice.
-        </div>
-      </div>
+
     </section>
   </section>
 

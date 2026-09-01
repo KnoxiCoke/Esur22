@@ -224,69 +224,70 @@ arrest: [
 
       nihr_title: "NIHR — non-immediate hypersensitivity reactions",
       nihr_subtitle:
-        "Use this module for previous delayed / non-immediate skin reactions after contrast media when re-administration is being considered. Screen for danger signs suggesting SCAR and follow the ESUR prevention pathway.",
+        "For a previous non-immediate hypersensitivity reaction to an iodine-based contrast medium or a gadolinium-based contrast agent when re-administration is being considered.",
       nihr_severity_title: "Previous NIHR severity",
-      nihr_severity_mild: "Mild skin reaction",
-      nihr_severity_moderate: "Moderate skin reaction",
-      nihr_severity_severe: "Severe skin reaction / SCAR",
+      nihr_severity_mild: "Mild",
+      nihr_severity_moderate: "Moderate",
+      nihr_severity_severe: "Severe",
       nihr_severity_hint:
-        "Mild: resolves without treatment. Moderate: resolves with outpatient treatment. Severe: hospital admission required.",
+        "Mild: skin lesions resolve without treatment. Moderate: skin lesions resolve with outpatient treatment. Severe: hospital admission is required for treatment.",
       nihr_culprit_class_title: "Previous culprit contrast class",
-      nihr_culprit_known_title: "Culprit contrast medium known?",
+      nihr_cmtype_icm: "ICM",
+      nihr_cmtype_gbca: "GBCA",
+      nihr_cmtype_unknown: "Contrast class unknown",
+      nihr_culprit_known_title: "Exact culprit contrast medium known?",
       nihr_culprit_known: "Culprit CM known",
       nihr_culprit_unknown: "Culprit CM unknown",
-      nihr_danger_signs_title: "Danger signs for SCAR",
-      blistering: "Blistering",
-      mucosal_involvement: "Mucosal involvement",
+      nihr_danger_signs_title: "Danger signs",
       erosions: "Erosive and/or haemorrhagic lesions",
-      skin_disruption: "Skin disruption / skin barrier disruption",
-      fever: "High fever",
-      organ_values: "Abnormal liver / kidney values",
-      lymphadenopathy: "Lymphadenopathy",
+      blistering: "Blistering and skin disruption",
+      mucosal_involvement: "Mucosal involvement",
+      extracutaneous_involvement: "Extracutaneous organ involvement (high fever, abnormal liver/kidney values, lymphadenopathy)",
       nihr_recommendation_title: "NIHR recommendation",
       nihr_safety_note_title: "Safety note",
-      nihr_safety_note:
-        "ESUR-based support for previous NIHR. Consider contrast media cross-reactivity and increased NIHR risk with iso-osmolar dimeric iodine-based contrast media. Follow local protocols and drug allergy specialist advice.",
-      nihr_category_label: "Category",
-      nihr_high_risk: "High risk",
+      nihr_safety_note: "",
       nihr_recommended_actions: "Recommended actions",
       nihr_class_specific_rule: "Class-specific rule",
-      nihr_status_scar: "Possible severe NIHR / SCAR",
+      nihr_status_scar: "Severe non-immediate hypersensitivity reaction with danger signs (SCAR)",
       nihr_status_moderate: "Moderate NIHR without danger signs",
       nihr_status_mild: "Mild NIHR without danger signs",
-      nihr_scar_actions: [
-        "Immediate referral to a drug allergy specialist.",
-        "Consider an alternative imaging modality.",
-        "Optimize allergy registration in the EHR.",
-        "Do not give the group/class of contrast media to which the severe skin reaction occurred."
-      ],
+      nihr_scope_guard:
+        "This combination is not represented as a separate management pathway in ESUR Part 2 Table 2. Reassess the NIHR severity and documented danger signs.",
+      nihr_mild_interview: "Interview the patient about their previous hypersensitivity reaction.",
+      nihr_mild_refer:
+        "Optionally, refer the patient to a drug allergy specialist (if not done before) when the local drug allergy specialist capacity is sufficient.",
+      nihr_moderate_refer: "Refer the patient to a drug allergy specialist (if not done before).",
+      nihr_optimize_ehr: "Optimize the allergy registration in the electronic health record.",
+      nihr_apply_advice:
+        "Apply the advice of the drug allergy specialist for a safe iodine-based contrast medium or gadolinium-based contrast agent.",
+      nihr_choose_different:
+        "When this advice is not available, choose a different iodine-based contrast medium or gadolinium-based contrast agent if the culprit contrast agent is known.",
+      nihr_observe:
+        "When the contrast medium is administered, observe the patient for at least 30 min with the IV line in place.",
+      nihr_written:
+        "Give the patient written instructions for a possible repeat non-immediate hypersensitivity reaction.",
+      nihr_recurrence:
+        "If a non-immediate hypersensitivity reaction recurs, referral to a drug allergy specialist is mandatory.",
+      nihr_preventive_alt:
+        "Consider an alternative imaging modality, or consider performing an unenhanced exam if the diagnostic yield is sufficient for the correct management of the patient.",
+      nihr_preventive_never_deny:
+        "Never deny a patient a clinically well-indicated enhanced examination if alternative imaging strategies are not available.",
+      nihr_footnote_crossreact:
+        "Consider cross-reactivity of contrast media and an increased risk for non-immediate hypersensitivity reaction with the use of iso-osmolar dimeric iodine-based contrast media.",
+      nihr_scar_refer:
+        "Refer the patient immediately to a drug allergy specialist (if not done before).",
+      nihr_scar_choose_imaging: "Choose an alternative imaging modality.",
+      nihr_scar_ehr: "Optimize the allergy registration in the electronic health record.",
+      nihr_scar_do_not_give:
+        "Do not give the group of contrast media to which the severe skin reaction has occurred.",
       nihr_scar_icm_rule:
-        "After severe NIHR to ICM: avoid all iodine-based contrast media.",
+        "Avoid all iodine-based contrast media after a severe non-immediate hypersensitivity reaction to an iodine-based contrast medium.",
       nihr_scar_gbca_rule:
-        "After severe NIHR to GBCA: avoid all gadolinium-based contrast agents.",
+        "Avoid all gadolinium-based contrast agents after a severe non-immediate hypersensitivity reaction to a gadolinium-based contrast agent.",
       nihr_scar_unknown_rule:
-        "After severe reaction to unknown CM: individualize after multidisciplinary consultation.",
-      nihr_moderate_actions: [
-        "Refer the patient to a drug allergy specialist if not done before.",
-        "Optimize allergy registration in the EHR.",
-        "Apply the advice of the drug allergy specialist if available.",
-        "If no allergy advice is available and the culprit CM is known, choose a different CM.",
-        "If CM is administered, observe at least 30 min with IV line in place.",
-        "Give written instructions for a possible repeat NIHR.",
-        "If NIHR recurs, referral to a drug allergy specialist is mandatory."
-      ],
-      nihr_mild_actions: [
-        "Interview the patient about the previous NIHR.",
-        "Optional referral to a drug allergy specialist if local capacity is sufficient.",
-        "Optimize allergy registration in the EHR.",
-        "Apply the advice of the drug allergy specialist if available.",
-        "If no allergy advice is available and the culprit CM is known, choose a different CM.",
-        "If CM is administered, observe at least 30 min with IV line in place.",
-        "Give written instructions for a possible repeat NIHR.",
-        "If NIHR recurs, referral to a drug allergy specialist is mandatory."
-      ],
+        "Individualize the approach following multidisciplinary consultation after a severe reaction to an unknown CM.",
 
-      icm_hint:
+            icm_hint:
         "ICM group examples\nBrand examples; availability and trademarks may vary by country.",
       gbca_hint:
         "GBCA group examples\nBrand examples; availability and trademarks may vary by country.",
@@ -651,71 +652,73 @@ arrest: [
         }
       },
 
-      nihr_title: "NIHR — verzögerte Hypersensitivitätsreaktionen",
+      nihr_title: "NIHR — nicht unmittelbare Hypersensitivitätsreaktionen",
       nihr_subtitle:
-        "Dieses Modul gilt für frühere verzögerte / nicht-sofortige Hautreaktionen nach Kontrastmittelgabe, wenn eine erneute Kontrastmittelgabe geplant ist. Warnzeichen für SCAR prüfen und dem ESUR-Präventionspfad folgen.",
+        "Für eine frühere nicht unmittelbare Hypersensitivitätsreaktion auf ein iodhaltiges Kontrastmittel oder ein gadoliniumbasiertes Kontrastmittel, wenn eine erneute Gabe erwogen wird.",
       nihr_severity_title: "Schweregrad der früheren NIHR",
-      nihr_severity_mild: "Milde Hautreaktion",
-      nihr_severity_moderate: "Moderate Hautreaktion",
-      nihr_severity_severe: "Schwere Hautreaktion / SCAR",
+      nihr_severity_mild: "Mild",
+      nihr_severity_moderate: "Moderat",
+      nihr_severity_severe: "Schwer",
       nihr_severity_hint:
-        "Mild: klingt ohne Behandlung ab. Moderat: klingt unter ambulanter Behandlung ab. Schwer: stationäre Behandlung erforderlich.",
-      nihr_culprit_class_title: "Frühere auslösende KM-Klasse",
-      nihr_culprit_known_title: "Auslösendes Kontrastmittel bekannt?",
+        "Mild: Hautläsionen klingen ohne Behandlung ab. Moderat: Hautläsionen klingen unter ambulanter Behandlung ab. Schwer: eine stationäre Aufnahme zur Behandlung ist erforderlich.",
+      nihr_culprit_class_title: "Klasse des früher auslösenden Kontrastmittels",
+      nihr_cmtype_icm: "ICM",
+      nihr_cmtype_gbca: "GBCA",
+      nihr_cmtype_unknown: "Kontrastmittelklasse unbekannt",
+      nihr_culprit_known_title: "Genaues auslösendes Kontrastmittel bekannt?",
       nihr_culprit_known: "Auslösendes KM bekannt",
       nihr_culprit_unknown: "Auslösendes KM unbekannt",
-      nihr_danger_signs_title: "Warnzeichen für SCAR",
-      blistering: "Blasenbildung",
-      mucosal_involvement: "Schleimhautbeteiligung",
+      nihr_danger_signs_title: "Warnzeichen",
       erosions: "Erosive und/oder hämorrhagische Läsionen",
-      skin_disruption: "Hautablösung / Hautbarrierestörung",
-      fever: "Hohes Fieber",
-      organ_values: "Auffällige Leber-/Nierenwerte",
-      lymphadenopathy: "Lymphadenopathie",
+      blistering: "Blasenbildung und Hautstörung",
+      mucosal_involvement: "Schleimhautbeteiligung",
+      extracutaneous_involvement: "Extrakutane Organbeteiligung (hohes Fieber, auffällige Leber-/Nierenwerte, Lymphadenopathie)",
       nihr_recommendation_title: "NIHR-Empfehlung",
       nihr_safety_note_title: "Sicherheitshinweis",
-      nihr_safety_note:
-        "ESUR-basierte Unterstützung bei früherer NIHR. Kreuzreaktivität zwischen Kontrastmitteln und ein erhöhtes NIHR-Risiko bei iso-osmolaren dimeren jodhaltigen Kontrastmitteln berücksichtigen. Lokale Protokolle und allergologische Empfehlungen beachten.",
-      nihr_category_label: "Kategorie",
-      nihr_high_risk: "Hochrisiko",
+      nihr_safety_note: "",
       nihr_recommended_actions: "Empfohlene Maßnahmen",
       nihr_class_specific_rule: "Klassenspezifische Regel",
-      nihr_status_scar: "Mögliche schwere NIHR / SCAR",
+      nihr_status_scar: "Schwere nicht unmittelbare Hypersensitivitätsreaktion mit Warnzeichen (SCAR)",
       nihr_status_moderate: "Moderate NIHR ohne Warnzeichen",
       nihr_status_mild: "Milde NIHR ohne Warnzeichen",
-      nihr_scar_actions: [
-        "Sofortige Überweisung an eine/n Arzneimittelallergie-Spezialist/in.",
-        "Alternative Bildgebung erwägen.",
-        "Allergiedokumentation im EHR/KIS optimieren.",
-        "Die KM-Gruppe/KM-Klasse, auf die die schwere Hautreaktion aufgetreten ist, nicht erneut geben."
-      ],
+      nihr_scope_guard:
+        "Diese Kombination ist in ESUR Part 2 Table 2 nicht als eigener Managementpfad dargestellt. Schweregrad der NIHR und dokumentierte Warnzeichen erneut prüfen.",
+      nihr_mild_interview: "Die Patientin oder den Patienten zur früheren Hypersensitivitätsreaktion befragen.",
+      nihr_mild_refer:
+        "Optional die Patientin oder den Patienten an eine Fachperson für Arzneimittelallergien überweisen (falls noch nicht erfolgt), wenn die lokale Kapazität für Arzneimittelallergologie ausreicht.",
+      nihr_moderate_refer:
+        "Die Patientin oder den Patienten an eine Fachperson für Arzneimittelallergien überweisen (falls noch nicht erfolgt).",
+      nihr_optimize_ehr: "Die Allergieregistrierung in der elektronischen Patientenakte optimieren.",
+      nihr_apply_advice:
+        "Die Empfehlung der Fachperson für Arzneimittelallergien für ein sicheres iodhaltiges Kontrastmittel oder gadoliniumbasiertes Kontrastmittel umsetzen.",
+      nihr_choose_different:
+        "Wenn diese Empfehlung nicht vorliegt, ein anderes iodhaltiges Kontrastmittel oder gadoliniumbasiertes Kontrastmittel wählen, sofern das auslösende Kontrastmittel bekannt ist.",
+      nihr_observe:
+        "Wenn das Kontrastmittel verabreicht wird, die Patientin oder den Patienten mindestens 30 Minuten mit liegendem i.v.-Zugang beobachten.",
+      nihr_written:
+        "Der Patientin oder dem Patienten schriftliche Hinweise für eine mögliche erneute nicht unmittelbare Hypersensitivitätsreaktion mitgeben.",
+      nihr_recurrence:
+        "Wenn eine nicht unmittelbare Hypersensitivitätsreaktion wieder auftritt, ist die Überweisung an eine Fachperson für Arzneimittelallergien verpflichtend.",
+      nihr_preventive_alt:
+        "Eine alternative Bildgebungsmodalität erwägen oder eine Untersuchung ohne Kontrastmittel erwägen, wenn die diagnostische Aussagekraft für die korrekte Patientenführung ausreicht.",
+      nihr_preventive_never_deny:
+        "Eine klinisch gut indizierte kontrastverstärkte Untersuchung nicht verweigern, wenn keine alternativen Bildgebungsstrategien verfügbar sind.",
+      nihr_footnote_crossreact:
+        "Kreuzreaktivität von Kontrastmitteln und ein erhöhtes Risiko für eine nicht unmittelbare Hypersensitivitätsreaktion bei Verwendung iso-osmolarer dimerer iodhaltiger Kontrastmittel erwägen.",
+      nihr_scar_refer:
+        "Die Patientin oder den Patienten sofort an eine Fachperson für Arzneimittelallergien überweisen (falls noch nicht erfolgt).",
+      nihr_scar_choose_imaging: "Eine alternative Bildgebungsmodalität wählen.",
+      nihr_scar_ehr: "Die Allergieregistrierung in der elektronischen Patientenakte optimieren.",
+      nihr_scar_do_not_give:
+        "Die Kontrastmittelgruppe, auf die die schwere Hautreaktion aufgetreten ist, nicht geben.",
       nihr_scar_icm_rule:
-        "Nach schwerer NIHR auf ICM: alle jodhaltigen Kontrastmittel vermeiden.",
+        "Nach einer schweren nicht unmittelbaren Hypersensitivitätsreaktion auf ein iodhaltiges Kontrastmittel alle iodhaltigen Kontrastmittel vermeiden.",
       nihr_scar_gbca_rule:
-        "Nach schwerer NIHR auf GBCA: alle gadoliniumhaltigen Kontrastmittel vermeiden.",
+        "Nach einer schweren nicht unmittelbaren Hypersensitivitätsreaktion auf ein gadoliniumbasiertes Kontrastmittel alle gadoliniumbasierten Kontrastmittel vermeiden.",
       nihr_scar_unknown_rule:
-        "Nach schwerer Reaktion auf unbekanntes KM: Vorgehen nach multidisziplinärer Rücksprache individualisieren.",
-      nihr_moderate_actions: [
-        "Patient/in an eine/n Arzneimittelallergie-Spezialist/in überweisen, falls noch nicht erfolgt.",
-        "Allergiedokumentation im EHR/KIS optimieren.",
-        "Falls verfügbar, Empfehlung der Allergologie anwenden.",
-        "Wenn keine Allergologie-Empfehlung verfügbar ist und das auslösende KM bekannt ist, ein anderes KM wählen.",
-        "Bei KM-Gabe: mindestens 30 Minuten mit liegendem IV-Zugang beobachten.",
-        "Schriftliche Instruktionen für eine mögliche erneute NIHR mitgeben.",
-        "Bei erneuter NIHR ist eine allergologische Überweisung verpflichtend."
-      ],
-      nihr_mild_actions: [
-        "Patient/in zur früheren NIHR befragen.",
-        "Optionale Überweisung an eine/n Arzneimittelallergie-Spezialist/in, wenn lokale Kapazität ausreichend ist.",
-        "Allergiedokumentation im EHR/KIS optimieren.",
-        "Falls verfügbar, Empfehlung der Allergologie anwenden.",
-        "Wenn keine Allergologie-Empfehlung verfügbar ist und das auslösende KM bekannt ist, ein anderes KM wählen.",
-        "Bei KM-Gabe: mindestens 30 Minuten mit liegendem IV-Zugang beobachten.",
-        "Schriftliche Instruktionen für eine mögliche erneute NIHR mitgeben.",
-        "Bei erneuter NIHR ist eine allergologische Überweisung verpflichtend."
-      ],
+        "Nach einer schweren Reaktion auf ein unbekanntes Kontrastmittel das Vorgehen nach multidisziplinärer Konsultation individualisieren.",
 
-      icm_hint:
+            icm_hint:
         "ICM-Gruppenbeispiele\nMarkenbeispiele; Verfügbarkeit und Markenrechte können je nach Land variieren.",
       gbca_hint:
         "GBCA-Gruppenbeispiele\nMarkenbeispiele; Verfügbarkeit und Markenrechte können je nach Land variieren.",
@@ -2744,54 +2747,93 @@ ${renderAcuteList(content.arrest)}
     if (!nihrOutput) return;
 
     const hasDangerSigns = Array.from(document.querySelectorAll(".nihr-check")).some((el) => el.checked);
-    const isScarPathway = state.nihrSeverity === "severe" || hasDangerSigns;
+    const severity = state.nihrSeverity;
+    const mildValid = severity === "mild" && !hasDangerSigns;
+    const moderateValid = severity === "moderate" && !hasDangerSigns;
+    const scarValid = severity === "severe" && hasDangerSigns;
 
     const renderNihrList = (items) =>
       `<ul>${(items || []).map((line) => `<li>${escapeHtml(line)}</li>`).join("")}</ul>`;
 
-    if (isScarPathway) {
-      const classRule =
-        state.nihrCmtype === "gbca"
-          ? t("nihr_scar_gbca_rule")
-          : t("nihr_scar_icm_rule");
-      const unknownRule =
-        state.nihrCulpritKnown === "unknown"
-          ? `<li>${escapeHtml(t("nihr_scar_unknown_rule"))}</li>`
-          : "";
+    const adviceItems = () => {
+      const items = [t("nihr_apply_advice")];
+      if (state.nihrCulpritKnown === "known") items.push(t("nihr_choose_different"));
+      return items;
+    };
 
+    const followUpItems = [
+      t("nihr_observe"),
+      t("nihr_written"),
+      t("nihr_recurrence"),
+      t("nihr_preventive_alt"),
+      t("nihr_preventive_never_deny"),
+      t("nihr_footnote_crossreact")
+    ];
+
+    if (mildValid) {
       nihrOutput.innerHTML = `
-        <div>
-          <strong>${escapeHtml(t("nihr_status_scar"))}</strong><br />
-          <span>${escapeHtml(t("nihr_category_label"))}: ${escapeHtml(t("nihr_high_risk"))}</span>
-        </div>
+        <div><strong>${escapeHtml(t("nihr_status_mild"))}</strong></div>
         <div>
           <strong>${escapeHtml(t("nihr_recommended_actions"))}</strong>
-          ${renderNihrList(t("nihr_scar_actions"))}
-        </div>
-        <div>
-          <strong>${escapeHtml(t("nihr_class_specific_rule"))}</strong>
-          <ul>
-            <li>${escapeHtml(classRule)}</li>
-            ${unknownRule}
-          </ul>
+          ${renderNihrList([
+            t("nihr_mild_interview"),
+            t("nihr_mild_refer"),
+            t("nihr_optimize_ehr"),
+            ...adviceItems(),
+            ...followUpItems
+          ])}
         </div>
       `;
       return;
     }
 
-    const statusKey = state.nihrSeverity === "moderate" ? "nihr_status_moderate" : "nihr_status_mild";
-    const actionsKey = state.nihrSeverity === "moderate" ? "nihr_moderate_actions" : "nihr_mild_actions";
+    if (moderateValid) {
+      nihrOutput.innerHTML = `
+        <div><strong>${escapeHtml(t("nihr_status_moderate"))}</strong></div>
+        <div>
+          <strong>${escapeHtml(t("nihr_recommended_actions"))}</strong>
+          ${renderNihrList([
+            t("nihr_moderate_refer"),
+            t("nihr_optimize_ehr"),
+            ...adviceItems(),
+            ...followUpItems
+          ])}
+        </div>
+      `;
+      return;
+    }
 
-    nihrOutput.innerHTML = `
-      <div><strong>${escapeHtml(t(statusKey))}</strong></div>
-      <div>
-        <strong>${escapeHtml(t("nihr_recommended_actions"))}</strong>
-        ${renderNihrList(t(actionsKey))}
-      </div>
-    `;
+    if (scarValid) {
+      const classRule =
+        state.nihrCmtype === "gbca"
+          ? t("nihr_scar_gbca_rule")
+          : state.nihrCmtype === "unknown"
+            ? t("nihr_scar_unknown_rule")
+            : t("nihr_scar_icm_rule");
+
+      nihrOutput.innerHTML = `
+        <div><strong>${escapeHtml(t("nihr_status_scar"))}</strong></div>
+        <div>
+          <strong>${escapeHtml(t("nihr_recommended_actions"))}</strong>
+          ${renderNihrList([
+            t("nihr_scar_refer"),
+            t("nihr_scar_choose_imaging"),
+            t("nihr_scar_ehr"),
+            t("nihr_scar_do_not_give")
+          ])}
+        </div>
+        <div>
+          <strong>${escapeHtml(t("nihr_class_specific_rule"))}</strong>
+          ${renderNihrList([classRule])}
+        </div>
+      `;
+      return;
+    }
+
+    nihrOutput.innerHTML = `<div>${escapeHtml(t("nihr_scope_guard"))}</div>`;
   }
 
-  function getChanges() {
+    function getChanges() {
     return changesLibrary[state.lang];
   }
 
