@@ -1,0 +1,51 @@
+      icm_rules: {
+        A: {
+          title: "Gruppe A ausgewählt",
+          text: "Vorschlag aus praktischer Erfahrung: Alternatives ICM aus Gruppe B oder D (ohne klassische Carbamoyl-Seitenkette).",
+          note: "Hohe Kreuzreaktivität zwischen Gruppe A und Gruppe C."
+        },
+        B: {
+          title: "Gruppe B ausgewählt",
+          text: "Vorschlag aus praktischer Erfahrung: Alternatives ICM aus Gruppe A, C oder D.",
+          note: ""
+        },
+        C: {
+          title: "Gruppe C ausgewählt",
+          text: "Vorschlag aus praktischer Erfahrung: Alternatives ICM aus Gruppe B (ohne klassische oder methylmodifizierte Carbamoyl-Seitenkette).",
+          note: "Hohe Kreuzreaktivität zwischen Gruppe C und Gruppe A."
+        },
+        D: {
+          title: "Gruppe D ausgewählt",
+          text: "Vorschlag aus praktischer Erfahrung: Alternatives ICM aus Gruppe A oder B (ohne methylmodifizierte Carbamoyl-Seitenkette).",
+          note: ""
+        },
+        unknown: {
+          title: "ICM unbekannt",
+          text: "Aufgrund der höheren Wahrscheinlichkeit, dass das beteiligte ICM aus Gruppe A stammt: das alternative ICM aus Gruppe B oder D wählen.",
+          note: "Hohe Kreuzreaktivität zwischen Gruppe C und Gruppe A. Dies ist ein Vorschlag aus praktischer Erfahrung auf Basis der optionalen, nicht validierten Klassifikation und keine robuste evidenzbasierte Empfehlung."
+        }
+      },
+
+      gbca_rules: {
+        A: {
+          title: "Gruppe A ausgewählt",
+          text: "Vorschlag aus praktischer Erfahrung: Alternatives GBCA aus Gruppe B.",
+          note: ""
+        },
+        B: {
+          title: "Gruppe B ausgewählt",
+          text: "Vorschlag aus praktischer Erfahrung: Alternatives GBCA aus Gruppe A.",
+          note: ""
+        },
+        C: {
+          title: "Gruppe C ausgewählt",
+          text: "Unzureichende Datenlage für eine empirische Wechsel-Empfehlung.",
+          note: ""
+        },
+        unknown: {
+          title: "GBCA unbekannt",
+          text: "Ein Schema kann nicht mit Sicherheit empfohlen werden. Aufgrund der Beteiligungswahrscheinlichkeit wird die Verwendung eines anderen als des routinemässig eingesetzten GBCA vorgeschlagen.",
+          note: "Dies beruht auf praktischer Erfahrung und ist keine robuste evidenzbasierte Empfehlung."
+        }
+      },
+
