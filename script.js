@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
       acute_pattern_moderate_urticaria: "Diffuse urticaria / diffuse erythema",
       acute_pattern_moderate_angioedema: "Facial edema without stridor",
       acute_pattern_moderate_bronchospasm: "Mild bronchospasm",
-      acute_pattern_severe_anaphylaxis: "Anaphylaxis",
+      acute_pattern_severe_anaphylaxis: "Anaphylactic reaction or stridor",
       acute_section_clinical: "Clinical pattern / warning",
       acute_section_management: "Management",
       acute_section_escalation: "Escalation / rapid response",
@@ -202,23 +202,19 @@ escalation: [
 ]
         },
         severe_anaphylaxis: {
-clinical: "Anaphylaxis.",
+clinical: "Anaphylactic reaction or stridor.",
 management: [
-  "Consult rapid response team.",
-  "O₂ via mask 10–15 L/min.",
-  "IV 500 mL NaCl 0.9% in 10 minutes.",
-  "When needed, repeat IV NaCl 0.9%.",
-  "Adrenaline 1 mg/mL, 0.5 mg IM.",
-  "When needed, repeat adrenaline 1 mg/mL, 0.5 mg IM after 5 minutes, guided by heart rate.",
-  "H1-antihistamine IV, e.g. clemastine 2 mg.",
-  "When needed, SABA dose-aerosol 2–10 deep inhalations of 100 µg or nebulization in 3 mL saline up to 1 hour, according to ESUR/source text.",
-  "Consider adding corticosteroid slowly IV, e.g. prednisolone 50 mg.",
-  "When needed, intubation and ICU."
+  "Call the rapid response team.",
+  "Give oxygen 10 to 15 L/min with non-rebreathing mask.",
+  "Give 0.5 mg adrenaline IM in the lateral upper thigh, repeat as necessary, guided by heart rate.",
+  "Give fluid bolus of crystalloid 500 mL IV in 10 min, repeat as necessary.",
+  "Short-acting β2-agonist: 2–10 inhalations of 100 µg of salbutamol via inhalation (depending on severity), with option to repeat every 20 min, or via nebulization (2.5–5 µg diluted in 3 mL of saline solution) up to 1 h.",
+  "Give chlorphenamine 20 mg or clemastine 2 mg IV, repeat as necessary.",
+  "Consider adding corticosteroid (for example, prednisolone 50 mg IV)."
 ],
 arrest: [
-  "CALL RESUSCITATION TEAM.",
-  "Start cardio-pulmonary resuscitation.",
-  "Adrenaline 0.1 mg/mL IV only via resuscitation team."
+  "Call the CPR team.",
+  "Start CPR."
 ]
         }
       },
@@ -546,7 +542,7 @@ arrest: [
       acute_pattern_moderate_urticaria: "Diffuse Urtikaria / diffuses Erythem",
       acute_pattern_moderate_angioedema: "Faziales Ödem ohne Stridor",
       acute_pattern_moderate_bronchospasm: "Milder Bronchospasmus",
-      acute_pattern_severe_anaphylaxis: "Anaphylaxie",
+      acute_pattern_severe_anaphylaxis: "Anaphylaktische Reaktion oder Stridor",
       acute_section_clinical: "Klinisches Muster / Warnhinweis",
       acute_section_management: "Management",
       acute_section_escalation: "Eskalation / Rapid Response",
@@ -611,23 +607,19 @@ escalation: [
 ]
         },
         severe_anaphylaxis: {
-clinical: "Anaphylaxie.",
+clinical: "Anaphylaktische Reaktion oder Stridor.",
 management: [
-  "Rapid-Response-Team hinzuziehen.",
-  "O₂ über Maske 10–15 L/min.",
-  "500 mL NaCl 0,9% i.v. in 10 Minuten.",
-  "Bei Bedarf NaCl 0,9% i.v. wiederholen.",
-  "Adrenalin 1 mg/mL, 0,5 mg i.m.",
-  "Bei Bedarf Adrenalin 1 mg/mL, 0,5 mg i.m. nach 5 Minuten wiederholen, herzfrequenzgesteuert.",
-  "H1-Antihistaminikum i.v., z. B. Clemastin 2 mg.",
-  "Bei Bedarf SABA-Dosieraerosol 2–10 tiefe Inhalationen à 100 µg oder Vernebelung in 3 mL NaCl bis zu 1 Stunde, gemäß ESUR/Quelltext.",
-  "Kortikosteroid langsam i.v. erwägen, z. B. Prednisolon 50 mg.",
-  "Bei Bedarf Intubation und ICU/Intensivstation."
+  "Das Rapid-Response-Team rufen.",
+  "Sauerstoff 10 bis 15 L/min mit Nicht-Rückatmungsmaske geben.",
+  "0,5 mg Adrenalin i.m. in den lateralen Oberschenkel geben, nach Bedarf wiederholen, gesteuert anhand der Herzfrequenz.",
+  "Flüssigkeitsbolus von 500 mL Kristalloid i.v. in 10 min geben, nach Bedarf wiederholen.",
+  "Kurzwirksamer β2-Agonist: 2–10 Inhalationen zu je 100 µg Salbutamol (abhängig vom Schweregrad), mit der Option zur Wiederholung alle 20 Minuten, oder per Vernebelung (2,5–5 µg verdünnt in 3 mL Kochsalzlösung) bis zu 1 Stunde.",
+  "Chlorphenamin 20 mg oder Clemastin 2 mg i.v. geben, nach Bedarf wiederholen.",
+  "Zusatz eines Kortikosteroids erwägen (zum Beispiel Prednisolon 50 mg i.v.)."
 ],
 arrest: [
-  "REANIMATIONSTEAM RUFEN.",
-  "Kardiopulmonale Reanimation starten.",
-  "Adrenalin 0,1 mg/mL i.v. nur durch das Reanimationsteam."
+  "CPR-Team (Reanimationsteam) rufen.",
+  "CPR starten."
 ]
         }
       },
