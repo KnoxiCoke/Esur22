@@ -98,28 +98,32 @@ document.addEventListener("DOMContentLoaded", function () {
       switch_nonvalidated:
         "This switch overview is optional, non-validated guidance based on practical experience. It does not replace allergy evaluation or local decision-making.",
 
-      tryptase_title: "Tryptase Rule",
-      tryptase_subtitle:
-        "ESUR ideally recommends three samples: one as early as possible during the reaction, one 1–2 hours later (no later than 4 hours after symptom onset), and one more than 24 hours after complete resolution as baseline. For the calculation below, the highest available acute tryptase value and the baseline value should be entered.",
+      tryptase_title: "Serum tryptase",
+      tryptase_sample_measure:
+        "Measure serum tryptase within 1–4 h from the start of all moderate-to-severe immediate hypersensitivity reactions to contrast media.",
+      tryptase_sample_baseline:
+        "A second measurement after ≥ 24 h serves as a baseline for further allergologic examinations.",
+      tryptase_sample_ideal:
+        "Ideally, three samples should be obtained: the first as early as possible during a suspected hypersensitivity reaction, the second at 1–2 h after the first but no later than 4 h after the onset of the reaction, and the third more than 24 h after all signs and symptoms have subsided.",
       enter_values: "Enter values",
       calculate: "Calculate",
       result: "Result",
       tryptase_default:
-        "For the calculation below, the highest available acute tryptase value and the baseline value should be entered.",
+        "Enter an acute tryptase value obtained during or within 4 h after symptoms and a baseline tryptase value.",
       tryptase_invalid: "Please enter valid numeric values.",
       tryptase_threshold: "Threshold",
       tryptase_acute: "Acute tryptase",
       tryptase_baseline: "Baseline tryptase",
       tryptase_formula:
-        "Relevant acute increase if acute tryptase ≥ (1.2 × baseline) + 2 ng/mL.",
+        "An acute-over-baseline elevation of tryptase of at least 2 ng/mL + (1.2 × baseline tryptase) during or within 4 h after symptoms is suggestive of an IHR.",
       tryptase_positive:
-        "The result suggests the presence of an immediate hypersensitivity reaction (IHR).",
+        "The result is suggestive of an IHR.",
       tryptase_negative:
-        "The result does not support a significant acute tryptase increase.",
+        "The result does not show an acute-over-baseline elevation of at least 2 ng/mL + (1.2 × baseline tryptase).",
       tryptase_note:
-        "Results should always be interpreted in the clinical context. A normal tryptase value does not exclude a true immediate hypersensitivity reaction.",
+        "In mild or moderate IHR, tryptase levels typically remain normal, and the absence of elevation does not exclude the possibility of a genuine IHR.",
 
-      acute_title: "Acute management",
+            acute_title: "Acute management",
       acute_subtitle:
         "ESUR acute algorithm. Follow local emergency protocol and verify medication concentration before administration.",
       acute_immediate_title: "Immediate assessment and general actions",
@@ -523,28 +527,32 @@ arrest: [
       switch_nonvalidated:
         "Diese Switch-Übersicht ist eine optionale, nicht validierte Orientierung auf Basis praktischer Erfahrung. Sie ersetzt weder eine allergologische Abklärung noch lokale Entscheidungen.",
 
-      tryptase_title: "Tryptase-Regel",
-      tryptase_subtitle:
-        "ESUR empfiehlt idealerweise drei Proben: eine so früh wie möglich während der Reaktion, eine weitere 1–2 Stunden später (spätestens innerhalb von 4 Stunden nach Symptombeginn) und eine mehr als 24 Stunden nach vollständigem Abklingen als Baseline. Für die Berechnung unten sollten der höchste verfügbare akute Tryptasewert und der Baseline-Wert eingegeben werden.",
+      tryptase_title: "Serumtryptase",
+      tryptase_sample_measure:
+        "Serumtryptase innerhalb von 1–4 h nach Beginn aller moderaten bis schweren unmittelbaren Hypersensitivitätsreaktionen auf Kontrastmittel messen.",
+      tryptase_sample_baseline:
+        "Eine zweite Messung nach ≥ 24 h dient als Baseline für weitere allergologische Untersuchungen.",
+      tryptase_sample_ideal:
+        "Idealerweise sollten drei Proben gewonnen werden: die erste so früh wie möglich während einer vermuteten Hypersensitivitätsreaktion, die zweite 1–2 h nach der ersten, jedoch nicht später als 4 h nach Beginn der Reaktion, und die dritte mehr als 24 h nach Abklingen aller Zeichen und Symptome.",
       enter_values: "Werte eingeben",
       calculate: "Berechnen",
       result: "Ergebnis",
       tryptase_default:
-        "Für die Berechnung unten sollten der höchste verfügbare akute Tryptasewert und der Baseline-Wert eingegeben werden.",
+        "Einen akuten Tryptasewert eingeben, der während der Symptome oder innerhalb von 4 h danach gewonnen wurde, sowie einen Baseline-Tryptasewert.",
       tryptase_invalid: "Bitte gültige Zahlenwerte eingeben.",
       tryptase_threshold: "Schwellenwert",
       tryptase_acute: "Akute Tryptase",
       tryptase_baseline: "Baseline-Tryptase",
       tryptase_formula:
-        "Relevanter akuter Anstieg, wenn akute Tryptase ≥ (1.2 × Baseline) + 2 ng/mL.",
+        "Ein akuter Anstieg der Tryptase gegenüber der Baseline von mindestens 2 ng/mL + (1,2 × Baseline-Tryptase) während der Symptome oder innerhalb von 4 h danach ist hinweisend auf eine IHR.",
       tryptase_positive:
-        "Das Ergebnis spricht für das Vorliegen einer unmittelbaren Hypersensitivitätsreaktion (IHR).",
+        "Das Ergebnis ist hinweisend auf eine IHR.",
       tryptase_negative:
-        "Das Ergebnis stützt keinen signifikanten akuten Tryptaseanstieg.",
+        "Das Ergebnis zeigt keinen akuten Anstieg gegenüber der Baseline von mindestens 2 ng/mL + (1,2 × Baseline-Tryptase).",
       tryptase_note:
-        "Die Resultate sollten immer im klinischen Kontext interpretiert werden. Ein normaler Tryptasewert schliesst eine echte unmittelbare Hypersensitivitätsreaktion nicht aus.",
+        "Bei milder oder moderater IHR bleiben die Tryptasewerte typischerweise normal; ein fehlender Anstieg schließt die Möglichkeit einer echten IHR nicht aus.",
 
-      acute_title: "Akutmanagement",
+            acute_title: "Akutmanagement",
       acute_subtitle:
         "ESUR-Akutalgorithmus. Lokales Notfallprotokoll beachten und Medikamentenkonzentration vor Gabe prüfen.",
       acute_immediate_title: "Sofortbeurteilung und allgemeine Maßnahmen",
