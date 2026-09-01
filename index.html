@@ -24,5 +24,354 @@
     <button class="topbar__reset" id="resetBtn" type="button" data-i18n="reset">Reset</button>
   </div>
 </header>
+
+<div class="sticky-disclaimer" id="stickyDisclaimer">
+  <strong data-i18n="disclaimer_line1">Educational tool. Follow local protocols.</strong>
+  <span data-i18n="disclaimer_line2">Information only. Clinical decisions should follow local protocols, source documents and clinical judgement. No patient data are stored.</span>
+</div>
+
+<main class="app">
+
+  <!-- HSR MAIN VIEW -->
+  <section class="view" id="view-hsr">
+    <h1 class="h1" data-i18n="hsr_title">HSR</h1>
+    <p class="p-muted" data-i18n="hsr_subtitle">
+      Previous-reaction planning, acute management, empiric switch support, tryptase interpretation and NIHR decision support.
+    </p>
+
+    <div class="card">
+      <div class="card__title" data-i18n="hsr_tools_title">HSR tools</div>
+      <div class="seg seg--stack hsr-subnav">
+        <button class="seg__btn active" data-hsr-tab="guidance" type="button" data-i18n="hsr_guidance_tab">Previous reaction</button>
+        <button class="seg__btn" data-hsr-tab="acute" type="button" data-i18n="hsr_acute_tab">Acute management</button>
+        <button class="seg__btn" data-hsr-tab="switch" type="button" data-i18n="hsr_switch_tab">Switch</button>
+        <button class="seg__btn" data-hsr-tab="tryptase" type="button" data-i18n="hsr_tryptase_tab">Tryptase</button>
+        <button class="seg__btn" data-hsr-tab="nihr" type="button" data-i18n="hsr_nihr_tab">NIHR</button>
+      </div>
+    </div>
+
+    <!-- HSR: GUIDANCE -->
+    <section class="subview" id="hsr-tab-guidance">
+      <div class="card card--subtle">
+        <div class="output hint" data-i18n="flow_routing_note">Educational support for prior immediate hypersensitivity reactions. For non-immediate reactions, use the NIHR module.</div>
+      </div>
+      <div class="card">
+        <div class="card__title" data-i18n="flow_step1">Step 1 — Clinical situation</div>
+        <div class="seg">
+          <button class="seg__btn active" data-seg="situation" data-value="elective" type="button" data-i18n="elective">Elective</button>
+          <button class="seg__btn" data-seg="situation" data-value="emergency" type="button" data-i18n="emergency">Emergency</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__title" data-i18n="flow_step2">Step 2 — Prior reaction severity</div>
+        <div class="seg seg--stack">
+          <button class="seg__btn" data-seg="reaction" data-value="mild" type="button" data-i18n="mild">Mild</button>
+          <button class="seg__btn active" data-seg="reaction" data-value="moderate" type="button" data-i18n="moderate">Moderate</button>
+          <button class="seg__btn" data-seg="reaction" data-value="severe" type="button" data-i18n="severe">Severe</button>
+        </div>
+      </div>
+
+      <div class="card card--output">
+        <div class="card__title" data-i18n="recommendation">Recommendation</div>
+        <div class="output" id="flowOutput"></div>
+      </div>
+
+      <div class="card card--subtle">
+        <div class="card__title" data-i18n="hsr_referral_title">Referral & documentation</div>
+        <div class="output">
+          <ul>
+            <li data-i18n="hsr_referral_specify">When referring the patient to a drug allergy specialist, always specify the used contrast medium.</li>
+            <li data-i18n="hsr_referral_document">Detailed documentation of the culprit contrast agent and the severity of the reaction, including a grading scheme, is mandatory.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card card--subtle">
+        <div class="card__title" data-i18n="safety_net">Safety net</div>
+        <div class="output" id="flowSafety"></div>
+      </div>
+    </section>
+
+    <!-- HSR: ACUTE MANAGEMENT -->
+    <section class="subview" id="hsr-tab-acute" hidden>
+      <div class="card card--subtle">
+        <div class="card__title" data-i18n="acute_title">Acute management</div>
+        <div class="output hint" data-i18n="acute_subtitle">
+          ESUR acute algorithm. Follow local emergency protocol and verify medication concentration before administration.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__title" data-i18n="acute_immediate_title">Immediate assessment and general actions</div>
+        <div class="output" id="acuteImmediateOutput"></div>
+      </div>
+
+      <div class="card">
+        <div class="card__title" data-i18n="acute_severity_title">Severity selector</div>
+        <div class="seg seg--stack">
+          <button class="seg__btn active" data-seg="acuteSeverity" data-value="mild" type="button" data-i18n="acute_severity_mild">Mild reactions</button>
+          <button class="seg__btn" data-seg="acuteSeverity" data-value="moderate" type="button" data-i18n="acute_severity_moderate">Moderate reactions</button>
+          <button class="seg__btn" data-seg="acuteSeverity" data-value="severe" type="button" data-i18n="acute_severity_severe">Severe reactions</button>
+        </div>
+      </div>
+
+      <div class="card" id="acutePatternCard">
+        <div class="card__title" data-i18n="acute_pattern_title">Dominant reaction pattern</div>
+        <div class="seg seg--stack" id="acutePatternOptions">
+          <button class="seg__btn active" data-seg="acutePattern" data-value="mild_general" data-acute-severity="mild" type="button" data-i18n="acute_pattern_mild_general">Mild reactions</button>
+          <button class="seg__btn" data-seg="acutePattern" data-value="moderate_urticaria" data-acute-severity="moderate" type="button" data-i18n="acute_pattern_moderate_urticaria" hidden>Diffuse urticaria / diffuse erythema</button>
+          <button class="seg__btn" data-seg="acutePattern" data-value="moderate_angioedema" data-acute-severity="moderate" type="button" data-i18n="acute_pattern_moderate_angioedema" hidden>Facial edema without stridor</button>
+          <button class="seg__btn" data-seg="acutePattern" data-value="moderate_bronchospasm" data-acute-severity="moderate" type="button" data-i18n="acute_pattern_moderate_bronchospasm" hidden>Mild bronchospasm</button>
+          <button class="seg__btn" data-seg="acutePattern" data-value="severe_anaphylaxis" data-acute-severity="severe" type="button" data-i18n="acute_pattern_severe_anaphylaxis" hidden>Anaphylactic reaction or stridor</button>
+        </div>
+      </div>
+
+      <div class="card card--output">
+        <div class="card__title" data-i18n="acute_output_title">ESUR acute management</div>
+        <div class="output" id="acuteOutput"></div>
+      </div>
+    </section>
+
+    <!-- HSR: SWITCH -->
+    <section class="subview" id="hsr-tab-switch" hidden>
+      <div class="card card--subtle">
+        <div class="output hint" id="switchNonvalidated"></div>
+      </div>
+
+      <div class="card">
+        <div class="card__title" data-i18n="contrast_type">Contrast type</div>
+        <div class="seg">
+          <button class="seg__btn active" data-seg="cmtype" data-value="icm" type="button" data-i18n="icm_ct">ICM (CT)</button>
+          <button class="seg__btn" data-seg="cmtype" data-value="gbca" type="button" data-i18n="gbca_mri">GBCA (MRI)</button>
+        </div>
+      </div>
+
+      <div class="card" id="icmCard">
+        <div class="card__title" data-i18n="icm_title">ICM (iodine-based)</div>
+        <div class="hint" id="icmHint"></div>
+
+        <div class="seg seg--stack">
+          <button class="seg__btn" data-seg="icm" data-value="A" type="button">
+            <span>Group A</span>
+            <div class="small" id="icm-group-a-names"></div>
+          </button>
+          <button class="seg__btn" data-seg="icm" data-value="B" type="button">
+            <span>Group B</span>
+            <div class="small" id="icm-group-b-names"></div>
+          </button>
+          <button class="seg__btn" data-seg="icm" data-value="C" type="button">
+            <span>Group C</span>
+            <div class="small" id="icm-group-c-names"></div>
+          </button>
+          <button class="seg__btn" data-seg="icm" data-value="D" type="button">
+            <span>Group D</span>
+            <div class="small" id="icm-group-d-names"></div>
+          </button>
+          <button class="seg__btn" data-seg="icm" data-value="unknown" type="button">
+            <span data-i18n="unknown">Unknown</span>
+            <div class="small" data-i18n="icm_unknown_hint">Use when the involved ICM is not known.</div>
+          </button>
+        </div>
+      </div>
+
+      <div class="card" id="gbcaCard" hidden>
+        <div class="card__title" data-i18n="gbca_title">GBCA</div>
+        <div class="hint" id="gbcaHint"></div>
+
+        <div class="seg seg--stack">
+          <button class="seg__btn" data-seg="gbca" data-value="A" type="button">
+            <span>Group A</span>
+            <div class="small" id="gbca-group-a-names"></div>
+          </button>
+          <button class="seg__btn" data-seg="gbca" data-value="B" type="button">
+            <span>Group B</span>
+            <div class="small" id="gbca-group-b-names"></div>
+          </button>
+          <button class="seg__btn" data-seg="gbca" data-value="C" type="button">
+            <span>Group C</span>
+            <div class="small" id="gbca-group-c-names"></div>
+          </button>
+          <button class="seg__btn" data-seg="gbca" data-value="unknown" type="button">
+            <span data-i18n="unknown">Unknown</span>
+            <div class="small" data-i18n="gbca_unknown_hint">Use when the involved GBCA is not known.</div>
+          </button>
+        </div>
+      </div>
+
+      <div class="card card--output">
+        <div class="card__title" data-i18n="possible_alternatives">Possible alternatives</div>
+        <div class="output" id="switchOutput"></div>
+      </div>
+
+      <div class="card card--subtle">
+        <div class="card__title" data-i18n="safety_note">Safety note</div>
+        <div class="output" id="switchSafety" data-i18n="switch_safety_note">
+          This switch overview is optional and based on a non-validated classification and practical experience. The CMSC cannot make evidence-based recommendations on a robust scientific basis for change to an alternative contrast agent based on practical experience. Cross-reactivity cannot be predicted on the basis of the chemical structure. The best option is to choose an alternative based on the results of an allergy evaluation.
+        </div>
+      </div>
+    </section>
+
+    <!-- HSR: TRYPTASE -->
+    <section class="subview" id="hsr-tab-tryptase" hidden>
+      <div class="card">
+        <div class="card__title" data-i18n="tryptase_title">Serum tryptase</div>
+        <div class="output">
+          <ul>
+            <li data-i18n="tryptase_sample_measure">Measure serum tryptase within 1–4 h from the start of all moderate-to-severe immediate hypersensitivity reactions to contrast media.</li>
+            <li data-i18n="tryptase_sample_baseline">A second measurement after ≥ 24 h serves as a baseline for further allergologic examinations.</li>
+            <li data-i18n="tryptase_sample_ideal">Ideally, three samples should be obtained: the first as early as possible during a suspected hypersensitivity reaction, the second at 1–2 h after the first but no later than 4 h after the onset of the reaction, and the third more than 24 h after all signs and symptoms have subsided.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card__title" data-i18n="enter_values">Enter values</div>
+        <input type="number" id="baseline" inputmode="decimal" aria-label="Baseline tryptase in ng/mL" placeholder="Baseline (ng/mL)" />
+        <input type="number" id="acute" inputmode="decimal" aria-label="Acute tryptase in ng/mL" placeholder="Acute (ng/mL)" />
+        <button class="btn" id="calcTryptase" type="button" data-i18n="calculate">Calculate</button>
+      </div>
+
+      <div class="card card--output">
+        <div class="card__title" data-i18n="result">Result</div>
+        <div class="output" id="tryptaseOutput"></div>
+      </div>
+    </section>
+
+    <!-- HSR: NIHR -->
+    <section class="subview" id="hsr-tab-nihr" hidden>
+      <div class="card card--subtle">
+        <div class="card__title" data-i18n="nihr_title">NIHR — non-immediate hypersensitivity reactions</div>
+        <div class="output hint" data-i18n="nihr_subtitle">
+          For a previous non-immediate hypersensitivity reaction to an iodine-based contrast medium or a gadolinium-based contrast agent when re-administration is being considered.
+        </div>
+      </div>
+
+      <div class="card card--subtle">
+        <div class="card__title" data-i18n="hsr_referral_title">Referral & documentation</div>
+        <div class="output">
+          <ul>
+            <li data-i18n="hsr_referral_specify">When referring the patient to a drug allergy specialist, always specify the used contrast medium.</li>
+            <li data-i18n="hsr_referral_document">Detailed documentation of the culprit contrast agent and the severity of the reaction, including a grading scheme, is mandatory.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__title" data-i18n="nihr_severity_title">Previous NIHR severity</div>
+        <div class="seg seg--stack">
+          <button class="seg__btn active" data-seg="nihrSeverity" data-value="mild" type="button" data-i18n="nihr_severity_mild">Mild</button>
+          <button class="seg__btn" data-seg="nihrSeverity" data-value="moderate" type="button" data-i18n="nihr_severity_moderate">Moderate</button>
+          <button class="seg__btn" data-seg="nihrSeverity" data-value="severe" type="button" data-i18n="nihr_severity_severe">Severe</button>
+        </div>
+        <div class="hint" data-i18n="nihr_severity_hint">
+          Mild: skin lesions resolve without treatment. Moderate: skin lesions resolve with outpatient treatment. Severe: hospital admission is required for treatment.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__title" data-i18n="nihr_culprit_class_title">Previous culprit contrast class</div>
+        <div class="seg">
+          <button class="seg__btn active" data-seg="nihrCmtype" data-value="icm" type="button" data-i18n="nihr_cmtype_icm">ICM</button>
+          <button class="seg__btn" data-seg="nihrCmtype" data-value="gbca" type="button" data-i18n="nihr_cmtype_gbca">GBCA</button>
+          <button class="seg__btn" data-seg="nihrCmtype" data-value="unknown" type="button" data-i18n="nihr_cmtype_unknown">Contrast class unknown</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__title" data-i18n="nihr_culprit_known_title">Exact culprit contrast medium known?</div>
+        <div class="seg">
+          <button class="seg__btn active" data-seg="nihrCulpritKnown" data-value="known" type="button" data-i18n="nihr_culprit_known">Culprit CM known</button>
+          <button class="seg__btn" data-seg="nihrCulpritKnown" data-value="unknown" type="button" data-i18n="nihr_culprit_unknown">Culprit CM unknown</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__title" data-i18n="nihr_danger_signs_title">Danger signs</div>
+        <div class="checklist">
+          <label><input type="checkbox" class="nihr-check" value="erosion" /> <span data-i18n="erosions">Erosive and/or haemorrhagic lesions</span></label>
+          <label><input type="checkbox" class="nihr-check" value="blister_skin" /> <span data-i18n="blistering">Blistering and skin disruption</span></label>
+          <label><input type="checkbox" class="nihr-check" value="mucosa" /> <span data-i18n="mucosal_involvement">Mucosal involvement</span></label>
+          <label><input type="checkbox" class="nihr-check" value="extracutaneous" /> <span data-i18n="extracutaneous_involvement">Extracutaneous organ involvement (high fever, abnormal liver/kidney values, lymphadenopathy)</span></label>
+        </div>
+      </div>
+
+      <div class="card card--output">
+        <div class="card__title" data-i18n="nihr_recommendation_title">NIHR recommendation</div>
+        <div class="output" id="nihrOutput"></div>
+      </div>
+
+
+    </section>
+  </section>
+
+  <!-- PRACTICE CHANGES -->
+  <section class="view" id="view-changes" hidden>
+    <h1 class="h1" data-i18n="changes_title">Practice Changes 2025</h1>
+    <p class="p-muted" data-i18n="changes_subtitle">
+      ESUR-based summary of what changed from ESUR 10.0 (2018) to ESUR 2025. Educational support only.
+    </p>
+
+    <div class="card card--subtle">
+      <div class="changes-hero">
+        <div class="changes-hero__text" data-i18n="changes_intro">
+          This tab highlights practice-relevant differences between ESUR 10.0 (2018) and ESUR 2025, with transparent source attribution. It is intended as educational support and not as a stand-alone clinical decision tool.
+        </div>
+
+        <div class="changes-badges" aria-label="Change category legend">
+          <span class="change-badge change-badge--high" data-i18n="badge_practice_changing">Practice-changing</span>
+          <span class="change-badge change-badge--medium" data-i18n="badge_refined">Refined</span>
+          <span class="change-badge change-badge--low" data-i18n="badge_structural">Structural / terminological</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card__title" data-i18n="changes_filter_title">Filter</div>
+
+      <div class="changes-controls">
+        <div class="changes-controls__block">
+          <div class="small changes-controls__label" data-i18n="changes_filter_label">Relevance</div>
+          <div class="seg changes-filter-row">
+            <button class="seg__btn active" data-change-filter="all" type="button" data-i18n="changes_filter_all">All</button>
+            <button class="seg__btn" data-change-filter="high" type="button" data-i18n="changes_filter_high">Practice-changing</button>
+            <button class="seg__btn" data-change-filter="medium" type="button" data-i18n="changes_filter_medium">Refined</button>
+            <button class="seg__btn" data-change-filter="low" type="button" data-i18n="changes_filter_low">Structural</button>
+          </div>
+        </div>
+
+        <div class="changes-controls__block">
+          <div class="small changes-controls__label" data-i18n="changes_mode_label">Reading mode</div>
+          <div class="seg">
+            <button class="seg__btn active" data-change-mode="compare" type="button" data-i18n="changes_mode_compare">Compare</button>
+            <button class="seg__btn" data-change-mode="action" type="button" data-i18n="changes_mode_action">Action mode</button>
+          </div>
+        </div>
+
+        <div class="changes-controls__block">
+          <div class="small changes-controls__label" data-i18n="changes_search_label">Search</div>
+          <input
+            type="text"
+            id="changesSearch"
+            data-i18n-placeholder="changes_search_placeholder"
+            placeholder="Search topics (e.g. hypersensitivity, CA-AKI, waiting times)"
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="changes-grid" id="changesSummaryGrid" aria-live="polite"></div>
+    <div class="changes-list" id="changesList" aria-live="polite"></div>
+  </section>
+
+</main>
+
+<nav class="bottomnav">
+  <button class="bottomnav__btn active" data-main-nav="hsr" type="button" data-i18n="nav_hsr">HSR</button>
+  <button class="bottomnav__btn" data-main-nav="changes" type="button" data-i18n="nav_changes">Practice Changes</button>
+</nav>
+
+<script src="./script.js"></script>
 </body>
 </html>
