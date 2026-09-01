@@ -1,6 +1,5 @@
 // HSR_REGRESSION_01 baseline: bc7e4e3df7cf4f2dde5093ff9575c985b3c5048b
-const { test, expect } = require("@playwright/test");
-const { openApp, openHsrTab, clickSeg, flowOutput } = require("./helpers/ui");
+const { test, expect, openApp, openHsrTab, clickSeg, flowOutput } = require("./helpers/ui");
 
 async function setPrevious(page, situation, reaction) {
   await openHsrTab(page, "guidance");
@@ -56,9 +55,8 @@ test("PREV_06 emergency severe: consider premedication plus protocol and separat
   await expect(out).toContainText("Emergency imaging — prior severe immediate hypersensitivity reaction");
   await expect(out).toContainText("rapid response");
   await expect(out).toContainText("Consider administration of premedication");
-  await expect(out).toContainText("50 mg prednisolone IV");
-  await expect(out).toContainText("2 mg clemastine IV");
-  await expect(out).toContainText("≥ 30 min");
+  await expect(out).toContainText("Emergency premedication protocol: 50 mg prednisolone IV (or equivalent) ≥ 30 min before contrast medium administration.");
+  await expect(out).toContainText("Emergency premedication protocol: 2 mg clemastine IV (or equivalent) ≥ 30 min before contrast medium administration.");
   await expect(out).toContainText("Routine premedication is not recommended");
   await expect(out).toContainText("Premedication is optional in emergency situations");
   await expect(out).toContainText("Choose a different iodine-based contrast medium or gadolinium-based contrast agent if the culprit contrast medium is known");
@@ -101,4 +99,61 @@ test("FORB_07 no legacy previous unclear severity option", async ({ page }) => {
   await openApp(page);
   await openHsrTab(page, "guidance");
   await expect(page.locator('#hsr-tab-guidance [data-value="unclear"]')).toHaveCount(0);
+});
+
+test("PREV_01 elective mild: interview optional referral observation never-deny; no premed postpone or nearby team", async ({ page }) => {
+  await openApp(page);
+  await setPrevious(page, "elective", "mild");
+  const out = flowOutput(page);
+  await expect(out).toContainText("Elective imaging — prior mild immediate hypersensitivity reaction");
+  await expect(out).toContainText("Interview the patient about their previous hypersensitivity reaction");
+  await expect(out).toContainText("Optionally, refer the patient to a drug allergy specialist");
+  await expect(out).toContainText("when the local drug allergy specialist capacity is sufficient");
+  await expect(out).toContainText("Optimize the allergy registration in the electronic health record");
+  await expect(out).toContainText("Apply the advice of the drug allergy specialist");
+  await expect(out).toContainText("choose a different iodine-based contrast medium or gadolinium-based contrast agent if the culprit contrast agent is known");
+  await expect(out).toContainText("at least 30 min with the IV line in place");
+  await expect(out).toContainText("Be prepared and vigilant");
+  await expect(out).toContainText("referral to a drug allergy specialist is mandatory");
+  await expect(out).toContainText("Consider an alternative imaging modality");
+  await expect(out).toContainText("Never deny a patient a clinically well-indicated enhanced examination");
+  await expect(out).not.toContainText("premedication");
+  await expect(out).not.toContainText("trained imaging or emergency room physician");
+  await expect(out).not.toContainText("rapid response");
+  await expect(out).not.toContainText("Postpone imaging");
+});
+
+test("PREV_02 emergency mild uses the same medical list with emergency title", async ({ page }) => {
+  await openApp(page);
+  await setPrevious(page, "emergency", "mild");
+  const out = flowOutput(page);
+  await expect(out).toContainText("Emergency imaging — prior mild immediate hypersensitivity reaction");
+  await expect(out).toContainText("Interview the patient about their previous hypersensitivity reaction");
+  await expect(out).toContainText("Optionally, refer the patient to a drug allergy specialist");
+  await expect(out).toContainText("choose a different iodine-based contrast medium or gadolinium-based contrast agent if the culprit contrast agent is known");
+  await expect(out).toContainText("Never deny a patient a clinically well-indicated enhanced examination");
+  await expect(out).not.toContainText("premedication");
+  await expect(out).not.toContainText("trained imaging or emergency room physician");
+  await expect(out).not.toContainText("rapid response");
+  await expect(out).not.toContainText("Postpone imaging");
+});
+
+test("GLOBAL_01 Previous Reaction referral and documentation block is visible independent of severity", async ({ page }) => {
+  await openApp(page);
+  await setPrevious(page, "elective", "mild");
+  const tab = page.locator("#hsr-tab-guidance");
+  await expect(tab).toContainText("Referral & documentation");
+  await expect(tab).toContainText("When referring the patient to a drug allergy specialist, always specify the used contrast medium");
+  await expect(tab).toContainText("Detailed documentation of the culprit contrast agent and the severity of the reaction, including a grading scheme, is mandatory");
+  await setPrevious(page, "emergency", "severe");
+  await expect(tab).toContainText("Referral & documentation");
+  await expect(tab).toContainText("is mandatory");
+});
+
+test("PREV_ROUTING_01 previous-reaction tab is scoped to immediate reactions", async ({ page }) => {
+  await openApp(page);
+  await openHsrTab(page, "guidance");
+  await expect(page.locator("#hsr-tab-guidance")).toContainText(
+    "Educational support for prior immediate hypersensitivity reactions. For non-immediate reactions, use the NIHR module."
+  );
 });
