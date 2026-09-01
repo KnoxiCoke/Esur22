@@ -1,0 +1,169 @@
+name: ESUR HSR approved patches
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/esur-hsr-patch.yml"
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore last good script.js and apply approved blocks
+        run: |
+          set -euo pipefail
+          git show 1d11323919a0c94b480ec0ed87458b555cf65ecd:script.js > script.js
+          test "$(wc -c < script.js)" -gt 100000
+          python3 <<'PY'
+          from pathlib import Path
+          p = Path('script.js')
+          t = p.read_text()
+          old_en = '''        mild_general: {
+clinical:
+  "Nasal congestion, sneezing, conjunctivitis, rhinorrhoea, cutaneous oedema, itchy throat, mild scattered urticaria, e.g. <10.",
+management: [
+  "Reassure patient.",
+  "Maintain IV access.",
+  "IV drip 500 mL NaCl 0.9%.",
+  "Observation with regular intervals until symptoms resolve, minimum 30 minutes.",
+  "When vomiting is protracted: ondansetron 4 mg IV.",
+  "When persisting cutaneous reaction or itching: non-sedating H1-antihistamine, e.g. desloratadine 5 mg PO once daily or cetirizine 10 mg PO once daily."
+],
+escalation: [
+  "When needed, consult rapid response team."
+]
+        },'''
+          new_en = '''        mild_general: {
+clinical:
+  "Mild features: nasal congestion; sneezing, conjunctivitis, rhinorrhoea; limited or scattered urticaria and pruritus; cutaneous oedema; limited itchy or scratchy throat. Classify by the most intense symptom.",
+management: [
+  "Mild reactions may only need reassurance.",
+  "Observe vital signs until symptoms resolve.",
+  "Do not remove IV access during observation.",
+  "After a mild reaction, keep the patient under surveillance until every symptom has disappeared (minimum 30 minutes, usually less than 60 minutes).",
+  "Consider a nonsedating antihistamine for mild allergic reactions, for example desloratadine 5 mg orally or cetirizine 10 mg orally, once daily.",
+  "For protracted vomiting: ondansetron 4 mg IV."
+],
+escalation: [
+  "Monitor closely and assess for progression of the reaction."
+]
+        },'''
+          old_de = '''        mild_general: {
+clinical:
+  "Nasale Kongestion, Niesen, Konjunktivitis, Rhinorrhö, kutanes Ödem, juckender Hals, milde vereinzelte Urtikaria, z. B. <10.",
+management: [
+  "Patientin/Patient beruhigen.",
+  "IV-Zugang belassen.",
+  "500 mL NaCl 0,9% i.v. als Infusion.",
+  "Regelmäßige Beobachtung bis zum Abklingen der Symptome, mindestens 30 Minuten.",
+  "Bei prolongiertem Erbrechen: Ondansetron 4 mg i.v.",
+  "Bei persistierender Hautreaktion oder Juckreiz: nicht sedierendes H1-Antihistaminikum, z. B. Desloratadin 5 mg p.o. 1× täglich oder Cetirizin 10 mg p.o. 1× täglich."
+],
+escalation: [
+  "Bei Bedarf Rapid-Response-Team hinzuziehen."
+]
+        },'''
+          new_de = '''        mild_general: {
+clinical:
+  "Milde Merkmale: nasale Kongestion; Niesen, Konjunktivitis, Rhinorrhö; begrenzte oder vereinzelte Urtikaria und Pruritus; kutanes Ödem; begrenzter juckender oder kratzender Hals. Maßgeblich ist das stärkste Symptom.",
+management: [
+  "Milde Reaktionen können allein mit Beruhigung auskommen.",
+  "Vitalzeichen beobachten, bis die Symptome abklingen.",
+  "Den i.v.-Zugang während der Beobachtung nicht entfernen.",
+  "Nach einer milden Reaktion überwachen, bis jedes Symptom verschwunden ist (mindestens 30 Minuten, üblicherweise unter 60 Minuten).",
+  "Bei milder allergischer Reaktion ein nicht sedierendes Antihistaminikum erwägen, z. B. Desloratadin 5 mg oral oder Cetirizin 10 mg oral, einmal täglich.",
+  "Bei protrahiertem Erbrechen: Ondansetron 4 mg i.v."
+],
+escalation: [
+  "Engmaschig überwachen und auf eine Progredienz der Reaktion achten."
+]
+        },'''
+          assert t.count(old_en) == 1, t.count(old_en)
+          assert t.count(old_de) == 1, t.count(old_de)
+          t = t.replace(old_en, new_en).replace(old_de, new_de)
+          p.write_text(t)
+          print('mild patched', len(t))
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add script.js
+          git commit -m "ACUTE_MILD_01: align mild_general EN/DE with ESUR Part 1 Table 3"
+          python3 <<'PY'
+          from pathlib import Path
+          t = Path('script.js').read_text()
+          assert t.count('acute_pattern_moderate_urticaria: "Generalised urticaria / diffuse erythema"') == 1
+          assert t.count('acute_pattern_moderate_urticaria: "Generalisierte Urtikaria / diffuses Erythem"') == 1
+          t = t.replace(
+              'acute_pattern_moderate_urticaria: "Generalised urticaria / diffuse erythema"',
+              'acute_pattern_moderate_urticaria: "Diffuse urticaria / diffuse erythema"',
+              1,
+          )
+          t = t.replace(
+              'acute_pattern_moderate_urticaria: "Generalisierte Urtikaria / diffuses Erythem"',
+              'acute_pattern_moderate_urticaria: "Diffuse Urtikaria / diffuses Erythem"',
+              1,
+          )
+          old_en = '''        moderate_urticaria: {
+clinical: "Generalised urticaria / diffuse erythema.",
+warning: "Cave hypotension.",
+management: [
+  "IV 1000 mL NaCl 0.9% in 1 h.",
+  "H1-antihistamine IV, e.g. clemastine 2 mg.",
+  "When needed, repeat H1-antihistamine IV after 5 minutes.",
+  "When hypotensive (SBP <90): active elevation of legs."
+],
+escalation: [
+  "When hypotensive (SBP <90): treat as anaphylaxis.",
+  "When needed, consult rapid response team."
+]
+        },'''
+          new_en = '''        moderate_urticaria: {
+clinical: "Diffuse urticaria / diffuse erythema.",
+management: [
+  "Give chlorphenamine 20 mg or clemastine 2 mg IV.",
+  "Consider transferring the patient to a department with facilities for monitoring vital functions."
+],
+escalation: [
+  "If accompanied by hypotension, treat as anaphylaxis."
+]
+        },'''
+          old_de = '''        moderate_urticaria: {
+clinical: "Generalisierte Urtikaria / diffuses Erythem.",
+warning: "Achtung Hypotonie.",
+management: [
+  "1000 mL NaCl 0,9% i.v. in 1 h.",
+  "H1-Antihistaminikum i.v., z. B. Clemastin 2 mg.",
+  "Bei Bedarf H1-Antihistaminikum i.v. nach 5 Minuten wiederholen.",
+  "Bei Hypotonie (SBP <90): Beine aktiv hochlagern."
+],
+escalation: [
+  "Bei Hypotonie (SBP <90): wie Anaphylaxie behandeln.",
+  "Bei Bedarf Rapid-Response-Team hinzuziehen."
+]
+        },'''
+          new_de = '''        moderate_urticaria: {
+clinical: "Diffuse Urtikaria / diffuses Erythem.",
+management: [
+  "Chlorphenamin 20 mg oder Clemastin 2 mg i.v. geben.",
+  "Verlegung in einen Bereich mit Überwachung der Vitalfunktionen erwägen."
+],
+escalation: [
+  "Bei begleitender Hypotonie wie eine Anaphylaxie behandeln."
+]
+        },'''
+          assert t.count(old_en) == 1, 'en urt missing'
+          assert t.count(old_de) == 1, 'de urt missing'
+          t = t.replace(old_en, new_en).replace(old_de, new_de)
+          Path('script.js').write_text(t)
+          print('urt patched', len(t))
+          PY
+          git add script.js
+          git commit -m "ACUTE_MOD_URT_01: align moderate urticaria/erythema EN/DE with ESUR Part 1 Table 3"
+          rm -f .github/workflows/esur-hsr-patch.yml
+          git add -A .github/workflows/esur-hsr-patch.yml
+          git commit -m "Remove temporary HSR patch workflow"
+          git push
