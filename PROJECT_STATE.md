@@ -10,8 +10,8 @@ Last verified: 2026-09-02
 - Repository: `KnoxiCoke/Esur22`
 - Main baseline: `cd671d69ffb6f99555ae99e0407a7b61827811e3`
 - Refactor branch: `refactor/modularize-script`
-- Verified code commit: `4647917fb6bf2d1a0b8aae6f8a8a71dcf56b759f`
-- CI verification commit (tree-identical): `1bde6259a1161640b3e24c9aa56c0c70fc0d1950`
+- Verified code commit: `5ecbf18dc47605701bd97e4a6df53b3a7109e1c0`
+- CI verification commit (tree-identical): `31d4474f3f22084db37aae040af38c9a20ace533`
 - Draft PR: `#12`
 - PR state: open, Draft, not merged
 
@@ -41,12 +41,13 @@ This does **not** mean final Medical Affairs approval or medical validation.
 
 ## Plan snapshot
 
-- Engineering: R2K VERIFIED. This is one verified extraction package, not “refactor complete” and not a Medical Freeze.
+- Engineering: R2L VERIFIED. This is one verified extraction package, not “refactor complete” and not a Medical Freeze.
 - Medical Freeze / v0.9.0: still open (known source exceptions remain; no Medical Affairs sign-off).
 - Practice Changes 2018→2025 audit: still open.
 - Regulatory Gate: scheduled in the master plan, **not performed**. No MDSW classification and no Rule-11 class estimate.
 - R2K: VERIFIED.
-- R2L: not defined. No implementation before a separate read-only scope review and explicit ChatGPT technical GO.
+- R2L: VERIFIED.
+- R2M: not defined. No implementation before a separate read-only scope review and explicit ChatGPT technical GO.
 
 ## Regulatory status
 
@@ -75,11 +76,11 @@ Keep three questions separate:
 
 ## Regression protection
 
-- Playwright tests: `82`
+- Playwright tests: `86`
 - Shared fixture fails on browser `pageerror` and `console.error`.
-- Latest verified official PR CI run: `33643757974`
-- CI verification head: `1bde6259a1161640b3e24c9aa56c0c70fc0d1950`
-- Result: `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `19.8 s`
+- Latest verified official PR CI run: `33681177366`
+- CI verification head: `31d4474f3f22084db37aae040af38c9a20ace533`
+- Result: `86/86 passed`, `0 failed`, `0 skipped`, `2 workers`, `18.5 s`
 
 The verified run loaded all current runtime files successfully:
 
@@ -88,6 +89,7 @@ The verified run loaded all current runtime files successfully:
 - `js/app/icons.js`
 - `js/app/nav.js`
 - `js/app/i18nApply.js`
+- `js/app/disclaimer.js`
 - `js/hsr/acute.js`
 - `js/hsr/nihr.js`
 - `js/hsr/previous.js`
@@ -608,11 +610,67 @@ The CI verification commit is tree-identical to the R2K code commit. The officia
 Medical content changed: **NO**.
 Practice Changes medical content changed: **NO**.
 
+
+### R2L — VERIFIED
+
+Code commit: `5ecbf18dc47605701bd97e4a6df53b3a7109e1c0`
+Parent: `c8590597892765df1ea15c44c32efc863a4bda8d`
+CI verification commit (tree-identical): `31d4474f3f22084db37aae040af38c9a20ace533`
+Official PR CI run: `33681177366`
+
+The sticky disclaimer interaction was mechanically extracted from `script.js` into a dedicated app-chrome module:
+
+- `js/app/disclaimer.js`
+
+Implementation boundary:
+
+- `window.ESUR.app.disclaimer.init()` owns only the existing `#stickyDisclaimer` interaction.
+- Existing `role="button"`, `tabindex="0"`, initial `aria-expanded="false"`, `is-open` toggling, click behaviour, Enter behaviour, Space behaviour and `preventDefault()` semantics were preserved.
+- The host call remains inside the existing `DOMContentLoaded` flow, after `resetAll()` is defined and before the Main-nav listeners.
+- Disclaimer wording, markup, i18n keys/values and CSS were unchanged.
+- `defaultAcutePattern`, `setSegment`, `renderAll`, `resetAll`, `refreshComputedModulesAfterLanguageChange`, `changesLibrary`, Practice Changes content and all HSR modules were unchanged.
+
+R2L runtime load order:
+
+1. `js/content/i18n.js`
+2. `js/app/utils.js`
+3. `js/app/icons.js`
+4. `js/app/nav.js`
+5. `js/app/i18nApply.js`
+6. `js/app/disclaimer.js`
+7. `js/hsr/acute.js`
+8. `js/hsr/nihr.js`
+9. `js/hsr/previous.js`
+10. `js/hsr/switch.js`
+11. `js/hsr/tryptase.js`
+12. `script.js`
+
+R2L production/test blobs:
+
+- `index.html`: `24c222ef988c07fb9d7cd10db1817802331624e7`
+- `js/app/disclaimer.js`: `b27e92b4cb6c3713198967696a48d74f2ad73b88`
+- `script.js`: `252f88fff95c482b84c43de24ef0026f803f1847`
+- `tests/disclaimer.spec.js`: `4c2bb39a33d01d75d32068a523f13bec6adc2127`
+
+R2L exact code diff versus `c8590597892765df1ea15c44c32efc863a4bda8d`:
+
+- `index.html`: +1 / -0
+- `js/app/disclaimer.js`: +28 / -0
+- `script.js`: +1 / -21
+- `tests/disclaimer.spec.js`: +52 / -0
+
+The four new characterization tests protect initial accessibility attributes plus click, Enter and Space toggling. The official run loaded `js/app/disclaimer.js` successfully (HTTP 200) and finished `86/86 passed`, `0 failed`, `0 skipped`, `2 workers`, `18.5 s`.
+
+The original Grok-local R2L commit `46802374a70b13c8d08f938d89048a4f58abeb6d` was lost with its sandbox before it could be pushed. The preserved artifact ZIP was independently verified against all four expected blob SHAs. The authoritative remote R2L code commit is therefore `5ecbf18dc47605701bd97e4a6df53b3a7109e1c0`; it has the verified target tree/content even though its commit SHA differs from the lost local commit.
+
+Medical content changed: **NO**.
+Practice Changes medical content changed: **NO**.
+
 ## Next permitted action
 
-Do **not** start R2L automatically.
+Do **not** start R2M automatically.
 
-The next permitted engineering step is only a **read-only** dependency/scope review for a possible R2L package. ChatGPT independently reviews that scope. R2L may be implemented only after an explicit ChatGPT technical `GO`.
+The next permitted engineering step is only a **read-only** dependency/scope review for a possible R2M package. ChatGPT independently reviews that scope. R2M may be implemented only after an explicit ChatGPT technical `GO`.
 
 The accepted risk map uses two separate axes: Medical sensitivity and mechanical extraction risk. Medical sensitivity alone does not freeze a renderer, but all Medical content and behaviour remain frozen during refactor.
 
@@ -637,6 +695,24 @@ For any later package:
 - Tests are regression guardrails, not proof of medical correctness.
 - Regulatory work must not alter Medical content or refactor scope before a Bayer RA/Legal vote. No MDSW class is recorded in this file.
 
+
+## Remote handoff / single-writer rule
+
+GitHub is the authoritative source of truth. Local sandboxes, `/tmp` clones and unpushed commit SHAs are temporary implementation state, not project milestones.
+
+For the current multi-agent setup, use exactly one remote writer per package:
+
+- **Grok implements and tests locally. ChatGPT is the current Remote Writer and independent remote verifier.**
+- Grok must not promise or report a remote HEAD, pushed commit, official CI result or completed remote milestone unless its environment actually has working GitHub authentication and has verified that remote state.
+- After a green local implementation, Grok must preserve the handoff outside ephemeral `/tmp`: provide the exact baseline/parent, local commit SHA if one exists, changed-file list, target blob SHAs and a persistent artifact/ZIP containing the final files or patch material needed for recovery.
+- A local commit that has not reached GitHub is not a completed milestone. If its sandbox disappears, recover from the preserved artifact and target blob SHAs; do not treat the lost local SHA as authoritative.
+- ChatGPT may publish the verified artifact/patch to the remote branch only through a safe Git/Git-Data/server-side path that preserves the approved bytes and boundaries. If that cannot be done safely, return `STOP`; do not improvise a large-file full replacement.
+- Do **not** use the GitHub Contents/File API to full-replace large existing files such as `script.js` or `PROJECT_STATE.md`. Small new temporary helper files may be created only when necessary for a controlled server-side wire and must not remain in the final refactor tree.
+- Code package order is strict: local implementation/tests → remote write → ChatGPT remote diff/blob verification → official full CI → `VERIFIED PASS` → separate docs-only `PROJECT_STATE.md` update.
+- Do not combine an unverified code package and its milestone documentation into the same completion step.
+- Temporary helper branches/workflows used for recovery or wiring must be removed after successful use and must not remain in the final refactor branch tree.
+- The authoritative commit for a milestone is the verified **remote** commit/tree recorded here, even if a lost local implementation commit had a different SHA but identical verified content.
+
 ## Standing technical refactor authorization
 
 The user has granted standing authorization for the ongoing purely technical, behaviour-preserving refactor on Draft PR `#12`.
@@ -645,7 +721,7 @@ The user has granted standing authorization for the ongoing purely technical, be
 - ChatGPT acts as the independent technical reviewer/orchestrator and may issue `GO`, `MODIFY` or `STOP` after a read-only scope review.
 - ChatGPT `GO` authorizes Grok to implement exactly the approved technical scope without waiting for another user message.
 - If ChatGPT returns `MODIFY` or `STOP`, Grok must not implement until the issue is resolved and a new technical `GO` is issued.
-- After implementation, Grok must stop and report the exact remote diff, blobs, local full-suite result and official CI result. ChatGPT then independently verifies the remote repository and CI.
+- After implementation, Grok must stop and report the exact local handoff: baseline/parent, local commit SHA if available, changed-file list, target blob SHAs, persistent artifact/ZIP, targeted-test result and local full-suite result. ChatGPT, as current Remote Writer, publishes through the safe remote path and then independently verifies the GitHub diff/blobs and official CI.
 - After ChatGPT marks a package `VERIFIED PASS`, a docs-only `PROJECT_STATE.md` milestone update is authorized without another user `GO`.
 - This standing authorization is for the agreed incremental refactor only; it is not authorization to expand scope autonomously or chain multiple unreviewed packages.
 
@@ -669,11 +745,11 @@ The refactor uses a risk-adaptive hybrid workflow to reduce coordination overhea
 
 Use this for clearly bounded, mechanically straightforward packages with low or manageable coupling:
 
-**ChatGPT scope from the live remote → Grok implementation → ChatGPT independent remote verification → full regression CI**
+**ChatGPT scope from the live remote → Grok local implementation/tests + persistent artifact handoff → ChatGPT remote write + independent verification → full regression CI**
 
 - ChatGPT inspects the current remote code, defines the exact package, dependencies, invariants and out-of-scope boundary, and provides the ready-to-copy implementation prompt directly.
-- Grok implements exactly that approved package and stops.
-- ChatGPT independently verifies the actual GitHub diff/blobs and official CI rather than relying on Grok's report.
+- Grok implements exactly that approved package, runs the required local tests, preserves the final handoff artifact outside ephemeral `/tmp`, reports the target blob SHAs and stops.
+- ChatGPT is the current Remote Writer: it publishes the approved handoff through the safe remote path, then independently verifies the actual GitHub diff/blobs and official CI rather than relying on Grok's report.
 - The full Playwright suite remains required for every structural package before `VERIFIED PASS`.
 - No separate user `GO` is required for these routine technical packages under the standing authorization.
 
@@ -681,7 +757,7 @@ Use this for clearly bounded, mechanically straightforward packages with low or 
 
 Use this when a package is unusually coupled, stateful, cross-cutting, ambiguous, or otherwise materially riskier to scope correctly. Examples include `defaultAcutePattern`, `setSegment`, `renderAll`, `resetAll`, or similarly coupled orchestration/state logic.
 
-**Grok read-only scope → ChatGPT independent scope review (`GO / MODIFY / STOP`) → Grok implementation → ChatGPT independent remote verification → full regression CI**
+**Grok read-only scope → ChatGPT independent scope review (`GO / MODIFY / STOP`) → Grok local implementation/tests + persistent artifact handoff → ChatGPT remote write + independent verification → full regression CI**
 
 - The extra Grok scope pass is deliberate redundancy before implementation.
 - ChatGPT independently checks the proposed boundary against the live remote before issuing technical `GO`.
@@ -692,7 +768,7 @@ Use this when a package is unusually coupled, stateful, cross-cutting, ambiguous
 
 - Default principle: **fast by default, extra scope redundancy only when the concrete risk justifies it**.
 - One coherent package at a time. Do not chain multiple unreviewed packages.
-- A package is not complete until ChatGPT has independently verified the remote implementation and the full official CI is green.
+- A package is not complete until the implementation is on GitHub, ChatGPT has independently verified the remote implementation, and the full official CI is green.
 - After `VERIFIED PASS`, the routine docs-only `PROJECT_STATE.md` milestone update remains authorized without another user `GO`.
 - This hybrid workflow does not relax any Medical, Regulatory, test, merge or release exclusions listed above.
 
@@ -702,6 +778,6 @@ ChatGPT decides which path applies to each technical package and must state that
 
 Before doing anything, read `PROJECT_STATE.md` and treat it as the authoritative project status.
 
-If chat history, a local workspace, or an earlier report conflicts with this file, verify the current GitHub branch and CI before proceeding. Update this file only after a milestone has been independently verified.
+If chat history, a local workspace, an artifact handoff, or an earlier report conflicts with this file, verify the current GitHub branch and CI before proceeding. GitHub remote state is authoritative. Update this file only after a milestone has been independently verified.
 
 Every reviewer/orchestrator response in this refactor workflow must also end with the **exact next permitted step**. When another model needs to act, provide a ready-to-copy prompt instead of making the user ask what to do next.
