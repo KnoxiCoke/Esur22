@@ -10,8 +10,8 @@ Last verified: 2026-09-02
 - Repository: `KnoxiCoke/Esur22`
 - Main baseline: `cd671d69ffb6f99555ae99e0407a7b61827811e3`
 - Refactor branch: `refactor/modularize-script`
-- Verified code commit: `766e156e83d6418d85dcd55064f64b3809859519`
-- CI verification commit (tree-identical): `8896887b20949b75c89858ae260405cebf96a6af`
+- Verified code commit: `2bede43edd6ae6490743fb40f5b43f0781036a62`
+- CI verification commit (tree-identical): `b6d4ec568bb7e7dec7408e1b6b95a330d41d7a98`
 - Draft PR: `#12`
 - PR state: open, Draft, not merged
 
@@ -41,11 +41,11 @@ This does **not** mean final Medical Affairs approval or medical validation.
 
 ## Plan snapshot
 
-- Engineering: R2H VERIFIED. This is one verified extraction package, not “refactor complete” and not a Medical Freeze.
+- Engineering: R2I VERIFIED. This is one verified extraction package, not “refactor complete” and not a Medical Freeze.
 - Medical Freeze / v0.9.0: still open (known source exceptions remain; no Medical Affairs sign-off).
 - Practice Changes 2018→2025 audit: still open.
 - Regulatory Gate: scheduled in the master plan, **not performed**. No MDSW classification and no Rule-11 class estimate.
-- R2I: not defined. No implementation before a separate read-only scope review and explicit technical GO under the standing authorization below.
+- R2J: not defined. No implementation before a separate read-only scope review and explicit technical GO under the standing authorization below.
 
 ## Regulatory status
 
@@ -76,9 +76,9 @@ Keep three questions separate:
 
 - Playwright tests: `82`
 - Shared fixture fails on browser `pageerror` and `console.error`.
-- Latest verified official PR CI run: `33631632945`
-- CI verification head: `8896887b20949b75c89858ae260405cebf96a6af`
-- Result: `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `20.5 s`
+- Latest verified official PR CI run: `33636536231`
+- CI verification head: `b6d4ec568bb7e7dec7408e1b6b95a330d41d7a98`
+- Result: `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `18.5 s`
 
 The verified run loaded all current runtime files successfully:
 
@@ -91,6 +91,7 @@ The verified run loaded all current runtime files successfully:
 - `js/hsr/nihr.js`
 - `js/hsr/previous.js`
 - `js/hsr/switch.js`
+- `js/hsr/tryptase.js`
 - `script.js`
 
 ## Refactor status
@@ -397,7 +398,7 @@ Implementation boundary:
 - `fillSwitchPrinciples()` remains private in `js/app/i18nApply.js`.
 - Listeners, brands, i18n values, Medical content, Practice Changes and unrelated renderers were not moved or changed in R2H.
 
-Current runtime load order:
+R2H runtime load order at that milestone:
 
 1. `js/content/i18n.js`
 2. `js/app/utils.js`
@@ -428,17 +429,77 @@ The CI verification commit is tree-identical to the R2H code commit. The officia
 Medical content changed: **NO**.
 Practice Changes medical content changed: **NO**.
 
+### R2I — VERIFIED
+
+Code commit: `2bede43edd6ae6490743fb40f5b43f0781036a62`
+CI verification commit (tree-identical): `b6d4ec568bb7e7dec7408e1b6b95a330d41d7a98`
+Official PR CI run: `33636536231`
+
+The Tryptase display renderer and calculator were mechanically extracted together as one coherent package:
+
+- `renderTryptase()`
+- `calcTryptase()`
+
+New file:
+
+- `js/hsr/tryptase.js`
+
+Implementation boundary:
+
+- `window.ESUR.hsr.tryptase.init({ t, escapeHtml, fmt, tryptaseOutput })` closes over the same existing references.
+- `renderTryptase()` still uses `tryptaseOutput.dataset.ready` exactly as before.
+- `calcTryptase()` still obtains `baseline` and `acute` with `document.getElementById(...)` inside the function body.
+- Blank input remains invalid; explicit numeric zero remains valid.
+- The formula remains exactly `(1.2 * baseline) + 2` and significance remains `acute >= threshold`.
+- The literal ` ng/mL`, all existing `t()` keys, formatting calls and output structure were preserved.
+- Existing invalid branches still return without deleting/resetting `dataset.ready`; no readiness cleanup was introduced.
+- `renderAll()`, `refreshComputedModulesAfterLanguageChange()`, `resetAll()` including `delete tryptaseOutput.dataset.ready`, the calculator button listener and language listeners remain in `script.js`.
+- No Medical content, i18n values, tests, Practice Changes or unrelated HSR logic moved or changed in R2I.
+
+Current runtime load order:
+
+1. `js/content/i18n.js`
+2. `js/app/utils.js`
+3. `js/app/icons.js`
+4. `js/app/nav.js`
+5. `js/app/i18nApply.js`
+6. `js/hsr/acute.js`
+7. `js/hsr/nihr.js`
+8. `js/hsr/previous.js`
+9. `js/hsr/switch.js`
+10. `js/hsr/tryptase.js`
+11. `script.js`
+
+R2I production blobs:
+
+- `js/hsr/tryptase.js`: `d1bf579eb71ca5fbef07a6365b2a0af508ec51b0`
+- `index.html`: `e76d5dba8968de92d273f0e0cfb866448b6b67bc`
+- `script.js`: `b1537046d1d023e245d0e0c2083954e2d4d9b1e0`
+- `js/content/i18n.js`: unchanged (`e5f4543ae41eb2e55c4a7b98a3b63db522c389be`)
+
+R2I exact net code diff versus standing-authorization docs baseline `b3a017aeb371ea358a2d0a3db9ca62ac37ee7052`:
+
+- `index.html`: +1 / -0
+- `js/hsr/tryptase.js`: +52 / -0
+- `script.js`: +6 / -43
+
+The CI verification commit is tree-identical to the R2I code commit. The official run loaded `js/hsr/tryptase.js` successfully and finished `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `18.5 s`.
+
+Medical content changed: **NO**.
+Practice Changes medical content changed: **NO**.
+
 ## Next permitted action
 
-Do **not** start R2I automatically.
+Do **not** start R2J automatically.
 
 The accepted post-R2F risk map uses two separate axes: Medical sensitivity and mechanical extraction risk. Medical sensitivity alone does not freeze a renderer, but all Medical content and behaviour remain frozen during refactor.
 
 For the next package:
 
 - prepare a read-only exact scope proposal before implementation;
-- next evaluate the Tryptase area, explicitly comparing `renderTryptase()` alone versus a coherent `renderTryptase() + calcTryptase()` extraction; do not bundle them automatically;
-- preserve all wording, keys, values, units, formula, threshold, recommendation strength and decision behaviour;
+- next evaluate `renderNihr()` as the candidate extraction into the existing `js/hsr/nihr.js` module, which already contains `renderNihrList()`;
+- inspect all checkbox DOM reads, NIHR state reads, `t()` keys, the existing `renderNihrList()` dependency, and all callers/listeners before recommending a package;
+- preserve all wording, keys, values, severity/danger-sign logic, class-specific rules, recommendation strength and decision behaviour;
 - do not bundle `setSegment`, `renderAll`, `resetAll`, `defaultAcutePattern` or unrelated renderers merely to increase package size;
 - keep Practice Changes / `changesLibrary` frozen until its separate medical/source audit;
 - obtain independent GO / MODIFY / STOP review before implementation.
