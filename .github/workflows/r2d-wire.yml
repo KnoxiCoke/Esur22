@@ -1,0 +1,64 @@
+name: R2D Wire Helper
+
+on:
+  push:
+    branches:
+      - refactor/modularize-script
+    paths:
+      - .github/workflows/r2d-wire.yml
+
+permissions:
+  contents: write
+
+jobs:
+  wire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refactor/modularize-script
+      - name: Wire renderNihrList only
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          script_path = Path('script.js')
+          script = script_path.read_text(encoding='utf-8')
+          old_helper = '    const renderNihrList = (items) =>\n      `<ul>${(items || []).map((line) => `<li>${escapeHtml(line)}</li>`).join("")}</ul>`;\n'
+          count = script.count(old_helper)
+          if count != 1:
+              raise SystemExit(f'Expected exactly one renderNihrList helper, found {count}')
+          script = script.replace(old_helper, '', 1)
+          needle = '  const { renderAcuteList } = window.ESUR.hsr.acute;\n'
+          if script.count(needle) != 1:
+              raise SystemExit('Expected exactly one renderAcuteList destructure')
+          script = script.replace(needle, needle + '  const { renderNihrList } = window.ESUR.hsr.nihr;\n', 1)
+          if 'const renderNihrList = (items)' in script:
+              raise SystemExit('Inner renderNihrList still present')
+          if script.count('const { renderNihrList } = window.ESUR.hsr.nihr;') != 1:
+              raise SystemExit('Missing renderNihrList destructure')
+          script_path.write_text(script, encoding='utf-8')
+
+          index_path = Path('index.html')
+          index = index_path.read_text(encoding='utf-8')
+          old_index = '''<script src="./js/hsr/acute.js"></script>\n<script src="./script.js"></script>'''
+          new_index = '''<script src="./js/hsr/acute.js"></script>\n<script src="./js/hsr/nihr.js"></script>\n<script src="./script.js"></script>'''
+          if old_index not in index:
+              if './js/hsr/nihr.js' not in index:
+                  raise SystemExit('index.html script block not found')
+          else:
+              index_path.write_text(index.replace(old_index, new_index, 1), encoding='utf-8')
+          PY
+          grep -F 'const { renderNihrList } = window.ESUR.hsr.nihr;' script.js
+          if grep -F 'const renderNihrList = (items)' script.js; then exit 1; fi
+          grep -F './js/hsr/nihr.js' index.html
+      - name: Commit wiring and remove helper workflow
+        shell: bash
+        run: |
+          rm .github/workflows/r2d-wire.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add script.js index.html js/hsr/nihr.js .github/workflows/r2d-wire.yml
+          git commit -m "ESUR_REFACTOR_R2D: extract NIHR list renderer"
+          git push origin HEAD:refactor/modularize-script
