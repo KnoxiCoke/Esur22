@@ -1650,6 +1650,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   const { renderAcuteList } = window.ESUR.hsr.acute;
+  const { renderNihrList } = window.ESUR.hsr.nihr;
 
   function renderAcuteManagement() {
     const contentByPattern = t("acute_content");
@@ -1824,8 +1825,6 @@ ${renderAcuteList(content.arrest)}
     const moderateValid = severity === "moderate" && !hasDangerSigns;
     const scarValid = severity === "severe" && hasDangerSigns;
 
-    const renderNihrList = (items) =>
-      `<ul>${(items || []).map((line) => `<li>${escapeHtml(line)}</li>`).join("")}</ul>`;
 
     const adviceItems = () => {
       const items = [t("nihr_apply_advice")];
