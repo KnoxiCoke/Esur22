@@ -1,0 +1,155 @@
+name: R2E Wire Helper
+
+on:
+  push:
+    branches:
+      - refactor/modularize-script
+    paths:
+      - .github/workflows/r2e-wire.yml
+
+permissions:
+  contents: write
+
+jobs:
+  wire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refactor/modularize-script
+      - name: Wire app chrome navigation only
+        shell: bash
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          script = Path("script.js").read_text(encoding="utf-8")
+          old_views = (
+              "  const views = {\n"
+              "    hsr: document.getElementById(\"view-hsr\"),\n"
+              "    changes: document.getElementById(\"view-changes\")\n"
+              "  };\n"
+              "\n"
+              "  const hsrTabs = {\n"
+              "    guidance: document.getElementById(\"hsr-tab-guidance\"),\n"
+              "    acute: document.getElementById(\"hsr-tab-acute\"),\n"
+              "    switch: document.getElementById(\"hsr-tab-switch\"),\n"
+              "    tryptase: document.getElementById(\"hsr-tab-tryptase\"),\n"
+              "    nihr: document.getElementById(\"hsr-tab-nihr\")\n"
+              "  };\n"
+              "\n"
+              "\n"
+          )
+          new_init = (
+              "  const { setBodyMode, showMainView, showHsrTab, clearButtons } = window.ESUR.app.nav.init(state);\n"
+              "\n"
+              "\n"
+          )
+          if script.count(old_views) != 1:
+              raise SystemExit("views block count=%s" % script.count(old_views))
+          script = script.replace(old_views, new_init, 1)
+          old_setbody = (
+              "  function setBodyMode() {\n"
+              "  const hsrView = document.getElementById(\"view-hsr\");\n"
+              "  const guidanceView = document.getElementById(\"hsr-tab-guidance\");\n"
+              "\n"
+              "  const isRelevantView =\n"
+              "    hsrView &&\n"
+              "    !hsrView.hidden &&\n"
+              "    guidanceView &&\n"
+              "    !guidanceView.hidden;\n"
+              "\n"
+              "  const isEmergencySelected = state.situation === \"emergency\";\n"
+              "\n"
+              "  document.body.classList.toggle(\n"
+              "    \"emergency\",\n"
+              "    isRelevantView && isEmergencySelected\n"
+              "  );\n"
+              "}\n"
+              "  \n"
+          )
+          if script.count(old_setbody) != 1:
+              raise SystemExit("setBodyMode count=%s" % script.count(old_setbody))
+          script = script.replace(old_setbody, "", 1)
+          old_showmain = (
+              "  function showMainView(name) {\n"
+              "    Object.keys(views).forEach((key) => {\n"
+              "      if (views[key]) views[key].hidden = key !== name;\n"
+              "    });\n"
+              "\n"
+              "    document.querySelectorAll(\".bottomnav__btn\").forEach((btn) => {\n"
+              "      btn.classList.toggle(\"active\", btn.dataset.mainNav === name);\n"
+              "    });\n"
+              "\n"
+              "    state.mainNav = name;\n"
+              "  }\n"
+              "\n"
+          )
+          if script.count(old_showmain) != 1:
+              raise SystemExit("showMainView count=%s" % script.count(old_showmain))
+          script = script.replace(old_showmain, "", 1)
+          old_showhsr = (
+              "  function showHsrTab(name) {\n"
+              "    Object.keys(hsrTabs).forEach((key) => {\n"
+              "      if (hsrTabs[key]) hsrTabs[key].hidden = key !== name;\n"
+              "    });\n"
+              "\n"
+              "    document.querySelectorAll(\"[data-hsr-tab]\").forEach((btn) => {\n"
+              "      btn.classList.toggle(\"active\", btn.dataset.hsrTab === name);\n"
+              "    });\n"
+              "\n"
+              "    state.hsrTab = name;\n"
+              "  }\n"
+              "\n"
+              "\n"
+          )
+          if script.count(old_showhsr) != 1:
+              raise SystemExit("showHsrTab count=%s" % script.count(old_showhsr))
+          script = script.replace(old_showhsr, "", 1)
+          old_clear = (
+              "  function clearButtons(seg) {\n"
+              "    document.querySelectorAll(`.seg__btn[data-seg=\"${seg}\"]`).forEach((btn) => {\n"
+              "      btn.classList.remove(\"active\");\n"
+              "    });\n"
+              "  }\n"
+              "\n"
+          )
+          if script.count(old_clear) != 1:
+              raise SystemExit("clearButtons count=%s" % script.count(old_clear))
+          script = script.replace(old_clear, "", 1)
+          if "window.ESUR.app.nav.init(state)" not in script:
+              raise SystemExit("missing init destructure")
+          if "function setBodyMode" in script:
+              raise SystemExit("setBodyMode still declared")
+          if "requestAnimationFrame(setBodyMode)" not in script:
+              raise SystemExit("click/rAF listener missing")
+          if script.find("window.ESUR.app.nav.init(state)") > script.find("requestAnimationFrame(setBodyMode)"):
+              raise SystemExit("init must precede rAF listener")
+          Path("script.js").write_text(script, encoding="utf-8")
+
+          index = Path("index.html").read_text(encoding="utf-8")
+          old_index = (
+              '<script src="./js/app/icons.js"></script>\n'
+              '<script src="./js/hsr/acute.js"></script>'
+          )
+          new_index = (
+              '<script src="./js/app/icons.js"></script>\n'
+              '<script src="./js/app/nav.js"></script>\n'
+              '<script src="./js/hsr/acute.js"></script>'
+          )
+          if "./js/app/nav.js" not in index:
+              if index.count(old_index) != 1:
+                  raise SystemExit("index script block not found")
+              Path("index.html").write_text(index.replace(old_index, new_index, 1), encoding="utf-8")
+          PY
+          grep -F "window.ESUR.app.nav.init(state)" script.js
+          grep -F "requestAnimationFrame(setBodyMode)" script.js
+          if grep -F "function setBodyMode" script.js; then exit 1; fi
+      - name: Commit wiring and remove helper workflow
+        shell: bash
+        run: |
+          rm .github/workflows/r2e-wire.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add script.js index.html .github/workflows/r2e-wire.yml
+          git commit -m "ESUR_REFACTOR_R2E: extract app chrome navigation"
+          git push origin HEAD:refactor/modularize-script
