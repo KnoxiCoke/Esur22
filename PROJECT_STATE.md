@@ -10,8 +10,8 @@ Last verified: 2026-09-02
 - Repository: `KnoxiCoke/Esur22`
 - Main baseline: `cd671d69ffb6f99555ae99e0407a7b61827811e3`
 - Refactor branch: `refactor/modularize-script`
-- Verified code commit: `33da3635ab701ed218d548a3b7400670b0debfd0`
-- CI verification commit (tree-identical): `09511a04a3f39686d1da32132acff1764d306d7f`
+- Verified code commit: `766e156e83d6418d85dcd55064f64b3809859519`
+- CI verification commit (tree-identical): `8896887b20949b75c89858ae260405cebf96a6af`
 - Draft PR: `#12`
 - PR state: open, Draft, not merged
 
@@ -41,11 +41,11 @@ This does **not** mean final Medical Affairs approval or medical validation.
 
 ## Plan snapshot
 
-- Engineering: R2G VERIFIED. This is one verified extraction package, not “refactor complete” and not a Medical Freeze.
+- Engineering: R2H VERIFIED. This is one verified extraction package, not “refactor complete” and not a Medical Freeze.
 - Medical Freeze / v0.9.0: still open (known source exceptions remain; no Medical Affairs sign-off).
 - Practice Changes 2018→2025 audit: still open.
 - Regulatory Gate: scheduled in the master plan, **not performed**. No MDSW classification and no Rule-11 class estimate.
-- R2H: not defined. No implementation before a separate read-only scope review and explicit GO.
+- R2I: not defined. No implementation before a separate read-only scope review and explicit GO.
 
 ## Regulatory status
 
@@ -76,9 +76,9 @@ Keep three questions separate:
 
 - Playwright tests: `82`
 - Shared fixture fails on browser `pageerror` and `console.error`.
-- Latest verified official PR CI run: `33628922510`
-- CI verification head: `09511a04a3f39686d1da32132acff1764d306d7f`
-- Result: `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `19.8 s`
+- Latest verified official PR CI run: `33631632945`
+- CI verification head: `8896887b20949b75c89858ae260405cebf96a6af`
+- Result: `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `20.5 s`
 
 The verified run loaded all current runtime files successfully:
 
@@ -90,6 +90,7 @@ The verified run loaded all current runtime files successfully:
 - `js/hsr/acute.js`
 - `js/hsr/nihr.js`
 - `js/hsr/previous.js`
+- `js/hsr/switch.js`
 - `script.js`
 
 ## Refactor status
@@ -342,7 +343,7 @@ Implementation boundary:
 - The existing `renderFlow();` call inside `renderAll()` remained unchanged.
 - `setSegment`, `defaultAcutePattern`, Acute, Switch, Tryptase, NIHR, reset/orchestration, listeners, i18n content and Practice Changes were not moved or changed in R2G.
 
-Current runtime load order:
+R2G runtime load order at that milestone:
 
 1. `js/content/i18n.js`
 2. `js/app/utils.js`
@@ -372,17 +373,72 @@ The CI verification commit is tree-identical to the R2G code commit. The officia
 Medical content changed: **NO**.
 Practice Changes medical content changed: **NO**.
 
+### R2H — VERIFIED
+
+Code commit: `766e156e83d6418d85dcd55064f64b3809859519`
+CI verification commit (tree-identical): `8896887b20949b75c89858ae260405cebf96a6af`
+Official PR CI run: `33631632945`
+
+Only the Switch renderer was mechanically extracted:
+
+- `renderSwitch()`
+
+New file:
+
+- `js/hsr/switch.js`
+
+Implementation boundary:
+
+- `window.ESUR.hsr.switch.init({ state, t, escapeHtml, switchOutput, icmCard, gbcaCard })` closes over the same existing references.
+- `renderSwitch()` reads `state.cmtype`, `state.icm` and `state.gbca`; it does not write state.
+- The lookups `switch_placeholder_icm`, `switch_placeholder_gbca`, `icm_rules` and `gbca_rules` were preserved without content changes.
+- The three existing host calls remain: `renderAll()`, the ICM group listener and the GBCA group listener.
+- Existing `setSegment("cmtype")` card-visibility writes were deliberately left unchanged; no cleanup or deduplication was performed.
+- `fillSwitchPrinciples()` remains private in `js/app/i18nApply.js`.
+- Listeners, brands, i18n values, Medical content, Practice Changes and unrelated renderers were not moved or changed in R2H.
+
+Current runtime load order:
+
+1. `js/content/i18n.js`
+2. `js/app/utils.js`
+3. `js/app/icons.js`
+4. `js/app/nav.js`
+5. `js/app/i18nApply.js`
+6. `js/hsr/acute.js`
+7. `js/hsr/nihr.js`
+8. `js/hsr/previous.js`
+9. `js/hsr/switch.js`
+10. `script.js`
+
+R2H production blobs:
+
+- `js/hsr/switch.js`: `2e7a98f19f40d3f6d563217defde9daba177c93f`
+- `index.html`: `67f58775723b8dfcc2288faa6eef4e8b2399d344`
+- `script.js`: `6c16f61d76afda63a6067b26a1a2d93870305f80`
+- `js/content/i18n.js`: unchanged (`e5f4543ae41eb2e55c4a7b98a3b63db522c389be`)
+
+R2H exact net code diff versus R2G docs baseline `816bd9e98b06233d00580cdfa78fea6245ae61d8`:
+
+- `index.html`: +1 / -0
+- `js/hsr/switch.js`: +45 / -0
+- `script.js`: +8 / -36
+
+The CI verification commit is tree-identical to the R2H code commit. The official run loaded `js/hsr/switch.js` successfully and finished `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `20.5 s`.
+
+Medical content changed: **NO**.
+Practice Changes medical content changed: **NO**.
+
 ## Next permitted action
 
-Do **not** start R2H automatically.
+Do **not** start R2I automatically.
 
 The accepted post-R2F risk map uses two separate axes: Medical sensitivity and mechanical extraction risk. Medical sensitivity alone does not freeze a renderer, but all Medical content and behaviour remain frozen during refactor.
 
 For the next package:
 
 - prepare a read-only exact scope proposal before implementation;
-- the current sequence places `renderSwitch()` next for scope review, not automatic implementation;
-- preserve all wording, keys, values, units, recommendation strength and decision/routing behaviour;
+- next evaluate the Tryptase area, explicitly comparing `renderTryptase()` alone versus a coherent `renderTryptase() + calcTryptase()` extraction; do not bundle them automatically;
+- preserve all wording, keys, values, units, formula, threshold, recommendation strength and decision behaviour;
 - do not bundle `setSegment`, `renderAll`, `resetAll`, `defaultAcutePattern` or unrelated renderers merely to increase package size;
 - keep Practice Changes / `changesLibrary` frozen until its separate medical/source audit;
 - obtain independent GO / MODIFY / STOP review before implementation.
