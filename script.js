@@ -1472,18 +1472,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return i18n[state.lang][key];
   }
 
-  function escapeHtml(value) {
-    return String(value)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-  }
-
-  function fmt(value, digits = 2) {
-    return Number(value).toFixed(digits);
-  }
+  const { escapeHtml, fmt } = window.ESUR.utils;
 
   function levelLabel(level) {
     if (level === "high") return t("badge_practice_changing");
