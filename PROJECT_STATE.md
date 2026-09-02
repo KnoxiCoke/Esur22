@@ -725,21 +725,47 @@ Practice Changes medical content changed: **NO**.
 i18n values changed: **NO**.
 HSR behaviour changed: **NO**.
 
+## Refactor closeout — VERIFIED
+
+The R1–R2M modularization strand is technically complete at remote tree `5deee2920f23d68d09d6318293ba4c6c95e3500d`.
+
+Independent closeout review found no remaining mandatory FAST extraction and no structural blocker requiring another R2 package.
+
+The following responsibilities intentionally remain in `script.js`:
+
+- `state` ownership;
+- `defaultAcutePattern` severity-to-pattern routing;
+- `setSegment` state/DOM orchestration;
+- `renderAll` global render orchestration;
+- `refreshComputedModulesAfterLanguageChange` language-refresh orchestration;
+- `resetAll` global state/DOM reset;
+- global application listeners;
+- `changesLibrary` and the Practice Changes renderer shell while that content remains frozen for its separate audit.
+
+This is intentional host orchestration, not an unresolved refactor defect. The existing `renderChangeSummary()` helper is currently unused; it is documented as optional later dead-code cleanup and is not removed in this behaviour-preserving refactor strand.
+
+The runtime remains one-directional with no inter-module cycle: i18n → utils → icons → nav → i18nApply → disclaimer → changeLabels → acute → nihr → previous → switch → tryptase → `script.js`. HSR modules receive their required state/helpers/DOM dependencies through their established `init(...)` boundaries and do not import one another.
+
+The current regression inventory is 90 tests. These tests are regression guardrails for technical behaviour, not proof of medical correctness.
+
+Closeout governance:
+
+- Medical content changed: **NO**.
+- Practice Changes medical content changed: **NO**.
+- `changesLibrary` changed: **NO**.
+- i18n values changed: **NO**.
+- HSR behaviour changed: **NO**.
+- decision/routing behaviour changed: **NO**.
+- existing tests weakened: **NO**.
+- R2N implementation: **NOT STARTED / NOT REQUIRED**.
+
 ## Next permitted action
 
-Do **not** start R2N automatically.
+Do **not** continue the R2 modularization sequence automatically. R1–R2M is the accepted technical closeout point for this refactor strand.
 
-The next permitted engineering step is only a **read-only** dependency/scope review for a possible R2N package. ChatGPT independently reviews that scope. R2N may be implemented only after an explicit ChatGPT technical `GO`.
+The next engineering/Medical workstream is a separately scoped **Practice Changes / Changes 2018→2025 Medical- and source-audit**. Begin with read-only audit scoping and source mapping only; do not edit `changesLibrary`, wording, source claims, recommendation strength, routing, i18n values or other Medical content until that audit scope has been independently reviewed and explicitly authorized.
 
-The accepted risk map uses two separate axes: Medical sensitivity and mechanical extraction risk. Medical sensitivity alone does not freeze a renderer, but all Medical content and behaviour remain frozen during refactor.
-
-For any later package:
-
-- prepare a read-only exact scope proposal before implementation;
-- do not bundle `defaultAcutePattern`, `setSegment`, `renderAll`, `resetAll` or unrelated renderers merely to increase package size;
-- preserve all wording, keys, values, doses, units, severity/pattern routing, recommendation strength and decision behaviour;
-- keep Practice Changes / `changesLibrary` frozen until its separate medical/source audit;
-- obtain independent GO / MODIFY / STOP review before implementation.
+PR `#12` remains Draft and must not be merged as part of this closeout. Merge/release, regulatory work and any optional dead-code cleanup remain separate later decisions.
 
 ## Governance rules
 
