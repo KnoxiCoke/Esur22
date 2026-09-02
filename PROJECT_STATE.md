@@ -666,11 +666,70 @@ The original Grok-local R2L commit `46802374a70b13c8d08f938d89048a4f58abeb6d` wa
 Medical content changed: **NO**.
 Practice Changes medical content changed: **NO**.
 
+### R2M — VERIFIED
+
+Authoritative remote code commit: `fe26cc94687f940ab0725b71b1087fb0aef4bdf1`
+Parent: `e952ad58b7178a7af0c68bcd40628243cdef8964`
+CI verification commit (tree-identical): `c7105e2fd11b1c27f591ed051e5b69317422514b`
+Official PR CI run: `33685124875`
+
+The two existing Practice Changes label helpers were mechanically extracted from `script.js` into:
+
+- `js/app/changeLabels.js`
+
+Implementation boundary:
+
+- `window.ESUR.app.changeLabels.init({ t })` returns the existing `levelLabel` and `modeLabel` helpers.
+- `levelLabel`: `high` → `badge_practice_changing`, `medium` → `badge_refined`, all other values → `badge_structural`.
+- `modeLabel`: `action` → `changes_action_mode_badge`, all other values → `changes_compare_mode_badge`.
+- Existing i18n keys and values were unchanged, including the existing German `changes_action_mode_badge: "Action mode"` value.
+- `changesLibrary`, all Practice Changes renderers/content, HSR modules, state routing and global orchestration were unchanged.
+
+R2M runtime load order:
+
+1. `js/content/i18n.js`
+2. `js/app/utils.js`
+3. `js/app/icons.js`
+4. `js/app/nav.js`
+5. `js/app/i18nApply.js`
+6. `js/app/disclaimer.js`
+7. `js/app/changeLabels.js`
+8. `js/hsr/acute.js`
+9. `js/hsr/nihr.js`
+10. `js/hsr/previous.js`
+11. `js/hsr/switch.js`
+12. `js/hsr/tryptase.js`
+13. `script.js`
+
+R2M production/test blobs:
+
+- `index.html`: `aff4953149dbb6b53d930bfb0ebf13b44d75b7a1`
+- `js/app/changeLabels.js`: `860705e5bf17e0e2dfbb18b94ff1ccb61bea0993`
+- `script.js`: `c4383ea790ba11ec0e74c3a721acfbd008c59ff8`
+- `tests/change-labels.spec.js`: `570120bb91f67ea782b81f878fa8ae7a0bc52f8e`
+
+R2M exact code diff versus `e952ad58b7178a7af0c68bcd40628243cdef8964`:
+
+- `index.html`: +1 / -0
+- `js/app/changeLabels.js`: +23 / -0
+- `script.js`: +1 / -9
+- `tests/change-labels.spec.js`: +80 / -0
+
+The four new characterization tests protect EN/DE level-label mapping and Compare/Action-mode labels without freezing Practice Changes topic inventory, card IDs, card order or medical claims. The local handoff reported `4/4` characterization tests green against the untouched baseline before extraction and `90/90` local full-suite tests after extraction. Official PR CI run `33685124875` completed successfully on the tree-identical verification commit; the accessible Actions metadata confirms the full HSR Playwright job and regression-test step succeeded. The total 90-test inventory is derived from the unchanged verified 86-test baseline plus the four new characterization tests.
+
+The Grok-local implementation commit `b6b141e81f073a9e52a494f16bf541ee0e59a1ad` is handoff metadata only and was not pushed. The authoritative milestone is the independently verified remote tree above. The temporary R2M wire branch/workflow was removed and is not present in the refactor branch tree.
+
+Medical content changed: **NO**.
+Practice Changes medical content changed: **NO**.
+`changesLibrary` changed: **NO**.
+i18n values changed: **NO**.
+HSR behaviour changed: **NO**.
+
 ## Next permitted action
 
-Do **not** start R2M automatically.
+Do **not** start R2N automatically.
 
-The next permitted engineering step is only a **read-only** dependency/scope review for a possible R2M package. ChatGPT independently reviews that scope. R2M may be implemented only after an explicit ChatGPT technical `GO`.
+The next permitted engineering step is only a **read-only** dependency/scope review for a possible R2N package. ChatGPT independently reviews that scope. R2N may be implemented only after an explicit ChatGPT technical `GO`.
 
 The accepted risk map uses two separate axes: Medical sensitivity and mechanical extraction risk. Medical sensitivity alone does not freeze a renderer, but all Medical content and behaviour remain frozen during refactor.
 
