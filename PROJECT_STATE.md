@@ -551,6 +551,8 @@ Do **not** start R2K automatically.
 
 The accepted post-R2F risk map uses two separate axes: Medical sensitivity and mechanical extraction risk. Medical sensitivity alone does not freeze a renderer, but all Medical content and behaviour remain frozen during refactor.
 
+R2K uses the **expanded-scope path** from the hybrid workflow below because `renderAcuteManagement()` combines high Medical sensitivity with state mutation and coupling to `defaultAcutePattern()`. Therefore Grok performs the read-only scope first and ChatGPT independently reviews it before any implementation.
+
 For the next package:
 
 - prepare a read-only exact scope proposal before implementation;
@@ -598,6 +600,43 @@ Standing authorization does **not** cover:
 - release or deployment decisions.
 
 Those require explicit user approval.
+
+## Hybrid refactor workflow
+
+The refactor uses a risk-adaptive hybrid workflow to reduce coordination overhead without removing the independent post-implementation verification.
+
+### Default fast path
+
+Use this for clearly bounded, mechanically straightforward packages with low or manageable coupling:
+
+**ChatGPT scope from the live remote → Grok implementation → ChatGPT independent remote verification → full regression CI**
+
+- ChatGPT inspects the current remote code, defines the exact package, dependencies, invariants and out-of-scope boundary, and provides the ready-to-copy implementation prompt directly.
+- Grok implements exactly that approved package and stops.
+- ChatGPT independently verifies the actual GitHub diff/blobs and official CI rather than relying on Grok's report.
+- The full Playwright suite remains required for every structural package before `VERIFIED PASS`.
+- No separate user `GO` is required for these routine technical packages under the standing authorization.
+
+### Expanded-scope path
+
+Use this when a package is unusually coupled, stateful, cross-cutting, ambiguous, or otherwise materially riskier to scope correctly. Examples include `defaultAcutePattern`, `setSegment`, `renderAll`, `resetAll`, or similarly coupled orchestration/state logic.
+
+**Grok read-only scope → ChatGPT independent scope review (`GO / MODIFY / STOP`) → Grok implementation → ChatGPT independent remote verification → full regression CI**
+
+- The extra Grok scope pass is deliberate redundancy before implementation.
+- ChatGPT independently checks the proposed boundary against the live remote before issuing technical `GO`.
+- Medical sensitivity alone does not automatically require this longer path; the decision is based on the concrete combination of coupling, state mutation, routing/orchestration reach, boundary ambiguity and extraction risk.
+- ChatGPT may escalate any package from the fast path to the expanded-scope path whenever independent pre-build redundancy is warranted.
+
+### Package discipline
+
+- Default principle: **fast by default, extra scope redundancy only when the concrete risk justifies it**.
+- One coherent package at a time. Do not chain multiple unreviewed packages.
+- A package is not complete until ChatGPT has independently verified the remote implementation and the full official CI is green.
+- After `VERIFIED PASS`, the routine docs-only `PROJECT_STATE.md` milestone update remains authorized without another user `GO`.
+- This hybrid workflow does not relax any Medical, Regulatory, test, merge or release exclusions listed above.
+
+ChatGPT decides which path applies to each technical package and must state that choice explicitly in the next-step handoff.
 
 ## AI handoff rule
 
