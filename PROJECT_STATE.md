@@ -39,6 +39,39 @@ This does **not** mean final Medical Affairs approval or medical validation.
 - Has **not** yet completed the same full medical/source audit as the five HSR modules.
 - Do not change or modularize its medical content before that audit.
 
+## Plan snapshot
+
+- Engineering: R2F VERIFIED. This is one verified extraction package, not “refactor complete” and not a Medical Freeze.
+- Medical Freeze / v0.9.0: still open (known source exceptions remain; no Medical Affairs sign-off).
+- Practice Changes 2018→2025 audit: still open.
+- Regulatory Gate: scheduled in the master plan, **not performed**. No MDSW classification and no Rule-11 class estimate.
+- R2G: not defined. Next engineering action is a read-only risk/dependency map of the remaining monolith.
+
+## Regulatory status
+
+No regulatory qualification has been made. Educational disclaimers, renaming outputs, or deployment location do **not** exclude MDSW. Intended purpose plus actual function decide that — Bayer RA/Legal, not this repo.
+
+Do **not** pre-empt RA by removing adrenaline doses, tryptase interpretation, switch mapping, or HSR rule trees. Do not treat “educational use only” as a regulatory solution. Do not mix Regulatory claim/UX changes into Medical or refactor packages.
+
+Planned sequence after a stable, regression-protected HSR baseline:
+
+1. Regulatory Gate
+2. Function matrix to Bayer RA/Legal
+3. RA/Legal sets intended purpose and qualification
+4. Only then any required claim/UX/function changes
+
+Later docs (not created in this commit):
+
+- `REGULATORY_FUNCTION_MATRIX.md` — columns: Module | Inputs | Processing | Output | Intended Use | RA-Qualification (last two stay blank until RA)
+- `CLAIM_REGISTER.md`
+- optional `REGULATORY_GATE.md`
+
+Keep three questions separate:
+
+- Medical: is the statement covered by the uploaded ESUR sources?
+- Engineering: does the software do exactly the reviewed behaviour?
+- Regulatory: may Bayer provide that function with that intended purpose?
+
 ## Regression protection
 
 - Playwright tests: `82`
@@ -310,6 +343,7 @@ The remaining `script.js` is materially more coupled to Medical rendering, state
 - PR `#12` stays Draft.
 - Do not merge to `main` without explicit approval.
 - Tests are regression guardrails, not proof of medical correctness.
+- Regulatory work must not alter Medical content or refactor scope before a Bayer RA/Legal vote. No MDSW class is recorded in this file.
 
 ## AI handoff rule
 
