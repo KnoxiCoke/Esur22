@@ -10,8 +10,8 @@ Last verified: 2026-09-02
 - Repository: `KnoxiCoke/Esur22`
 - Main baseline: `cd671d69ffb6f99555ae99e0407a7b61827811e3`
 - Refactor branch: `refactor/modularize-script`
-- Verified code commit: `beb299cdb9884b1542406e6ed3fa4e5c5cfc9fc4`
-- CI verification commit (tree-identical): `c5aba6d599746dfc56f6b712f110b70a3dfa24b6`
+- Verified code commit: `4647917fb6bf2d1a0b8aae6f8a8a71dcf56b759f`
+- CI verification commit (tree-identical): `1bde6259a1161640b3e24c9aa56c0c70fc0d1950`
 - Draft PR: `#12`
 - PR state: open, Draft, not merged
 
@@ -41,11 +41,12 @@ This does **not** mean final Medical Affairs approval or medical validation.
 
 ## Plan snapshot
 
-- Engineering: R2J VERIFIED. This is one verified extraction package, not “refactor complete” and not a Medical Freeze.
+- Engineering: R2K VERIFIED. This is one verified extraction package, not “refactor complete” and not a Medical Freeze.
 - Medical Freeze / v0.9.0: still open (known source exceptions remain; no Medical Affairs sign-off).
 - Practice Changes 2018→2025 audit: still open.
 - Regulatory Gate: scheduled in the master plan, **not performed**. No MDSW classification and no Rule-11 class estimate.
-- R2K: not defined. No implementation before a separate read-only scope review and explicit technical GO under the standing authorization below.
+- R2K: VERIFIED.
+- R2L: not defined. No implementation before a separate read-only scope review and explicit ChatGPT technical GO.
 
 ## Regulatory status
 
@@ -76,9 +77,9 @@ Keep three questions separate:
 
 - Playwright tests: `82`
 - Shared fixture fails on browser `pageerror` and `console.error`.
-- Latest verified official PR CI run: `33639546466`
-- CI verification head: `c5aba6d599746dfc56f6b712f110b70a3dfa24b6`
-- Result: `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `19.9 s`
+- Latest verified official PR CI run: `33643757974`
+- CI verification head: `1bde6259a1161640b3e24c9aa56c0c70fc0d1950`
+- Result: `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `19.8 s`
 
 The verified run loaded all current runtime files successfully:
 
@@ -545,22 +546,81 @@ The CI verification commit is tree-identical to the R2J code commit. The officia
 Medical content changed: **NO**.
 Practice Changes medical content changed: **NO**.
 
+
+### R2K — VERIFIED
+
+Code commit: `4647917fb6bf2d1a0b8aae6f8a8a71dcf56b759f`
+Parent: `f861338a49f42dc2f17efa5b8917807f2343ceca`
+CI verification commit (tree-identical): `1bde6259a1161640b3e24c9aa56c0c70fc0d1950`
+Official PR CI run: `33643757974`
+
+The Acute management renderer was mechanically extracted into the existing Acute module:
+
+- `renderAcuteManagement()`
+
+Existing file expanded:
+
+- `js/hsr/acute.js`
+
+Implementation boundary:
+
+- `window.ESUR.hsr.acute.init({ state, t, escapeHtml, defaultAcutePattern, acuteImmediateOutput, acuteOutput })` returns `{ renderAcuteManagement }`.
+- `renderAcuteList()` preserves its existing body and is now private to the Acute module.
+- `defaultAcutePattern()` and `setSegment()` remain in `script.js`. `defaultAcutePattern` is injected as a function dependency.
+- Existing Acute logic, translation keys, markup, Immediate-block indentation, fallback write to `state.acutePattern`, pattern/severity button `hidden`/`active` behaviour, `|| []` fallbacks, dose display and pattern-state behaviour were preserved.
+- `renderAll()`, `resetAll()`, language listeners and generic segment listeners remain in `script.js`.
+- `index.html` and runtime load order were unchanged.
+- No Medical content, i18n values, tests, Practice Changes or unrelated HSR logic moved or changed in R2K.
+
+Historical note: the final `js/hsr/acute.js` blob was already present on the direct parent `f861338a49f42dc2f17efa5b8917807f2343ceca`. The code commit `4647917fb6bf2d1a0b8aae6f8a8a71dcf56b759f` wired the renderer in `script.js` and removed the temporary helper workflow. Document R2K from the net diff versus `e668c5b9…` and the final tree, not as if the entire `acute.js` rewrite lived only inside `4647917…`.
+
+Current runtime load order:
+
+1. `js/content/i18n.js`
+2. `js/app/utils.js`
+3. `js/app/icons.js`
+4. `js/app/nav.js`
+5. `js/app/i18nApply.js`
+6. `js/hsr/acute.js`
+7. `js/hsr/nihr.js`
+8. `js/hsr/previous.js`
+9. `js/hsr/switch.js`
+10. `js/hsr/tryptase.js`
+11. `script.js`
+
+R2K production blobs:
+
+- `js/hsr/acute.js`: `816cf5e433f820ce0a96cac3e663aba90dfb1422`
+- `script.js`: `2d5121de4405d8efe820007287a796d925bddd6c`
+- `index.html`: unchanged (`e76d5dba8968de92d273f0e0cfb866448b6b67bc`)
+- `js/content/i18n.js`: unchanged (`e5f4543ae41eb2e55c4a7b98a3b63db522c389be`)
+
+R2K exact net code diff versus hybrid-workflow docs baseline `e668c5b95b3f6df602c031ddbea1f77aa3fd4754`:
+
+- `js/hsr/acute.js`: +78 / -5
+- `script.js`: +8 / -67
+- `index.html`: unchanged
+
+No other production files changed in that net code diff. The temporary `.github/workflows/r2k-wire.yml` is not present in the final tree.
+
+The CI verification commit is tree-identical to the R2K code commit. The official run loaded `js/hsr/acute.js` successfully (HTTP 200), exercised the Acute immediate/pattern/dose/unit scenarios, and finished `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `19.8 s`.
+
+Medical content changed: **NO**.
+Practice Changes medical content changed: **NO**.
+
 ## Next permitted action
 
-Do **not** start R2K automatically.
+Do **not** start R2L automatically.
 
-The accepted post-R2F risk map uses two separate axes: Medical sensitivity and mechanical extraction risk. Medical sensitivity alone does not freeze a renderer, but all Medical content and behaviour remain frozen during refactor.
+The next permitted engineering step is only a **read-only** dependency/scope review for a possible R2L package. ChatGPT independently reviews that scope. R2L may be implemented only after an explicit ChatGPT technical `GO`.
 
-R2K uses the **expanded-scope path** from the hybrid workflow below because `renderAcuteManagement()` combines high Medical sensitivity with state mutation and coupling to `defaultAcutePattern()`. Therefore Grok performs the read-only scope first and ChatGPT independently reviews it before any implementation.
+The accepted risk map uses two separate axes: Medical sensitivity and mechanical extraction risk. Medical sensitivity alone does not freeze a renderer, but all Medical content and behaviour remain frozen during refactor.
 
-For the next package:
+For any later package:
 
 - prepare a read-only exact scope proposal before implementation;
-- next evaluate `renderAcuteManagement()` as the candidate extraction into the existing `js/hsr/acute.js` module, which already contains `renderAcuteList()`;
-- explicitly inspect its dependency on `defaultAcutePattern()`, its write to `state.acutePattern`, acute-severity/pattern button DOM writes, `acuteImmediateOutput`, `acuteOutput`, all `t()` keys and `renderAcuteList()` use before recommending a package;
-- do **not** bundle `defaultAcutePattern()` merely because it is Acute-related; first determine whether `renderAcuteManagement()` can be mechanically extracted with that helper remaining in the host/injected as a dependency;
+- do not bundle `defaultAcutePattern`, `setSegment`, `renderAll`, `resetAll` or unrelated renderers merely to increase package size;
 - preserve all wording, keys, values, doses, units, severity/pattern routing, recommendation strength and decision behaviour;
-- do not bundle `setSegment`, `renderAll`, `resetAll` or unrelated renderers merely to increase package size;
 - keep Practice Changes / `changesLibrary` frozen until its separate medical/source audit;
 - obtain independent GO / MODIFY / STOP review before implementation.
 
