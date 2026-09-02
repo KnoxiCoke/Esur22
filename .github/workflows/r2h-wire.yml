@@ -1,0 +1,115 @@
+name: R2H Wire Helper
+
+on:
+  push:
+    branches:
+      - refactor/modularize-script
+    paths:
+      - .github/workflows/r2h-wire.yml
+
+permissions:
+  contents: write
+
+jobs:
+  wire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refactor/modularize-script
+      - name: Wire switch renderer
+        shell: bash
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          script = Path("script.js").read_text(encoding="utf-8")
+          old = (
+              "  function renderSwitch() {\n"
+              "    if (!switchOutput) return;\n"
+              "\n"
+              "    if (state.cmtype === \"icm\") {\n"
+              "      if (icmCard) icmCard.hidden = false;\n"
+              "      if (gbcaCard) gbcaCard.hidden = true;\n"
+              "\n"
+              "      if (!state.icm) {\n"
+              "        switchOutput.innerHTML = `<div class=\"hint\">${escapeHtml(t(\"switch_placeholder_icm\"))}</div>`;\n"
+              "        return;\n"
+              "      }\n"
+              "\n"
+              "      const rule = t(\"icm_rules\")[state.icm];\n"
+              "      switchOutput.innerHTML = `\n"
+              "        <div><strong>${escapeHtml(rule.title)}</strong></div>\n"
+              "        <div style=\"margin-top:10px\">${escapeHtml(rule.text)}</div>\n"
+              "        <div class=\"hint\" style=\"margin-top:10px\">${escapeHtml(rule.note)}</div>\n"
+              "      `;\n"
+              "      return;\n"
+              "    }\n"
+              "\n"
+              "    if (icmCard) icmCard.hidden = true;\n"
+              "    if (gbcaCard) gbcaCard.hidden = false;\n"
+              "\n"
+              "    if (!state.gbca) {\n"
+              "      switchOutput.innerHTML = `<div class=\"hint\">${escapeHtml(t(\"switch_placeholder_gbca\"))}</div>`;\n"
+              "      return;\n"
+              "    }\n"
+              "\n"
+              "    const rule = t(\"gbca_rules\")[state.gbca];\n"
+              "    switchOutput.innerHTML = `\n"
+              "      <div><strong>${escapeHtml(rule.title)}</strong></div>\n"
+              "      <div style=\"margin-top:10px\">${escapeHtml(rule.text)}</div>\n"
+              "      <div class=\"hint\" style=\"margin-top:10px\">${escapeHtml(rule.note)}</div>\n"
+              "    `;\n"
+              "  }\n"
+              "\n"
+          )
+          new = (
+              "  const { renderSwitch } = window.ESUR.hsr.switch.init({\n"
+              "    state,\n"
+              "    t,\n"
+              "    escapeHtml,\n"
+              "    switchOutput,\n"
+              "    icmCard,\n"
+              "    gbcaCard\n"
+              "  });\n"
+              "\n"
+          )
+          if script.count(old) != 1:
+              raise SystemExit("renderSwitch count=%s" % script.count(old))
+          script = script.replace(old, new, 1)
+          if "window.ESUR.hsr.switch.init" not in script:
+              raise SystemExit("missing init")
+          if "function renderSwitch" in script:
+              raise SystemExit("declaration still present")
+          if script.count("renderSwitch();") != 3:
+              raise SystemExit("call sites=%s" % script.count("renderSwitch();"))
+          if "if (seg === \"cmtype\")" not in script:
+              raise SystemExit("setSegment cmtype missing")
+          Path("script.js").write_text(script, encoding="utf-8")
+
+          index = Path("index.html").read_text(encoding="utf-8")
+          if "./js/hsr/switch.js" not in index:
+              old_i = (
+                  '<script src="./js/hsr/previous.js"></script>\n'
+                  '<script src="./script.js"></script>'
+              )
+              new_i = (
+                  '<script src="./js/hsr/previous.js"></script>\n'
+                  '<script src="./js/hsr/switch.js"></script>\n'
+                  '<script src="./script.js"></script>'
+              )
+              if index.count(old_i) != 1:
+                  raise SystemExit("index script block not found")
+              Path("index.html").write_text(index.replace(old_i, new_i, 1), encoding="utf-8")
+          PY
+          grep -F "window.ESUR.hsr.switch.init" script.js
+          grep -F "./js/hsr/switch.js" index.html
+          if grep -F "function renderSwitch" script.js; then exit 1; fi
+      - name: Commit wiring and remove helper workflow
+        shell: bash
+        run: |
+          rm .github/workflows/r2h-wire.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add script.js index.html .github/workflows/r2h-wire.yml
+          git commit -m "ESUR_REFACTOR_R2H: extract switch renderer"
+          git push origin HEAD:refactor/modularize-script
