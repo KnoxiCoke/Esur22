@@ -10,8 +10,8 @@ Last verified: 2026-09-02
 - Repository: `KnoxiCoke/Esur22`
 - Main baseline: `cd671d69ffb6f99555ae99e0407a7b61827811e3`
 - Refactor branch: `refactor/modularize-script`
-- Verified code commit: `0b2c94e24471fa87436f8d8b0a577e2636554299`
-- CI verification commit (tree-identical): `860da8dc03afde103bc85ec2428a0426c591ad9b`
+- Verified code commit: `45b444128206a98465b35cbf6882e3e36db80af6`
+- CI verification commit (tree-identical): `7174a1792e03bd20a6a0db494f8672019efd99d3`
 - Draft PR: `#12`
 - PR state: open, Draft, not merged
 
@@ -43,9 +43,9 @@ This does **not** mean final Medical Affairs approval or medical validation.
 
 - Playwright tests: `82`
 - Shared fixture fails on browser `pageerror` and `console.error`.
-- Latest verified official PR CI run: `33618815654`
-- CI verification head: `860da8dc03afde103bc85ec2428a0426c591ad9b`
-- Result: `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `21.0 s`
+- Latest verified official PR CI run: `33620827679`
+- CI verification head: `7174a1792e03bd20a6a0db494f8672019efd99d3`
+- Result: `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `18.6 s`
 
 The verified run loaded all current runtime files successfully:
 
@@ -53,6 +53,7 @@ The verified run loaded all current runtime files successfully:
 - `js/app/utils.js`
 - `js/app/icons.js`
 - `js/hsr/acute.js`
+- `js/hsr/nihr.js`
 - `script.js`
 
 ## Refactor status
@@ -135,23 +136,11 @@ New file:
 
 Important: `js/hsr/acute.js` is **not yet the complete Acute module**. R2C moved this one helper only.
 
-Current runtime load order:
-
-1. `js/content/i18n.js`
-2. `js/app/utils.js`
-3. `js/app/icons.js`
-4. `js/hsr/acute.js`
-5. `script.js`
-
 R2C production blobs:
 
 - `index.html`: `922b23cc32b4689346b43c93a1d085dd91d7a9a0`
 - `js/hsr/acute.js`: `e29e1294c62fb3c41720bac34dc785164343aae9`
 - `script.js`: `89dc940912b804e31eb0fbe36390e7e8c1fbc75c`
-- `js/app/utils.js`: unchanged (`4365d30f8a9e73e1d4c0bbd397446cbe12e7d2a7`)
-- `js/app/icons.js`: unchanged (`6c0eb8e8bd14cc68c12c7882a2cfd35f1cad769f`)
-- `js/content/i18n.js`: unchanged (`e5f4543ae41eb2e55c4a7b98a3b63db522c389be`)
-- `style.css`: unchanged (`78c4f94b2ee7a42ff38190889a974f5067f7c35f`)
 
 R2C exact net code diff versus the last verified R2B status commit `282240b6b3b218dfec7f13a43e4cf87b6b16c85b`:
 
@@ -161,19 +150,61 @@ R2C exact net code diff versus the last verified R2B status commit `282240b6b3b2
 
 `changesLibrary` remains in `script.js` and was not modified by the R2C net code change.
 
-### R2D — NOT STARTED
+### R2D — VERIFIED
 
-Next permitted action:
+Code commit: `45b444128206a98465b35cbf6882e3e36db80af6`
+CI verification commit (tree-identical): `7174a1792e03bd20a6a0db494f8672019efd99d3`
 
-- perform a read-only dependency review of the remaining monolith;
-- propose exactly one narrow R2D extraction;
-- do not implement R2D until that narrow scope has been reviewed and explicitly approved.
+Only the NIHR-specific list renderer helper was extracted:
+
+- `renderNihrList()`
+
+New file:
+
+- `js/hsr/nihr.js`
+
+Important: `js/hsr/nihr.js` is **not yet the complete NIHR module**. R2D moved this one helper only.
+
+Current runtime load order:
+
+1. `js/content/i18n.js`
+2. `js/app/utils.js`
+3. `js/app/icons.js`
+4. `js/hsr/acute.js`
+5. `js/hsr/nihr.js`
+6. `script.js`
+
+R2D production blobs:
+
+- `index.html`: `04530f8d0606fa6cccb87fa7f2c639b06e405cc6`
+- `js/hsr/nihr.js`: `cf37be95193dcf835d93227de3298c6cf1b05de2`
+- `script.js`: `477a1778880c9172d728acc7f4ba5711051fbf31`
+
+R2D exact net code diff versus the last verified R2C status commit `ceab1429da169b1601f46e3eda16f3f6571ebdd1`:
+
+- `index.html`: +1 / -0
+- `js/hsr/nihr.js`: +14 / -0
+- `script.js`: +1 / -2
+
+The CI verification commit is tree-identical to the R2D code commit. `changesLibrary`, i18n, utils, icons, acute, style, tests, package files and the normal CI workflow were not modified by the R2D net code change.
+
+## Next permitted action
+
+Do **not** start another micro-extraction automatically.
+
+Before further implementation:
+
+- review the remaining monolith read-only;
+- propose a larger but coherent low-risk refactor package containing several related functions/blocks;
+- prefer mechanical movement over redesign;
+- keep Medical wording, recommendation strength, doses, units, severity/routing/decision logic and unaudited Practice Changes content untouched;
+- obtain independent package-scope review before implementation.
 
 ## Governance rules
 
 - During refactor: no medical wording, recommendation-strength, units, routing, decision logic, or source meaning may change.
 - Do not weaken, delete, bypass, or rewrite regression tests to make a refactor pass.
-- Every structural step must pass the full Playwright suite and official PR CI before being marked VERIFIED.
+- Every structural package must pass the full Playwright suite and official PR CI before being marked VERIFIED.
 - Keep `changesLibrary` / Practice Changes medical content untouched until its separate audit.
 - PR `#12` stays Draft.
 - Do not merge to `main` without explicit approval.
