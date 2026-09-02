@@ -10,7 +10,7 @@ Last verified: 2026-09-02
 - Repository: `KnoxiCoke/Esur22`
 - Main baseline: `cd671d69ffb6f99555ae99e0407a7b61827811e3`
 - Refactor branch: `refactor/modularize-script`
-- Verified code commit: `6a42b7f05499063208403a381975f0096ae053bc`
+- Verified code commit: `d244ae6ad13ffa9629ba47ee5ad2ae1a6b2087ef`
 - Draft PR: `#12`
 - PR state: open, Draft, not merged
 
@@ -42,13 +42,14 @@ This does **not** mean final Medical Affairs approval or medical validation.
 
 - Playwright tests: `82`
 - Shared fixture fails on browser `pageerror` and `console.error`.
-- Latest verified official PR CI run: `33612249919`
+- Latest verified official PR CI run: `33616000229`
 - Result: `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`
 
 The verified run loaded all current runtime files successfully:
 
 - `js/content/i18n.js`
 - `js/app/utils.js`
+- `js/app/icons.js`
 - `script.js`
 
 ## Refactor status
@@ -78,12 +79,6 @@ New file:
 
 - `js/app/utils.js`
 
-Current runtime load order:
-
-1. `js/content/i18n.js`
-2. `js/app/utils.js`
-3. `script.js`
-
 R2A production blobs:
 
 - `index.html`: `5be1a4ab55a48c94363eaa44964cefe1ecf28dab`
@@ -92,17 +87,51 @@ R2A production blobs:
 - `js/content/i18n.js`: unchanged from R1 (`e5f4543ae41eb2e55c4a7b98a3b63db522c389be`)
 - `style.css`: unchanged (`78c4f94b2ee7a42ff38190889a974f5067f7c35f`)
 
-`changesLibrary` remains in `script.js` and was verified byte-identical across R2A.
+`changesLibrary` remained in `script.js` and was not modified by R2A.
 
-### R2B — NOT STARTED
+### R2B — VERIFIED
 
-No R2B code is approved yet.
+Commit: `d244ae6ad13ffa9629ba47ee5ad2ae1a6b2087ef`
+
+Only the pure SVG helper was extracted:
+
+- `iconSvg()`
+
+New file:
+
+- `js/app/icons.js`
+
+Current runtime load order:
+
+1. `js/content/i18n.js`
+2. `js/app/utils.js`
+3. `js/app/icons.js`
+4. `script.js`
+
+R2B production blobs:
+
+- `index.html`: `1285d7b40e485beee20d1fc891b416107a373a36`
+- `js/app/icons.js`: `6c0eb8e8bd14cc68c12c7882a2cfd35f1cad769f`
+- `script.js`: `9babf856050d873691bd5df7fcd95708bbc5feec`
+- `js/app/utils.js`: unchanged (`4365d30f8a9e73e1d4c0bbd397446cbe12e7d2a7`)
+- `js/content/i18n.js`: unchanged (`e5f4543ae41eb2e55c4a7b98a3b63db522c389be`)
+- `style.css`: unchanged (`78c4f94b2ee7a42ff38190889a974f5067f7c35f`)
+
+R2B exact code diff versus its parent:
+
+- `index.html`: +1 / -0
+- `js/app/icons.js`: +83 / -0
+- `script.js`: +1 / -80
+
+`changesLibrary` remains in `script.js` and was not modified by R2B.
+
+### R2C — NOT STARTED
 
 Next permitted action:
 
 - perform a read-only dependency review of the remaining monolith;
-- propose one narrow R2B extraction;
-- do not implement R2B until that narrow scope has been reviewed.
+- propose exactly one narrow R2C extraction;
+- do not implement R2C until that narrow scope has been reviewed and explicitly approved.
 
 ## Governance rules
 
