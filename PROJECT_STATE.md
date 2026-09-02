@@ -10,8 +10,8 @@ Last verified: 2026-09-02
 - Repository: `KnoxiCoke/Esur22`
 - Main baseline: `cd671d69ffb6f99555ae99e0407a7b61827811e3`
 - Refactor branch: `refactor/modularize-script`
-- Verified code commit: `3ba92834d940537b00363adb1bb04e14717f71eb`
-- CI verification commit (tree-identical): `ab14f0326f8cbb40c6a572245b511ecafd0f7aed`
+- Verified code commit: `256ae0d6b7eebd9b0b3bc6e3517f3dc0a5dbac30`
+- CI verification commit (tree-identical): `cc146fe6ed69b2657869295fd71def25c8916bb5`
 - Draft PR: `#12`
 - PR state: open, Draft, not merged
 
@@ -43,9 +43,9 @@ This does **not** mean final Medical Affairs approval or medical validation.
 
 - Playwright tests: `82`
 - Shared fixture fails on browser `pageerror` and `console.error`.
-- Latest verified official PR CI run: `33623219011`
-- CI verification head: `ab14f0326f8cbb40c6a572245b511ecafd0f7aed`
-- Result: `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `17.6 s`
+- Latest verified official PR CI run: `33625550511`
+- CI verification head: `cc146fe6ed69b2657869295fd71def25c8916bb5`
+- Result: `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `19.5 s`
 
 The verified run loaded all current runtime files successfully:
 
@@ -53,6 +53,7 @@ The verified run loaded all current runtime files successfully:
 - `js/app/utils.js`
 - `js/app/icons.js`
 - `js/app/nav.js`
+- `js/app/i18nApply.js`
 - `js/hsr/acute.js`
 - `js/hsr/nihr.js`
 - `script.js`
@@ -231,20 +232,72 @@ The CI verification commit is tree-identical to the R2E code commit. The officia
 Medical content changed: **NO**.
 Practice Changes medical content changed: **NO**.
 
+### R2F — VERIFIED
+
+Code commit: `256ae0d6b7eebd9b0b3bc6e3517f3dc0a5dbac30`
+CI verification commit (tree-identical): `cc146fe6ed69b2657869295fd71def25c8916bb5`
+Official PR CI run: `33625550511`
+
+Static i18n application was extracted as one coherent low-risk package:
+
+- `t()`
+- `applyStaticTranslations()`
+- `fillSwitchPrinciples()` as a private helper inside the module
+
+New file:
+
+- `js/app/i18nApply.js`
+
+Implementation boundary:
+
+- `window.ESUR.app.i18nApply.init({ state, i18n, escapeHtml, changesSearchInput })` closes over the existing references.
+- Only `t` and `applyStaticTranslations` are returned to `script.js`; `fillSwitchPrinciples` remains private.
+- Initialization occurs after `changesSearchInput` is declared and before `levelLabel()` / other remaining `t()` consumers.
+- The existing `(ng/mL)` placeholder literal was preserved unchanged.
+- `js/content/i18n.js` remained unchanged.
+- No Medical renderer, severity/routing logic, Tryptase calculation, Practice Changes content, `renderAll`, `resetAll`, `setSegment` or `defaultAcutePattern` moved in R2F.
+
+Current runtime load order:
+
+1. `js/content/i18n.js`
+2. `js/app/utils.js`
+3. `js/app/icons.js`
+4. `js/app/nav.js`
+5. `js/app/i18nApply.js`
+6. `js/hsr/acute.js`
+7. `js/hsr/nihr.js`
+8. `script.js`
+
+R2F production blobs:
+
+- `js/app/i18nApply.js`: `f8ea96afb22c55ed7c083383f4013890ae8af020`
+- `index.html`: `ff1c6e276bb9bb9dfcfa80a03370d757e74649a0`
+- `script.js`: `1bf0afedd0bf7f830f53e683001be21845f2a20d`
+- `js/content/i18n.js`: unchanged (`e5f4543ae41eb2e55c4a7b98a3b63db522c389be`)
+
+R2F exact net code diff versus R2E status commit `549507ca69899bf2b62a8f62546670ad73009b38`:
+
+- `index.html`: +1 / -0
+- `js/app/i18nApply.js`: +106 / -0
+- `script.js`: +6 / -94
+
+The CI verification commit is tree-identical to the R2F code commit. The official run loaded `js/app/i18nApply.js` successfully and finished `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `19.5 s`.
+
+Medical content changed: **NO**.
+Practice Changes medical content changed: **NO**.
+
 ## Next permitted action
 
-Do **not** start R2F automatically.
+Do **not** start R2G automatically.
 
-Before further implementation:
+The remaining `script.js` is materially more coupled to Medical rendering, state/routing, Tryptase calculation, reset/orchestration, or unaudited Practice Changes content. Before further extraction:
 
-- review the remaining monolith read-only;
-- propose one coherent low-risk refactor package, generally around 40–150 mechanically moved lines where coupling permits;
-- list exact functions/blocks, target files, DOM dependencies, referenced `state` fields, any `t()` key groups, callers/call sites and explicit out-of-scope boundaries;
-- prefer mechanical movement over redesign, cleanup or generalization;
-- do not bundle a renderer with routing/default helpers merely because they belong to the same tab;
-- avoid top-level binding collisions across classic scripts;
-- keep Medical wording, recommendation strength, doses, units, severity/routing/decision logic and unaudited Practice Changes content untouched;
-- obtain independent package-scope review before implementation.
+- perform a fresh read-only dependency/risk map of the remaining monolith;
+- identify whether any remaining block can still be moved mechanically without combining Medical decision/routing logic with architectural redesign;
+- explicitly list all referenced `state` fields, `t()` key groups, DOM nodes, callers/call sites and dependency strategy for any proposed package;
+- if the next candidate includes Medical decision/severity/routing logic, shrink scope and treat it as a higher-risk extraction rather than applying the 40–150-line target mechanically;
+- keep Practice Changes / `changesLibrary` frozen until its separate medical/source audit;
+- obtain independent GO / MODIFY / STOP review before implementation.
 
 ## Governance rules
 
