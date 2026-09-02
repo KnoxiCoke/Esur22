@@ -10,8 +10,8 @@ Last verified: 2026-09-02
 - Repository: `KnoxiCoke/Esur22`
 - Main baseline: `cd671d69ffb6f99555ae99e0407a7b61827811e3`
 - Refactor branch: `refactor/modularize-script`
-- Verified code commit: `256ae0d6b7eebd9b0b3bc6e3517f3dc0a5dbac30`
-- CI verification commit (tree-identical): `cc146fe6ed69b2657869295fd71def25c8916bb5`
+- Verified code commit: `33da3635ab701ed218d548a3b7400670b0debfd0`
+- CI verification commit (tree-identical): `09511a04a3f39686d1da32132acff1764d306d7f`
 - Draft PR: `#12`
 - PR state: open, Draft, not merged
 
@@ -41,11 +41,11 @@ This does **not** mean final Medical Affairs approval or medical validation.
 
 ## Plan snapshot
 
-- Engineering: R2F VERIFIED. This is one verified extraction package, not “refactor complete” and not a Medical Freeze.
+- Engineering: R2G VERIFIED. This is one verified extraction package, not “refactor complete” and not a Medical Freeze.
 - Medical Freeze / v0.9.0: still open (known source exceptions remain; no Medical Affairs sign-off).
 - Practice Changes 2018→2025 audit: still open.
 - Regulatory Gate: scheduled in the master plan, **not performed**. No MDSW classification and no Rule-11 class estimate.
-- R2G: not defined. Next engineering action is a read-only risk/dependency map of the remaining monolith.
+- R2H: not defined. No implementation before a separate read-only scope review and explicit GO.
 
 ## Regulatory status
 
@@ -76,9 +76,9 @@ Keep three questions separate:
 
 - Playwright tests: `82`
 - Shared fixture fails on browser `pageerror` and `console.error`.
-- Latest verified official PR CI run: `33625550511`
-- CI verification head: `cc146fe6ed69b2657869295fd71def25c8916bb5`
-- Result: `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `19.5 s`
+- Latest verified official PR CI run: `33628922510`
+- CI verification head: `09511a04a3f39686d1da32132acff1764d306d7f`
+- Result: `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `19.8 s`
 
 The verified run loaded all current runtime files successfully:
 
@@ -89,6 +89,7 @@ The verified run loaded all current runtime files successfully:
 - `js/app/i18nApply.js`
 - `js/hsr/acute.js`
 - `js/hsr/nihr.js`
+- `js/hsr/previous.js`
 - `script.js`
 
 ## Refactor status
@@ -290,7 +291,7 @@ Implementation boundary:
 - `js/content/i18n.js` remained unchanged.
 - No Medical renderer, severity/routing logic, Tryptase calculation, Practice Changes content, `renderAll`, `resetAll`, `setSegment` or `defaultAcutePattern` moved in R2F.
 
-Current runtime load order:
+R2F runtime load order at that milestone:
 
 1. `js/content/i18n.js`
 2. `js/app/utils.js`
@@ -319,16 +320,70 @@ The CI verification commit is tree-identical to the R2F code commit. The officia
 Medical content changed: **NO**.
 Practice Changes medical content changed: **NO**.
 
+### R2G — VERIFIED
+
+Code commit: `33da3635ab701ed218d548a3b7400670b0debfd0`
+CI verification commit (tree-identical): `09511a04a3f39686d1da32132acff1764d306d7f`
+Official PR CI run: `33628922510`
+
+Only the Previous-Reaction flow renderer was mechanically extracted:
+
+- `renderFlow()`
+
+New file:
+
+- `js/hsr/previous.js`
+
+Implementation boundary:
+
+- `window.ESUR.hsr.previous.init({ state, t, escapeHtml, flowOutput, flowSafety })` closes over the same existing references.
+- `renderFlow()` reads only `state.situation` and `state.reaction`; it does not write state.
+- The lookups `t("flow_titles")[key]`, `t("flow_bullets")[key]` and `t("flow_safety")` were preserved without a fallback.
+- The existing `renderFlow();` call inside `renderAll()` remained unchanged.
+- `setSegment`, `defaultAcutePattern`, Acute, Switch, Tryptase, NIHR, reset/orchestration, listeners, i18n content and Practice Changes were not moved or changed in R2G.
+
+Current runtime load order:
+
+1. `js/content/i18n.js`
+2. `js/app/utils.js`
+3. `js/app/icons.js`
+4. `js/app/nav.js`
+5. `js/app/i18nApply.js`
+6. `js/hsr/acute.js`
+7. `js/hsr/nihr.js`
+8. `js/hsr/previous.js`
+9. `script.js`
+
+R2G production blobs:
+
+- `js/hsr/previous.js`: `53487ae796e84f0b7c65ba66a63b8729268d3d7c`
+- `index.html`: `e5cc1e1e553b4c63b6f43e3e3726c101fa4e4503`
+- `script.js`: `0fe821c4639be492bb673cd59b18a1b38e91e6a1`
+- `js/content/i18n.js`: unchanged (`e5f4543ae41eb2e55c4a7b98a3b63db522c389be`)
+
+R2G exact net code diff versus regulatory docs baseline `ef66d8bb9c0102566e7687451d6ce37f537fa79f`:
+
+- `index.html`: +1 / -0
+- `js/hsr/previous.js`: +23 / -0
+- `script.js`: +7 / -14
+
+The CI verification commit is tree-identical to the R2G code commit. The official run loaded `js/hsr/previous.js` successfully and finished `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `19.8 s`.
+
+Medical content changed: **NO**.
+Practice Changes medical content changed: **NO**.
+
 ## Next permitted action
 
-Do **not** start R2G automatically.
+Do **not** start R2H automatically.
 
-The remaining `script.js` is materially more coupled to Medical rendering, state/routing, Tryptase calculation, reset/orchestration, or unaudited Practice Changes content. Before further extraction:
+The accepted post-R2F risk map uses two separate axes: Medical sensitivity and mechanical extraction risk. Medical sensitivity alone does not freeze a renderer, but all Medical content and behaviour remain frozen during refactor.
 
-- perform a fresh read-only dependency/risk map of the remaining monolith;
-- identify whether any remaining block can still be moved mechanically without combining Medical decision/routing logic with architectural redesign;
-- explicitly list all referenced `state` fields, `t()` key groups, DOM nodes, callers/call sites and dependency strategy for any proposed package;
-- if the next candidate includes Medical decision/severity/routing logic, shrink scope and treat it as a higher-risk extraction rather than applying the 40–150-line target mechanically;
+For the next package:
+
+- prepare a read-only exact scope proposal before implementation;
+- the current sequence places `renderSwitch()` next for scope review, not automatic implementation;
+- preserve all wording, keys, values, units, recommendation strength and decision/routing behaviour;
+- do not bundle `setSegment`, `renderAll`, `resetAll`, `defaultAcutePattern` or unrelated renderers merely to increase package size;
 - keep Practice Changes / `changesLibrary` frozen until its separate medical/source audit;
 - obtain independent GO / MODIFY / STOP review before implementation.
 
