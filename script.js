@@ -1649,9 +1649,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-  function renderAcuteList(items) {
-    return `<ul>${(items || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
-  }
+  const { renderAcuteList } = window.ESUR.hsr.acute;
 
   function renderAcuteManagement() {
     const contentByPattern = t("acute_content");
