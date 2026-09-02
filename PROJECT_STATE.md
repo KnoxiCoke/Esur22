@@ -105,7 +105,7 @@ Commit: `0c9b967a1fa84f716a754831649a4fdda7259f72`
 
 Integrity reference:
 
-- i18n object body SHA-256: `eac3710cd43a82604f8864e8af521cbba6402a5cbe65b08c`
+- i18n object body SHA-256: `eac3710cd43a82604f8864e8af521cbba6fcf6e3e7c73fdba6402a5cbe65b08c`
 
 ### R2A — VERIFIED
 
