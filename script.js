@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "warningDrop",
         title: "Hypersensitivity",
         summary:
-          "This is the strongest clinical redesign in the 2025 guidance: clearer classification, stronger allergy work-up, and more structured re-exposure pathways.",
+          "2025 uses immediate (IHR) and non-immediate (NIHR) terminology and structures prevention of recurrent reactions by reaction type and severity; moderate and severe IHR are additionally separated into elective and emergency pathways.",
         keywords: [
           "hypersensitivity",
           "immediate",
@@ -119,32 +119,28 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: "2018",
               paragraphs: [
-                "The 2018 guideline already addressed acute, late, and very late adverse reactions, but the structure was less centered on modern allergy work-up and formal re-exposure pathways.",
-                "Classification and management were less explicitly separated into immediate and non-immediate hypersensitivity reactions."
+                "Version 10.0 grouped reactions as acute, late and very late. It advised keeping the patient in a medical environment for 30 minutes after contrast-agent injection. After a moderate or severe acute reaction, Version 10.0 advised histamine and tryptase sampling and referral to a specialist in drug allergy for skin testing. For previous contrast-agent reactors at increased risk, it advised use of a different contrast agent, preferably after consultation with a specialist in drug allergy. The contrast-agent name and dose and the details of the reaction and its treatment were to be recorded."
               ]
             },
             {
               label: "2025",
-              bullets: [
-                "Distinguishes immediate and non-immediate hypersensitivity reactions more clearly.",
-                "Explicitly uses both ACR and Ring & Messmer classification frameworks.",
-                "Expands acute management, including structured observation, IV access, ABCDE-style thinking, and clearer positioning / supportive measures.",
-                "Strengthens tryptase use, documentation, and prevention of recurrent reactions.",
-                "Separates recurrent-reaction management by severity and by elective versus emergency situations."
+              paragraphs: [
+                "The 2025 guidance defines immediate versus non-immediate hypersensitivity reactions and endorses both the ACR and the Ring & Messmer classifications. Prevention of recurrent reactions is set out by reaction type and severity; moderate and severe IHR are additionally separated into elective and emergency pathways. Acute general principles include assessment with the ABCDE method and sitting the patient up for dyspnoea or stridor."
               ]
             },
             {
               label: "Practical impact",
               paragraphs: [
-                "Compared with 2018, the 2025 framework is more allergy-oriented and more structured for future contrast decisions, especially after moderate or severe reactions.",
-                "Documentation of the exact agent and the reaction details becomes much more important because later testing and re-exposure planning depend on it."
+                "Prevention of recurrent reactions should be adapted to the reaction type and severity and to the urgency of required re-administration, as set out in Part 2."
               ],
               variant: "impact"
             }
           ],
           refs: [
-            "Source: ESUR 10.0 guideline",
-            "Source: ESUR 2025 hypersensitivity guidance"
+            "Source: ESUR Guidelines on Contrast Agents Version 10.0 (2018), printed pp. 6–8 and 10–13",
+            "Source: ESUR CMSC Guidelines 2025, pp. 6 and 8",
+            "Source: van der Molen et al. 2025 Part 1, Table 3, journal p. 6805",
+            "Source: van der Molen et al. 2025 Part 2, Table 2, journal pp. 6818–6820"
           ]
         },
         action: {
@@ -152,24 +148,23 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: "ESUR 2025 action points",
               bullets: [
-                "ESUR 2025 recommends formal allergy assessment after moderate or severe reactions and after clinically relevant non-immediate reactions.",
-                "During future contrast administration, observation for at least 30 min with IV access in place is described.",
-                "If the culprit agent is known and no allergy-based recommendation is available, use of a different contrast agent may be considered.",
-                "For severe NIHR / SCAR, avoidance of the involved contrast agent class is described.",
-                "Tryptase sampling is described within 4 h, with a baseline sample after ≥24 h."
+                "After a moderate or severe hypersensitivity reaction, refer the patient to a drug allergy specialist for allergy assessment.",
+                "For mild, moderate and severe IHR, and for mild or moderate NIHR without danger signs, Part 2 specifies observation for at least 30 minutes with the IV line in place when contrast is administered.",
+                "After severe NIHR with danger signs (SCAR): do not give the contrast-agent class that caused the reaction. Avoid all ICM after severe NIHR to ICM; avoid all GBCA after severe NIHR to GBCA. After a severe reaction to an unknown contrast agent, individualize the approach following multidisciplinary consultation.",
+                "After a moderate-to-severe immediate hypersensitivity reaction (IHR), measure serum tryptase within 1–4 hours from the start of the reaction, with a second measurement after ≥24 hours as baseline."
               ],
               variant: "action"
             },
             {
               label: "Why this matters",
               paragraphs: [
-                "This part of the guideline is no longer just about labeling a prior reaction. It is now built around structured risk documentation, specialist work-up, and better-controlled re-exposure decisions."
+                "2025 adds type- and severity-specific recurrent-prevention pathways, with elective versus emergency rows for moderate and severe IHR. Version 10.0 already included 30-minute observation, recording, sampling after moderate or severe acute reactions, and referral."
               ]
             }
           ],
           refs: [
-            "Source: ESUR 2025 hypersensitivity guidance",
-            "Source: ESUR 10.0 guideline"
+            "Source: van der Molen et al. 2025 Part 2, Table 2, journal pp. 6818–6820",
+            "Source: ESUR CMSC Guidelines 2025, pp. 11–14"
           ]
         }
       },
@@ -778,7 +773,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "warningDrop",
         title: "Hypersensitivität",
         summary:
-          "Das ist der stärkste klinische Umbau der 2025er Guidance: klarere Klassifikation, stärkerer allergologischer Fokus und strukturiertere Re-Exposure-Pfade.",
+          "2025 verwendet die Begriffe immediate (IHR) und non-immediate (NIHR) und gliedert die Prävention erneuter Reaktionen nach Reaktionstyp und Schweregrad; bei moderaten und schweren IHR wird zusätzlich zwischen elektiven und notfallmäßigen Pfaden unterschieden.",
         keywords: [
           "hypersensitivität",
           "immediate",
@@ -795,32 +790,28 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: "2018",
               paragraphs: [
-                "Die 2018er Guideline behandelte akute, späte und sehr späte Reaktionen bereits, war aber weniger um moderne allergologische Abklärung und formalisierte Re-Exposure-Pfade herum aufgebaut.",
-                "Klassifikation und Management waren weniger explizit in immediate und non-immediate hypersensitivity reactions getrennt."
+                "Version 10.0 gliederte Reaktionen in akut, spät und sehr spät. Nach der Kontrastmittelgabe sollten Patienten 30 Minuten medizinisch qualifiziert überwacht werden. Nach einer moderaten oder schweren akuten Reaktion sah Version 10.0 Histamin- und Tryptase-Proben sowie die Überweisung an einen Spezialisten für Allergologie zur Durchführung eines Hauttests vor. Bei Patienten mit erhöhtem Risiko und früherer Reaktion auf ein bestimmtes Kontrastmittel sah Version 10.0 den Einsatz eines anderen Kontrastmittels vor, vorzugsweise nach Rücksprache mit einem Allergologen. Kontrastmittelname und -dosierung sowie Art der Reaktion und ergriffene Maßnahmen sollten in der Patientenakte dokumentiert werden."
               ]
             },
             {
               label: "2025",
-              bullets: [
-                "Klare Trennung zwischen immediate und non-immediate hypersensitivity reactions.",
-                "Explizite Nutzung sowohl der ACR- als auch der Ring-&-Messmer-Klassifikation.",
-                "Deutlich ausgebautes Akutmanagement mit strukturierter Beobachtung, liegendem IV-Zugang, ABCDE-Denke sowie präziserer Lagerung / Supportivmassnahmen.",
-                "Stärkerer Fokus auf Tryptase, Dokumentation und Prävention erneuter Reaktionen.",
-                "Getrennte Re-Exposure-Logik nach Schweregrad sowie nach elektiver versus notfallmässiger Situation."
+              paragraphs: [
+                "Die 2025er Guidance definiert immediate versus non-immediate Hypersensitivitätsreaktionen und stützt sowohl die ACR- als auch die Ring-&-Messmer-Klassifikation. Die Prävention erneuter Reaktionen ist nach Reaktionstyp und Schweregrad dargestellt; bei moderaten und schweren IHR wird zusätzlich zwischen elektiven und notfallmäßigen Pfaden unterschieden. Zu den allgemeinen Prinzipien des Akutmanagements gehören die Beurteilung nach der ABCDE-Methode und das Aufsetzen bei Dyspnoe oder Stridor."
               ]
             },
             {
               label: "Praktische Bedeutung",
               paragraphs: [
-                "Im Vergleich zu 2018 ist die 2025er Guidance deutlich allergologischer und strukturierter, vor allem nach moderaten oder schweren Reaktionen.",
-                "Die exakte Dokumentation des auslösenden Kontrastmittels und der Reaktionsdetails wird viel wichtiger, weil spätere Tests und Re-Exposure-Entscheidungen davon abhängen."
+                "Die Prävention erneuter Reaktionen sollte entsprechend Part 2 an Reaktionstyp und Schweregrad sowie an die Dringlichkeit einer erneuten Kontrastmittelgabe angepasst werden."
               ],
               variant: "impact"
             }
           ],
           refs: [
-            "Quelle: ESUR 10.0 Guideline",
-            "Quelle: ESUR 2025 Hypersensitivitäts-Guidance"
+            "Quelle: ESUR Leitlinien für Kontrastmittel Version 10.0 (2018), DE-PDF S. 7–8 und 10–12",
+            "Quelle: ESUR CMSC Guidelines 2025, S. 6 und 8",
+            "Quelle: van der Molen et al. 2025 Part 1, Tabelle 3, Journal-S. 6805",
+            "Quelle: van der Molen et al. 2025 Part 2, Tabelle 2, Journal-S. 6818–6820"
           ]
         },
         action: {
@@ -828,24 +819,23 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: "ESUR-2025-Kernaussagen",
               bullets: [
-                "Nach moderaten oder schweren Reaktionen sowie nach klinisch relevanten NIHR beschreibt ESUR 2025 eine formelle allergologische Abklärung.",
-                "Bei zukünftiger Kontrastmittelgabe wird eine Beobachtung von mindestens 30 min mit liegendem IV-Zugang beschrieben.",
-                "Wenn das auslösende Mittel bekannt ist und keine allergologisch basierte Empfehlung vorliegt, kann die Verwendung eines anderen Kontrastmittels erwogen werden.",
-                "Bei schweren NIHR / SCAR wird die Vermeidung der betroffenen Kontrastmittelklasse beschrieben.",
-                "Eine Tryptase-Bestimmung innerhalb von 4 h sowie eine Baseline-Bestimmung nach ≥24 h werden beschrieben."
+                "Patienten nach moderater oder schwerer Hypersensitivitätsreaktion zur allergologischen Abklärung überweisen.",
+                "Bei milder, moderater und schwerer IHR sowie bei milder oder moderater NIHR ohne Danger Signs sieht Part 2 bei Kontrastmittelgabe eine Beobachtung von mindestens 30 Minuten mit liegendem IV-Zugang vor.",
+                "Nach schwerer NIHR mit Danger Signs (SCAR): die verursachende Kontrastmittelklasse nicht geben. Nach schwerer NIHR auf ICM alle ICM vermeiden; nach schwerer NIHR auf GBCA alle GBCA vermeiden. Nach einer schweren Reaktion auf ein unbekanntes Kontrastmittel das Vorgehen nach interdisziplinärer Beratung individualisieren.",
+                "Nach einer moderaten bis schweren unmittelbaren Hypersensitivitätsreaktion (IHR) Serumtryptase innerhalb von 1–4 Stunden nach Beginn der Reaktion bestimmen; eine zweite Messung nach ≥24 Stunden dient als Baseline."
               ],
               variant: "action"
             },
             {
               label: "Warum das wichtig ist",
               paragraphs: [
-                "Dieser Guideline-Teil dreht sich nicht mehr nur um das Etikett einer früheren Reaktion. Er ist jetzt auf strukturierte Risikodokumentation, Fachabklärung und kontrolliertere Re-Exposure-Entscheidungen ausgerichtet."
+                "2025 ergänzt typ- und schweregradbezogene Präventionspfade, bei moderater und schwerer IHR zusätzlich elektiv versus Notfall. Version 10.0 enthielt bereits 30-Minuten-Überwachung, Dokumentation, Proben nach moderater oder schwerer akuter Reaktion und Überweisung."
               ]
             }
           ],
           refs: [
-            "Quelle: ESUR 2025 Hypersensitivitäts-Guidance",
-            "Quelle: ESUR 10.0 Guideline"
+            "Quelle: van der Molen et al. 2025 Part 2, Tabelle 2, Journal-S. 6818–6820",
+            "Quelle: ESUR CMSC Guidelines 2025, S. 11–14"
           ]
         }
       },
