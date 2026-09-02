@@ -10,8 +10,8 @@ Last verified: 2026-09-02
 - Repository: `KnoxiCoke/Esur22`
 - Main baseline: `cd671d69ffb6f99555ae99e0407a7b61827811e3`
 - Refactor branch: `refactor/modularize-script`
-- Verified code commit: `2bede43edd6ae6490743fb40f5b43f0781036a62`
-- CI verification commit (tree-identical): `b6d4ec568bb7e7dec7408e1b6b95a330d41d7a98`
+- Verified code commit: `beb299cdb9884b1542406e6ed3fa4e5c5cfc9fc4`
+- CI verification commit (tree-identical): `c5aba6d599746dfc56f6b712f110b70a3dfa24b6`
 - Draft PR: `#12`
 - PR state: open, Draft, not merged
 
@@ -41,11 +41,11 @@ This does **not** mean final Medical Affairs approval or medical validation.
 
 ## Plan snapshot
 
-- Engineering: R2I VERIFIED. This is one verified extraction package, not “refactor complete” and not a Medical Freeze.
+- Engineering: R2J VERIFIED. This is one verified extraction package, not “refactor complete” and not a Medical Freeze.
 - Medical Freeze / v0.9.0: still open (known source exceptions remain; no Medical Affairs sign-off).
 - Practice Changes 2018→2025 audit: still open.
 - Regulatory Gate: scheduled in the master plan, **not performed**. No MDSW classification and no Rule-11 class estimate.
-- R2J: not defined. No implementation before a separate read-only scope review and explicit technical GO under the standing authorization below.
+- R2K: not defined. No implementation before a separate read-only scope review and explicit technical GO under the standing authorization below.
 
 ## Regulatory status
 
@@ -76,9 +76,9 @@ Keep three questions separate:
 
 - Playwright tests: `82`
 - Shared fixture fails on browser `pageerror` and `console.error`.
-- Latest verified official PR CI run: `33636536231`
-- CI verification head: `b6d4ec568bb7e7dec7408e1b6b95a330d41d7a98`
-- Result: `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `18.5 s`
+- Latest verified official PR CI run: `33639546466`
+- CI verification head: `c5aba6d599746dfc56f6b712f110b70a3dfa24b6`
+- Result: `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `19.9 s`
 
 The verified run loaded all current runtime files successfully:
 
@@ -100,7 +100,7 @@ The verified run loaded all current runtime files successfully:
 
 Commit: `0c9b967a1fa84f716a754831649a4fdda7259f72`
 
-- Existing i18n content mechanically extracted to `js/content/i18n.js`.
+- Existing i18n content mechanically extracted from `script.js` to `js/content/i18n.js`.
 - `script.js` now reads `window.ESUR.i18n`.
 - No medical content change.
 
@@ -456,7 +456,7 @@ Implementation boundary:
 - `renderAll()`, `refreshComputedModulesAfterLanguageChange()`, `resetAll()` including `delete tryptaseOutput.dataset.ready`, the calculator button listener and language listeners remain in `script.js`.
 - No Medical content, i18n values, tests, Practice Changes or unrelated HSR logic moved or changed in R2I.
 
-Current runtime load order:
+R2I runtime load order at that milestone:
 
 1. `js/content/i18n.js`
 2. `js/app/utils.js`
@@ -488,19 +488,77 @@ The CI verification commit is tree-identical to the R2I code commit. The officia
 Medical content changed: **NO**.
 Practice Changes medical content changed: **NO**.
 
+### R2J — VERIFIED
+
+Code commit: `beb299cdb9884b1542406e6ed3fa4e5c5cfc9fc4`
+CI verification commit (tree-identical): `c5aba6d599746dfc56f6b712f110b70a3dfa24b6`
+Official PR CI run: `33639546466`
+
+The NIHR renderer was mechanically extracted into the existing NIHR module:
+
+- `renderNihr()`
+
+Existing file expanded:
+
+- `js/hsr/nihr.js`
+
+Implementation boundary:
+
+- `window.ESUR.hsr.nihr.init({ state, t, escapeHtml, nihrOutput })` now owns the existing private `renderNihrList()` and the extracted `renderNihr()`.
+- `renderNihrList()` preserves its existing body and is now private to the NIHR module.
+- `renderNihr()` still reads `.nihr-check` directly and reads only `state.nihrSeverity`, `state.nihrCulpritKnown` and `state.nihrCmtype`; it does not write state.
+- The existing mild, moderate, severe-with-danger-sign SCAR and scope-guard branch ordering and return points were preserved.
+- The conditional `nihr_choose_different` action and GBCA / unknown / ICM class-rule selection were preserved.
+- `renderAll()`, `refreshComputedModulesAfterLanguageChange()`, `resetAll()`, `.nihr-check` listeners and `setSegment()` remain in `script.js`.
+- `index.html` and runtime load order were unchanged.
+- No Medical content, i18n values, tests, Practice Changes or unrelated HSR logic moved or changed in R2J.
+
+Current runtime load order:
+
+1. `js/content/i18n.js`
+2. `js/app/utils.js`
+3. `js/app/icons.js`
+4. `js/app/nav.js`
+5. `js/app/i18nApply.js`
+6. `js/hsr/acute.js`
+7. `js/hsr/nihr.js`
+8. `js/hsr/previous.js`
+9. `js/hsr/switch.js`
+10. `js/hsr/tryptase.js`
+11. `script.js`
+
+R2J production blobs:
+
+- `js/hsr/nihr.js`: `e526e30054276a468d6de57ed24444f07bab0e71`
+- `script.js`: `878cd4e5d9b58e2b9227e80d02638fe1240e1a7b`
+- `index.html`: unchanged (`e76d5dba8968de92d273f0e0cfb866448b6b67bc`)
+- `js/content/i18n.js`: unchanged (`e5f4543ae41eb2e55c4a7b98a3b63db522c389be`)
+
+R2J exact net code diff versus R2I docs baseline `d8894ddd710bf5a749d063257630c8daa0cbfd86`:
+
+- `js/hsr/nihr.js`: +95 / -9
+- `script.js`: +6 / -88
+- `index.html`: unchanged
+
+The CI verification commit is tree-identical to the R2J code commit. The official run loaded `js/hsr/nihr.js` successfully, exercised the NIHR mild/moderate/SCAR/scope-guard/class-specific paths, and finished `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `19.9 s`.
+
+Medical content changed: **NO**.
+Practice Changes medical content changed: **NO**.
+
 ## Next permitted action
 
-Do **not** start R2J automatically.
+Do **not** start R2K automatically.
 
 The accepted post-R2F risk map uses two separate axes: Medical sensitivity and mechanical extraction risk. Medical sensitivity alone does not freeze a renderer, but all Medical content and behaviour remain frozen during refactor.
 
 For the next package:
 
 - prepare a read-only exact scope proposal before implementation;
-- next evaluate `renderNihr()` as the candidate extraction into the existing `js/hsr/nihr.js` module, which already contains `renderNihrList()`;
-- inspect all checkbox DOM reads, NIHR state reads, `t()` keys, the existing `renderNihrList()` dependency, and all callers/listeners before recommending a package;
-- preserve all wording, keys, values, severity/danger-sign logic, class-specific rules, recommendation strength and decision behaviour;
-- do not bundle `setSegment`, `renderAll`, `resetAll`, `defaultAcutePattern` or unrelated renderers merely to increase package size;
+- next evaluate `renderAcuteManagement()` as the candidate extraction into the existing `js/hsr/acute.js` module, which already contains `renderAcuteList()`;
+- explicitly inspect its dependency on `defaultAcutePattern()`, its write to `state.acutePattern`, acute-severity/pattern button DOM writes, `acuteImmediateOutput`, `acuteOutput`, all `t()` keys and `renderAcuteList()` use before recommending a package;
+- do **not** bundle `defaultAcutePattern()` merely because it is Acute-related; first determine whether `renderAcuteManagement()` can be mechanically extracted with that helper remaining in the host/injected as a dependency;
+- preserve all wording, keys, values, doses, units, severity/pattern routing, recommendation strength and decision behaviour;
+- do not bundle `setSegment`, `renderAll`, `resetAll` or unrelated renderers merely to increase package size;
 - keep Practice Changes / `changesLibrary` frozen until its separate medical/source audit;
 - obtain independent GO / MODIFY / STOP review before implementation.
 
