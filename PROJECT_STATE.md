@@ -45,7 +45,7 @@ This does **not** mean final Medical Affairs approval or medical validation.
 - Medical Freeze / v0.9.0: still open (known source exceptions remain; no Medical Affairs sign-off).
 - Practice Changes 2018→2025 audit: still open.
 - Regulatory Gate: scheduled in the master plan, **not performed**. No MDSW classification and no Rule-11 class estimate.
-- R2I: not defined. No implementation before a separate read-only scope review and explicit GO.
+- R2I: not defined. No implementation before a separate read-only scope review and explicit technical GO under the standing authorization below.
 
 ## Regulatory status
 
@@ -105,7 +105,7 @@ Commit: `0c9b967a1fa84f716a754831649a4fdda7259f72`
 
 Integrity reference:
 
-- i18n object body SHA-256: `eac3710cd43a82604f8864e8af521cbba6fcf6e3e7c73fdba6402a5cbe65b08c`
+- i18n object body SHA-256: `eac3710cd43a82604f8864e8af521cbba6402a5cbe65b08c`
 
 ### R2A — VERIFIED
 
@@ -456,8 +456,34 @@ For the next package:
 - Tests are regression guardrails, not proof of medical correctness.
 - Regulatory work must not alter Medical content or refactor scope before a Bayer RA/Legal vote. No MDSW class is recorded in this file.
 
+## Standing technical refactor authorization
+
+The user has granted standing authorization for the ongoing purely technical, behaviour-preserving refactor on Draft PR `#12`.
+
+- A separate one-word user `GO` is **not required** for each technical refactor package.
+- ChatGPT acts as the independent technical reviewer/orchestrator and may issue `GO`, `MODIFY` or `STOP` after a read-only scope review.
+- ChatGPT `GO` authorizes Grok to implement exactly the approved technical scope without waiting for another user message.
+- If ChatGPT returns `MODIFY` or `STOP`, Grok must not implement until the issue is resolved and a new technical `GO` is issued.
+- After implementation, Grok must stop and report the exact remote diff, blobs, local full-suite result and official CI result. ChatGPT then independently verifies the remote repository and CI.
+- After ChatGPT marks a package `VERIFIED PASS`, a docs-only `PROJECT_STATE.md` milestone update is authorized without another user `GO`.
+- This standing authorization is for the agreed incremental refactor only; it is not authorization to expand scope autonomously or chain multiple unreviewed packages.
+
+Standing authorization does **not** cover:
+
+- Medical wording, source meaning, recommendation strength, doses, units, thresholds or Medical decision/routing changes;
+- source interpretation or source-conflict resolution;
+- weakening, deleting or changing regression tests to make an implementation pass;
+- Regulatory, Intended Purpose or claim decisions;
+- major architecture changes outside the agreed incremental refactor;
+- merging PR `#12` to `main`;
+- release or deployment decisions.
+
+Those require explicit user approval.
+
 ## AI handoff rule
 
 Before doing anything, read `PROJECT_STATE.md` and treat it as the authoritative project status.
 
 If chat history, a local workspace, or an earlier report conflicts with this file, verify the current GitHub branch and CI before proceeding. Update this file only after a milestone has been independently verified.
+
+Every reviewer/orchestrator response in this refactor workflow must also end with the **exact next permitted step**. When another model needs to act, provide a ready-to-copy prompt instead of making the user ask what to do next.
