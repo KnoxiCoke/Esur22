@@ -24,15 +24,12 @@ jobs:
           from pathlib import Path
           p = Path('script.js')
           text = p.read_text(encoding='utf-8')
-          old = '''  function renderAcuteList(items) {
-            return `<ul>${(items || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
-          }
-          '''
+          old = '  function renderAcuteList(items) {\n    return `<ul>${(items || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;\n  }\n'
           new = '  const { renderAcuteList } = window.ESUR.hsr.acute;\n'
-          if text.count(old) != 1:
-              raise SystemExit(f'Expected exactly one renderAcuteList block, found {text.count(old)}')
-          text = text.replace(old, new, 1)
-          p.write_text(text, encoding='utf-8')
+          count = text.count(old)
+          if count != 1:
+              raise SystemExit(f'Expected exactly one renderAcuteList block, found {count}')
+          p.write_text(text.replace(old, new, 1), encoding='utf-8')
           PY
           grep -F 'const { renderAcuteList } = window.ESUR.hsr.acute;' script.js
           if grep -F 'function renderAcuteList(items)' script.js; then exit 1; fi
