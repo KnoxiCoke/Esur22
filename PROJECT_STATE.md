@@ -880,6 +880,12 @@ If chat history, a local workspace, an artifact handoff, or an earlier report co
 
 Every reviewer/orchestrator response in this refactor workflow must also end with the **exact next permitted step**. When another model needs to act, provide a ready-to-copy prompt instead of making the user ask what to do next.
 
+### Prompt routing rule
+
+- Every ready-to-copy AI handoff prompt must state its exact destination prominently before the prompt: `CHATGPT CHAT`, `CHATGPT WORK`, `GROK`, or `CODEX`.
+- Bruno must never need to infer which system receives the next prompt.
+- Results from `CHATGPT WORK`, `GROK`, or `CODEX` return to `CHATGPT CHAT` unless the handoff explicitly states otherwise.
+
 ## Practice Changes UX decision — `UX_CHANGES_01`
 
 Long-term UX decision is stored in `docs/ux/PRACTICE_CHANGES_UX.md`.
