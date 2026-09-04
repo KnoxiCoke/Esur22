@@ -879,3 +879,30 @@ Before doing anything, read `PROJECT_STATE.md` and treat it as the authoritative
 If chat history, a local workspace, an artifact handoff, or an earlier report conflicts with this file, verify the current GitHub branch and CI before proceeding. GitHub remote state is authoritative. Update this file only after a milestone has been independently verified.
 
 Every reviewer/orchestrator response in this refactor workflow must also end with the **exact next permitted step**. When another model needs to act, provide a ready-to-copy prompt instead of making the user ask what to do next.
+
+## Practice Changes UX decision — `UX_CHANGES_01`
+
+Long-term UX decision is stored in `docs/ux/PRACTICE_CHANGES_UX.md`.
+
+Phase 1 is behaviour-preserving presentation only:
+
+- one primary Practice Changes card view;
+- remove Compare/Action mode control;
+- remove level filters from user controls;
+- keep search;
+- keep the current level only as a card badge;
+- place existing Action content in the same card without rewriting it;
+- collapse 2018 / Why / Sources by default;
+- present Waiting Times through three collapsible sub-blocks: MRI + CT/angiography, two ICM administrations, and two GBCA administrations.
+
+Medical/content boundary before the relevant audit is complete:
+
+- existing EN/DE Medical strings remain unchanged;
+- no shortening, merging, paraphrasing, reclassification, recommendation-strength change, number/unit/threshold change, source-claim change or decision/routing change;
+- moving existing text is allowed only inside an explicitly behaviour-preserving scope.
+
+`UX_CHANGES_01` does **not** itself authorize implementation. Before code changes, ChatGPT must write a behaviour-preserving scope covering untouched strings/fields, controls, disclosure behaviour, state/DOM dependencies, regression invariants and explicit out-of-scope Medical/content changes. That scope must be reviewed first.
+
+Editorial compression or rewriting is a separate Phase 2 after the relevant Practice Changes Medical/source audit and is not authorized by this decision.
+
+This docs-only decision changes no production code, Medical wording, recommendation strength or decision logic.
