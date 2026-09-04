@@ -1,0 +1,9 @@
+TEMPORARY PATCH INTENT ONLY — remove in final tree.
+
+Append to PROJECT_STATE.md:
+
+## Prompt routing rule
+
+- Every ready-to-copy AI handoff prompt must state its exact destination prominently before the prompt: `CHATGPT CHAT`, `CHATGPT WORK`, `GROK`, or `CODEX`.
+- Bruno must never need to infer which system receives the next prompt.
+- Results from `CHATGPT WORK`, `GROK`, or `CODEX` return to `CHATGPT CHAT` unless the handoff explicitly states otherwise.
