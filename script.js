@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "kidney",
         title: "Renal terminology: PC-AKI → CA-AKI",
         summary:
-          "The renal section is renamed and aligned with newer terminology, but the core preventive framework is not completely rebuilt.",
+          "The 2025 CMSC guidance uses the term CA-AKI and states that this updates the older term PC-AKI.",
         keywords: [
           "pc-aki",
           "ca-aki",
@@ -188,26 +188,26 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: "2018",
               paragraphs: [
-                "The 2018 renal chapter used the term PC-AKI (post-contrast acute kidney injury)."
+                "Version 10.0 used the term PC-AKI (post-contrast acute kidney injury)."
               ]
             },
             {
               label: "2025",
               paragraphs: [
-                "The 2025 guidance uses CA-AKI (contrast-associated acute kidney injury) and explicitly aligns this wording with newer consensus terminology."
+                "From 2025 onwards, the CMSC follows the recommendations of the ACR/NKF Consensus 2020 and updates the older term PC-AKI to CA-AKI (contrast-associated acute kidney injury)."
               ]
             },
             {
               label: "Practical impact",
               paragraphs: [
-                "This mainly affects terminology, communication, and alignment with newer literature. It should not be mistaken for the strongest practical change in the renal section."
+                "This card covers the terminology change only. Other renal prevention recommendations are outside its scope."
               ],
               variant: "impact"
             }
           ],
           refs: [
-            "Source: ESUR 10.0 guideline",
-            "Source: ESUR 2025 CA-AKI guidance"
+            "Source: ESUR Guidelines on Contrast Agents Version 10.0 (2018), printed p. 17",
+            "Source: ESUR CMSC Guidelines 2025, p. 15"
           ]
         },
         action: {
@@ -215,21 +215,19 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: "ESUR 2025 action points",
               bullets: [
-                "Use the term CA-AKI in current communication and documentation when referring to the updated ESUR framework.",
-                "Do not overstate this wording change as a major new bedside rule."
+                "In the 2025 ESUR framework, the term is CA-AKI (contrast-associated acute kidney injury)."
               ],
               variant: "action"
             },
             {
               label: "Why this matters",
               paragraphs: [
-                "The terminology change aligns ESUR with newer nephrology / radiology consensus language, while much of the underlying risk framework remains familiar."
+                "The CMSC states that this terminology update follows the ACR/NKF Consensus 2020."
               ]
             }
           ],
           refs: [
-            "Source: ESUR 2025 CA-AKI guidance",
-            "Source: ESUR 10.0 guideline"
+            "Source: ESUR CMSC Guidelines 2025, p. 15"
           ]
         }
       },
@@ -846,7 +844,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "kidney",
         title: "Renale Terminologie: PC-AKI → CA-AKI",
         summary:
-          "Der renale Abschnitt wird umbenannt und an neuere Terminologie angepasst, ohne dass das präventive Grundgerüst komplett neu gebaut wird.",
+          "Die 2025er CMSC-Guidance verwendet das Kürzel CA-AKI anstelle des älteren Kürzels PC-AKI. Die deutsche Version 10.0 bezeichnete PC-AKI bereits als „Kontrastmittel-assoziierte akute Nierenschädigung“.",
         keywords: [
           "pc-aki",
           "ca-aki",
@@ -859,26 +857,27 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: "2018",
               paragraphs: [
-                "Die 2018er Guideline verwendete im renalen Kapitel den Begriff PC-AKI (post-contrast acute kidney injury)."
+                "Die deutsche Version 10.0 verwendete das Kürzel PC-AKI und die Bezeichnung „Kontrastmittel-assoziierte akute Nierenschädigung“; das englische Original bezeichnete PC-AKI als „post-contrast acute kidney injury“."
               ]
             },
             {
               label: "2025",
               paragraphs: [
-                "Die 2025er Guidance verwendet CA-AKI (contrast-associated acute kidney injury) und verknüpft diese Wortwahl explizit mit neuerer Konsensterminologie."
+                "Ab 2025 folgt das CMSC den Empfehlungen des ACR/NKF Consensus 2020 und aktualisiert den älteren Begriff PC-AKI zu CA-AKI (contrast-associated acute kidney injury)."
               ]
             },
             {
               label: "Praktische Bedeutung",
               paragraphs: [
-                "Das betrifft vor allem Terminologie, Kommunikation und den Anschluss an die neuere Literatur. Es sollte nicht als grösste praktische Änderung des renalen Abschnitts fehlinterpretiert werden."
+                "Diese Karte behandelt ausschließlich die Terminologieänderung. Weitere renale Präventionsempfehlungen sind nicht Gegenstand dieser Karte."
               ],
               variant: "impact"
             }
           ],
           refs: [
-            "Quelle: ESUR 10.0 Guideline",
-            "Quelle: ESUR 2025 CA-AKI-Guidance"
+            "Quelle: ESUR Leitlinien für Kontrastmittel Version 10.0 (2018), DE-PDF S. 14",
+            "Quelle: ESUR Guidelines on Contrast Agents Version 10.0 (2018), gedruckte S. 17",
+            "Quelle: ESUR CMSC Guidelines 2025, S. 15"
           ]
         },
         action: {
@@ -886,21 +885,19 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: "ESUR-2025-Kernaussagen",
               bullets: [
-                "In aktueller Kommunikation und Dokumentation sollte im aktualisierten ESUR-Rahmen der Begriff CA-AKI verwendet werden.",
-                "Diese sprachliche Änderung sollte nicht als grosser neuer klinischer Bedside-Algorithmus überbewertet werden."
+                "Im ESUR-Rahmen 2025 lautet das Kürzel CA-AKI (contrast-associated acute kidney injury)."
               ],
               variant: "action"
             },
             {
               label: "Warum das wichtig ist",
               paragraphs: [
-                "Die Terminologie wird an neuere nephrologische / radiologische Konsenssprache angepasst, während grosse Teile des zugrunde liegenden Risikorahmens vertraut bleiben."
+                "Das CMSC begründet diese Terminologieänderung mit dem ACR/NKF Consensus 2020."
               ]
             }
           ],
           refs: [
-            "Quelle: ESUR 2025 CA-AKI-Guidance",
-            "Quelle: ESUR 10.0 Guideline"
+            "Quelle: ESUR CMSC Guidelines 2025, S. 15"
           ]
         }
       },
