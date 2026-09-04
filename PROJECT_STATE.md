@@ -3,7 +3,7 @@
 > Authoritative current project status for humans and AI assistants.
 > Read this file before proposing or implementing further ESUR changes.
 
-Last verified: 2026-09-02
+Last verified: 2026-09-04
 
 ## Verified code baseline
 
@@ -36,8 +36,21 @@ This does **not** mean final Medical Affairs approval or medical validation.
 
 - Remains in the application as an informational tab.
 - Has technical smoke-test coverage only.
-- Has **not** yet completed the same full medical/source audit as the five HSR modules.
-- Do not change or modularize its medical content before that audit.
+- Medical/source audit is in progress; completed cards are tracked below.
+- Do not change an unaudited Practice Changes card before its source audit and Medical Lock.
+
+### Practice Changes audit governance
+
+- Audit classes are `BLIND_REQUIRED` and `STANDARD_AUDIT`; they are workflow classes and are **not** the Practice Changes UI `level`.
+- Any audit trigger makes a card automatically `BLIND_REQUIRED`. Triggers include numbers/time windows/thresholds/doses; strong recommendation language such as `DO NOT`, `avoid`, `must` or equivalent; severity-specific pathways; elective/emergency splits; population-specific rules; switch/avoidance rules; source conflicts; EN↔DE meaning/strength differences; or 2018→2025 claims of clinical change.
+- If classification is disputed or unclear, use `BLIND_REQUIRED`. `STANDARD_AUDIT` is allowed only when no trigger is present.
+- For `BLIND_REQUIRED`, Grok performs a blind source pass before seeing the Work audit, then challenges the Work audit afterwards. Grok is reviewer only: it does not write the Medical Lock and does not implement.
+- Work performs the structured primary source audit. ChatGPT independently reviews the sources and writes the exact EN/DE Medical Lock. Codex implements only that Lock.
+- Final post-implementation verification is a yes/no check against the Lock, scope, tests and remote HEAD; it must not rewrite or “improve” Medical wording.
+- Bruno is Product Owner: he decides work order, start/pause, product scope, authorized source set and when material is handed to Medical Affairs. He does not decide Medical claim correctness, recommendation strength, population applicability or audit-class disputes.
+- Human Medical Affairs sign-off is required before merge to `main` or any Medical Freeze/final medical approval claim.
+- `hypersensitivity` and `ca_aki_terminology` are completed under the accepted prior workflow and are not to be rolled back solely because this governance was introduced later. `ca_aki_terminology` is `STANDARD_AUDIT`.
+- Current verified Practice Changes code HEAD before this docs-only governance update: `fa9dd1ec814aec83b5ca9acd012b52b0fe453e62`.
 
 ## Plan snapshot
 
