@@ -52,6 +52,10 @@ This does **not** mean final Medical Affairs approval or medical validation.
 - `hypersensitivity` and `ca_aki_terminology` are completed under the accepted prior workflow and are not to be rolled back solely because this governance was introduced later. `ca_aki_terminology` is `STANDARD_AUDIT`.
 - Current verified Practice Changes code HEAD before this docs-only governance update: `fa9dd1ec814aec83b5ca9acd012b52b0fe453e62`.
 
+### Future versioned content architecture
+
+After the 2025 Medical content has completed its source audit and Content Freeze, introduce a separately scoped `VERSIONED_CONTENT_ARCHITECTURE`. Audited ESUR guideline releases should become immutable versioned content packages referenced through a single manifest `currentVersionId`; historical guidance must not be overwritten. Stable topic and claim identifiers plus audited change events should support both “current guidance” and “what changed since the previous ESUR version.” The initial 2018 package must remain limited to the content required by audited 2018→2025 change events and must not expand into a second full Version 10 medical audit. `medicalAffairsStatus` is traceability metadata only, not an application lock. This architecture is not authorized for implementation before the 2025 Content Freeze.
+
 ## Plan snapshot
 
 - Engineering: R1–R2M modularization is technically complete / VERIFIED; not a Medical Freeze.
