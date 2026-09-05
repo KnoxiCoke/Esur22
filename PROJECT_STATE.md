@@ -3,15 +3,15 @@
 > Authoritative current project status for humans and AI assistants.
 > Read this file before proposing or implementing further ESUR changes.
 
-Last verified: 2026-09-04
+Last verified: 2026-09-05
 
-## Verified code baseline
+## Current verified baseline
 
 - Repository: `KnoxiCoke/Esur22`
 - Main baseline: `cd671d69ffb6f99555ae99e0407a7b61827811e3`
 - Refactor branch: `refactor/modularize-script`
-- Verified code commit: `5ecbf18dc47605701bd97e4a6df53b3a7109e1c0`
-- CI verification commit (tree-identical): `31d4474f3f22084db37aae040af38c9a20ace533`
+- Reference branch HEAD used for this ENG-09 sync: `dc9ea4d00d89d47660f8d7b2293a713cb8a98439`
+- Current Practice Changes production-code milestone before later docs-only commits: `fa9dd1ec814aec83b5ca9acd012b52b0fe453e62`
 - Draft PR: `#12`
 - PR state: open, Draft, not merged
 
@@ -54,13 +54,15 @@ This does **not** mean final Medical Affairs approval or medical validation.
 
 ## Plan snapshot
 
-- Engineering: R2L VERIFIED. This is one verified extraction package, not “refactor complete” and not a Medical Freeze.
+- Engineering: R1–R2M modularization is technically complete / VERIFIED; not a Medical Freeze.
 - Medical Freeze / v0.9.0: still open (known source exceptions remain; no Medical Affairs sign-off).
 - Practice Changes 2018→2025 audit: still open.
 - Regulatory Gate: scheduled in the master plan, **not performed**. No MDSW classification and no Rule-11 class estimate.
 - R2K: VERIFIED.
 - R2L: VERIFIED.
-- R2M: not defined. No implementation before a separate read-only scope review and explicit ChatGPT technical GO.
+- R2M: VERIFIED.
+- R2N: NOT REQUIRED / NOT STARTED.
+- No new refactor strand is authorized automatically.
 
 ## Regulatory status
 
@@ -89,13 +91,12 @@ Keep three questions separate:
 
 ## Regression protection
 
-- Playwright tests: `86`
+- Playwright regression inventory: `90 tests`
 - Shared fixture fails on browser `pageerror` and `console.error`.
-- Latest verified official PR CI run: `33681177366`
-- CI verification head: `31d4474f3f22084db37aae040af38c9a20ace533`
-- Result: `86/86 passed`, `0 failed`, `0 skipped`, `2 workers`, `18.5 s`
+- Latest verified Practice Changes code CI run: `33851417606`
+- Result: `successful`
 
-The verified run loaded all current runtime files successfully:
+Current runtime files:
 
 - `js/content/i18n.js`
 - `js/app/utils.js`
@@ -103,6 +104,7 @@ The verified run loaded all current runtime files successfully:
 - `js/app/nav.js`
 - `js/app/i18nApply.js`
 - `js/app/disclaimer.js`
+- `js/app/changeLabels.js`
 - `js/hsr/acute.js`
 - `js/hsr/nihr.js`
 - `js/hsr/previous.js`
