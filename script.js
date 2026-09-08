@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "clock",
         title: "Safe time intervals between contrast administrations",
         summary:
-          "2025 turns waiting times into a distinct practice block and separates mixed MRI/CT scenarios from repeated iodine-only and gadolinium-only administrations.",
+          "The 2018 guideline already provided separate rules for same-day iodine- plus gadolinium-based contrast administration, two iodine-based contrast administrations, and two gadolinium-based contrast administrations. The 2025 booklet brings these topics together in one waiting-times section and changes examination order, renal-function categories, intervals, emergency handling, and dialysis distinctions.",
         keywords: [
           "waiting times",
           "time interval",
@@ -254,57 +254,45 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: "2018",
               paragraphs: [
-                "The 2018 guideline already discussed same-day iodine + gadolinium administration, two iodine administrations, and two gadolinium administrations, but as older stand-alone chapters with a less operational framework."
+                "Version 10.0 already contained numerical waiting-time rules for all three scenarios and an examination-order rule for same-day iodine- plus gadolinium-based contrast administration."
               ]
             },
             {
               label: "2025",
               paragraphs: [
-                "The 2025 guidance makes this a more explicit practice section and separates scenario-specific intervals, including mixed MRI / CT workflows and repeated administrations of the same contrast class."
-              ]
-            },
-            {
-              label: "Practical impact",
-              paragraphs: [
-                "This topic should not be reduced to one generic eGFR rule. The 2025 guidance differentiates between mixed GBCA → ICM workflows, two ICM injections, and two GBCA injections."
-              ],
-              variant: "impact"
-            }
-          ],
-          refs: [
-            "Source: ESUR 10.0 guideline",
-            "Source: ESUR 2025 waiting-time guidance"
-          ]
-        },
-        action: {
-          sections: [
-            {
-              label: "Why this topic needs separate scenarios",
-              paragraphs: [
-                "ESUR 2025 does not use one single waiting-time rule for every situation. The mixed MRI/CT scenario is handled separately from repeated iodine-only and gadolinium-only administrations."
+                "The 2025 booklet continues to address the three scenarios separately, but changes renal-function categories and intervals, changes the examination-order rule for the mixed scenario, adds scenario-specific emergency guidance, and refines dialysis distinctions for repeated same-class administrations."
               ]
             }
           ],
           nested: [
             {
-              title: "Mixed elective MRI + CT/(coronary) angiography",
+              title: "Mixed MRI + CT/(coronary) angiography",
               sections: [
                 {
-                  label: "ESUR 2025 action points",
-                  bullets: [
-                    "For elective same-day combinations, ESUR 2025 states it is better to start with MRI, except CT urography.",
-                    "If GBCA is given before ICM: eGFR >60: minimum 2 h, optimal 6 h.",
-                    "If GBCA is given before ICM: eGFR 30–60: minimum 16 h, optimal 48 h.",
-                    "If GBCA is given before ICM: eGFR <30: minimum 60 h, optimal 168 h.",
-                    "In emergency or life-threatening situations, no waiting time / back-to-back administration may still be used."
-                  ],
-                  variant: "action"
+                  label: "2018",
+                  paragraphs: [
+                    "GFR >30 mL/min/1.73 m²: there should be 4 h between iodine- and gadolinium-based contrast injections.",
+                    "GFR <30 mL/min/1.73 m² or dialysis: there should be 7 days between injections.",
+                    "For abdominal examinations, contrast-enhanced CT should be performed before contrast-enhanced MR.",
+                    "For chest and brain examinations, either CT or MR may be performed first."
+                  ]
                 },
                 {
-                  label: "Why this matters",
+                  label: "2025",
                   paragraphs: [
-                    "This is the scenario where a too-simplified “4 h / 12 h for everyone” rule becomes wrong."
+                    "Elective same-day combination: it is better to start with MRI, unless the CT is intended for the kidneys, ureters, or bladder (CT urography).",
+                    "eGFR >60 mL/min/1.73 m²: consider a waiting time of optimally 6 h and minimally 2 h.",
+                    "eGFR 30–60 mL/min/1.73 m²: consider a waiting time of optimally 48 h and minimally 16 h.",
+                    "eGFR <30 mL/min/1.73 m²: consider a waiting time of optimally 7 days (168 h) and minimally 2.5 days (60 h).",
+                    "In emergency or life-threatening situations, use no waiting time and perform the examinations back-to-back."
                   ]
+                },
+                {
+                  label: "Change",
+                  paragraphs: [
+                    "Compared with 2018, the 2025 mixed-scenario guidance changes the examination-order rule, splits the renal-function categories, introduces optimal/minimum intervals, and adds an explicit emergency rule."
+                  ],
+                  variant: "impact"
                 }
               ]
             },
@@ -312,14 +300,29 @@ document.addEventListener("DOMContentLoaded", function () {
               title: "Two iodine-based contrast administrations",
               sections: [
                 {
-                  label: "ESUR 2025 action points",
-                  bullets: [
-                    "eGFR >60: minimum 4 h, optimal 12 h.",
-                    "eGFR 30–60: minimum 16 h, optimal 48 h.",
-                    "eGFR <30: minimum 60 h, optimal 168 h.",
-                    "Dialysis without remnant renal function: at least 3 dialysis sessions."
+                  label: "2018",
+                  paragraphs: [
+                    "GFR >30 mL/min/1.73 m²: there should be 4 h between administrations.",
+                    "GFR <30 mL/min/1.73 m²: there should be 48 h between administrations.",
+                    "For patients on dialysis with remnant renal function, there should be at least 48 h between administrations."
+                  ]
+                },
+                {
+                  label: "2025",
+                  paragraphs: [
+                    "GFR >60 mL/min/1.73 m²: consider a waiting time of optimally 12 h and minimally 4 h.",
+                    "GFR 30–60 mL/min/1.73 m²: consider a waiting time of optimally 48 h and minimally 16 h.",
+                    "GFR <30 mL/min/1.73 m², including (pre)dialysis patients with remnant renal function: consider a waiting time of optimally 7 days (168 h) and minimally 2.5 days (60 h).",
+                    "For patients on dialysis with no remnant renal function, consider a waiting time of at least 3 dialysis sessions between successive administrations.",
+                    "In emergency or life-threatening situations, use a shorter waiting time between successive iodine-based contrast administrations."
+                  ]
+                },
+                {
+                  label: "Change",
+                  paragraphs: [
+                    "Compared with 2018, the 2025 guidance splits the renal-function categories, introduces optimal/minimum intervals, adds a rule for dialysis without remnant renal function, and adds emergency guidance to use a shorter waiting time."
                   ],
-                  variant: "action"
+                  variant: "impact"
                 }
               ]
             },
@@ -327,12 +330,97 @@ document.addEventListener("DOMContentLoaded", function () {
               title: "Two gadolinium-based contrast administrations",
               sections: [
                 {
+                  label: "2018",
+                  paragraphs: [
+                    "GFR >30 mL/min/1.73 m²: there should be 4 h between administrations.",
+                    "GFR <30 mL/min/1.73 m² or dialysis: there should be 7 days between administrations."
+                  ]
+                },
+                {
+                  label: "2025",
+                  paragraphs: [
+                    "Without known renal impairment: consider a waiting time of optimally 12 h and minimally 4 h.",
+                    "Moderate renal impairment (if available: eGFR 30–60 mL/min/1.73 m²): consider a waiting time of optimally 48 h and minimally 16 h.",
+                    "Severe renal impairment and (pre)dialysis with remnant renal function, eGFR <30 mL/min/1.73 m²: consider a waiting time of optimally 7 days (168 h) and minimally 2.5 days (60 h).",
+                    "For patients on dialysis with no remnant renal function, consider a waiting time of at least 3 dialysis sessions between successive administrations.",
+                    "In emergency or life-threatening situations, use a shorter waiting time between successive gadolinium-based contrast administrations."
+                  ]
+                },
+                {
+                  label: "Change",
+                  paragraphs: [
+                    "Compared with 2018, the 2025 guidance separates renal-function groups more finely, introduces optimal/minimum intervals, separates dialysis by remnant renal function, and adds emergency guidance to use a shorter waiting time."
+                  ],
+                  variant: "impact"
+                }
+              ]
+            }
+          ],
+          refs: [
+            "Source: ESUR Guidelines on Contrast Agents, Version 10.0 (2018), B.6, printed p. 24 (PDF p. 25)",
+            "Source: ESUR Guidelines on Contrast Agents, Version 10.0 (2018), B.7–B.8, printed p. 25 (PDF p. 26)",
+            "Source: ESUR Contrast Media Safety Committee Guidelines 2025, “Safe time intervals between contrast agent injections”, printed pp. 21–23"
+          ]
+        },
+        action: {
+          sections: [
+            {
+              label: "How to read the 2025 intervals",
+              paragraphs: [
+                "The 2025 elective rules use “consider a waiting time”. For each renal-function group, the source provides an optimal interval with a near-complete-clearance rationale and a minimum interval when the clinical indication requires rapid follow-up."
+              ]
+            },
+            {
+              label: "Publication note",
+              paragraphs: [
+                "In the repeated-GBCA subsection, the 2025 booklet unexpectedly refers to near-complete clearance of previously administered iodine-based contrast medium. This is retained as a source anomaly and is not used to alter the interval values."
+              ]
+            }
+          ],
+          nested: [
+            {
+              title: "Elective same-day MRI + CT/(coronary) angiography",
+              sections: [
+                {
                   label: "ESUR 2025 action points",
                   bullets: [
-                    "Without known renal impairment: minimum 4 h, optimal 12 h.",
-                    "eGFR 30–60: minimum 16 h, optimal 48 h.",
-                    "eGFR <30: minimum 60 h, optimal 168 h.",
-                    "Dialysis without remnant renal function: at least 3 dialysis sessions."
+                    "It is better to start with MRI, unless the CT is intended for the kidneys, ureters, or bladder (CT urography).",
+                    "eGFR >60 mL/min/1.73 m²: consider a waiting time of optimally 6 h and minimally 2 h.",
+                    "eGFR 30–60 mL/min/1.73 m²: consider a waiting time of optimally 48 h and minimally 16 h.",
+                    "eGFR <30 mL/min/1.73 m²: consider a waiting time of optimally 7 days (168 h) and minimally 2.5 days (60 h).",
+                    "In emergency or life-threatening situations, use no waiting time and perform the examinations back-to-back."
+                  ],
+                  variant: "action"
+                }
+              ]
+            },
+            {
+              title: "Two iodine-based contrast administrations — routine examinations",
+              sections: [
+                {
+                  label: "ESUR 2025 action points",
+                  bullets: [
+                    "GFR >60 mL/min/1.73 m²: consider a waiting time of optimally 12 h and minimally 4 h.",
+                    "GFR 30–60 mL/min/1.73 m²: consider a waiting time of optimally 48 h and minimally 16 h.",
+                    "GFR <30 mL/min/1.73 m², including (pre)dialysis patients with remnant renal function: consider a waiting time of optimally 7 days (168 h) and minimally 2.5 days (60 h).",
+                    "For patients on dialysis with no remnant renal function, consider a waiting time of at least 3 dialysis sessions between successive administrations.",
+                    "In emergency or life-threatening situations, use a shorter waiting time between successive iodine-based contrast administrations."
+                  ],
+                  variant: "action"
+                }
+              ]
+            },
+            {
+              title: "Two gadolinium-based contrast administrations — routine examinations",
+              sections: [
+                {
+                  label: "ESUR 2025 action points",
+                  bullets: [
+                    "Without known renal impairment: consider a waiting time of optimally 12 h and minimally 4 h.",
+                    "Moderate renal impairment (if available: eGFR 30–60 mL/min/1.73 m²): consider a waiting time of optimally 48 h and minimally 16 h.",
+                    "Severe renal impairment and (pre)dialysis with remnant renal function, eGFR <30 mL/min/1.73 m²: consider a waiting time of optimally 7 days (168 h) and minimally 2.5 days (60 h).",
+                    "For patients on dialysis with no remnant renal function, consider a waiting time of at least 3 dialysis sessions between successive administrations.",
+                    "In emergency or life-threatening situations, use a shorter waiting time between successive gadolinium-based contrast administrations."
                   ],
                   variant: "action"
                 }
@@ -340,8 +428,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           ],
           refs: [
-            "Source: ESUR 2025 waiting-time guidance",
-            "Source: ESUR 10.0 guideline"
+            "Source: ESUR Contrast Media Safety Committee Guidelines 2025, “Safe time intervals between contrast agent injections”, printed pp. 21–23",
+            "Source: ESUR Guidelines on Contrast Agents, Version 10.0 (2018), B.6–B.8, printed pp. 24–25"
           ]
         }
       },
@@ -908,7 +996,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "clock",
         title: "Sichere Zeitintervalle zwischen Kontrastmittelgaben",
         summary:
-          "2025 wird daraus ein eigener Praxisblock, der gemischte MRI/CT-Szenarien von wiederholten jodhaltigen bzw. gadoliniumhaltigen Gaben trennt.",
+          "Die ESUR-Version 10.0 von 2018 enthielt bereits getrennte Regeln für iod- und gadoliniumhaltige Kontrastmittel am selben Tag, zwei iodhaltige Kontrastmittelgaben und zwei gadoliniumhaltige Kontrastmittelgaben. Das 2025-Booklet bündelt diese Themen in einer Wartezeiten-Sektion und ändert Untersuchungsreihenfolge, Nierenfunktionsgruppen, Intervalle, Notfallregeln und Dialyseuntergruppen.",
         keywords: [
           "wartezeiten",
           "zeitintervall",
@@ -924,130 +1012,75 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: "2018",
               paragraphs: [
-                "Die 2018er Guideline behandelte bereits die Kombination Iod + Gadolinium am selben Tag, zwei Iod-Gaben und zwei Gadolinium-Gaben, aber als ältere Einzelkapitel mit weniger operativer Logik."
+                "Version 10.0 enthielt bereits numerische Wartezeitregeln für alle drei Szenarien und eine Regel zur Untersuchungsreihenfolge bei iod- und gadoliniumhaltigen Kontrastmitteln am selben Tag."
               ]
             },
             {
               label: "2025",
               paragraphs: [
-                "Die 2025er Guidance macht daraus einen expliziteren Praxisblock und trennt szenariospezifische Intervalle, inklusive gemischter MRI-/CT-Workflows und wiederholter Gaben derselben Kontrastmittelklasse."
+                "Das 2025-Booklet behandelt die drei Szenarien weiterhin getrennt, ändert jedoch Nierenfunktionsgruppen und Intervalle, ändert die Reihenfolgeregel im gemischten Szenario, ergänzt szenariospezifische Notfallregeln und differenziert Dialyse bei wiederholten Gaben derselben Kontrastmittelklasse nach Restnierenfunktion."
               ]
-            },
-            {
-              label: "Praktische Bedeutung",
-              paragraphs: [
-                "Dieses Thema darf nicht auf eine einzige generische eGFR-Regel reduziert werden. Die 2025er Guidance trennt zwischen gemischten GBCA → ICM-Abläufen, zwei ICM-Gaben und zwei GBCA-Gaben."
-              ],
-              variant: "impact"
             }
           ],
           nested: [
             {
-              title: "1. Elektive Kombination MRI + CT/(koronare) Angiographie",
+              title: "Gemischte MRT + CT/(koronare) Angiographie",
               sections: [
                 {
                   label: "2018",
                   paragraphs: [
-                    "Die Kombination von Iod + Gadolinium am selben Tag wurde bereits erwähnt, aber weniger explizit operativ strukturiert."
+                    "GFR >30 ml/min/1,73 m²: Zwischen iod- und gadoliniumhaltigen Kontrastmittelgaben sollten 4 Stunden liegen.",
+                    "GFR <30 ml/min/1,73 m² oder Dialysepflicht: Zwischen den Gaben sollte ein Abstand von 7 Tagen liegen.",
+                    "Bei Abdomenuntersuchungen sollte die kontrastmittelgestützte CT vor der kontrastmittelgestützten MRT erfolgen.",
+                    "Bei Thorax- und Gehirnuntersuchungen kann CT oder MRT zuerst durchgeführt werden."
                   ]
                 },
                 {
                   label: "2025",
-                  bullets: [
-                    "Für elektive Same-Day-Kombinationen sagt ESUR 2025, dass MRI vorzuziehen ist, ausser bei CT-Urographie.",
-                    "GBCA → ICM: eGFR >60: Minimum 2 h, optimal 6 h.",
-                    "GBCA → ICM: eGFR 30–60: Minimum 16 h, optimal 48 h.",
-                    "GBCA → ICM: eGFR <30: Minimum 60 h, optimal 168 h.",
-                    "Bei Notfall oder lebensbedrohlicher Situation können keine Wartezeit / back-to-back-Gaben verwendet werden."
+                  paragraphs: [
+                    "Elektive Kombination am selben Tag: Es ist besser, mit der MRT zu beginnen, außer wenn die CT für Nieren, Ureteren oder Harnblase als CT-Urographie vorgesehen ist.",
+                    "eGFR >60 ml/min/1,73 m²: Eine Wartezeit von optimal 6 h und minimal 2 h erwägen.",
+                    "eGFR 30–60 ml/min/1,73 m²: Eine Wartezeit von optimal 48 h und minimal 16 h erwägen.",
+                    "eGFR <30 ml/min/1,73 m²: Eine Wartezeit von optimal 7 Tagen (168 h) und minimal 2,5 Tagen (60 h) erwägen.",
+                    "Bei Notfall oder lebensbedrohlicher Situation keine Wartezeit einhalten und die Untersuchungen unmittelbar nacheinander durchführen."
                   ]
                 },
                 {
-                  label: "Praktische Bedeutung",
+                  label: "Änderung",
                   paragraphs: [
-                    "Die Reihenfolge der Untersuchungen ist relevant. Gemischte Same-Day-Workflows sollten bewusster geplant werden als früher."
+                    "Gegenüber 2018 ändert die 2025-Regel für das gemischte Szenario die Untersuchungsreihenfolge, unterteilt die Nierenfunktionsgruppen neu, führt Optimal-/Minimum-Intervalle ein und ergänzt eine ausdrückliche Notfallregel."
                   ],
                   variant: "impact"
                 }
               ]
             },
             {
-              title: "2. Zwei jodhaltige Kontrastmittelgaben",
+              title: "Zwei iodhaltige Kontrastmittelgaben",
               sections: [
                 {
-                  label: "2025",
-                  bullets: [
-                    "eGFR >60: Minimum 4 h, optimal 12 h.",
-                    "eGFR 30–60: Minimum 16 h, optimal 48 h.",
-                    "eGFR <30: Minimum 60 h, optimal 168 h.",
-                    "Dialyse ohne Restfunktion: mindestens 3 Dialysesitzungen."
+                  label: "2018",
+                  paragraphs: [
+                    "GFR >30 ml/min/1,73 m²: Zwischen den Gaben sollten 4 Stunden liegen.",
+                    "GFR <30 ml/min/1,73 m²: Zwischen den Gaben sollte ein Abstand von 48 Stunden liegen.",
+                    "Bei Dialysepatienten mit Restdiurese sollte zwischen den Gaben ein Abstand von mindestens 48 Stunden liegen."
                   ]
-                }
-              ]
-            },
-            {
-              title: "3. Zwei gadoliniumhaltige Kontrastmittelgaben",
-              sections: [
-                {
-                  label: "2025",
-                  bullets: [
-                    "Ohne bekannte Niereninsuffizienz: Minimum 4 h, optimal 12 h.",
-                    "eGFR 30–60: Minimum 16 h, optimal 48 h.",
-                    "eGFR <30: Minimum 60 h, optimal 168 h.",
-                    "Dialyse ohne Restfunktion: mindestens 3 Dialysesitzungen."
-                  ]
-                }
-              ]
-            }
-          ],
-          refs: [
-            "Quelle: ESUR 10.0 Guideline",
-            "Quelle: ESUR 2025 Wartezeiten-Guidance"
-          ]
-        },
-        action: {
-          sections: [
-            {
-              label: "Warum dieses Thema getrennte Szenarien braucht",
-              paragraphs: [
-                "ESUR 2025 verwendet keine einzige Wartezeiten-Regel für alle Situationen. Das gemischte MRI-/CT-Szenario wird getrennt von wiederholten rein jodhaltigen bzw. rein gadoliniumhaltigen Gaben behandelt."
-              ]
-            }
-          ],
-          nested: [
-            {
-              title: "Elektive Kombination MRI + CT/(koronare) Angiographie",
-              sections: [
-                {
-                  label: "ESUR-2025-Kernaussagen",
-                  bullets: [
-                    "Für elektive Same-Day-Kombinationen sagt ESUR 2025, dass MRI vorzugsweise zuerst erfolgen sollte, ausser bei CT-Urographie.",
-                    "Wenn GBCA vor ICM gegeben wird: eGFR >60: Minimum 2 h, optimal 6 h.",
-                    "Wenn GBCA vor ICM gegeben wird: eGFR 30–60: Minimum 16 h, optimal 48 h.",
-                    "Wenn GBCA vor ICM gegeben wird: eGFR <30: Minimum 60 h, optimal 168 h.",
-                    "Bei Notfall oder lebensbedrohlicher Situation können weiterhin keine Wartezeit / back-to-back-Gaben verwendet werden."
-                  ],
-                  variant: "action"
                 },
                 {
-                  label: "Warum das wichtig ist",
+                  label: "2025",
                   paragraphs: [
-                    "Genau in diesem Szenario wäre eine zu grobe „4 h / 12 h für alle“-Regel falsch."
+                    "GFR >60 ml/min/1,73 m²: Eine Wartezeit von optimal 12 h und minimal 4 h erwägen.",
+                    "GFR 30–60 ml/min/1,73 m²: Eine Wartezeit von optimal 48 h und minimal 16 h erwägen.",
+                    "GFR <30 ml/min/1,73 m², einschließlich (Prä-)Dialyse mit Restnierenfunktion: Eine Wartezeit von optimal 7 Tagen (168 h) und minimal 2,5 Tagen (60 h) erwägen.",
+                    "Bei Dialyse ohne Restnierenfunktion einen Abstand von mindestens 3 Dialysesitzungen zwischen aufeinanderfolgenden Gaben erwägen.",
+                    "Bei Notfall oder lebensbedrohlicher Situation eine kürzere Wartezeit zwischen aufeinanderfolgenden iodhaltigen Kontrastmittelgaben verwenden."
                   ]
-                }
-              ]
-            },
-            {
-              title: "Zwei jodhaltige Kontrastmittelgaben",
-              sections: [
+                },
                 {
-                  label: "ESUR-2025-Kernaussagen",
-                  bullets: [
-                    "eGFR >60: Minimum 4 h, optimal 12 h.",
-                    "eGFR 30–60: Minimum 16 h, optimal 48 h.",
-                    "eGFR <30: Minimum 60 h, optimal 168 h.",
-                    "Dialyse ohne Restfunktion: mindestens 3 Dialysesitzungen."
+                  label: "Änderung",
+                  paragraphs: [
+                    "Gegenüber 2018 unterteilt die 2025-Regel die Nierenfunktionsgruppen neu, führt Optimal-/Minimum-Intervalle ein, ergänzt eine Regel für Dialyse ohne Restnierenfunktion und ergänzt die Notfallregel einer kürzeren Wartezeit."
                   ],
-                  variant: "action"
+                  variant: "impact"
                 }
               ]
             },
@@ -1055,12 +1088,98 @@ document.addEventListener("DOMContentLoaded", function () {
               title: "Zwei gadoliniumhaltige Kontrastmittelgaben",
               sections: [
                 {
+                  label: "2018",
+                  paragraphs: [
+                    "GFR >30 ml/min/1,73 m²: Zwischen den Gaben sollten 4 Stunden liegen.",
+                    "GFR <30 ml/min/1,73 m² oder Dialyse: Zwischen den Gaben sollte ein Abstand von 7 Tagen liegen."
+                  ]
+                },
+                {
+                  label: "2025",
+                  paragraphs: [
+                    "Ohne bekannte Niereninsuffizienz: Eine Wartezeit von optimal 12 h und minimal 4 h erwägen.",
+                    "Moderate Nierenfunktionseinschränkung (falls verfügbar: eGFR 30–60 ml/min/1,73 m²): Eine Wartezeit von optimal 48 h und minimal 16 h erwägen.",
+                    "Schwere Nierenfunktionseinschränkung und (Prä-)Dialyse mit Restnierenfunktion, eGFR <30 ml/min/1,73 m²: Eine Wartezeit von optimal 7 Tagen (168 h) und minimal 2,5 Tagen (60 h) erwägen.",
+                    "Bei Dialyse ohne Restnierenfunktion einen Abstand von mindestens 3 Dialysesitzungen zwischen aufeinanderfolgenden Gaben erwägen.",
+                    "Bei Notfall oder lebensbedrohlicher Situation eine kürzere Wartezeit zwischen aufeinanderfolgenden gadoliniumhaltigen Kontrastmittelgaben verwenden."
+                  ]
+                },
+                {
+                  label: "Änderung",
+                  paragraphs: [
+                    "Gegenüber 2018 differenziert die 2025-Regel die Nierenfunktionsgruppen stärker, führt Optimal-/Minimum-Intervalle ein, unterscheidet Dialyse nach Restnierenfunktion und ergänzt die Notfallregel einer kürzeren Wartezeit."
+                  ],
+                  variant: "impact"
+                }
+              ]
+            }
+          ],
+          refs: [
+            "Primärquelle: ESUR Guidelines on Contrast Agents, Version 10.0 (2018), B.6, gedruckte S. 24 (PDF-S. 25)",
+            "Primärquelle: ESUR Guidelines on Contrast Agents, Version 10.0 (2018), B.7–B.8, gedruckte S. 25 (PDF-S. 26)",
+            "Offizielle deutsche Fassung: ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018), B.6–B.8, gedruckte S. 34–35 (PDF-S. 18)",
+            "Quelle: ESUR Contrast Media Safety Committee Guidelines 2025, „Safe time intervals between contrast agent injections“, gedruckte S. 21–23"
+          ]
+        },
+        action: {
+          sections: [
+            {
+              label: "Bedeutung der 2025-Intervalle",
+              paragraphs: [
+                "Bei den elektiven Regeln verwendet die 2025-Quelle die Empfehlungsstärke „consider a waiting time“ – eine Wartezeit soll erwogen werden. Für jede Nierenfunktionsgruppe nennt die Quelle ein optimales Intervall mit einer Begründung über annähernd vollständige Clearance und ein minimales Intervall, wenn die klinische Indikation eine rasche Folgeuntersuchung erfordert."
+              ]
+            },
+            {
+              label: "Publikationshinweis",
+              paragraphs: [
+                "Im Abschnitt über zwei GBCA-Gaben verweist das 2025-Booklet bei der Begründung des optimalen Intervalls unerwartet auf die annähernd vollständige Clearance eines zuvor gegebenen iodhaltigen Kontrastmittels. Dies wird als Quellenanomalie dokumentiert und nicht zur Änderung der Intervallwerte verwendet."
+              ]
+            }
+          ],
+          nested: [
+            {
+              title: "Elektive Kombination am selben Tag: MRT + CT/(koronare) Angiographie",
+              sections: [
+                {
                   label: "ESUR-2025-Kernaussagen",
                   bullets: [
-                    "Ohne bekannte Niereninsuffizienz: Minimum 4 h, optimal 12 h.",
-                    "eGFR 30–60: Minimum 16 h, optimal 48 h.",
-                    "eGFR <30: Minimum 60 h, optimal 168 h.",
-                    "Dialyse ohne Restfunktion: mindestens 3 Dialysesitzungen."
+                    "Es ist besser, mit der MRT zu beginnen, außer wenn die CT für Nieren, Ureteren oder Harnblase als CT-Urographie vorgesehen ist.",
+                    "eGFR >60 ml/min/1,73 m²: Eine Wartezeit von optimal 6 h und minimal 2 h erwägen.",
+                    "eGFR 30–60 ml/min/1,73 m²: Eine Wartezeit von optimal 48 h und minimal 16 h erwägen.",
+                    "eGFR <30 ml/min/1,73 m²: Eine Wartezeit von optimal 7 Tagen (168 h) und minimal 2,5 Tagen (60 h) erwägen.",
+                    "Bei Notfall oder lebensbedrohlicher Situation keine Wartezeit einhalten und die Untersuchungen unmittelbar nacheinander durchführen."
+                  ],
+                  variant: "action"
+                }
+              ]
+            },
+            {
+              title: "Zwei iodhaltige Kontrastmittelgaben — Routineuntersuchungen",
+              sections: [
+                {
+                  label: "ESUR-2025-Kernaussagen",
+                  bullets: [
+                    "GFR >60 ml/min/1,73 m²: Eine Wartezeit von optimal 12 h und minimal 4 h erwägen.",
+                    "GFR 30–60 ml/min/1,73 m²: Eine Wartezeit von optimal 48 h und minimal 16 h erwägen.",
+                    "GFR <30 ml/min/1,73 m², einschließlich (Prä-)Dialyse mit Restnierenfunktion: Eine Wartezeit von optimal 7 Tagen (168 h) und minimal 2,5 Tagen (60 h) erwägen.",
+                    "Bei Dialyse ohne Restnierenfunktion einen Abstand von mindestens 3 Dialysesitzungen zwischen aufeinanderfolgenden Gaben erwägen.",
+                    "Bei Notfall oder lebensbedrohlicher Situation eine kürzere Wartezeit zwischen aufeinanderfolgenden iodhaltigen Kontrastmittelgaben verwenden."
+                  ],
+                  variant: "action"
+                }
+              ]
+            },
+            {
+              title: "Zwei gadoliniumhaltige Kontrastmittelgaben — Routineuntersuchungen",
+              sections: [
+                {
+                  label: "ESUR-2025-Kernaussagen",
+                  bullets: [
+                    "Ohne bekannte Niereninsuffizienz: Eine Wartezeit von optimal 12 h und minimal 4 h erwägen.",
+                    "Moderate Nierenfunktionseinschränkung (falls verfügbar: eGFR 30–60 ml/min/1,73 m²): Eine Wartezeit von optimal 48 h und minimal 16 h erwägen.",
+                    "Schwere Nierenfunktionseinschränkung und (Prä-)Dialyse mit Restnierenfunktion, eGFR <30 ml/min/1,73 m²: Eine Wartezeit von optimal 7 Tagen (168 h) und minimal 2,5 Tagen (60 h) erwägen.",
+                    "Bei Dialyse ohne Restnierenfunktion einen Abstand von mindestens 3 Dialysesitzungen zwischen aufeinanderfolgenden Gaben erwägen.",
+                    "Bei Notfall oder lebensbedrohlicher Situation eine kürzere Wartezeit zwischen aufeinanderfolgenden gadoliniumhaltigen Kontrastmittelgaben verwenden."
                   ],
                   variant: "action"
                 }
@@ -1068,8 +1187,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           ],
           refs: [
-            "Quelle: ESUR 2025 Wartezeiten-Guidance",
-            "Quelle: ESUR 10.0 Guideline"
+            "Quelle: ESUR Contrast Media Safety Committee Guidelines 2025, „Safe time intervals between contrast agent injections“, gedruckte S. 21–23",
+            "Primärquelle 2018: ESUR Guidelines on Contrast Agents, Version 10.0, B.6–B.8, gedruckte S. 24–25",
+            "Offizielle deutsche Fassung 2018: ESUR Leitlinien für Kontrastmittel, Version 10.0, B.6–B.8, gedruckte S. 34–35"
           ]
         }
       },
