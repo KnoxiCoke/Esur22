@@ -3,7 +3,7 @@
 > Authoritative current project status for humans and AI assistants.
 > Read this file before proposing or implementing further ESUR changes.
 
-Last verified: 2026-09-05
+Last verified: 2026-09-08
 
 ## Current verified baseline
 
@@ -11,7 +11,7 @@ Last verified: 2026-09-05
 - Main baseline: `cd671d69ffb6f99555ae99e0407a7b61827811e3`
 - Refactor branch: `refactor/modularize-script`
 - Reference branch HEAD used for this ENG-09 sync: `dc9ea4d00d89d47660f8d7b2293a713cb8a98439`
-- Current Practice Changes production-code milestone before later docs-only commits: `fa9dd1ec814aec83b5ca9acd012b52b0fe453e62`
+- Current verified Practice Changes production-code milestone: `dc8cd213d9329bcf49313544bb6cc51972ee5ebf`
 - Draft PR: `#12`
 - PR state: open, Draft, not merged
 
@@ -35,9 +35,16 @@ This does **not** mean final Medical Affairs approval or medical validation.
 ### Practice Changes 2018 → 2025
 
 - Remains in the application as an informational tab.
-- Has technical smoke-test coverage only.
-- Medical/source audit is in progress; completed cards are tracked below.
+- Practice Changes retains technical smoke-test coverage; `waiting_times` additionally has exact EN/DE Medical-Lock regression coverage.
+- Medical/source audit remains in progress overall; completed cards are listed below.
 - Do not change an unaudited Practice Changes card before its source audit and Medical Lock.
+
+- `hypersensitivity` — completed / verified under the accepted prior workflow.
+- `ca_aki_terminology` — completed / verified; `STANDARD_AUDIT`.
+- `waiting_times` — `BLIND_REQUIRED`; source-audited / Medical-Locked / technically verified at `dc8cd213d9329bcf49313544bb6cc51972ee5ebf`; Human Medical Affairs sign-off pending.
+- Remaining Practice Changes cards remain open / unaudited unless explicitly listed as completed.
+
+The completed `waiting_times` workflow includes the Grok blind source pass, Work primary source audit, Grok challenge, ChatGPT exact EN/DE Medical Lock, Codex exact implementation, independent patch/scope verification, remote implementation verification and official GitHub CI verification.
 
 ### Practice Changes audit governance
 
@@ -95,10 +102,12 @@ Keep three questions separate:
 
 ## Regression protection
 
-- Playwright regression inventory: `90 tests`
+- Playwright regression inventory: `94 tests`
 - Shared fixture fails on browser `pageerror` and `console.error`.
-- Latest verified Practice Changes code CI run: `33851417606`
-- Result: `successful`
+- Latest verified Practice Changes code CI run: `34225118060`
+- Workflow: `HSR Regression`; run number: `121`.
+- Result: `successful` (`94/94 passed`)
+- `tests/waiting-times.spec.js` protects the exact EN/DE Compare and Action Waiting-Times Medical-Lock content.
 
 Current runtime files:
 
