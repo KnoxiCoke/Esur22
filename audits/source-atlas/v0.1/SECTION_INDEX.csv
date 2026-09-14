@@ -1,0 +1,259 @@
+atlas_id,source_id,item_type,title,physical_pdf_page,printed_page_numbers,locator_notes
+V10EN-C1-001,V10EN,chapter,Cover / Title,1,,Front cover version 10.0
+V10EN-C1-002,V10EN,chapter,Cover / Title (repeat),2,,Second cover page
+V10EN-C1-003,V10EN,chapter,PREFACE,3,2,"Henrik S. Thomsen, Chairman, March 2018"
+V10EN-C1-004,V10EN,section,"QUICK GUIDE TO THE CMSC CONTRAST AGENT GUIDELINES, VERSION 10",4,3,Overview of sections A–C
+V10EN-C1-005,V10EN,chapter,CONTENTS,5,4,TOC start
+V10EN-C1-006,V10EN,section,TERMINOLOGY: CONTRAST AGENTS AND CONTRAST MEDIA,6,5,Definitions of contrast agent vs contrast medium; continues from TOC page
+V10EN-C1-007,V10EN,chapter,A. GENERAL ADVERSE REACTIONS,7,6,Chapter A start
+V10EN-C1-008,V10EN,section,A.1. ACUTE ADVERSE REACTIONS,7,6,Definition: within 1 hour of injection
+V10EN-C1-009,V10EN,subsection,A.1.1. Acute adverse reactions to iodine- and gadolinium-based contrast agents,8,7,"Risk factors, prevention, classification"
+V10EN-C1-010,V10EN,subsection,A.1.2. Management of acute adverse reactions,9,8,"Same management for iodine, gadolinium, ultrasound"
+V10EN-C1-011,V10EN,management_block,Management: Nausea/vomiting; Urticaria; Bronchospasm; Laryngeal edema; Hypotension,10,9,First-line treatment block with drug doses
+V10EN-C1-012,V10EN,management_block,Management: Vasovagal reaction; Anaphylactic shock; Unconsciousness; Seizures,11,10,Continued acute management algorithms
+V10EN-C1-013,V10EN,recommendation_block,"After moderate/severe reaction — record, allergy referral, future prophylaxis notes",12,11,End of A.1.2
+V10EN-C1-014,V10EN,subsection,A.1.3. Warming iodine-based contrast medium before administration,12,11,
+V10EN-C1-015,V10EN,subsection,A.1.4. Extravascular administration of an iodine-based contrast medium,12,11,
+V10EN-C1-016,V10EN,subsection,A.1.5. Fasting before administration of contrast agents,12,11,
+V10EN-C1-017,V10EN,section,A.2. LATE ADVERSE REACTIONS,13,12,Definition: 1 hour to 1 week
+V10EN-C1-018,V10EN,section,A.3. VERY LATE ADVERSE REACTIONS,14,13,Definition: usually more than 1 week
+V10EN-C1-019,V10EN,subsection,A.3.1. Very late adverse reactions to iodine-based contrast media: thyrotoxicosis,14,13,
+V10EN-C1-020,V10EN,subsection,A.3.2. Very late adverse reactions to gadolinium-based contrast agents: NSF,15,14,
+V10EN-C1-021,V10EN,table,GADOLINIUM-BASED CONTRAST AGENTS: Risk classification (based on laboratory data) and recommendations,16,15,Highest / Intermediate / Lowest risk blocks — table-like
+V10EN-C1-022,V10EN,recommendation_block,Highest risk of NSF — agents and recommendations,16,15,"Gadodiamide, gadopentetate, gadoversetamide"
+V10EN-C1-023,V10EN,recommendation_block,Intermediate risk of NSF — agents and recommendations,16,15,"Gadobenate, gadoxetate"
+V10EN-C1-024,V10EN,recommendation_block,Lowest risk of NSF — agents and recommendations,17,16,"Gadobutrol, gadoterate, gadoteridol"
+V10EN-C1-025,V10EN,recommendation_block,Recommendations for all gadolinium-based contrast agents,17,16,Record name/dose; never give in NSF history etc.
+V10EN-C1-026,V10EN,chapter,"B. RENAL ADVERSE REACTIONS (POST-CONTRAST ACUTE KIDNEY INJURY, PC-AKI)",18,17,Chapter B start; definitions CI-AKI/PC-AKI
+V10EN-C1-027,V10EN,section,B.1. MEASUREMENT OF RENAL FUNCTION,18,17,eGFR preferred
+V10EN-C1-028,V10EN,section,B.2. RENAL ADVERSE REACTIONS TO IODINE-BASED CONTRAST MEDIA,19,18,Risk factors for PC-AKI
+V10EN-C1-029,V10EN,subsection,B.2.1. Time of Referral,19,18,eGFR timing rules
+V10EN-C1-030,V10EN,subsection,B.2.2. Before the Examination,20,19,Hydration protocols; emergency pathway
+V10EN-C1-031,V10EN,management_block,Preventive hydration regimens (iv saline / sodium bicarbonate),20,19,Numerical volumes and timing
+V10EN-C1-032,V10EN,subsection,B.2.3. Time of examination,21,20,Lowest effective dose; avoid repeat within 48-72h notes
+V10EN-C1-033,V10EN,subsection,B.2.4. After the Examination,21,20,
+V10EN-C1-034,V10EN,subsection,B.2.5. Multiple myeloma patients,22,21,
+V10EN-C1-035,V10EN,section,B.3. RENAL ADVERSE REACTIONS TO GADOLINIUM-BASED CONTRAST MEDIA,22,21,
+V10EN-C1-036,V10EN,section,B.4. PATIENTS WITH DIABETES MELLITUS TAKING METFORMIN,23,22,
+V10EN-C1-037,V10EN,subsection,B.4.1. Iodine-based contrast media,23,22,eGFR thresholds for metformin
+V10EN-C1-038,V10EN,subsection,B.4.2. Gadolinium-based contrast media,23,22,
+V10EN-C1-039,V10EN,section,B.5. DIALYSIS AND CONTRAST MEDIUM ADMINISTRATION,24,23,Hemodialysis / CAPD guidance
+V10EN-C1-040,V10EN,section,B.6. CAN IODINE- AND GADOLINIUM-BASED CONTRAST AGENTS SAFELY BE GIVEN ON THE SAME DAY FOR ROUTINE EXAMINATIONS?,25,24,
+V10EN-C1-041,V10EN,section,B.7. HOW LONG SHOULD THERE BE BETWEEN TWO IODINE-BASED CONTRAST MEDIUM INJECTIONS FOR ROUTINE EXAMINATIONS?,26,25,
+V10EN-C1-042,V10EN,section,B.8. HOW LONG SHOULD THERE BE BETWEEN TWO GADOLINIUM-BASED CONTRAST AGENT INJECTIONS FOR ROUTINE EXAMINATIONS?,26,25,
+V10EN-C1-043,V10EN,chapter,C. MISCELLANEOUS,27,26,Chapter C start
+V10EN-C1-044,V10EN,section,C.1. CONTRAST MEDIUM EXTRAVASATION,27,26,Type of injuries; risk patients; treatment
+V10EN-C1-045,V10EN,section,C.2. PULMONARY EFFECTS OF IODINE-BASED CONTRAST MEDIA,28,27,
+V10EN-C1-046,V10EN,section,C.3. EFFECTS OF CONTRAST MEDIA ON BLOOD AND ENDOTHELIUM,28,27,
+V10EN-C1-047,V10EN,subsection,C.3.1. Thrombosis,28,27,
+V10EN-C1-048,V10EN,subsection,C.3.2. Sickle Cell Disease,29,28,C.3.2.1 iodine; C.3.2.2 gadolinium
+V10EN-C1-049,V10EN,section,C.4. CONTRAST AGENTS AND CATECHOLAMINE PRODUCING TUMORS (PHEOCHROMOCYTOMA AND PARAGANGLIOMA),29,28,
+V10EN-C1-050,V10EN,section,C.5. PREGNANCY AND LACTATION,30,29,Two-column iodine vs gadolinium table layout
+V10EN-C1-051,V10EN,table,Pregnancy and lactation: iodine-based vs gadolinium-based,30,29,Comparative guidance table
+V10EN-C1-052,V10EN,section,C.6. INTERACTION WITH OTHER DRUGS AND CLINICAL TESTS,31,30,
+V10EN-C1-053,V10EN,section,C.7. GADOLINIUM ISSUES,32,31,
+V10EN-C1-054,V10EN,subsection,C.7.1. Gadolinium retention in the brain,32,31,Detection; features; relation to GBCA
+V10EN-C1-055,V10EN,subsection,"C.7.2. Gadolinium retention in bone, liver and skin",33,32,
+V10EN-C1-056,V10EN,subsection,C.7.3. Gadolinium contamination of the environment,33,32,
+V10EN-C1-057,V10EN,section,C.8. SAFETY OF ULTRASOUND CONTRAST AGENTS,34,33,
+V10EN-C1-058,V10EN,section,C.9. SAFETY OF BARIUM CONTRAST MEDIA,35,34,Statements / Recommended action layout
+V10EN-C1-059,V10EN,section,C.10. PEDIATRIC USE OF CONTRAST AGENTS,36,35,
+V10EN-C1-060,V10EN,section,C.11. OFF-LABEL USE OF CONTRAST AGENTS,36,35,
+V10EN-C1-061,V10EN,chapter,D. QUESTIONNAIRES/LETTERS,37,36,
+V10EN-C1-062,V10EN,section,D.1. AN EXAMPLE OF A SUITABLE LETTER FOR THE PATIENT TO TAKE TO THE ALLERGY CONSULTATION,37,36,Spelling ALLGERGY in source
+V10EN-C1-063,V10EN,table,Ring and Messmer classification grades 1–4,38,37,Grade table in letter template
+V10EN-C1-064,V10EN,section,D.2. QUESTIONNAIRE FOR IODINE-BASED CONTRAST MEDIA ADMINISTRATION,39,38,Referring clinician questionnaire
+V10EN-C1-065,V10EN,section,D.3. QUESTIONNAIRE FOR GADOLINIUM-BASED CONTRAST AGENT ADMINISTRATION,40,39,Referring clinician questionnaire
+V10EN-C1-066,V10EN,chapter,E. APPENDIX,41,40,
+V10EN-C1-067,V10EN,section,Appendix 1. Publications from the ESUR Contrast Media Safety Committee,41,40,Bibliography start
+V10EN-C1-068,V10EN,section,Appendix 2. Contrast Media Safety Committee - Spring 2018,44,43,Membership list
+V10EN-C1-069,V10EN,chapter,NOTES,45,44,Blank notes page
+V10EN-C1-070,V10EN,chapter,Back cover,46,,www.esur.org
+V10DE-C1-001,V10DE,chapter,Umschlag / Titel,1,,Front cover
+V10DE-C1-002,V10DE,chapter,Umschlag / Titel (Wiederholung),2,,Second cover
+V10DE-C1-003,V10DE,chapter,Einleitung,3,,TWO-UP left; no printed page number visible
+V10DE-C1-004,V10DE,section,"Kurzanleitung zur CMSC Leitlinie für Kontrastmittel, Version 10.0",3,,TWO-UP right
+V10DE-C1-005,V10DE,chapter,INHALT,4,,TWO-UP TOC; no clear printed page numbers
+V10DE-C1-006,V10DE,section,INHALT (Fortsetzung) + Hinweis/Rechtlicher Hinweis,5,,
+V10DE-C1-007,V10DE,section,Terminologie: Kontrastmittel und Röntgenkontrastmittel,6,10;11,
+V10DE-C1-008,V10DE,chapter,A. Allgemeine unerwünschte Wirkungen,7,12;13,
+V10DE-C1-009,V10DE,section,A.1. Akute unerwünschte Wirkungen,7,12;13,
+V10DE-C1-010,V10DE,subsection,A.1.1. Akute unerwünschte Wirkungen iod- und gadoliniumhaltiger Kontrastmittel,8,14;15,TOC p.13
+V10DE-C1-011,V10DE,subsection,A.1.2 / A.1.2.1 Vorbereitung auf akute unerwünschte Wirkung,8,14;15,TOC numbering differs from EN A.1.2 Management
+V10DE-C1-012,V10DE,management_block,A.1.2.2 Einfache Leitlinien für die Ersttherapie,9,16;17,Dosierungen inkl. pädiatrisch
+V10DE-C1-013,V10DE,subsection,A.1.2.3 Nach moderater/schwerer Reaktion,10,18;19,
+V10DE-C1-014,V10DE,subsection,A.1.2.4 Überprüfung der Behandlungsprotokolle,10,18;19,
+V10DE-C1-015,V10DE,subsection,A.1.3. Dokumentation der akuten unerwünschten Wirkungen,10,18;19,DE numbering differs from EN A.1.3 Warming
+V10DE-C1-016,V10DE,subsection,A.1.4. Extravaskuläre Verabreichung von iodhaltigen Röntgenkontrastmitteln,10,18;19,
+V10DE-C1-017,V10DE,subsection,A.1.5. Verabreichung beim nüchternen Patienten,10,18;19,
+V10DE-C1-018,V10DE,section,A.2. Späte unerwünschte Wirkungen,11,20;21,
+V10DE-C1-019,V10DE,section,A.3. Sehr späte unerwünschte Wirkungen,12,22;23,
+V10DE-C1-020,V10DE,subsection,A.3.1. Thyreotoxikose,12,22;23,
+V10DE-C1-021,V10DE,subsection,A.3.2. Nephrogene Systemische Fibrose (NSF),12,22;23,
+V10DE-C1-022,V10DE,table,Gadoliniumhaltige Kontrastmittel: NSF-Risikoklassifikation,13,24;25,Höchstes/mittleres/niedrigstes Risiko
+V10DE-C1-023,V10DE,recommendation_block,NSF-Empfehlungen nach Risikoklasse + allgemeine Empfehlungen,14,26;27,Left printed 26 continues NSF; right 27 starts B
+V10DE-C1-024,V10DE,chapter,B. Renale unerwünschte Wirkungen (PC-AKI),14,26;27,Chapter B start on right page
+V10DE-C1-025,V10DE,section,B.1. Messung der Nierenfunktion,14,27,
+V10DE-C1-026,V10DE,section,B.2. Renale unerwünschte Wirkungen iodhaltiger Röntgenkontrastmittel,15,28;29,
+V10DE-C1-027,V10DE,subsection,B.2.1. Untersuchungsbedingungen,15,29,
+V10DE-C1-028,V10DE,subsection,B.2.2. Vor der Untersuchung,16,30;31,Hydrierung
+V10DE-C1-029,V10DE,management_block,Präventive Hydrierungsregime,16,30;31,Volumina/Zeitangaben
+V10DE-C1-030,V10DE,subsection,B.2.3. Zum Zeitpunkt der Untersuchung,16,31,
+V10DE-C1-031,V10DE,subsection,B.2.4. Nach der Untersuchung,16,31,
+V10DE-C1-032,V10DE,subsection,B.2.5. Patienten mit Multiplem Myelom,17,32;33,
+V10DE-C1-033,V10DE,section,B.3. Renale unerwünschte Wirkungen gadoliniumhaltiger Kontrastmittel,17,32;33,
+V10DE-C1-034,V10DE,section,"B.4. Patienten mit Diabetes mellitus, die Metformin einnehmen",17,32;33,
+V10DE-C1-035,V10DE,subsection,B.4.1. Iodhaltige Kontrastmittel,17,33,
+V10DE-C1-036,V10DE,subsection,B.4.2. Gadoliniumhaltige Kontrastmittel,17,33,
+V10DE-C1-037,V10DE,section,B.5. Dialyse und Kontrastmittelgabe,18,34;35,
+V10DE-C1-038,V10DE,section,B.6. Gabe iod- und gadoliniumhaltiger Kontrastmittel am selben Tag,18,34;35,
+V10DE-C1-039,V10DE,section,B.7. Abstand zwischen zwei iodhaltigen Untersuchungen,18,35,
+V10DE-C1-040,V10DE,section,B.8. Abstand zwischen zwei gadoliniumhaltigen Untersuchungen,18,35,
+V10DE-C1-041,V10DE,chapter,C. Verschiedenes,19,36;37,
+V10DE-C1-042,V10DE,section,C.1. Kontrastmittel-Extravasate,19,36;37,
+V10DE-C1-043,V10DE,section,C.2. Pulmonale Wirkungen iodhaltiger Röntgenkontrastmittel,19,37,
+V10DE-C1-044,V10DE,section,C.3. Wirkung auf Blut und Endothel,19,37,
+V10DE-C1-045,V10DE,subsection,C.3.1. Thrombose,19,37,
+V10DE-C1-046,V10DE,subsection,C.3.2. Sichelzellanämie,20,38;39,
+V10DE-C1-047,V10DE,section,C.4. Kontrastmittel und Katecholamin-produzierende Tumoren,20,38;39,
+V10DE-C1-048,V10DE,section,C.5. Schwangerschaft und Stillzeit,20,38;39,
+V10DE-C1-049,V10DE,table,Schwangerschaft und Stillzeit: iodhaltig vs gadoliniumhaltig,20,39,
+V10DE-C1-050,V10DE,section,C.6. Wechselwirkungen mit anderen Wirkstoffen und klinischen Tests,21,40;41,
+V10DE-C1-051,V10DE,section,C.7. Weitere Aspekte bezüglich Gadolinium,22,42;43,
+V10DE-C1-052,V10DE,subsection,C.7.1. Gadoliniumretention im Gehirn,22,42;43,
+V10DE-C1-053,V10DE,subsection,"C.7.2. Gadoliniumretention in Knochen, Leber und Haut",22,42;43,
+V10DE-C1-054,V10DE,subsection,C.7.3. Verunreinigung der Umwelt durch Gadolinium,22,43,
+V10DE-C1-055,V10DE,section,C.8. Sicherheit von Ultraschall-Kontrastmitteln (body heading/content; TOC label differs),23,44;45,Open question: TOC lists C.8 as Weitere Aspekte Gadolinium
+V10DE-C1-056,V10DE,section,C.9. Sicherheit von bariumhaltigen Röntgenkontrastmitteln,23,44;45,
+V10DE-C1-057,V10DE,section,C.10. Kontrastmittel bei Kindern,24,46;47,
+V10DE-C1-058,V10DE,section,C.11. Off-Label-Einsatz von Kontrastmitteln,24,46;47,
+V10DE-C1-059,V10DE,chapter,D. Fragebögen/Musterbriefe,24,46;47,Starts on right printed 47
+V10DE-C1-060,V10DE,section,D.1. Beispielschreiben Allergologen-Konsultation,24,47,
+V10DE-C1-061,V10DE,table,Ring-und-Messmer-Klassifikation Grade 1–4,25,48;49,
+V10DE-C1-062,V10DE,section,D.2. Fragebogen vor Gabe eines iodhaltigen Röntgenkontrastmittels,25,48;49,
+V10DE-C1-063,V10DE,section,D.3. Fragebogen vor Gabe eines gadoliniumhaltigen Kontrastmittels,26,50;51,
+V10DE-C1-064,V10DE,chapter,E. Anhang,26,50;51,
+V10DE-C1-065,V10DE,section,Anhang 1. Publikationen des ESUR CMSC,26,51,
+V10DE-C1-066,V10DE,section,"Anhang 2. Mitglieder des Komitees für Kontrastmittelsicherheit, Frühjahr 2018",28,54;55,
+V10DE-C1-067,V10DE,chapter,Rückseite,29,,esur.org; PP-CONT-DE-0005-1
+BK25-COV-001,BK25,cover,Front cover,1,,OCR cover
+BK25-COV-002,BK25,cover,Inner cover,2,,OCR cover
+BK25-PRE-001,BK25,preface,Preface,3,3,
+BK25-TOC-001,BK25,contents,Contents,4,4,Continues printed p5
+BK25-TOC-002,BK25,contents,Contents (continued),5,5,
+BK25-TERM-001,BK25,section,Terminology: Contrast agents and contrast media,6,6,
+BK25-HSR-001,BK25,section,Hypersensitivity reactions to contrast agents (in adults),6,6,
+BK25-HSR-002,BK25,subsection,Categories of immediate hypersensitivity reactions,6,6,ACR + Ring & Messmer table
+BK25-HSR-003,BK25,subsection,Management of hypersensitivity reactions,7,7,
+BK25-HSR-004,BK25,subsection,Immediate/acute hypersensitivity reactions in adults,7,7,
+BK25-HSR-005,BK25,subsubsection,What to do before the examination,7,7,
+BK25-HSR-006,BK25,subsubsection,What to do during the examination,7,7,
+BK25-HSR-007,BK25,subsubsection,Acute management: General principles,8,8,
+BK25-HSR-008,BK25,subsubsection,Severe reactions (anaphylaxis),8,8,
+BK25-HSR-009,BK25,subsubsection,Moderate reactions,8,8,
+BK25-HSR-010,BK25,subsubsection,Mild reactions,9,9,
+BK25-HSR-011,BK25,subsubsection,What to do after the examination,9,9,
+BK25-HSR-012,BK25,subsection,Non-immediate/delayed hypersensitivity reactions,10,10,
+BK25-HSR-013,BK25,subsection,Documentation of hypersensitivity reactions,10,10,
+BK25-HSR-014,BK25,subsection,Nonvascular administration of iodine-based contrast media,10,10,
+BK25-HSR-015,BK25,section,Prevention of recurrent hypersensitivity reactions,11,11,
+BK25-HSR-016,BK25,subsection,In vitro tests,11,11,
+BK25-HSR-017,BK25,subsection,Allergy assessment,11,11,
+BK25-HSR-018,BK25,subsection,Preventive measures,11,11,
+BK25-HSR-019,BK25,subsection,Immediate hypersensitivity reactions (IHR),11,11,Continues pp12-13
+BK25-HSR-020,BK25,subsubsection,Emergency premedication protocol,13,13,
+BK25-HSR-021,BK25,subsection,Non-immediate hypersensitivity reactions (NIHR),13,13,Continues p14
+BK25-HSR-022,BK25,subsection,Cross-reactivity between contrast agents,14,14,Continues p15
+BK25-HSR-023,BK25,subsection,Change to an alternative contrast agent based on practical experience,15,15,
+BK25-AKI-001,BK25,section,Prevention of contrast-associated acute kidney injury (CA-AKI) when administering iodine-based contrast media,15,15,
+BK25-AKI-002,BK25,subsection,Definitions,15,15,
+BK25-AKI-003,BK25,subsection,Measurement of renal function,15,15,Formulas on p16
+BK25-AKI-004,BK25,subsection,Risk factors,16,16,
+BK25-AKI-005,BK25,subsection,At the time of referral,16,16,
+BK25-AKI-006,BK25,subsubsection,Timing of eGFR measurement,17,17,
+BK25-AKI-007,BK25,subsection,Before the Examination,17,17,
+BK25-AKI-008,BK25,subsection,At the time of the examination,18,18,
+BK25-AKI-009,BK25,subsection,After the Examination,18,18,
+BK25-AKI-010,BK25,subsection,Prevention of CA-AKI in multiple myeloma patients,18,18,
+BK25-GBCA-001,BK25,section,Renal adverse reactions to gadolinium-based contrast agents,19,19,
+BK25-DIAL-001,BK25,section,Safe use of contrast agent administration in patients on dialysis,19,19,
+BK25-DIAL-002,BK25,subsection,Patients on haemodialysis,19,19,
+BK25-DIAL-003,BK25,subsection,Patients on continuous ambulatory peritoneal dialysis,19,19,
+BK25-EXT-001,BK25,section,Management and prevention of contrast agent extravasation,20,20,Continues p21
+BK25-WAIT-001,BK25,section,Safe time intervals between contrast agent injections,21,21,
+BK25-WAIT-002,BK25,subsection,Successive iodine- and gadolinium-based contrast agent administration for routine examinations,21,21,
+BK25-WAIT-003,BK25,subsection,Waiting times between two iodine-based contrast medium injections for routine examinations,22,22,
+BK25-WAIT-004,BK25,subsection,Waiting times between two gadolinium-based contrast agent injections for routine examinations,22,22,Continues p23
+BK25-LAB-001,BK25,section,Analytical interference of intravascular contrast agents with clinical laboratory tests,23,23,
+BK25-LAB-002,BK25,subsection,Recommended delay in blood collection after administration of contrast agents,23,23,
+BK25-LAB-003,BK25,subsection,Recommended delay in urine collection after administration of contrast agents,23,23,
+BK25-NSF-001,BK25,section,Prevention of Nephrogenic Systemic Fibrosis (NSF),24,24,
+BK25-NSF-002,BK25,subsection,Risk classification of gadolinium-based contrast agents and recommendations,25,25,Highest/Intermediate/Lowest; continues p26
+BK25-PREG-001,BK25,section,Safe use of contrast agents in pregnancy and lactation,26,26,
+BK25-PREG-002,BK25,subsection,Pregnancy,26,26,
+BK25-PREG-003,BK25,subsection,Lactation,26,26,Continues p27
+BK25-PREG-004,BK25,subsection,Pregnant or lactating mother with renal impairment,27,27,
+BK25-PED-001,BK25,section,Safe use of contrast agents in paediatric patients,27,27,
+BK25-SYS-001,BK25,section,Safe use of contrast agents in patients with systemic diseases,27,27,
+BK25-SYS-002,BK25,subsection,Safe use of contrast agents in patients with diabetes mellitus taking metformin,27,27,Continues p28
+BK25-SYS-003,BK25,subsection,Prevention of iodine-induced hyperthyroidism,28,28,
+BK25-SYS-004,BK25,subsection,Safe use of contrast agents in patients with pheochromocytoma - paraganglioma (PPGL),28,28,
+BK25-SYS-005,BK25,subsection,Safe use of contrast agents in patients with myasthenia gravis,29,29,
+BK25-RET-001,BK25,section,Gadolinium retention in the brain and body,29,29,
+BK25-RET-002,BK25,subsection,Gadolinium retention in the brain,29,29,
+BK25-RET-003,BK25,subsection,"Gadolinium retention in bone, liver and skin",30,30,
+BK25-US-001,BK25,section,Safety of ultrasound contrast agents,30,30,
+BK25-MISC-001,BK25,section,Miscellaneous recommendations and topics,31,31,
+BK25-MISC-002,BK25,subsection,Safety of CO2 as an alternative to iodine-based contrast media in vascular procedures,31,31,
+BK25-MISC-003,BK25,subsection,Safe use of contrast agents in hysterosalpingography (HSG),31,31,
+BK25-MISC-004,BK25,subsection,Fasting before administration of contrast agents,31,31,
+BK25-MISC-005,BK25,subsection,Warming of iodine-based contrast medium before administration,31,31,Continues p32
+BK25-MISC-006,BK25,subsection,Off-label use of contrast agents,32,32,
+BK25-MISC-007,BK25,subsection,Safety of barium contrast media,32,32,
+BK25-MISC-008,BK25,subsection,Pulmonary effects of iodine-based contrast media,32,32,Continues p33
+BK25-MISC-009,BK25,subsection,Gadolinium contamination of the environment,33,33,
+BK25-UPD-001,BK25,section,The following guidelines are currently being updated,33,33,
+BK25-Q-001,BK25,section,Questionnaires and Letters,34,34,
+BK25-Q-002,BK25,subsection,Example of a suitable letter for the patient to take to the allergy consultation,34,34,Continues p35
+BK25-Q-003,BK25,subsection,Questionnaire for iodine-based contrast media administration to be completed by the referring clinician,36,36,Continues pp37-38
+BK25-Q-004,BK25,subsection,Questionnaire for gadolinium-based contrast agent administration to be completed by the referring clinician,39,39,Continues p40
+BK25-APP-001,BK25,section,Appendices,41,41,
+BK25-APP-002,BK25,subsection,Appendix 1. Publications from the ESUR Contrast Media Safety Committee,41,41,Continues pp42-44
+BK25-APP-003,BK25,subsection,"Appendix 2. Contrast Media Safety Committee, 2025",45,45,
+BK25-COV-003,BK25,cover,Back cover / blank decorative,46,,No usable text after OCR
+P1-HSR-001,P1,front_matter,Title: Hypersensitivity reactions to contrast media: Part 1. Management of immediate and non-immediate hypersensitivity reactions in adults,1,6798,
+P1-HSR-002,P1,abstract,Abstract,1,6798,
+P1-HSR-003,P1,key_points,Key Points,1,6798,
+P1-HSR-004,P1,section,Introduction,2,6799,
+P1-HSR-005,P1,section,Methods,2,6799,
+P1-HSR-006,P1,section,Types of Acute Adverse Reactions to Contrast Media,3,6800,
+P1-HSR-007,P1,figure,Fig. 1 Types of acute adverse reactions to contrast media,3,6800,
+P1-HSR-008,P1,table,Table 1 Symptoms of hypersensitivity reactions and grading (ACR and Ring & Messmer),3,6800,
+P1-HSR-009,P1,table,Table 2 Modified Ring-Messmer classification of systemic hypersensitivity,4,6801,
+P1-HSR-010,P1,section,Incidence and risk factors,5,6802,
+P1-HSR-011,P1,section,Management of IHR / NIHR (body text),5,6802,
+P1-HSR-012,P1,figure,Fig. 2 Therapy of immediate hypersensitivity reactions in adults,6,6803,
+P1-HSR-013,P1,section,Drugs used in treatment,7,6804,
+P1-HSR-014,P1,figure,Fig. 3 Effects of adrenaline (epinephrine),7,6804,
+P1-HSR-015,P1,figure,Fig. 4 Effects of H1-antihistamines,7,6804,
+P1-HSR-016,P1,table,Table 3 Recommendations of the ESUR CMSC (by reaction severity),8,6805,Continues printed 6806-6807
+P1-HSR-017,P1,section,Documentation of hypersensitivity reactions,10,6807,
+P1-HSR-018,P1,section,Conclusion,11,6808,
+P1-HSR-019,P1,abbreviations,Abbreviations,11,6808,
+P1-HSR-020,P1,references,References,12,6809,Continues printed 6810
+P2-HSR-001,P2,front_matter,Title: Hypersensitivity reactions to contrast media: Part 2. Prevention of recurrent hypersensitivity reactions in adults,1,6811,
+P2-HSR-002,P2,abstract,Abstract,1,6811,
+P2-HSR-003,P2,key_points,Key Points,1,6811,
+P2-HSR-004,P2,section,Introduction,2,6812,
+P2-HSR-005,P2,section,Methods,2,6812,
+P2-HSR-006,P2,section,Results / allergy evaluation and prevention discussion,3,6813,
+P2-HSR-007,P2,subsection,Use of premedication,4,6814,
+P2-HSR-008,P2,figure,Fig. 1 What to do after a previous immediate hypersensitivity reaction (IHR),4,6814,
+P2-HSR-009,P2,figure,Fig. 2 Chemical formulas and comparison of non-ionic ICM molecules,5,6815,
+P2-HSR-010,P2,figure,"Fig. 3 Chemical formulas and grouping of general, macrocyclic GBCA molecules",6,6816,
+P2-HSR-011,P2,table,Table 1 Suggestions regarding the selection of alternative contrast media based on practical experience,7,6817,
+P2-HSR-012,P2,table,Table 2 CMSC recommendations for the prevention of recurrent hypersensitivity reactions in adults,8,6818,Continues printed 6819-6821
+P2-HSR-013,P2,subsection,Change to an alternative contrast agent based on practical experience,11,6821,
+P2-HSR-014,P2,figure,Fig. 4 What to do after a previous non-immediate hypersensitivity reaction (NIHR),12,6822,
+P2-HSR-015,P2,abbreviations,Abbreviations,12,6822,
+P2-HSR-016,P2,references,References,13,6823,Continues printed 6824-6825

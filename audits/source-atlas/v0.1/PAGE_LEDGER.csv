@@ -1,0 +1,150 @@
+source_id,physical_pdf_page,printed_page_numbers,section_headings,subsection_headings,table_figure_ids,topic_tags,has_numerical_content,has_recommendation_language,layout_notes
+V10EN,1,,Cover,,,cover;version,yes,no,Front cover; version 10.0; no printed page number
+V10EN,2,,Cover,,,cover;version,yes,no,Repeat/inside cover; version 10.0; no printed page number
+V10EN,3,2,PREFACE,,,preface;CMSC;legal_notice,yes,yes,Single-page layout; printed page 2 at footer
+V10EN,4,3,"QUICK GUIDE TO THE CMSC CONTRAST AGENT GUIDELINES, VERSION 10;PREFACE",Terminology;SECTION A;SECTION B;SECTION C,,quick_guide;overview,yes,no,Quick guide overview; printed page 3
+V10EN,5,4,CONTENTS,TERMINOLOGY;A. GENERAL ADVERSE REACTIONS;B. RENAL ADVERSE REACTIONS,,table_of_contents,yes,yes,TOC part 1; printed page 4
+V10EN,6,5,CONTENTS;Terminology: Contrast agents and contrast media,C. MISCELLANEOUS;D. QUESTIONNAIRES/LETTERS;E. APPENDIX,,table_of_contents;terminology,yes,yes,TOC part 2 + terminology definitions; printed page 5
+V10EN,7,6,A. GENERAL ADVERSE REACTIONS,A.1. ACUTE ADVERSE REACTIONS,,acute_adverse_reactions;classification;incidence,yes,yes,Printed page 6
+V10EN,8,7,A. GENERAL ADVERSE REACTIONS,A.1.1. Acute adverse reactions to iodine- and gadolinium-based contrast agents,,acute_adverse_reactions;risk_factors;prevention;iodine;gadolinium,yes,yes,Printed page 7; risk factors and prevention bullets
+V10EN,9,8,A. GENERAL ADVERSE REACTIONS,A.1.2. Management of acute adverse reactions,,management;acute_adverse_reactions;anaphylaxis,yes,yes,Printed page 8; management intro and first reaction types
+V10EN,10,9,A. GENERAL ADVERSE REACTIONS,A.1.2. Management of acute adverse reactions,,management;nausea;urticaria;bronchospasm;laryngeal_edema;adrenaline,yes,yes,Printed page 9; drug doses
+V10EN,11,10,A. GENERAL ADVERSE REACTIONS,A.1.2. Management of acute adverse reactions,,management;vasovagal;hypotension;anaphylactic_shock;unconsciousness,yes,yes,Printed page 10
+V10EN,12,11,A. GENERAL ADVERSE REACTIONS,A.1.2. Management;A.1.3. Warming iodine-based contrast medium;A.1.4. Extravascular administration;A.1.5. Fasting,,management;documentation;warming;extravascular;fasting,yes,yes,Printed page 11
+V10EN,13,12,A. GENERAL ADVERSE REACTIONS,A.2. LATE ADVERSE REACTIONS,,late_adverse_reactions;skin;iodine,yes,yes,Printed page 12
+V10EN,14,13,A. GENERAL ADVERSE REACTIONS,A.3. VERY LATE ADVERSE REACTIONS;A.3.1. thyrotoxicosis,,very_late_adverse_reactions;thyrotoxicosis;iodine,yes,yes,Printed page 13
+V10EN,15,14,A. GENERAL ADVERSE REACTIONS,A.3.2. nephrogenic systemic fibrosis (NSF),,NSF;gadolinium;renal_failure,yes,yes,Printed page 14
+V10EN,16,15,A. GENERAL ADVERSE REACTIONS,GADOLINIUM-BASED CONTRAST AGENTS: Risk classification;Highest risk of NSF;Intermediate risk of NSF,,NSF;risk_classification;gadolinium;EMA,yes,yes,Printed page 15; risk classification table-like blocks
+V10EN,17,16,A. GENERAL ADVERSE REACTIONS,Lowest risk of NSF;Recommendations for all gadolinium agents,,NSF;gadolinium;recommendations,yes,yes,Printed page 16
+V10EN,18,17,"B. RENAL ADVERSE REACTIONS (POST-CONTRAST ACUTE KIDNEY INJURY, PC-AKI)",Definitions;B.1. MEASUREMENT OF RENAL FUNCTION,,PC-AKI;eGFR;renal_function;definitions,yes,yes,Printed page 17
+V10EN,19,18,B. RENAL ADVERSE REACTIONS (PC-AKI),B.2. RENAL ADVERSE REACTIONS TO IODINE-BASED CONTRAST MEDIA;RISK FACTORS;B.2.1. Time of Referral,,PC-AKI;iodine;risk_factors;eGFR;referral,yes,yes,Printed page 18
+V10EN,20,19,B. RENAL ADVERSE REACTIONS (PC-AKI),EMERGENCY EXAMINATION;B.2.2. Before the Examination,,PC-AKI;hydration;eGFR;emergency;metformin,yes,yes,Printed page 19; hydration volumes/timing
+V10EN,21,20,B. RENAL ADVERSE REACTIONS (PC-AKI),EMERGENCY EXAMINATION;B.2.3. Time of examination;B.2.4. After the Examination,,PC-AKI;iodine;hydration;eGFR,yes,yes,Printed page 20
+V10EN,22,21,B. RENAL ADVERSE REACTIONS (PC-AKI),B.2.5. Multiple myeloma patients;B.3. RENAL ADVERSE REACTIONS TO GADOLINIUM-BASED CONTRAST MEDIA,,myeloma;PC-AKI;gadolinium;renal,yes,yes,Printed page 21
+V10EN,23,22,B. RENAL ADVERSE REACTIONS (PC-AKI),B.4. PATIENTS WITH DIABETES MELLITUS TAKING METFORMIN;B.4.1;B.4.2,,metformin;diabetes;iodine;gadolinium;eGFR,yes,yes,Printed page 22
+V10EN,24,23,B. RENAL ADVERSE REACTIONS (PC-AKI),B.5. DIALYSIS AND CONTRAST MEDIUM ADMINISTRATION,,dialysis;hemodialysis;CAPD;iodine;gadolinium,yes,yes,Printed page 23
+V10EN,25,24,B. RENAL ADVERSE REACTIONS (PC-AKI),B.6. Same-day iodine and gadolinium,,timing;iodine;gadolinium;same_day,yes,yes,Printed page 24
+V10EN,26,25,B. RENAL ADVERSE REACTIONS (PC-AKI),B.7. Interval between iodine injections;B.8. Interval between gadolinium injections,,timing;interval;iodine;gadolinium,yes,yes,Printed page 25
+V10EN,27,26,C. MISCELLANEOUS,C.1. CONTRAST MEDIUM EXTRAVASATION,,extravasation;injury;prevention;treatment,yes,yes,Printed page 26
+V10EN,28,27,C. MISCELLANEOUS,C.2. PULMONARY EFFECTS;C.3. EFFECTS ON BLOOD AND ENDOTHELIUM;C.3.1. Thrombosis,,pulmonary;bronchospasm;thrombosis;blood;endothelium,yes,yes,Printed page 27
+V10EN,29,28,C. MISCELLANEOUS,C.3.2. Sickle Cell Disease;C.4. Catecholamine producing tumors,,sickle_cell;pheochromocytoma;paraganglioma,yes,yes,Printed page 28
+V10EN,30,29,C. MISCELLANEOUS,C.5. PREGNANCY AND LACTATION,,pregnancy;lactation;iodine;gadolinium;thyroid,yes,yes,Printed page 29; two-column comparison table layout
+V10EN,31,30,C. MISCELLANEOUS,C.6. INTERACTION WITH OTHER DRUGS AND CLINICAL TESTS,,drug_interactions;metformin;beta_blockers;interleukin-2;isotopes,yes,yes,Printed page 30
+V10EN,32,31,C. MISCELLANEOUS,C.7. GADOLINIUM ISSUES;C.7.1. Gadolinium retention in the brain,,gadolinium_retention;brain;MRI_signal,yes,yes,Printed page 31
+V10EN,33,32,C. MISCELLANEOUS,"C.7.2. Gadolinium retention in bone, liver and skin;C.7.3. Gadolinium contamination of the environment",,gadolinium_retention;bone;liver;skin;environment,yes,yes,Printed page 32
+V10EN,34,33,C. MISCELLANEOUS,C.8. SAFETY OF ULTRASOUND CONTRAST AGENTS,,ultrasound_contrast;safety;contraindications,yes,yes,Printed page 33
+V10EN,35,34,C. MISCELLANEOUS,C.9. SAFETY OF BARIUM CONTRAST MEDIA,,barium;contraindications;aspiration;perforation,yes,yes,Printed page 34; statements/recommended action layout
+V10EN,36,35,C. MISCELLANEOUS,C.10. PEDIATRIC USE;C.11. OFF-LABEL USE,,pediatric;off_label;consent,yes,yes,Printed page 35
+V10EN,37,36,D. QUESTIONNAIRES/LETTERS,D.1. Letter for allergy consultation,,questionnaire;allergy;letter_template,yes,no,Printed page 36; form/letter template
+V10EN,38,37,D. QUESTIONNAIRES/LETTERS,D.1. Letter for allergy consultation (continued),,questionnaire;Ring_and_Messmer;allergy,yes,yes,Printed page 37; Ring and Messmer grades 1-4
+V10EN,39,38,D. QUESTIONNAIRES/LETTERS,D.2. Questionnaire for iodine-based contrast media,,questionnaire;iodine;referral,yes,no,Printed page 38
+V10EN,40,39,D. QUESTIONNAIRES/LETTERS,D.3. Questionnaire for gadolinium-based contrast agent,,questionnaire;gadolinium;referral,yes,no,Printed page 39
+V10EN,41,40,E. APPENDIX,Appendix 1. Publications from the ESUR CMSC,,appendix;publications;bibliography,yes,no,Printed page 40; bibliography
+V10EN,42,41,E. APPENDIX,Appendix 1. Publications (continued),,appendix;publications;bibliography,yes,no,Printed page 41
+V10EN,43,42,E. APPENDIX,Appendix 1. Publications (continued),,appendix;publications;bibliography,yes,yes,Printed page 42
+V10EN,44,43,E. APPENDIX,Appendix 2. Contrast Media Safety Committee - Spring 2018,,appendix;committee_members,yes,no,Printed page 43; membership list
+V10EN,45,44,NOTES,,,notes_blank,yes,no,Printed page 44; blank notes page; sparse text extract
+V10EN,46,,Back cover,,,back_cover,no,no,Back cover www.esur.org; no printed page number
+V10DE,1,,Umschlag,,,cover,no,no,Front cover; no printed page number; two-up booklet later pages
+V10DE,2,,Umschlag,,,cover,no,no,Repeat/inside cover; no printed page number
+V10DE,3,,"Einleitung;Kurzanleitung zur CMSC Leitlinie für Kontrastmittel, Version 10.0",Terminologie;Abschnitt A;Abschnitt B;Abschnitt C,,einleitung;kurzanleitung,yes,yes,"TWO-UP: left Einleitung, right Kurzanleitung; no printed page numbers visible in footer"
+V10DE,4,,INHALT,Terminologie;A;B (TOC),,inhaltsverzeichnis,yes,yes,TWO-UP TOC pages; no clear printed page numbers in footer; TOC lists content from printed p.10
+V10DE,5,,INHALT,C;D;E (TOC);Rechtlicher Hinweis,,inhaltsverzeichnis;rechtlicher_hinweis,yes,yes,TWO-UP TOC continued + note/legal on right; no clear printed page numbers
+V10DE,6,10;11,Terminologie: Kontrastmittel und Röntgenkontrastmittel,,,terminologie,yes,yes,TWO-UP printed 10;11; terminology definitions span both
+V10DE,7,12;13,A. Allgemeine unerwünschte Wirkungen,A.1. Akute unerwünschte Wirkungen,,akute_unerwuenschte_wirkungen;klassifikation,yes,yes,TWO-UP printed 12;13
+V10DE,8,14;15,A. Allgemeine unerwünschte Wirkungen,A.1.1;A.1.2 Vorbereitung und Ersttherapie,,akute_unerwuenschte_wirkungen;risikofaktoren;praevention;management,yes,yes,TWO-UP printed 14;15
+V10DE,9,16;17,A. Allgemeine unerwünschte Wirkungen,A.1.2.2 Ersttherapie,,management;adrenalin;bronchospasmus;larynxoedem,yes,yes,TWO-UP printed 16;17; Dosierungen
+V10DE,10,18;19,A. Allgemeine unerwünschte Wirkungen,A.1.2.3;A.1.2.4;A.1.3;A.1.4;A.1.5,,management;dokumentation;extravasation;nuechtern,yes,yes,TWO-UP printed 18;19
+V10DE,11,20;21,A. Allgemeine unerwünschte Wirkungen,A.2. Späte unerwünschte Wirkungen,,spaete_unerwuenschte_wirkungen,yes,yes,TWO-UP printed 20;21
+V10DE,12,22;23,A. Allgemeine unerwünschte Wirkungen,A.3. Sehr späte unerwünschte Wirkungen;A.3.1 Thyreotoxikose;A.3.2 NSF,,thyreotoxikose;NSF;gadolinium,yes,yes,TWO-UP printed 22;23
+V10DE,13,24;25,A. Allgemeine unerwünschte Wirkungen,NSF Risikoklassifikation;Höchstes/mittleres/niedrigstes NSF-Risiko,,NSF;risikoklassifikation;gadolinium,yes,yes,TWO-UP printed 24;25
+V10DE,14,26;27,A. Allgemeine unerwünschte Wirkungen;B. Renale unerwünschte Wirkungen (PC-AKI),Empfehlungen alle Gd-Mittel;B.1 Messung der Nierenfunktion;Definitionen PC-AKI,,NSF;PC-AKI;eGFR;Nierenfunktion,yes,yes,TWO-UP printed 26;27; section A ends / B begins
+V10DE,15,28;29,B. Renale unerwünschte Wirkungen (PC-AKI),B.2 Renale UW iodhaltig;Risikofaktoren;B.2.1 Untersuchungsbedingungen,,PC-AKI;iod;Risikofaktoren;eGFR,yes,yes,TWO-UP printed 28;29
+V10DE,16,30;31,B. Renale unerwünschte Wirkungen (PC-AKI),B.2.2 Vor der Untersuchung;Notfalluntersuchung;Hydrierung,,PC-AKI;Hydrierung;eGFR;Notfall,yes,yes,TWO-UP printed 30;31
+V10DE,17,32;33,B. Renale unerwünschte Wirkungen (PC-AKI),B.2.3;B.2.4;B.2.5 Multiples Myelom;B.3 Gd renal;B.4 Metformin,,PC-AKI;Myelom;Metformin;Gadolinium;Dialyse,yes,yes,TWO-UP printed 32;33
+V10DE,18,34;35,B. Renale unerwünschte Wirkungen (PC-AKI),B.5 Dialyse;B.6 gleicher Tag;B.7/B.8 Intervalle,,Dialyse;Timing;Intervalle;iod;gadolinium,yes,yes,TWO-UP printed 34;35
+V10DE,19,36;37,C. Verschiedenes,C.1 Kontrastmittel-Extravasate;C.2 Pulmonale Wirkungen;C.3 Blut und Endothel,,Extravasat;pulmonal;Thrombose,yes,yes,TWO-UP printed 36;37
+V10DE,20,38;39,C. Verschiedenes,C.3.2 Sichelzellanämie;C.4 Katecholamin-Tumoren;C.5 Schwangerschaft und Stillzeit,,Sichelzellanämie;Phaeochromozytom;Schwangerschaft;Stillzeit,yes,yes,TWO-UP printed 38;39
+V10DE,21,40;41,C. Verschiedenes,C.5 Stillzeit (Forts.);C.6 Wechselwirkungen,,Stillzeit;Wechselwirkungen;Betablocker;Isotope,yes,yes,TWO-UP printed 40;41
+V10DE,22,42;43,C. Verschiedenes,C.7 Weitere Aspekte Gadolinium;C.7.1 Retention Gehirn;C.7.2 Knochen/Leber/Haut,,Gadoliniumretention;Gehirn;Knochen;Leber;Haut,yes,yes,TWO-UP printed 42;43
+V10DE,23,44;45,C. Verschiedenes,C.8/C.9 Sicherheit US und Barium (body);TOC labels C.8 Gadolinium vs body ultrasound — see open questions,,Ultraschall;Barium;Sicherheit,yes,yes,TWO-UP printed 44;45; TOC/body heading mismatch possible
+V10DE,24,46;47,C. Verschiedenes;D. Fragebögen/Musterbriefe,C.10 Kontrastmittel bei Kindern;C.11 Off-Label;D.1 Allergologen-Schreiben,,Kinder;Off-Label;Fragebogen;Allergie,yes,yes,TWO-UP printed 46;47
+V10DE,25,48;49,D. Fragebögen/Musterbriefe,D.1 Forts. Ring und Messmer;D.2 Fragebogen iodhaltig,,Fragebogen;Ring_Messmer;iod,yes,yes,TWO-UP printed 48;49
+V10DE,26,50;51,D. Fragebögen/Musterbriefe;E. Anhang,D.3 Fragebogen gadolinium;Anhang 1 Publikationen,,Fragebogen;gadolinium;Anhang;Literatur,yes,no,TWO-UP printed 50;51
+V10DE,27,52;53,E. Anhang,Anhang 1 Publikationen (Forts.),,Anhang;Literatur,yes,yes,TWO-UP printed 52;53
+V10DE,28,54;55,E. Anhang,Anhang 2 Mitglieder CMSC Frühjahr 2018,,Anhang;Komiteemitglieder;Impressum,yes,no,TWO-UP printed 54;55; membership + imprint
+V10DE,29,,Rückseite,,,back_cover,yes,no,Back cover esur.org and product code PP-CONT-DE-0005-1; no booklet printed page number
+BK25,1,,Cover,,,,Y,N,Image-heavy cover; text via OCR; OCR:eng+deu (image cover; pdftotext empty)
+BK25,2,,Cover (inner),,,,Y,N,Image-heavy cover; text via OCR; OCR:eng+deu (image cover; pdftotext empty)
+BK25,3,3,Preface,Preface; Note; Legal notice,,hypersensitivity;extravasation;waiting_times;lab_interference;myasthenia;HSG;preface,Y,Y,
+BK25,4,4,Contents,,,hypersensitivity;CA-AKI;GBCA;ICM;extravasation;waiting_times;lab_interference;pregnancy_lactation;paediatric;dialysis;terminology;contents,Y,Y,
+BK25,5,5,Contents,,,GBCA;ICM;metformin;thyroid;PPGL;myasthenia;ultrasound_CA;HSG;CO2;barium;fasting;warming;off_label;questionnaire;appendix,Y,N,
+BK25,6,6,Terminology: Contrast agents and contrast media; Hypersensitivity reactions to contrast agents (in adults),Categories of immediate hypersensitivity reactions,Table: ACR vs Ring & Messmer classification,hypersensitivity;ICM;ultrasound_CA;CO2;barium;terminology,Y,Y,
+BK25,7,7,Hypersensitivity reactions to contrast agents (in adults),Management of hypersensitivity reactions; Immediate/acute hypersensitivity reactions in adults; What to do before the examination; What to do during the examination,,hypersensitivity;adrenaline;antihistamine;tryptase;pregnancy_lactation;SABA,Y,Y,
+BK25,8,8,Management of hypersensitivity reactions,Acute management; General principles; Severe reactions (anaphylaxis); Cardiac or respiratory arrest; Anaphylactic reaction or stridor; Moderate reactions,,hypersensitivity;adrenaline;antihistamine;corticosteroid;tryptase;NSF;documentation;SABA,Y,Y,
+BK25,9,9,Management of hypersensitivity reactions,Mild bronchospasm; Facial oedema without stridor; Diffuse urticaria/diffuse erythema; Mild reactions; What to do after the examination,,hypersensitivity;adrenaline;antihistamine;tryptase;SABA,Y,Y,
+BK25,10,10,Management of hypersensitivity reactions,Non-immediate/delayed hypersensitivity reactions; Documentation of hypersensitivity reactions; Nonvascular administration of iodine-based contrast media,,hypersensitivity;corticosteroid;ICM;documentation;terminology,Y,Y,
+BK25,11,11,Prevention of recurrent hypersensitivity reactions,In vitro tests; Allergy assessment; Preventive measures; Immediate hypersensitivity reactions (IHR),,hypersensitivity;tryptase;GBCA;ICM;documentation,Y,Y,
+BK25,12,12,Prevention of recurrent hypersensitivity reactions,IHR mild/moderate; For elective contrast-enhanced examinations; For emergency contrast-enhanced examinations; IHR severe,,hypersensitivity;GBCA;ICM;documentation;terminology,Y,Y,
+BK25,13,13,Prevention of recurrent hypersensitivity reactions,IHR severe continued; Emergency premedication protocol; Non-immediate hypersensitivity reactions (NIHR),,hypersensitivity;antihistamine;corticosteroid;GBCA;ICM;documentation;terminology,Y,Y,
+BK25,14,14,Prevention of recurrent hypersensitivity reactions,NIHR mild/moderate/severe (SCAR); Cross-reactivity between contrast agents,,hypersensitivity;GBCA;ICM;cross_reactivity;documentation;terminology,Y,Y,
+BK25,15,15,Prevention of recurrent hypersensitivity reactions; Prevention of contrast-associated acute kidney injury (CA-AKI) when administering iodine-based contrast media,Change to an alternative contrast agent based on practical experience; Definitions; Measurement of renal function,,hypersensitivity;CA-AKI;GBCA;ICM;cross_reactivity,Y,Y,
+BK25,16,16,Prevention of CA-AKI,Measurement of renal function (formulas); Risk factors; At the time of referral; Elective examinations,,CA-AKI;ICM;paediatric;dialysis,Y,Y,
+BK25,17,17,Prevention of CA-AKI,Timing of eGFR measurement; Emergency examinations; Before the Examination; Elective examinations; Emergency examinations,,CA-AKI;ICM,Y,Y,
+BK25,18,18,Prevention of CA-AKI,At the time of the examination; After the Examination; Prevention of CA-AKI in multiple myeloma patients,,CA-AKI;ICM;waiting_times,Y,Y,
+BK25,19,19,Renal adverse reactions to gadolinium-based contrast agents; Safe use of contrast agent administration in patients on dialysis,MRI examinations; Radiographic examinations; Patients on haemodialysis; Patients on continuous ambulatory peritoneal dialysis,,CA-AKI;NSF;GBCA;ICM;dialysis;terminology,Y,Y,
+BK25,20,20,Management and prevention of contrast agent extravasation,Type of injuries; Risk factors; To reduce the risk; Recognition and diagnosis,,GBCA;ICM;extravasation;warming,Y,Y,
+BK25,21,21,Management and prevention of contrast agent extravasation; Safe time intervals between contrast agent injections,Management; Involving a surgeon; Successive iodine- and gadolinium-based contrast agent administration for routine examinations,,CA-AKI;GBCA;ICM;extravasation;waiting_times;documentation,Y,Y,
+BK25,22,22,Safe time intervals between contrast agent injections,Waiting times between two iodine-based contrast medium injections; Waiting times between two gadolinium-based contrast agent injections,,CA-AKI;GBCA;ICM;waiting_times;dialysis,Y,Y,
+BK25,23,23,Safe time intervals between contrast agent injections; Analytical interference of intravascular contrast agents with clinical laboratory tests,GBCA waiting times continued; Recommended delay in blood collection; Recommended delay in urine collection,,CA-AKI;GBCA;ICM;waiting_times;lab_interference;dialysis,Y,Y,
+BK25,24,24,Prevention of Nephrogenic Systemic Fibrosis (NSF),Diagnosis; Clinical features; Risk factors; Estimated incidence; Recommendations for all patients,,CA-AKI;NSF;GBCA;dialysis,Y,Y,
+BK25,25,25,Risk classification of gadolinium-based contrast agents and recommendations,Highest risk of NSF; Intermediate risk of NSF; Lowest risk of NSF,,NSF;GBCA,Y,Y,
+BK25,26,26,Risk classification of gadolinium-based contrast agents and recommendations; Safe use of contrast agents in pregnancy and lactation,Lowest risk recommendations; Pregnancy; Lactation,,CA-AKI;NSF;GBCA;ICM;lab_interference;pregnancy_lactation;paediatric;thyroid,Y,Y,
+BK25,27,27,Safe use of contrast agents in pregnancy and lactation; Safe use of contrast agents in paediatric patients; Safe use of contrast agents in patients with systemic diseases,Pregnant or lactating mother with renal impairment; Diabetes mellitus taking metformin,,CA-AKI;GBCA;ICM;pregnancy_lactation;paediatric;metformin;off_label,Y,Y,
+BK25,28,28,Safe use of contrast agents in patients with systemic diseases,Metformin continued; Prevention of iodine-induced hyperthyroidism; Safe use of contrast agents in patients with pheochromocytoma - paraganglioma (PPGL),,CA-AKI;GBCA;ICM;metformin;thyroid;PPGL,Y,Y,
+BK25,29,29,Safe use of contrast agents in patients with myasthenia gravis; Gadolinium retention in the brain and body,Gadolinium retention in the brain,,GBCA;ICM;myasthenia,Y,N,
+BK25,30,30,Gadolinium retention in the brain and body; Safety of ultrasound contrast agents,"Gadolinium retention in bone, liver and skin; Statements; Contraindication; Type and severity of adverse reactions; To reduce the risk; Treatment",,hypersensitivity;NSF;GBCA;ultrasound_CA,Y,Y,
+BK25,31,31,Miscellaneous recommendations and topics,Safety of CO2 as an alternative to iodine-based contrast media in vascular procedures; Safe use of contrast agents in hysterosalpingography (HSG); Fasting before administration of contrast agents; Warming of iodine-based contrast medium before administration,,CA-AKI;GBCA;ICM;extravasation;pregnancy_lactation;thyroid;ultrasound_CA;HSG;CO2;fasting;warming,Y,Y,
+BK25,32,32,Miscellaneous recommendations and topics,Off-label use of contrast agents; Safety of barium contrast media; Pulmonary effects of iodine-based contrast media,,ICM;pregnancy_lactation;paediatric;barium;off_label,Y,Y,
+BK25,33,33,Miscellaneous recommendations and topics; The following guidelines are currently being updated,To reduce the risk of pulmonary adverse effects; Gadolinium contamination of the environment,,CA-AKI;NSF;GBCA;ICM;pregnancy_lactation;paediatric;metformin;thyroid;ultrasound_CA,Y,Y,
+BK25,34,34,Questionnaires and Letters,Example of a suitable letter for the patient to take to the allergy consultation,Table: Ring and Messmer grade 1-4,hypersensitivity;tryptase;GBCA;ICM;questionnaire,Y,N,
+BK25,35,35,Questionnaires and Letters,Allergy consultation letter continued,,hypersensitivity;cross_reactivity,Y,Y,Short page (letter continuation); Unicode bullet glyphs
+BK25,36,36,Questionnaires and Letters,Questionnaire for iodine-based contrast media administration to be completed by the referring clinician,,hypersensitivity;corticosteroid;ICM;questionnaire;documentation;SABA,Y,Y,
+BK25,37,37,Questionnaires and Letters,ICM questionnaire continued (kidney injury risk; metformin),,CA-AKI;ICM;metformin;terminology,Y,Y,
+BK25,38,38,Questionnaires and Letters,ICM questionnaire general recommendations for scheduled procedures,,CA-AKI;lab_interference;fasting;documentation,Y,Y,Short questionnaire recommendation page; Unicode bullet glyphs
+BK25,39,39,Questionnaires and Letters,Questionnaire for gadolinium-based contrast agent administration to be completed by the referring clinician,,hypersensitivity;corticosteroid;CA-AKI;GBCA;dialysis;questionnaire;documentation;SABA,Y,Y,
+BK25,40,40,Questionnaires and Letters,GBCA questionnaire general recommendations,,CA-AKI;lab_interference;fasting;documentation,Y,Y,Short questionnaire recommendation page; Unicode bullet glyphs
+BK25,41,41,Appendices,Appendix 1. Publications from the ESUR Contrast Media Safety Committee,,NSF;GBCA;extravasation;myasthenia;HSG;appendix,Y,N,
+BK25,42,42,Appendices,Appendix 1 continued,,hypersensitivity;CA-AKI;waiting_times;lab_interference;metformin;thyroid;dialysis,Y,N,
+BK25,43,43,Appendices,Appendix 1 continued,,hypersensitivity;ICM;extravasation;dialysis;CO2;questionnaire,Y,Y,
+BK25,44,44,Appendices,Appendix 1 continued,,CA-AKI;NSF;GBCA;pregnancy_lactation;metformin,Y,Y,"recommendation-language flag reflects citation titles containing ""Recommendation"""
+BK25,45,45,Appendices,"Appendix 2. Contrast Media Safety Committee, 2025",,appendix,Y,N,Committee roster only
+BK25,46,,Back cover / blank decorative page,,,cover_back,N,N,OCR attempted eng+deu multiple PSM; decorative/near-blank back page; no usable text layer or OCR text
+P1,1,6798,Title/Abstract/Key Points,Abstract; Key Points,,hypersensitivity;adrenaline;antihistamine;GBCA;ICM;ultrasound_CA;documentation;SABA,Y,Y,
+P1,2,6799,Introduction; Methods,Introduction; Methods,,hypersensitivity;GBCA;ICM;paediatric;ultrasound_CA;documentation;terminology,Y,Y,Two-column journal layout
+P1,3,6800,Types of Acute Adverse Reactions to Contrast Media; Classification,Types of Acute Adverse Reactions; Classification of hypersensitivity,Fig. 1; Table 1,hypersensitivity;tryptase,Y,N,Two-column journal layout
+P1,4,6801,Classification; Incidence and risk factors,Modified Ring-Messmer classification,Table 2,hypersensitivity;tryptase;ICM,Y,Y,Two-column journal layout
+P1,5,6802,Incidence and risk factors; Management of IHR; Management of NIHR,Incidence and risk factors; Management,,hypersensitivity;GBCA;ICM;cross_reactivity,Y,Y,Two-column journal layout
+P1,6,6803,Therapy of immediate hypersensitivity reactions,,Fig. 2,hypersensitivity;adrenaline;SABA,Y,N,Figure-dominant page (Fig. 2 therapy algorithm); sparse body text; Two-column journal layout
+P1,7,6804,Drugs used in treatment,Adrenaline; H1-antihistamines; SABA; Corticosteroids,Fig. 3; Fig. 4,hypersensitivity;adrenaline;antihistamine;corticosteroid;tryptase;SABA,Y,Y,Two-column journal layout
+P1,8,6805,CMSC recommendations Table 3,Immediate/acute hypersensitivity reactions in adults,Table 3,hypersensitivity;adrenaline;antihistamine;corticosteroid;tryptase;pregnancy_lactation;documentation;SABA,Y,Y,Two-column journal layout
+P1,9,6806,CMSC recommendations Table 3 continued,Non-immediate/delayed hypersensitivity reactions in adults,Table 3,hypersensitivity;adrenaline;antihistamine;corticosteroid;tryptase;NSF;SABA,Y,Y,Two-column journal layout
+P1,10,6807,Documentation of hypersensitivity reactions; Table 3 continued,Documentation,Table 3,hypersensitivity;corticosteroid;documentation;terminology,Y,Y,Two-column journal layout
+P1,11,6808,Conclusion; Abbreviations; Declarations,Conclusion; Abbreviations,,hypersensitivity;adrenaline;antihistamine;GBCA;ICM;ultrasound_CA;documentation;SABA,Y,Y,Two-column journal layout
+P1,12,6809,References,References,,hypersensitivity;adrenaline;antihistamine;GBCA;ICM;paediatric;SABA,Y,Y,References; Two-column journal layout
+P1,13,6810,References,References continued,,hypersensitivity;adrenaline;antihistamine;corticosteroid;NSF;GBCA;ICM;ultrasound_CA;documentation,Y,N,References; Two-column journal layout
+P2,1,6811,Title/Abstract/Key Points,Abstract; Key Points,,hypersensitivity;corticosteroid;tryptase;cross_reactivity,Y,Y,
+P2,2,6812,Introduction; Methods; Results (start),Introduction; Methods,,hypersensitivity;corticosteroid;tryptase;NSF;paediatric;questionnaire,Y,Y,Two-column journal layout
+P2,3,6813,Results: allergy evaluation; prevention strategies,Allergy evaluation; Premedication discussion start,,hypersensitivity;corticosteroid;tryptase;NSF;GBCA;ICM,Y,Y,Two-column journal layout
+P2,4,6814,Use of premedication; IHR pathway figure,Use of premedication,Fig. 1,hypersensitivity;antihistamine;corticosteroid;tryptase;GBCA;ICM;waiting_times;documentation,Y,Y,Two-column journal layout
+P2,5,6815,ICM chemical structures / cross-reactivity grouping,,Fig. 2,hypersensitivity;antihistamine;corticosteroid;GBCA;ICM,Y,Y,Figure-dominant chemical structure pages; Two-column journal layout
+P2,6,6816,GBCA chemical structures / grouping,,Fig. 3,hypersensitivity;corticosteroid;GBCA;ICM,Y,Y,Figure-dominant chemical structure pages; Two-column journal layout
+P2,7,6817,Selection of alternative CM based on practical experience,Iodine-based contrast media (ICM); Gadolinium-based contrast agents (GBCA),Table 1,hypersensitivity;GBCA;ICM;cross_reactivity,Y,Y,Two-column journal layout
+P2,8,6818,CMSC recommendations Table 2,Allergy assessment; Immediate hypersensitivity reactions (IHR),Table 2,hypersensitivity;tryptase;GBCA;ICM;documentation;terminology,Y,Y,Two-column journal layout
+P2,9,6819,CMSC recommendations Table 2 continued,Emergency premedication protocol; Non-immediate hypersensitivity reactions (NIHR),Table 2,hypersensitivity;antihistamine;corticosteroid;GBCA;ICM;documentation;terminology,Y,Y,Two-column journal layout
+P2,10,6820,CMSC recommendations Table 2 continued,Cross-reactivity between contrast agents,Table 2,hypersensitivity;GBCA;ICM;cross_reactivity;documentation;terminology,Y,Y,Two-column journal layout
+P2,11,6821,Table 2 continued; Change to alternative; Discussion,Change to an alternative contrast agent based on practical experience,Table 2,hypersensitivity;corticosteroid;NSF;GBCA;ICM;cross_reactivity,Y,Y,Two-column journal layout
+P2,12,6822,NIHR pathway; Abbreviations; Declarations,Abbreviations; Funding; Compliance,Fig. 4,hypersensitivity;tryptase;NSF;GBCA;ICM;cross_reactivity;documentation,Y,Y,Two-column journal layout
+P2,13,6823,References,References,,hypersensitivity;tryptase;CA-AKI;GBCA;paediatric,Y,N,References; Two-column journal layout
+P2,14,6824,References,References continued,,hypersensitivity;antihistamine;corticosteroid;tryptase;NSF;GBCA;ICM;cross_reactivity,Y,N,References; Two-column journal layout
+P2,15,6825,References,References continued,,hypersensitivity;corticosteroid;GBCA;ICM;cross_reactivity,Y,N,References; Two-column journal layout

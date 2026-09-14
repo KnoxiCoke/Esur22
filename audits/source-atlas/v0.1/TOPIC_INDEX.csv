@@ -1,0 +1,79 @@
+topic_id,topic_label_source_native,source_ids,atlas_ids,notes
+T-COVER,Cover / Umschlag / Version 10.0,V10EN;V10DE,V10EN-C1-001;V10EN-C1-002;V10EN-C1-070;V10DE-C1-001;V10DE-C1-002;V10DE-C1-067,
+T-PREFACE,Preface / Einleitung,V10EN;V10DE,V10EN-C1-003;V10DE-C1-003;V10DE-C1-004,
+T-QUICKGUIDE,Quick guide / Kurzanleitung,V10EN;V10DE,V10DE-C1-004;V10EN-C1-004;V10DE-C1-003,
+T-TOC,Contents / Inhalt,V10EN;V10DE,V10EN-C1-005;V10EN-C1-006;V10DE-C1-005;V10DE-C1-006,
+T-TERMINOLOGY,Terminology: contrast agent vs contrast medium / Terminologie,V10EN;V10DE,V10EN-C1-006;V10DE-C1-007,
+T-ACUTE-AR,Acute adverse reactions / Akute unerwünschte Wirkungen,V10EN;V10DE,V10EN-C1-007;V10EN-C1-008;V10EN-C1-009;V10EN-C1-010,
+T-ACUTE-MGMT,Management of acute adverse reactions / Ersttherapie,V10EN;V10DE,V10EN-C1-010;V10EN-C1-011;V10EN-C1-012;V10EN-C1-031;V10DE-C1-011;V10DE-C1-012;V10DE-C1-029;V10EN-C1-013;V10EN-C1-014;V10EN-C1-015;V10EN-C1-016;V10DE-C1-010;V10DE-C1-013;V10DE-C1-014;V10DE-C1-015;V10DE-C1-016;V10DE-C1-017,
+T-WARMING,Warming iodine-based contrast medium,V10EN,V10EN-C1-014;V10EN-C1-013;V10EN-C1-015;V10EN-C1-016,Present as A.1.3 in EN; DE A.1.3 is Dokumentation (numbering differs) — presence note only
+T-EXTRAVASC,Extravascular administration / Extravaskuläre Verabreichung,V10EN;V10DE,V10EN-C1-015;V10DE-C1-016;V10EN-C1-013;V10EN-C1-014;V10EN-C1-016,
+T-FASTING,Fasting before contrast / Nüchtern,V10EN;V10DE,V10EN-C1-016;V10DE-C1-017;V10EN-C1-013;V10EN-C1-014;V10EN-C1-015;V10DE-C1-013;V10DE-C1-014;V10DE-C1-015;V10DE-C1-016,
+T-LATE-AR,Late adverse reactions / Späte unerwünschte Wirkungen,V10EN;V10DE,V10EN-C1-017;V10EN-C1-018;V10EN-C1-019;V10DE-C1-018,
+T-THYROTOX,Thyrotoxicosis / Thyreotoxikose,V10EN;V10DE,V10EN-C1-019;V10DE-C1-020;V10EN-C1-018;V10DE-C1-019;V10DE-C1-021,
+T-NSF,Nephrogenic systemic fibrosis (NSF) / Nephrogene Systemische Fibrose,V10EN;V10DE,V10EN-C1-020;V10EN-C1-022;V10EN-C1-023;V10EN-C1-024;V10EN-C1-025;V10DE-C1-021;V10DE-C1-022;V10DE-C1-023;V10EN-C1-021;V10DE-C1-019;V10DE-C1-020;V10DE-C1-024;V10DE-C1-025,
+T-GBCA-RISK,Gadolinium NSF risk classification / NSF-Risikoklassifikation,V10EN;V10DE,V10DE-C1-022;V10EN-C1-021;V10EN-C1-022;V10EN-C1-023,
+T-PC-AKI,Post-contrast acute kidney injury (PC-AKI),V10EN;V10DE,V10EN-C1-026;V10EN-C1-028;V10DE-C1-024;V10EN-C1-027;V10EN-C1-029;V10EN-C1-030;V10EN-C1-031;V10EN-C1-032;V10EN-C1-033;V10EN-C1-034;V10EN-C1-035;V10DE-C1-023;V10DE-C1-025;V10DE-C1-026;V10DE-C1-027;V10DE-C1-028;V10DE-C1-029;V10DE-C1-030;V10DE-C1-031;V10DE-C1-032;V10DE-C1-033;V10DE-C1-034;V10DE-C1-035;V10DE-C1-036,
+T-EGFR,Measurement of renal function / eGFR,V10EN;V10DE,V10EN-C1-027;V10EN-C1-029;V10EN-C1-037;V10DE-C1-025;V10EN-C1-026;V10EN-C1-028;V10EN-C1-030;V10EN-C1-031;V10EN-C1-032;V10EN-C1-033;V10EN-C1-036;V10EN-C1-038;V10DE-C1-023;V10DE-C1-024;V10DE-C1-026;V10DE-C1-027;V10DE-C1-028;V10DE-C1-029;V10DE-C1-030;V10DE-C1-031,
+T-HYDRATION,Preventive hydration / Präventive Hydrierung,V10EN;V10DE,V10EN-C1-030;V10EN-C1-031;V10DE-C1-028;V10DE-C1-029;V10EN-C1-032;V10EN-C1-033;V10DE-C1-030;V10DE-C1-031,
+T-MYELOMA,Multiple myeloma / Multiples Myelom,V10EN;V10DE,V10EN-C1-034;V10DE-C1-032;V10EN-C1-035;V10DE-C1-033;V10DE-C1-034;V10DE-C1-035;V10DE-C1-036,
+T-METFORMIN,Metformin and diabetes mellitus,V10EN;V10DE,V10EN-C1-036;V10EN-C1-037;V10DE-C1-034;V10EN-C1-030;V10EN-C1-031;V10EN-C1-038;V10EN-C1-052;V10DE-C1-032;V10DE-C1-033;V10DE-C1-035;V10DE-C1-036,
+T-DIALYSIS,Dialysis and contrast / Dialyse,V10EN;V10DE,V10EN-C1-039;V10DE-C1-037;V10DE-C1-032;V10DE-C1-033;V10DE-C1-034;V10DE-C1-035;V10DE-C1-036;V10DE-C1-038;V10DE-C1-039;V10DE-C1-040,
+T-TIMING-SAME-DAY,Same-day iodine and gadolinium,V10EN;V10DE,V10EN-C1-029;V10EN-C1-031;V10DE-C1-038;V10EN-C1-040;V10EN-C1-041;V10EN-C1-042;V10DE-C1-037;V10DE-C1-039;V10DE-C1-040,
+T-TIMING-INTERVAL,Intervals between contrast injections,V10EN;V10DE,V10DE-C1-039;V10DE-C1-040;V10EN-C1-041;V10EN-C1-042;V10DE-C1-037;V10DE-C1-038,
+T-EXTRAVASATION,Contrast medium extravasation / Extravasate,V10EN;V10DE,V10EN-C1-044;V10DE-C1-042;V10EN-C1-043;V10DE-C1-013;V10DE-C1-014;V10DE-C1-015;V10DE-C1-016;V10DE-C1-017;V10DE-C1-041;V10DE-C1-043;V10DE-C1-044;V10DE-C1-045,
+T-PULMONARY,Pulmonary effects / Pulmonale Wirkungen,V10EN;V10DE,V10EN-C1-045;V10DE-C1-043;V10EN-C1-046;V10EN-C1-047;V10DE-C1-041;V10DE-C1-042;V10DE-C1-044;V10DE-C1-045,
+T-THROMBOSIS,Thrombosis / Thrombose,V10EN;V10DE,V10EN-C1-047;V10DE-C1-045;V10EN-C1-045;V10EN-C1-046;V10DE-C1-041;V10DE-C1-042;V10DE-C1-043;V10DE-C1-044,
+T-SICKLE,Sickle cell disease / Sichelzellanämie,V10EN;V10DE,V10EN-C1-048;V10DE-C1-046;V10EN-C1-049;V10DE-C1-047;V10DE-C1-048;V10DE-C1-049,
+T-PHEO,Pheochromocytoma and paraganglioma / Katecholamin-Tumoren,V10EN;V10DE,V10EN-C1-049;V10DE-C1-047;V10EN-C1-048;V10DE-C1-046;V10DE-C1-048;V10DE-C1-049,
+T-PREGNANCY,Pregnancy and lactation / Schwangerschaft und Stillzeit,V10EN;V10DE,V10EN-C1-050;V10EN-C1-051;V10DE-C1-048;V10DE-C1-049;V10DE-C1-046;V10DE-C1-047;V10DE-C1-050,
+T-DRUG-INTERACT,Drug and clinical test interactions / Wechselwirkungen,V10EN;V10DE,V10DE-C1-050;V10EN-C1-052,
+T-GD-BRAIN,Gadolinium retention in the brain / Gadoliniumretention im Gehirn,V10EN;V10DE,V10EN-C1-054;V10DE-C1-052;V10DE-C1-053;V10EN-C1-053;V10EN-C1-055;V10EN-C1-056;V10DE-C1-051;V10DE-C1-054,
+T-GD-OTHER,Gadolinium retention bone/liver/skin and environment,V10EN;V10DE,V10EN-C1-055;V10EN-C1-056;V10DE-C1-053;V10DE-C1-054;V10DE-C1-051;V10DE-C1-052,
+T-ULTRASOUND,Ultrasound contrast agents / Ultraschall-Kontrastmittel,V10EN;V10DE,V10EN-C1-010;V10EN-C1-057;V10DE-C1-055;V10DE-C1-056,DE TOC labels C.8 as Weitere Aspekte Gadolinium while body content on printed 44–45 matches ultrasound safety — see open questions
+T-BARIUM,Barium contrast media / Bariumhaltige Röntgenkontrastmittel,V10EN;V10DE,V10EN-C1-058;V10DE-C1-056;V10DE-C1-055,
+T-PEDIATRIC,Pediatric use / Kontrastmittel bei Kindern,V10EN;V10DE,V10EN-C1-059;V10DE-C1-057;V10EN-C1-060;V10DE-C1-058;V10DE-C1-059;V10DE-C1-060,
+T-OFFLABEL,Off-label use / Off-Label-Einsatz,V10EN;V10DE,V10EN-C1-060;V10DE-C1-058;V10EN-C1-059;V10DE-C1-057;V10DE-C1-059;V10DE-C1-060,
+T-QUESTIONNAIRES,Questionnaires and letters / Fragebögen/Musterbriefe,V10EN;V10DE,V10EN-C1-013;V10EN-C1-061;V10EN-C1-062;V10EN-C1-064;V10EN-C1-065;V10DE-C1-062;V10DE-C1-063;V10EN-C1-063;V10DE-C1-057;V10DE-C1-058;V10DE-C1-059;V10DE-C1-060;V10DE-C1-061;V10DE-C1-064;V10DE-C1-065,
+T-APPENDIX,"Appendix / Anhang (publications, committee)",V10EN;V10DE,V10EN-C1-066;V10EN-C1-067;V10EN-C1-068;V10DE-C1-064;V10DE-C1-065;V10DE-C1-066;V10DE-C1-063,
+TOP-TERM-001,Terminology: Contrast agents and contrast media,BK25,BK25-TERM-001,Booklet-only terminology definitions
+TOP-HSR-001,Hypersensitivity reactions to contrast agents (in adults),BK25;P1;P2,BK25-HSR-001;BK25-HSR-002;BK25-HSR-003;BK25-HSR-004;BK25-HSR-012;BK25-HSR-013;BK25-HSR-015;BK25-HSR-019;BK25-HSR-021;P1-HSR-001;P1-HSR-008;P1-HSR-009;P1-HSR-011;P1-HSR-012;P1-HSR-017;P2-HSR-001;P2-HSR-008;P2-HSR-012;P2-HSR-014,Cross-cutting; BK25 summary + P1 management + P2 prevention
+TOP-HSR-002,Categories of immediate hypersensitivity reactions / ACR and Ring & Messmer classification,BK25;P1,BK25-HSR-002;P1-HSR-008;P1-HSR-009,Classification tables present in BK25 and P1
+TOP-HSR-003,Management of immediate/acute hypersensitivity reactions,BK25;P1,BK25-HSR-003;BK25-HSR-004;BK25-HSR-007;BK25-HSR-008;BK25-HSR-009;BK25-HSR-010;BK25-HSR-011;P1-HSR-011;P1-HSR-012;P1-HSR-016,Treatment algorithms and Table 3 (P1) / booklet bullets
+TOP-HSR-004,Non-immediate/delayed hypersensitivity reactions,BK25;P1;P2,BK25-HSR-012;BK25-HSR-021;P1-HSR-011;P2-HSR-014,
+TOP-HSR-005,Documentation of hypersensitivity reactions,BK25;P1,BK25-HSR-013;P1-HSR-017,
+TOP-HSR-006,Prevention of recurrent hypersensitivity reactions,BK25;P2,BK25-HSR-015;P2-HSR-001;P2-HSR-012,P2 is full guideline; BK25 is condensed
+TOP-HSR-007,"In vitro tests (tryptase, BAT)",BK25;P1;P2,BK25-HSR-016,Tryptase timing also in management sections
+TOP-HSR-008,Allergy assessment / drug allergy specialist referral,BK25;P2,BK25-HSR-017;P2-HSR-012,
+TOP-HSR-009,Emergency premedication protocol,BK25;P2,BK25-HSR-020;P2-HSR-012,EAACI-referenced emergency premedication
+TOP-HSR-010,Cross-reactivity between contrast agents,BK25;P2,BK25-HSR-022;P2-HSR-009;P2-HSR-010;P2-HSR-011,Chemical grouping figures in P2
+TOP-HSR-011,Change to an alternative contrast agent based on practical experience,BK25;P2,BK25-HSR-023;P2-HSR-011;P2-HSR-013,CMSC notes lack of robust evidence-based recommendations
+TOP-HSR-012,Use of premedication,P2;BK25,P2-HSR-007;BK25-HSR-020,Discussed primarily in P2; emergency protocol in BK25
+TOP-HSR-013,"Drugs used in treatment (adrenaline, H1-antihistamines, SABA, corticosteroids)",P1;BK25,P1-HSR-013;P1-HSR-014;P1-HSR-015;BK25-HSR-008,
+TOP-AKI-001,Prevention of contrast-associated acute kidney injury (CA-AKI),BK25,BK25-AKI-001;BK25-AKI-010,Terminology note PC-AKI→CA-AKI from 2025
+TOP-GBCA-REN-001,Renal adverse reactions to gadolinium-based contrast agents,BK25,BK25-GBCA-001,
+TOP-DIAL-001,Safe use of contrast agent administration in patients on dialysis,BK25,BK25-DIAL-001;BK25-DIAL-002;BK25-DIAL-003,
+TOP-EXT-001,Management and prevention of contrast agent extravasation,BK25,BK25-EXT-001,
+TOP-WAIT-001,Safe time intervals between contrast agent injections,BK25,BK25-WAIT-001;BK25-WAIT-002;BK25-WAIT-003;BK25-WAIT-004,
+TOP-LAB-001,Analytical interference of intravascular contrast agents with clinical laboratory tests,BK25,BK25-LAB-001;BK25-LAB-002;BK25-LAB-003,
+TOP-NSF-001,Prevention of Nephrogenic Systemic Fibrosis (NSF) / GBCA risk classification,BK25,BK25-NSF-001;BK25-NSF-002,
+TOP-PREG-001,Safe use of contrast agents in pregnancy and lactation,BK25,BK25-PREG-001;BK25-PREG-002;BK25-PREG-003;BK25-PREG-004,Listed among guidelines being updated
+TOP-PED-001,Safe use of contrast agents in paediatric patients,BK25,BK25-PED-001,
+TOP-SYS-001,Diabetes mellitus taking metformin,BK25,BK25-SYS-002,Also listed as being updated
+TOP-SYS-002,Prevention of iodine-induced hyperthyroidism,BK25,BK25-SYS-003,
+TOP-SYS-003,Pheochromocytoma - paraganglioma (PPGL),BK25,BK25-SYS-004,
+TOP-SYS-004,Myasthenia gravis,BK25,BK25-SYS-005,
+TOP-RET-001,Gadolinium retention in the brain and body,BK25,BK25-RET-001;BK25-RET-002;BK25-RET-003,
+TOP-US-001,Safety of ultrasound contrast agents,BK25,BK25-US-001,Also listed among guidelines being updated
+TOP-MISC-001,Safety of CO2 as an alternative to iodine-based contrast media in vascular procedures,BK25,BK25-MISC-002,
+TOP-MISC-002,Safe use of contrast agents in hysterosalpingography (HSG),BK25,BK25-MISC-003,
+TOP-MISC-003,Fasting before administration of contrast agents,BK25,BK25-MISC-004,
+TOP-MISC-004,Warming of iodine-based contrast medium before administration,BK25,BK25-MISC-005,
+TOP-MISC-005,Off-label use of contrast agents,BK25,BK25-MISC-006,
+TOP-MISC-006,Safety of barium contrast media,BK25,BK25-MISC-007,
+TOP-MISC-007,Pulmonary effects of iodine-based contrast media,BK25,BK25-MISC-008,
+TOP-MISC-008,Gadolinium contamination of the environment,BK25,BK25-MISC-009,
+TOP-UPD-001,The following guidelines are currently being updated,BK25,BK25-UPD-001,Presence list only; no medical verdict
+TOP-Q-001,Questionnaires and Letters,BK25,BK25-Q-001;BK25-Q-002;BK25-Q-003;BK25-Q-004,
+TOP-APP-001,Appendix 1. Publications from the ESUR Contrast Media Safety Committee,BK25,BK25-APP-002,Includes citations to P1 and P2 2025 papers
+TOP-APP-002,"Appendix 2. Contrast Media Safety Committee, 2025",BK25,BK25-APP-003,
