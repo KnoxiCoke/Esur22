@@ -1352,7 +1352,7 @@ arrest: [
                 "Defines mild, moderate and severe extravasation using clinical findings and instructs assessment of severity.",
                 "Retains separate technique-related and patient-related risk factors and specifies further risk-reduction measures, including preferred use of an appropriately sized upper-arm vein, suitable cannula size, appropriate flow and pressure, and contrast-volume minimisation based on indication and patient size.",
                 "Specifies recognition during and after injection, recording in the radiology report and local incident system, a patient information leaflet, and a follow-up appointment if necessary.",
-                "For moderate or severe cases, two orthogonal radiographic views or cross-sectional imaging can help assess extent and compartmentalisation. Urgent surgical advice is stated for suspected severe injury; surgical opinion is also recommended for extravasated volumes >150 mL."
+                "For moderate or severe cases, two orthogonal radiographic views or cross-sectional imaging can help assess extent and compartmentalisation. If severe injury is suspected, urgently seek advice from a surgeon; surgical opinion is also recommended for extravasated volumes >150 mL."
               ]
             },
             {
@@ -1365,6 +1365,7 @@ arrest: [
           ],
           refs: [
             "ESUR Guidelines 10.0 (2018), § C.1, printed p. 26 (PDF p. 27).",
+            "Official German ESUR Guidelines 10.0 (2018), § C.1, printed p. 36 (PDF p. 19).",
             "ESUR CMSC Guidelines 2025, Management and prevention of contrast agent extravasation, printed pp. 20–21 (PDF pp. 20–21)."
           ]
         },
@@ -2085,7 +2086,7 @@ arrest: [
               label: "2025",
               bullets: [
                 "Definiert leichte, moderate und schwere Extravasationen anhand klinischer Befunde und sieht die Beurteilung des Schweregrades vor.",
-                "Behält die Trennung technischer und patientenbezogener Risikofaktoren bei und konkretisiert weitere Massnahmen zur Risikoreduktion: Eine geeignete Oberarmvene wird bevorzugt; Kanülengrösse, Fluss und Druck sollen passend gewählt und das Kontrastmittelvolumen anhand von Indikation und Patientengrösse minimiert werden.",
+                "Behält die Trennung technischer und patientenbezogener Risikofaktoren bei und konkretisiert weitere Massnahmen zur Risikoreduktion: Eine geeignete Oberarmvene wird bevorzugt; ausserdem nennt der Abschnitt eine geeignete Kanülengrösse, passende Flussraten und Drücke sowie die Minimierung des Kontrastmittelvolumens anhand von Indikation und Patientengrösse.",
                 "Konkretisiert die Erkennung während und nach der Injektion, die Dokumentation im radiologischen Bericht und im lokalen Meldesystem, ein Patienteninformationsblatt sowie einen Nachsorgetermin, falls erforderlich.",
                 "Bei moderaten oder schweren Fällen können zwei orthogonale Röntgenaufnahmen oder eine Schnittbildgebung helfen, Ausdehnung und Kompartimentierung zu beurteilen. Bei Verdacht auf schwere Schäden ist dringend chirurgischer Rat einzuholen; bei einem extravasierten Volumen >150 mL wird eine chirurgische Beurteilung ebenfalls empfohlen."
               ]
