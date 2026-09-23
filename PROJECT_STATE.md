@@ -9,14 +9,15 @@ Last remote verification: 2026-09-23
 
 - Repository: `KnoxiCoke/Esur22`
 - Current `main`: `179d58b73a7798e06a1573211fd0ed594d7acdd2` (merged Laboratory Interference PR `#15`; Extravasation PR `#14` was merged immediately before it).
-- Refactor branch: `refactor/modularize-script`, HEAD `0cba0542fef7b590bcbf5fa588088728bc78dc1b` (Draft PR `#12`, open, not merged).
-- PR `#12` official HSR Regression CI: run `35919339082`, successful, `94/94 passed`.
-- GitHub's virtual merge of current `main` and PR `#12`: commit `77a8f135b6e3bd78ed26e236de27e70bdda2004f`, tree `615ef4a303f614c80321862e487cd57aa2661e37`. The PR HEAD has the same tree; the locally tested combined tree also matches it.
+- Refactor branch: `refactor/modularize-script` (Draft PR `#12`, open, not merged). Check the live GitHub PR for its current HEAD.
+- Independently verified Medical integration code commit: `0cba0542fef7b590bcbf5fa588088728bc78dc1b`; verified code tree: `615ef4a303f614c80321862e487cd57aa2661e37`.
+- At that code milestone, GitHub's virtual merge of `main` and PR `#12` was `77a8f135b6e3bd78ed26e236de27e70bdda2004f` with the same code tree. This is historical verification, not a current virtual merge reference.
+- Code-milestone CI: run `35919339082`, successful, `94/94 passed`. Subsequent documentation-only commit `071830ce74e66fc277124169acdcc43b79a2aa41`: CI run `35921260615`, successful, `94/94 passed`.
 - Historical ENG-09 reference branch HEAD: `dc9ea4d00d89d47660f8d7b2293a713cb8a98439`. Historical Waiting Times production-code milestone: `dc8cd213d9329bcf49313544bb6cc51972ee5ebf`.
 
 ## Pull requests
 
-- `#12` — modularization; open Draft at `0cba0542fef7b590bcbf5fa588088728bc78dc1b`; technically verified on the combined tree, not merged.
+- `#12` — modularization; open Draft, not merged. Medical integration code milestone `0cba0542fef7b590bcbf5fa588088728bc78dc1b` and later docs-only milestone `071830ce74e66fc277124169acdcc43b79a2aa41` are verified; check the live PR for its current HEAD.
 - `#14` — Extravasation; merged into `main` as `9bd716cc23dd4457c89f6be186a94e5e0418c8a5`.
 - `#15` — Laboratory Interference; merged into `main` as `179d58b73a7798e06a1573211fd0ed594d7acdd2`.
 - `#13` — separate Laboratory Interference Draft, still open at `8996ee5eebb21996444e4a300f7514c1e7758701`. Its relationship to the already merged `#15` requires a separate disposition; do not merge it automatically.
@@ -60,7 +61,7 @@ This does **not** mean final Medical Affairs approval or medical validation.
 
 The completed `waiting_times` workflow includes the Grok blind source pass, Work primary source audit, Grok challenge, ChatGPT exact EN/DE Medical Lock, Codex exact implementation, independent patch/scope verification, remote implementation verification and official GitHub CI verification.
 
-The PR `#12` integration commit `0cba0542fef7b590bcbf5fa588088728bc78dc1b` copied both merged EN/DE Medical card objects from current `main` without rewriting them. All 18 EN/DE Practice Changes objects were compared against the intended branch versions; the other three audited branch cards remained unchanged. The accompanying smoke-test change replaced a search token that the updated Laboratory Interference card no longer contains. These are content-integrity and software-test findings, not a new source audit or Medical Affairs approval.
+The independently verified PR `#12` Medical integration code commit `0cba0542fef7b590bcbf5fa588088728bc78dc1b` copied both merged EN/DE Medical card objects from `main` without rewriting them. All 18 EN/DE Practice Changes objects were compared against the intended branch versions; the other three audited branch cards remained unchanged. The accompanying smoke-test change replaced a search token that the updated Laboratory Interference card no longer contains. These are content-integrity and software-test findings, not a new source audit or Medical Affairs approval.
 
 ### Practice Changes audit governance
 
@@ -120,8 +121,8 @@ Keep three questions separate:
 
 - Playwright regression inventory: `94 tests`
 - Shared fixture fails on browser `pageerror` and `console.error`.
-- Latest verified PR `#12` integration CI run: `35919339082` (`HSR Regression`, run number `129`).
-- Result: `successful` (`94/94 passed`) on the current PR HEAD. The GitHub virtual merge with current `main` has the same tree `615ef4a303f614c80321862e487cd57aa2661e37` as the locally tested branch tree.
+- Medical integration code milestone `0cba0542fef7b590bcbf5fa588088728bc78dc1b`: `HSR Regression` run `35919339082` (run number `129`), successful (`94/94 passed`). Its code tree `615ef4a303f614c80321862e487cd57aa2661e37` matched the locally tested tree and the virtual merge tree at that milestone.
+- Subsequent documentation-only commit `071830ce74e66fc277124169acdcc43b79a2aa41`: `HSR Regression` run `35921260615` (run number `130`), successful (`94/94 passed`). Documentation-only commits have their own trees; they are not asserted to match the earlier code tree.
 - The follow-up commit changed only `script.js` (+67/-60) and `tests/changes-smoke.spec.js` (+9/-6); the new search term has one Laboratory Interference match in each language, and the EN/DE language-switch smoke test checks the result count.
 - `tests/waiting-times.spec.js` protects the exact EN/DE Compare and Action Waiting-Times Medical-Lock content.
 
