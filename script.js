@@ -1260,7 +1260,7 @@ arrest: [
         icon: "lab",
         title: "Analytical interference with laboratory tests",
         summary:
-          "2025 makes laboratory interference a distinct practice block with clearer eGFR-based timing for blood and urine collection.",
+          "Version 10.0 already included blood- and urine-sampling advice. The 2025 booklet sets out recommended delays after intravascular contrast agent administration separately for blood and urine across three eGFR groups.",
         keywords: [
           "laboratory",
           "blood",
@@ -1275,26 +1275,27 @@ arrest: [
             {
               label: "2018",
               paragraphs: [
-                "The 2018 guideline discussed interaction with other drugs and clinical tests, but the advice was more general: collect blood and urine before contrast whenever possible and delay post-contrast testing, especially in renal impairment."
+                "For non-emergency biochemical assays, Version 10.0 recommended collecting blood and urine preferably before contrast agent administration. With normal renal function, blood could be collected after 4 h if necessary. With reduced renal function (eGFR <45 mL/min/1.73 m²), blood collection should be delayed for as long as possible. The English version states that urine collection should not be done within 24 h; the official German version specifically refers to “Sammelurin”."
               ]
             },
             {
               label: "2025",
               paragraphs: [
-                "The 2025 guidance presents laboratory interference as its own section and gives clearer timing recommendations after intravascular iodine- or gadolinium-based contrast administration."
+                "The 2025 booklet has a separate section on analytical interference of intravascular contrast agents with laboratory tests. It provides expert-consensus guidance, including for iodine- and gadolinium-based compounds, and lists recommended blood- and urine-collection delays by eGFR group."
               ]
             },
             {
               label: "Practical impact",
               paragraphs: [
-                "This turns an older cautionary topic into a more usable timing framework for everyday blood and urine collection after contrast studies."
+                "Compared with the 2018 guidance, the 2025 booklet specifies three eGFR groups for each sample type, with both minimum and optimal recommended delays for blood collection and minimum recommended delays for urine collection."
               ],
               variant: "impact"
             }
           ],
           refs: [
-            "Source: ESUR 10.0 guideline",
-            "Source: ESUR 2025 laboratory-interference guidance"
+            "Source: ESUR Guidelines on Contrast Agents, Version 10.0 (2018), EN, section C.6 “Non-emergency biochemical assays”, printed p. 30 / PDF p. 31.",
+            "Source: Offizielle deutsche ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018), section C.6 “Laborchemische Proben in der Routinediagnostik”, printed p. 41 / PDF p. 21 (two-up).",
+            "Source: ESUR CMSC Contrast Agent Guidelines 2025 booklet, “Analytical interference of intravascular contrast agents with clinical laboratory tests”, printed/PDF p. 23."
           ]
         },
         action: {
@@ -1302,23 +1303,24 @@ arrest: [
             {
               label: "ESUR 2025 action points",
               bullets: [
-                "For blood collection after intravascular contrast: eGFR >60: minimum 4 h, optimal 12 h.",
-                "For blood collection after intravascular contrast: eGFR 30–60: minimum 16 h, optimal 48 h.",
-                "For blood collection after intravascular contrast: eGFR <30: minimum 60 h, optimal 168 h.",
-                "For urine collection after intravascular contrast: eGFR >60: minimum 24 h; eGFR 30–60: minimum 48 h; eGFR <30: minimum 7 days."
+                "Recommended delay for blood collection after intravascular contrast agent administration: eGFR >60 mL/min/1.73 m² — at least 4 h; optimally 12 h.",
+                "Recommended delay for blood collection after intravascular contrast agent administration: eGFR 30–60 mL/min/1.73 m² — at least 16 h; optimally 48 h.",
+                "Recommended delay for blood collection after intravascular contrast agent administration: eGFR <30 mL/min/1.73 m² — at least 2.5 days (60 h); optimally 7 days (168 h).",
+                "Recommended delay for urine collection after intravascular contrast agent administration: eGFR >60 mL/min/1.73 m² — at least 24 h; eGFR 30–60 mL/min/1.73 m² — at least 48 h; eGFR <30 mL/min/1.73 m² — at least 7 days (168 h)."
               ],
               variant: "action"
             },
             {
               label: "Why this matters",
               paragraphs: [
-                "The 2025 document gives a much more explicit practice framework than the older “delay if possible” approach."
+                "The 2018 guideline already contained specific blood- and urine-collection intervals. The 2025 booklet distinguishes three eGFR groups and provides recommended minimum and optimal delays for blood collection, but only minimum delays for urine collection."
               ]
             }
           ],
           refs: [
-            "Source: ESUR 2025 laboratory-interference guidance",
-            "Source: ESUR 10.0 guideline"
+            "Source: ESUR Guidelines on Contrast Agents, Version 10.0 (2018), EN, section C.6 “Non-emergency biochemical assays”, printed p. 30 / PDF p. 31.",
+            "Source: Offizielle deutsche ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018), section C.6 “Laborchemische Proben in der Routinediagnostik”, printed p. 41 / PDF p. 21 (two-up).",
+            "Source: ESUR CMSC Contrast Agent Guidelines 2025 booklet, “Analytical interference of intravascular contrast agents with clinical laboratory tests”, printed/PDF p. 23."
           ]
         }
       },
@@ -1996,7 +1998,7 @@ arrest: [
         icon: "lab",
         title: "Analytische Interferenz mit Labortests",
         summary:
-          "2025 wird Laborinterferenz zu einem eigenen Praxisblock mit klareren eGFR-basierten Zeitangaben für Blut- und Urinsammlung.",
+          "Version 10.0 enthielt bereits Empfehlungen zur Blut- und Urinprobenahme. Das Booklet 2025 nennt für die Probenahme nach intravaskulärer Kontrastmittelgabe getrennte empfohlene Wartezeiten für Blut und Urin in drei eGFR-Gruppen.",
         keywords: [
           "labor",
           "blut",
@@ -2011,26 +2013,27 @@ arrest: [
             {
               label: "2018",
               paragraphs: [
-                "Die 2018er Guideline behandelte Wechselwirkungen mit anderen Medikamenten und klinischen Tests, aber deutlich allgemeiner: Blut und Urin nach Möglichkeit vor Kontrastmittelgabe abnehmen und Nachkontrollen insbesondere bei Niereninsuffizienz hinauszögern."
+                "Für laborchemische Proben in der Routinediagnostik empfahl Version 10.0, Urin- und Blutproben vorzugsweise vor der Kontrastmittelgabe abzunehmen. Bei normaler Nierenfunktion konnte eine Blutentnahme bei Bedarf 4 h nach der Gabe erfolgen. Bei reduzierter Nierenfunktion (eGFR <45 ml/min/1,73 m²) sollten Blutentnahmen so lange wie möglich hinausgezögert werden. Die offizielle deutsche Fassung sagt, dass „Sammelurin“ für 24 h unterbleiben sollte; die englische Fassung spricht von „urine collection“."
               ]
             },
             {
               label: "2025",
               paragraphs: [
-                "Die 2025er Guidance führt Laborinterferenz als eigenen Abschnitt und gibt klarere Zeitangaben nach intravaskulärer Gabe iodhaltiger oder gadoliniumhaltiger Kontrastmittel."
+                "Das Booklet 2025 enthält einen eigenen Abschnitt zur analytischen Interferenz intravaskulärer Kontrastmittel mit Labortests. Es gibt Empfehlungen auf Grundlage eines Expertenkonsenses, unter anderem für iod- und gadoliniumhaltige Kontrastmittel, und nennt empfohlene Wartezeiten für Blut- und Urinproben nach eGFR-Gruppe."
               ]
             },
             {
               label: "Praktische Bedeutung",
               paragraphs: [
-                "Aus einem älteren Vorsichtsthema wird ein deutlich praktikableres Timing-Schema für Blut- und Urinabnahmen nach Kontrastmitteluntersuchungen."
+                "Im Vergleich zu 2018 nennt das Booklet 2025 drei eGFR-Gruppen für jede Probenart: Für Blutentnahmen werden empfohlene Mindest- und Optimalwartezeiten angegeben, für Urinproben nur empfohlene Mindestwartezeiten."
               ],
               variant: "impact"
             }
           ],
           refs: [
-            "Quelle: ESUR 10.0 Guideline",
-            "Quelle: ESUR 2025 Laborinterferenz-Guidance"
+            "Quelle: ESUR Guidelines on Contrast Agents, Version 10.0 (2018), EN, Abschnitt C.6 „Non-emergency biochemical assays“, gedruckte S. 30 / PDF-S. 31.",
+            "Quelle: Offizielle deutsche ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018), Abschnitt C.6 „Laborchemische Proben in der Routinediagnostik“, gedruckte S. 41 / PDF-S. 21 (Doppelseite).",
+            "Quelle: ESUR CMSC Contrast Agent Guidelines 2025 Booklet, „Analytical interference of intravascular contrast agents with clinical laboratory tests“, gedruckte/PDF-S. 23."
           ]
         },
         action: {
@@ -2038,23 +2041,24 @@ arrest: [
             {
               label: "ESUR-2025-Kernaussagen",
               bullets: [
-                "Für Blutentnahmen nach intravaskulärem Kontrastmittel: eGFR >60: Minimum 4 h, optimal 12 h.",
-                "Für Blutentnahmen nach intravaskulärem Kontrastmittel: eGFR 30–60: Minimum 16 h, optimal 48 h.",
-                "Für Blutentnahmen nach intravaskulärem Kontrastmittel: eGFR <30: Minimum 60 h, optimal 168 h.",
-                "Für Urinentnahmen nach intravaskulärem Kontrastmittel: eGFR >60: Minimum 24 h; eGFR 30–60: Minimum 48 h; eGFR <30: Minimum 7 Tage."
+                "Empfohlene Wartezeit für Blutentnahmen nach intravaskulärer Kontrastmittelgabe: eGFR >60 ml/min/1,73 m² — mindestens 4 h; optimal 12 h.",
+                "Empfohlene Wartezeit für Blutentnahmen nach intravaskulärer Kontrastmittelgabe: eGFR 30–60 ml/min/1,73 m² — mindestens 16 h; optimal 48 h.",
+                "Empfohlene Wartezeit für Blutentnahmen nach intravaskulärer Kontrastmittelgabe: eGFR <30 ml/min/1,73 m² — mindestens 2,5 Tage (60 h); optimal 7 Tage (168 h).",
+                "Empfohlene Wartezeit für Urinproben nach intravaskulärer Kontrastmittelgabe: eGFR >60 ml/min/1,73 m² — mindestens 24 h; eGFR 30–60 ml/min/1,73 m² — mindestens 48 h; eGFR <30 ml/min/1,73 m² — mindestens 7 Tage (168 h)."
               ],
               variant: "action"
             },
             {
               label: "Warum das wichtig ist",
               paragraphs: [
-                "Die 2025er Guidance ist hier viel klarer und praxisnäher als der ältere Ansatz „wenn möglich verzögern“."
+                "Die Guideline von 2018 enthielt bereits konkrete Zeitangaben zur Blut- und Urinprobenahme. Das Booklet 2025 unterscheidet drei eGFR-Gruppen und gibt für Blutentnahmen empfohlene Mindest- und Optimalwartezeiten an, für Urinproben jedoch nur empfohlene Mindestwartezeiten."
               ]
             }
           ],
           refs: [
-            "Quelle: ESUR 2025 Laborinterferenz-Guidance",
-            "Quelle: ESUR 10.0 Guideline"
+            "Quelle: ESUR Guidelines on Contrast Agents, Version 10.0 (2018), EN, Abschnitt C.6 „Non-emergency biochemical assays“, gedruckte S. 30 / PDF-S. 31.",
+            "Quelle: Offizielle deutsche ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018), Abschnitt C.6 „Laborchemische Proben in der Routinediagnostik“, gedruckte S. 41 / PDF-S. 21 (Doppelseite).",
+            "Quelle: ESUR CMSC Contrast Agent Guidelines 2025 Booklet, „Analytical interference of intravascular contrast agents with clinical laboratory tests“, gedruckte/PDF-S. 23."
           ]
         }
       },
