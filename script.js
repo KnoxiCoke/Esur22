@@ -440,7 +440,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "lab",
         title: "Analytical interference with laboratory tests",
         summary:
-          "2025 makes laboratory interference a distinct practice block with clearer eGFR-based timing for blood and urine collection.",
+          "Version 10.0 already included blood- and urine-sampling advice. The 2025 booklet sets out recommended delays after intravascular contrast agent administration separately for blood and urine across three eGFR groups.",
         keywords: [
           "laboratory",
           "blood",
@@ -455,26 +455,27 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: "2018",
               paragraphs: [
-                "The 2018 guideline discussed interaction with other drugs and clinical tests, but the advice was more general: collect blood and urine before contrast whenever possible and delay post-contrast testing, especially in renal impairment."
+                "For non-emergency biochemical assays, Version 10.0 recommended collecting blood and urine preferably before contrast agent administration. With normal renal function, blood could be collected after 4 h if necessary. With reduced renal function (eGFR <45 mL/min/1.73 m²), blood collection should be delayed for as long as possible. The English version states that urine collection should not be done within 24 h; the official German version specifically refers to “Sammelurin”."
               ]
             },
             {
               label: "2025",
               paragraphs: [
-                "The 2025 guidance presents laboratory interference as its own section and gives clearer timing recommendations after intravascular iodine- or gadolinium-based contrast administration."
+                "The 2025 booklet has a separate section on analytical interference of intravascular contrast agents with laboratory tests. It provides expert-consensus guidance, including for iodine- and gadolinium-based compounds, and lists recommended blood- and urine-collection delays by eGFR group."
               ]
             },
             {
               label: "Practical impact",
               paragraphs: [
-                "This turns an older cautionary topic into a more usable timing framework for everyday blood and urine collection after contrast studies."
+                "Compared with the 2018 guidance, the 2025 booklet specifies three eGFR groups for each sample type, with both minimum and optimal recommended delays for blood collection and minimum recommended delays for urine collection."
               ],
               variant: "impact"
             }
           ],
           refs: [
-            "Source: ESUR 10.0 guideline",
-            "Source: ESUR 2025 laboratory-interference guidance"
+            "Source: ESUR Guidelines on Contrast Agents, Version 10.0 (2018), EN, section C.6 “Non-emergency biochemical assays”, printed p. 30 / PDF p. 31.",
+            "Source: Offizielle deutsche ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018), section C.6 “Laborchemische Proben in der Routinediagnostik”, printed p. 41 / PDF p. 21 (two-up).",
+            "Source: ESUR CMSC Contrast Agent Guidelines 2025 booklet, “Analytical interference of intravascular contrast agents with clinical laboratory tests”, printed/PDF p. 23."
           ]
         },
         action: {
@@ -482,23 +483,24 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: "ESUR 2025 action points",
               bullets: [
-                "For blood collection after intravascular contrast: eGFR >60: minimum 4 h, optimal 12 h.",
-                "For blood collection after intravascular contrast: eGFR 30–60: minimum 16 h, optimal 48 h.",
-                "For blood collection after intravascular contrast: eGFR <30: minimum 60 h, optimal 168 h.",
-                "For urine collection after intravascular contrast: eGFR >60: minimum 24 h; eGFR 30–60: minimum 48 h; eGFR <30: minimum 7 days."
+                "Recommended delay for blood collection after intravascular contrast agent administration: eGFR >60 mL/min/1.73 m² — at least 4 h; optimally 12 h.",
+                "Recommended delay for blood collection after intravascular contrast agent administration: eGFR 30–60 mL/min/1.73 m² — at least 16 h; optimally 48 h.",
+                "Recommended delay for blood collection after intravascular contrast agent administration: eGFR <30 mL/min/1.73 m² — at least 2.5 days (60 h); optimally 7 days (168 h).",
+                "Recommended delay for urine collection after intravascular contrast agent administration: eGFR >60 mL/min/1.73 m² — at least 24 h; eGFR 30–60 mL/min/1.73 m² — at least 48 h; eGFR <30 mL/min/1.73 m² — at least 7 days (168 h)."
               ],
               variant: "action"
             },
             {
               label: "Why this matters",
               paragraphs: [
-                "The 2025 document gives a much more explicit practice framework than the older “delay if possible” approach."
+                "The 2018 guideline already contained specific blood- and urine-collection intervals. The 2025 booklet distinguishes three eGFR groups and provides recommended minimum and optimal delays for blood collection, but only minimum delays for urine collection."
               ]
             }
           ],
           refs: [
-            "Source: ESUR 2025 laboratory-interference guidance",
-            "Source: ESUR 10.0 guideline"
+            "Source: ESUR Guidelines on Contrast Agents, Version 10.0 (2018), EN, section C.6 “Non-emergency biochemical assays”, printed p. 30 / PDF p. 31.",
+            "Source: Offizielle deutsche ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018), section C.6 “Laborchemische Proben in der Routinediagnostik”, printed p. 41 / PDF p. 21 (two-up).",
+            "Source: ESUR CMSC Contrast Agent Guidelines 2025 booklet, “Analytical interference of intravascular contrast agents with clinical laboratory tests”, printed/PDF p. 23."
           ]
         }
       },
@@ -509,13 +511,13 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "extravasation",
         title: "Extravasation",
         summary:
-          "2025 is much more operational here, with severity framing, clearer prevention, structured detection, and escalation criteria.",
+          "The 2025 extravasation guidance adds explicit mild, moderate and severe definitions, more detailed recognition and reporting steps, and specified monitoring and surgical-escalation criteria. The 2018 guidelines already addressed risk factors, prevention, imaging and surgical advice.",
         keywords: [
           "extravasation",
           "contrast leak",
           "severity",
           "mild moderate severe",
-          "150 mL",
+          ">150 mL",
           "surgical opinion"
         ],
         compare: {
@@ -523,29 +525,30 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: "2018",
               paragraphs: [
-                "Extravasation was already addressed in 2018, but with a simpler management frame and less detailed separation of risk factors, recognition steps, and escalation pathways."
+                "The 2018 English and official German guidelines already separate technique-related from patient-related risk factors. They describe risk reduction, potentially helpful imaging documentation, conservative treatment in most cases, and surgical advice when serious injury is suspected."
               ]
             },
             {
               label: "2025",
               bullets: [
-                "Uses a clearer mild / moderate / severe framing.",
-                "Separates technique-related and patient-related risk factors.",
-                "Expands prevention, detection, documentation, follow-up, and escalation.",
-                "Specifically addresses radiographic documentation in moderate / severe cases and surgical input for severe injury concerns."
+                "Defines mild, moderate and severe extravasation using clinical findings and instructs assessment of severity.",
+                "Retains separate technique-related and patient-related risk factors and specifies further risk-reduction measures, including preferred use of an appropriately sized upper-arm vein, suitable cannula size, appropriate flow and pressure, and contrast-volume minimisation based on indication and patient size.",
+                "Specifies recognition during and after injection, recording in the radiology report and local incident system, a patient information leaflet, and a follow-up appointment if necessary.",
+                "For moderate or severe cases, two orthogonal radiographic views or cross-sectional imaging can help assess extent and compartmentalisation. If severe injury is suspected, urgently seek advice from a surgeon; surgical opinion is also recommended for extravasated volumes >150 mL."
               ]
             },
             {
               label: "Practical impact",
               paragraphs: [
-                "The 2025 approach is less dependent on local habit and more like an operational pathway."
+                "Compared with 2018, the 2025 section specifies three severity grades, more recognition and reporting steps, a 2–4-hourly monitoring interval for mild cases, and additional conditions for surgical advice."
               ],
               variant: "impact"
             }
           ],
           refs: [
-            "Source: ESUR 10.0 guideline",
-            "Source: ESUR 2025 extravasation guidance"
+            "ESUR Guidelines 10.0 (2018), § C.1, printed p. 26 (PDF p. 27).",
+            "Official German ESUR Guidelines 10.0 (2018), § C.1, printed p. 36 (PDF p. 19).",
+            "ESUR CMSC Guidelines 2025, Management and prevention of contrast agent extravasation, printed pp. 20–21 (PDF pp. 20–21)."
           ]
         },
         action: {
@@ -553,23 +556,24 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: "ESUR 2025 action points",
               bullets: [
-                "Use a structured mild / moderate / severe framework rather than treating all extravasations as one category.",
-                "Consider technique-related and patient-related risk factors separately.",
-                "For moderate / severe cases, radiographic documentation is described.",
-                "If severe injury is suspected, surgical assessment is described; a surgical opinion is also described for extravasation volumes >150 mL."
+                "The 2025 booklet directs classification as mild, moderate or severe. Moderate cases require close monitoring; physician assessment is advised to check for neurovascular compromise.",
+                "The 2025 section specifies further prevention details for venous access, cannula size, flow, pressure and contrast volume. Meticulous cannulation and a saline test injection were already described in 2018.",
+                "For mild cases, the 2025 booklet specifies limb elevation, ice packs and monitoring every 2–4 hours. Discharge is stated if improving; if there is no improvement, surgical opinion is required.",
+                "In moderate or severe cases, two orthogonal radiographic views or cross-sectional imaging can help assess extent and compartmentalisation. The complication is to be recorded in the radiology report and local incident system; a patient information leaflet should be given, and a follow-up appointment arranged if necessary.",
+                "If severe injury is suspected, urgently seek advice from a surgeon. Surgical opinion is also recommended when the extravasated volume exceeds 150 mL."
               ],
               variant: "action"
             },
             {
               label: "Why this matters",
               paragraphs: [
-                "Compared with 2018, this section is far more explicit about prevention, recognition, documentation, and escalation."
+                "The added 2025 detail concerns severity definitions, recognition, reporting, mild-case monitoring and specific indications for surgical advice; several risk-reduction and management measures were already present in 2018."
               ]
             }
           ],
           refs: [
-            "Source: ESUR 2025 extravasation guidance",
-            "Source: ESUR 10.0 guideline"
+            "ESUR CMSC Guidelines 2025, Management and prevention of contrast agent extravasation, printed pp. 20–21 (PDF pp. 20–21).",
+            "For the 2018 comparison: ESUR Guidelines 10.0, § C.1, printed p. 26 (PDF p. 27)."
           ]
         }
       },
@@ -1200,7 +1204,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "lab",
         title: "Analytische Interferenz mit Labortests",
         summary:
-          "2025 wird Laborinterferenz zu einem eigenen Praxisblock mit klareren eGFR-basierten Zeitangaben für Blut- und Urinsammlung.",
+          "Version 10.0 enthielt bereits Empfehlungen zur Blut- und Urinprobenahme. Das Booklet 2025 nennt für die Probenahme nach intravaskulärer Kontrastmittelgabe getrennte empfohlene Wartezeiten für Blut und Urin in drei eGFR-Gruppen.",
         keywords: [
           "labor",
           "blut",
@@ -1215,26 +1219,27 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: "2018",
               paragraphs: [
-                "Die 2018er Guideline behandelte Wechselwirkungen mit anderen Medikamenten und klinischen Tests, aber deutlich allgemeiner: Blut und Urin nach Möglichkeit vor Kontrastmittelgabe abnehmen und Nachkontrollen insbesondere bei Niereninsuffizienz hinauszögern."
+                "Für laborchemische Proben in der Routinediagnostik empfahl Version 10.0, Urin- und Blutproben vorzugsweise vor der Kontrastmittelgabe abzunehmen. Bei normaler Nierenfunktion konnte eine Blutentnahme bei Bedarf 4 h nach der Gabe erfolgen. Bei reduzierter Nierenfunktion (eGFR <45 ml/min/1,73 m²) sollten Blutentnahmen so lange wie möglich hinausgezögert werden. Die offizielle deutsche Fassung sagt, dass „Sammelurin“ für 24 h unterbleiben sollte; die englische Fassung spricht von „urine collection“."
               ]
             },
             {
               label: "2025",
               paragraphs: [
-                "Die 2025er Guidance führt Laborinterferenz als eigenen Abschnitt und gibt klarere Zeitangaben nach intravaskulärer Gabe iodhaltiger oder gadoliniumhaltiger Kontrastmittel."
+                "Das Booklet 2025 enthält einen eigenen Abschnitt zur analytischen Interferenz intravaskulärer Kontrastmittel mit Labortests. Es gibt Empfehlungen auf Grundlage eines Expertenkonsenses, unter anderem für iod- und gadoliniumhaltige Kontrastmittel, und nennt empfohlene Wartezeiten für Blut- und Urinproben nach eGFR-Gruppe."
               ]
             },
             {
               label: "Praktische Bedeutung",
               paragraphs: [
-                "Aus einem älteren Vorsichtsthema wird ein deutlich praktikableres Timing-Schema für Blut- und Urinabnahmen nach Kontrastmitteluntersuchungen."
+                "Im Vergleich zu 2018 nennt das Booklet 2025 drei eGFR-Gruppen für jede Probenart: Für Blutentnahmen werden empfohlene Mindest- und Optimalwartezeiten angegeben, für Urinproben nur empfohlene Mindestwartezeiten."
               ],
               variant: "impact"
             }
           ],
           refs: [
-            "Quelle: ESUR 10.0 Guideline",
-            "Quelle: ESUR 2025 Laborinterferenz-Guidance"
+            "Quelle: ESUR Guidelines on Contrast Agents, Version 10.0 (2018), EN, Abschnitt C.6 „Non-emergency biochemical assays“, gedruckte S. 30 / PDF-S. 31.",
+            "Quelle: Offizielle deutsche ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018), Abschnitt C.6 „Laborchemische Proben in der Routinediagnostik“, gedruckte S. 41 / PDF-S. 21 (Doppelseite).",
+            "Quelle: ESUR CMSC Contrast Agent Guidelines 2025 Booklet, „Analytical interference of intravascular contrast agents with clinical laboratory tests“, gedruckte/PDF-S. 23."
           ]
         },
         action: {
@@ -1242,23 +1247,24 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: "ESUR-2025-Kernaussagen",
               bullets: [
-                "Für Blutentnahmen nach intravaskulärem Kontrastmittel: eGFR >60: Minimum 4 h, optimal 12 h.",
-                "Für Blutentnahmen nach intravaskulärem Kontrastmittel: eGFR 30–60: Minimum 16 h, optimal 48 h.",
-                "Für Blutentnahmen nach intravaskulärem Kontrastmittel: eGFR <30: Minimum 60 h, optimal 168 h.",
-                "Für Urinentnahmen nach intravaskulärem Kontrastmittel: eGFR >60: Minimum 24 h; eGFR 30–60: Minimum 48 h; eGFR <30: Minimum 7 Tage."
+                "Empfohlene Wartezeit für Blutentnahmen nach intravaskulärer Kontrastmittelgabe: eGFR >60 ml/min/1,73 m² — mindestens 4 h; optimal 12 h.",
+                "Empfohlene Wartezeit für Blutentnahmen nach intravaskulärer Kontrastmittelgabe: eGFR 30–60 ml/min/1,73 m² — mindestens 16 h; optimal 48 h.",
+                "Empfohlene Wartezeit für Blutentnahmen nach intravaskulärer Kontrastmittelgabe: eGFR <30 ml/min/1,73 m² — mindestens 2,5 Tage (60 h); optimal 7 Tage (168 h).",
+                "Empfohlene Wartezeit für Urinproben nach intravaskulärer Kontrastmittelgabe: eGFR >60 ml/min/1,73 m² — mindestens 24 h; eGFR 30–60 ml/min/1,73 m² — mindestens 48 h; eGFR <30 ml/min/1,73 m² — mindestens 7 Tage (168 h)."
               ],
               variant: "action"
             },
             {
               label: "Warum das wichtig ist",
               paragraphs: [
-                "Die 2025er Guidance ist hier viel klarer und praxisnäher als der ältere Ansatz „wenn möglich verzögern“."
+                "Die Guideline von 2018 enthielt bereits konkrete Zeitangaben zur Blut- und Urinprobenahme. Das Booklet 2025 unterscheidet drei eGFR-Gruppen und gibt für Blutentnahmen empfohlene Mindest- und Optimalwartezeiten an, für Urinproben jedoch nur empfohlene Mindestwartezeiten."
               ]
             }
           ],
           refs: [
-            "Quelle: ESUR 2025 Laborinterferenz-Guidance",
-            "Quelle: ESUR 10.0 Guideline"
+            "Quelle: ESUR Guidelines on Contrast Agents, Version 10.0 (2018), EN, Abschnitt C.6 „Non-emergency biochemical assays“, gedruckte S. 30 / PDF-S. 31.",
+            "Quelle: Offizielle deutsche ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018), Abschnitt C.6 „Laborchemische Proben in der Routinediagnostik“, gedruckte S. 41 / PDF-S. 21 (Doppelseite).",
+            "Quelle: ESUR CMSC Contrast Agent Guidelines 2025 Booklet, „Analytical interference of intravascular contrast agents with clinical laboratory tests“, gedruckte/PDF-S. 23."
           ]
         }
       },
@@ -1269,13 +1275,13 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "extravasation",
         title: "Extravasation",
         summary:
-          "2025 wird dieser Bereich viel operativer: Severity-Framing, klarere Prävention, strukturierte Erkennung und definiertere Eskalationskriterien.",
+          "Die Extravasationshinweise von 2025 ergänzen ausdrückliche Definitionen für leichte, moderate und schwere Fälle, genauere Schritte zur Erkennung und Meldung sowie konkrete Angaben zur Überwachung und chirurgischen Abklärung. Risikofaktoren, Prävention, Bildgebung und chirurgische Vorstellung waren bereits 2018 behandelt.",
         keywords: [
           "extravasation",
           "kontrastmittelaustritt",
           "schweregrad",
           "mild moderat schwer",
-          "150 mL",
+          ">150 mL",
           "chirurgische beurteilung"
         ],
         compare: {
@@ -1283,29 +1289,29 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: "2018",
               paragraphs: [
-                "Extravasation wurde bereits 2018 behandelt, aber mit einfacherem Management-Rahmen und weniger detaillierter Trennung von Risikofaktoren, Erkennungsschritten und Eskalationswegen."
+                "Die englische und die offizielle deutsche Leitlinie von 2018 trennen bereits technische von patientenbezogenen Risikofaktoren. Sie beschreiben Risikoreduktion, eine möglicherweise hilfreiche bildgebende Dokumentation, meist ausreichende konservative Behandlung und die chirurgische Vorstellung bei Verdacht auf schwere Schäden."
               ]
             },
             {
               label: "2025",
               bullets: [
-                "Klarere Einteilung in mild / moderat / schwer.",
-                "Trennung zwischen technikbezogenen und patientenbezogenen Risikofaktoren.",
-                "Deutlich mehr Details zu Prävention, Erkennung, Dokumentation, Follow-up und Eskalation.",
-                "Explizite radiographische Dokumentation bei moderaten / schweren Fällen sowie chirurgischer Input bei Verdacht auf schwere Verletzung."
+                "Definiert leichte, moderate und schwere Extravasationen anhand klinischer Befunde und sieht die Beurteilung des Schweregrades vor.",
+                "Behält die Trennung technischer und patientenbezogener Risikofaktoren bei und konkretisiert weitere Massnahmen zur Risikoreduktion: Eine geeignete Oberarmvene wird bevorzugt; ausserdem nennt der Abschnitt eine geeignete Kanülengrösse, passende Flussraten und Drücke sowie die Minimierung des Kontrastmittelvolumens anhand von Indikation und Patientengrösse.",
+                "Konkretisiert die Erkennung während und nach der Injektion, die Dokumentation im radiologischen Bericht und im lokalen Meldesystem, ein Patienteninformationsblatt sowie einen Nachsorgetermin, falls erforderlich.",
+                "Bei moderaten oder schweren Fällen können zwei orthogonale Röntgenaufnahmen oder eine Schnittbildgebung helfen, Ausdehnung und Kompartimentierung zu beurteilen. Bei Verdacht auf schwere Schäden ist dringend chirurgischer Rat einzuholen; bei einem extravasierten Volumen >150 mL wird eine chirurgische Beurteilung ebenfalls empfohlen."
               ]
             },
             {
               label: "Praktische Bedeutung",
               paragraphs: [
-                "Der 2025er Ansatz ist weniger von lokaler Gewohnheit abhängig und stärker wie ein operativer Pathway aufgebaut."
+                "Gegenüber 2018 nennt der Abschnitt von 2025 drei Schweregrade, genauere Schritte zur Erkennung und Meldung, eine Überwachung leichter Fälle alle 2–4 Stunden und zusätzliche Anlässe für chirurgischen Rat."
               ],
               variant: "impact"
             }
           ],
           refs: [
-            "Quelle: ESUR 10.0 Guideline",
-            "Quelle: ESUR 2025 Extravasations-Guidance"
+            "Offizielle deutsche ESUR-Leitlinie 10.0 (2018), § C.1, Druckseite 36 (PDF-Seite 19).",
+            "ESUR CMSC Guidelines 2025, Management and prevention of contrast agent extravasation, Druckseiten 20–21 (PDF-Seiten 20–21)."
           ]
         },
         action: {
@@ -1313,23 +1319,24 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               label: "ESUR-2025-Kernaussagen",
               bullets: [
-                "Es sollte ein strukturiertes mild / moderat / schwer-Schema verwendet werden, statt alle Extravasationen als eine Kategorie zu behandeln.",
-                "Technikbezogene und patientenbezogene Risikofaktoren sollten getrennt betrachtet werden.",
-                "Für moderate / schwere Fälle wird radiographische Dokumentation beschrieben.",
-                "Bei Verdacht auf schwere Verletzung wird chirurgische Beurteilung beschrieben; zusätzlich wird eine chirurgische Beurteilung bei >150 mL beschrieben."
+                "Das Booklet von 2025 sieht die Einordnung als leicht, moderat oder schwer vor. Moderate Fälle erfordern engmaschige Überwachung; zur Prüfung einer neurovaskulären Beeinträchtigung wird eine ärztliche Beurteilung empfohlen.",
+                "Der Abschnitt von 2025 konkretisiert die Prävention bei Venenzugang, Kanülengrösse, Fluss, Druck und Kontrastmittelvolumen. Sorgfältige Kanülierung und eine Testinjektion mit Kochsalzlösung waren bereits 2018 beschrieben.",
+                "Für leichte Fälle nennt das Booklet von 2025 Hochlagern der Extremität, Eispackungen und Überwachung alle 2–4 Stunden. Bei Besserung ist die Entlassung vorgesehen; bleibt die Besserung aus, ist chirurgischer Rat erforderlich.",
+                "Bei moderaten oder schweren Fällen können zwei orthogonale Röntgenaufnahmen oder eine Schnittbildgebung helfen, Ausdehnung und Kompartimentierung zu beurteilen. Die Komplikation ist im radiologischen Bericht und im lokalen Meldesystem zu dokumentieren; ein Patienteninformationsblatt sollte ausgehändigt und ein Nachsorgetermin vereinbart werden, falls erforderlich.",
+                "Bei Verdacht auf schwere Schäden dringend chirurgischen Rat einholen. Auch bei einem extravasierten Volumen von mehr als 150 mL wird eine chirurgische Beurteilung empfohlen."
               ],
               variant: "action"
             },
             {
               label: "Warum das wichtig ist",
               paragraphs: [
-                "Im Vergleich zu 2018 ist dieser Abschnitt deutlich expliziter in Prävention, Erkennung, Dokumentation und Eskalation."
+                "Die zusätzlichen Angaben von 2025 betreffen Schweregraddefinitionen, Erkennung, Meldung, Überwachung leichter Fälle und konkrete Anlässe für chirurgischen Rat; mehrere Massnahmen zur Risikoreduktion und Behandlung standen bereits in der Leitlinie von 2018."
               ]
             }
           ],
           refs: [
-            "Quelle: ESUR 2025 Extravasations-Guidance",
-            "Quelle: ESUR 10.0 Guideline"
+            "ESUR CMSC Guidelines 2025, Management and prevention of contrast agent extravasation, Druckseiten 20–21 (PDF-Seiten 20–21).",
+            "Für den Vergleich mit 2018: offizielle deutsche ESUR-Leitlinie 10.0, § C.1, Druckseite 36 (PDF-Seite 19)."
           ]
         }
       },
