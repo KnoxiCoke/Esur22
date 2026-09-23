@@ -3,17 +3,29 @@
 > Authoritative current project status for humans and AI assistants.
 > Read this file before proposing or implementing further ESUR changes.
 
-Last verified: 2026-09-08
+Last remote verification: 2026-09-23
 
 ## Current verified baseline
 
 - Repository: `KnoxiCoke/Esur22`
-- Main baseline: `cd671d69ffb6f99555ae99e0407a7b61827811e3`
-- Refactor branch: `refactor/modularize-script`
-- Reference branch HEAD used for this ENG-09 sync: `dc9ea4d00d89d47660f8d7b2293a713cb8a98439`
-- Current verified Practice Changes production-code milestone: `dc8cd213d9329bcf49313544bb6cc51972ee5ebf`
-- Draft PR: `#12`
-- PR state: open, Draft, not merged
+- Current `main`: `179d58b73a7798e06a1573211fd0ed594d7acdd2` (merged Laboratory Interference PR `#15`; Extravasation PR `#14` was merged immediately before it).
+- Refactor branch: `refactor/modularize-script`, HEAD `0cba0542fef7b590bcbf5fa588088728bc78dc1b` (Draft PR `#12`, open, not merged).
+- PR `#12` official HSR Regression CI: run `35919339082`, successful, `94/94 passed`.
+- GitHub's virtual merge of current `main` and PR `#12`: commit `77a8f135b6e3bd78ed26e236de27e70bdda2004f`, tree `615ef4a303f614c80321862e487cd57aa2661e37`. The PR HEAD has the same tree; the locally tested combined tree also matches it.
+- Historical ENG-09 reference branch HEAD: `dc9ea4d00d89d47660f8d7b2293a713cb8a98439`. Historical Waiting Times production-code milestone: `dc8cd213d9329bcf49313544bb6cc51972ee5ebf`.
+
+## Pull requests
+
+- `#12` — modularization; open Draft at `0cba0542fef7b590bcbf5fa588088728bc78dc1b`; technically verified on the combined tree, not merged.
+- `#14` — Extravasation; merged into `main` as `9bd716cc23dd4457c89f6be186a94e5e0418c8a5`.
+- `#15` — Laboratory Interference; merged into `main` as `179d58b73a7798e06a1573211fd0ed594d7acdd2`.
+- `#13` — separate Laboratory Interference Draft, still open at `8996ee5eebb21996444e4a300f7514c1e7758701`. Its relationship to the already merged `#15` requires a separate disposition; do not merge it automatically.
+- `#11` — earlier HSR Draft, still open at `87655d75e6a75812cf643dbd3539b78e8ffb004a`; separate disposition required.
+- `#4` — earlier HSR terminology PR, still open at `125c5a909715cdfe6bd98e2ae5e3d6558ada86c3`; separate disposition required.
+
+## Local worktree caution
+
+Per Product Owner report, the original Windows worktree `C:\Users\stroj\Documents\GitHub\Esur22` most recently contained eight uncommitted changes of unresolved origin. Do not automatically discard, overwrite, stash or commit them. Check the current status again before any future work in that directory; this report does not establish its present state.
 
 ## Medical status
 
@@ -36,15 +48,19 @@ This does **not** mean final Medical Affairs approval or medical validation.
 
 - Remains in the application as an informational tab.
 - Practice Changes retains technical smoke-test coverage; `waiting_times` additionally has exact EN/DE Medical-Lock regression coverage.
-- Medical/source audit remains in progress overall; completed cards are listed below.
+- Medical/source audit remains in progress overall; five cards have completed their card workflows and four remain open.
 - Do not change an unaudited Practice Changes card before its source audit and Medical Lock.
 
 - `hypersensitivity` — completed / verified under the accepted prior workflow.
 - `ca_aki_terminology` — completed / verified; `STANDARD_AUDIT`.
 - `waiting_times` — `BLIND_REQUIRED`; source-audited / Medical-Locked / technically verified at `dc8cd213d9329bcf49313544bb6cc51972ee5ebf`; Human Medical Affairs sign-off pending.
-- Remaining Practice Changes cards remain open / unaudited unless explicitly listed as completed.
+- `extravasation` — source-audited / Medical-Locked / independently challenged; merged via `#14` into `main` and carried unchanged into PR `#12`; technical verification complete, Human Medical Affairs sign-off pending.
+- `laboratory_interference` — source-audited / Medical-Locked / independently challenged; merged via `#15` into `main` and carried unchanged into PR `#12`; technical verification complete, Human Medical Affairs sign-off pending.
+- Still open for card-level source audit: `publication_structure`, `dialysis_refinement`, `new_clinical_scenarios`, `other_reorganized_topics`.
 
 The completed `waiting_times` workflow includes the Grok blind source pass, Work primary source audit, Grok challenge, ChatGPT exact EN/DE Medical Lock, Codex exact implementation, independent patch/scope verification, remote implementation verification and official GitHub CI verification.
+
+The PR `#12` integration commit `0cba0542fef7b590bcbf5fa588088728bc78dc1b` copied both merged EN/DE Medical card objects from current `main` without rewriting them. All 18 EN/DE Practice Changes objects were compared against the intended branch versions; the other three audited branch cards remained unchanged. The accompanying smoke-test change replaced a search token that the updated Laboratory Interference card no longer contains. These are content-integrity and software-test findings, not a new source audit or Medical Affairs approval.
 
 ### Practice Changes audit governance
 
@@ -55,9 +71,9 @@ The completed `waiting_times` workflow includes the Grok blind source pass, Work
 - Work performs the structured primary source audit. ChatGPT independently reviews the sources and writes the exact EN/DE Medical Lock. Codex implements only that Lock.
 - Final post-implementation verification is a yes/no check against the Lock, scope, tests and remote HEAD; it must not rewrite or “improve” Medical wording.
 - Bruno is Product Owner: he decides work order, start/pause, product scope, authorized source set and when material is handed to Medical Affairs. He does not decide Medical claim correctness, recommendation strength, population applicability or audit-class disputes.
-- Human Medical Affairs sign-off is required before merge to `main` or any Medical Freeze/final medical approval claim.
+- Human Medical Affairs sign-off is required before merging the full PR `#12` into `main` or claiming a Medical Freeze/final medical approval. The separately authorized card-only merges `#14` and `#15` already occurred while that sign-off remained pending; those merges do not constitute Medical Affairs approval.
 - `hypersensitivity` and `ca_aki_terminology` are completed under the accepted prior workflow and are not to be rolled back solely because this governance was introduced later. `ca_aki_terminology` is `STANDARD_AUDIT`.
-- Current verified Practice Changes code HEAD before this docs-only governance update: `fa9dd1ec814aec83b5ca9acd012b52b0fe453e62`.
+- Historical Practice Changes code HEAD before the earlier docs-only governance update: `fa9dd1ec814aec83b5ca9acd012b52b0fe453e62`.
 
 ### Future versioned content architecture
 
@@ -65,9 +81,9 @@ After the 2025 Medical content has completed its source audit and Content Freeze
 
 ## Plan snapshot
 
-- Engineering: R1–R2M modularization is technically complete / VERIFIED; not a Medical Freeze.
+- Engineering: R1–R2M modularization is technically complete / VERIFIED; subsequent integration of the two merged Medical cards into PR `#12` is also technically verified. Neither is a Medical Freeze.
 - Medical Freeze / v0.9.0: still open (known source exceptions remain; no Medical Affairs sign-off).
-- Practice Changes 2018→2025 audit: still open.
+- Practice Changes 2018→2025 audit: four card workflows remain open; Human Medical Affairs sign-off remains outstanding for the completed cards.
 - Regulatory Gate: scheduled in the master plan, **not performed**. No MDSW classification and no Rule-11 class estimate.
 - R2K: VERIFIED.
 - R2L: VERIFIED.
@@ -104,9 +120,9 @@ Keep three questions separate:
 
 - Playwright regression inventory: `94 tests`
 - Shared fixture fails on browser `pageerror` and `console.error`.
-- Latest verified Practice Changes code CI run: `34225118060`
-- Workflow: `HSR Regression`; run number: `121`.
-- Result: `successful` (`94/94 passed`)
+- Latest verified PR `#12` integration CI run: `35919339082` (`HSR Regression`, run number `129`).
+- Result: `successful` (`94/94 passed`) on the current PR HEAD. The GitHub virtual merge with current `main` has the same tree `615ef4a303f614c80321862e487cd57aa2661e37` as the locally tested branch tree.
+- The follow-up commit changed only `script.js` (+67/-60) and `tests/changes-smoke.spec.js` (+9/-6); the new search term has one Laboratory Interference match in each language, and the EN/DE language-switch smoke test checks the result count.
 - `tests/waiting-times.spec.js` protects the exact EN/DE Compare and Action Waiting-Times Medical-Lock content.
 
 Current runtime files:
@@ -768,13 +784,13 @@ The following responsibilities intentionally remain in `script.js`:
 - `refreshComputedModulesAfterLanguageChange` language-refresh orchestration;
 - `resetAll` global state/DOM reset;
 - global application listeners;
-- `changesLibrary` and the Practice Changes renderer shell while that content remains frozen for its separate audit.
+- `changesLibrary` and the Practice Changes renderer shell. Card-level audited content changes after the refactor closeout are recorded above.
 
 This is intentional host orchestration, not an unresolved refactor defect. The existing `renderChangeSummary()` helper is currently unused; it is documented as optional later dead-code cleanup and is not removed in this behaviour-preserving refactor strand.
 
 The runtime remains one-directional with no inter-module cycle: i18n → utils → icons → nav → i18nApply → disclaimer → changeLabels → acute → nihr → previous → switch → tryptase → `script.js`. HSR modules receive their required state/helpers/DOM dependencies through their established `init(...)` boundaries and do not import one another.
 
-The current regression inventory is 90 tests. These tests are regression guardrails for technical behaviour, not proof of medical correctness.
+The regression inventory at the R2M closeout was 90 tests. The current inventory is 94 tests. These tests are regression guardrails for technical behaviour, not proof of medical correctness.
 
 Closeout governance:
 
@@ -791,9 +807,9 @@ Closeout governance:
 
 Do **not** continue the R2 modularization sequence automatically. R1–R2M is the accepted technical closeout point for this refactor strand.
 
-The next engineering/Medical workstream is a separately scoped **Practice Changes / Changes 2018→2025 Medical- and source-audit**. Begin with read-only audit scoping and source mapping only; do not edit `changesLibrary`, wording, source claims, recommendation strength, routing, i18n values or other Medical content until that audit scope has been independently reviewed and explicitly authorized.
+The next Medical/content workstream is the remaining **Practice Changes / Changes 2018→2025 card-level source audit**: `publication_structure`, `dialysis_refinement`, `new_clinical_scenarios` and `other_reorganized_topics`. Select and scope one card at a time, beginning with read-only source mapping and audit-class assessment. Do not change an unaudited card's wording, claims, recommendation strength or routing until its audit workflow and exact target wording are approved.
 
-PR `#12` remains Draft and must not be merged as part of this closeout. Merge/release, regulatory work and any optional dead-code cleanup remain separate later decisions.
+PR `#12` remains Draft and must not be merged as part of this closeout. Human Medical Affairs sign-off, the Bayer RA/Legal regulatory decision, disposition of other open PRs, merge/release and optional dead-code cleanup remain separate later decisions.
 
 ## Governance rules
 
@@ -801,7 +817,7 @@ PR `#12` remains Draft and must not be merged as part of this closeout. Merge/re
 - Do not weaken, delete, bypass, or rewrite regression tests to make a refactor pass.
 - Every structural package must pass the full Playwright suite and official PR CI before being marked VERIFIED.
 - ChatGPT independently verifies remote blobs/diff/CI rather than relying only on implementation reports.
-- Keep `changesLibrary` / Practice Changes medical content untouched until its separate audit.
+- Change Practice Changes Medical content only through the applicable card-level source audit and Medical Lock; preserve the unaudited cards until their workflows are complete.
 - Do not full-replace the large `script.js` through the unreliable file-API path; use a safe Git/blob/patch/server-side method.
 - PR `#12` stays Draft.
 - Do not merge to `main` without explicit approval.
