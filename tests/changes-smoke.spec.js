@@ -50,7 +50,7 @@ test("CHG_SMOKE_04 search reduces the list; clearing search restores the initial
   expect(initial).toBeGreaterThan(0);
 
   // Technical token only: reduces flatten-text matches. Not a content assertion.
-  await page.locator("#changesSearch").fill("egfr-based");
+  await page.locator("#changesSearch").fill("Sammelurin");
   const filtered = await cardCount(page);
   expect(filtered).toBeGreaterThan(0);
   expect(filtered).toBeLessThan(initial);
@@ -88,7 +88,7 @@ test("CHG_SMOKE_07 reset returns to HSR and restores Changes controls", async ({
   await openChangesView(page);
   await page.locator('[data-change-filter="high"]').click();
   await page.locator('[data-change-mode="action"]').click();
-  await page.locator("#changesSearch").fill("egfr-based");
+  await page.locator("#changesSearch").fill("Sammelurin");
 
   await resetApp(page);
 
@@ -106,19 +106,19 @@ test("CHG_SMOKE_08 EN/DE/EN keeps Changes view and Filter/Mode/Search state", as
   await openChangesView(page);
   await page.locator('[data-change-filter="high"]').click();
   await page.locator('[data-change-mode="action"]').click();
-  await page.locator("#changesSearch").fill("egfr-based");
+  await page.locator("#changesSearch").fill("Sammelurin");
 
   await setLang(page, "de");
   await expect(page.locator("#lang-de")).toHaveClass(/active/);
   await expect(page.locator("#view-changes")).toBeVisible();
   await expect(page.locator('[data-change-filter="high"]')).toHaveClass(/active/);
   await expect(page.locator('[data-change-mode="action"]')).toHaveClass(/active/);
-  await expect(page.locator("#changesSearch")).toHaveValue("egfr-based");
+  await expect(page.locator("#changesSearch")).toHaveValue("Sammelurin");
 
   await setLang(page, "en");
   await expect(page.locator("#lang-en")).toHaveClass(/active/);
   await expect(page.locator("#view-changes")).toBeVisible();
   await expect(page.locator('[data-change-filter="high"]')).toHaveClass(/active/);
   await expect(page.locator('[data-change-mode="action"]')).toHaveClass(/active/);
-  await expect(page.locator("#changesSearch")).toHaveValue("egfr-based");
+  await expect(page.locator("#changesSearch")).toHaveValue("Sammelurin");
 });
