@@ -936,13 +936,13 @@ arrest: [
         icon: "document",
         title: "Publication model and structure",
         summary:
-          "2025 moves from a booklet-style version update to an electronic, modular guidance framework with yearly updates.",
+          "The 2018 Version 10 quick guide groups topics under three main sections. The 2025 contents list topic headings; its preface announces that the guidelines will also be published electronically on the ESUR webpage and updated annually.",
         keywords: [
           "publication",
           "structure",
           "electronic",
           "yearly update",
-          "modular",
+          "topic sections",
           "permanent work in progress"
         ],
         compare: {
@@ -950,49 +950,49 @@ arrest: [
             {
               label: "2018",
               paragraphs: [
-                "ESUR 10.0 was presented as a classical guideline booklet with the large sections General adverse reactions, Renal adverse reactions (PC-AKI), and Miscellaneous."
+                "Version 10.0 (2018) was presented as a booklet. Its quick guide groups topics under General adverse reactions, Renal adverse reactions (PC-AKI), and Miscellaneous. The official German 2018 edition also mentions electronic versions of these guidelines on the ESUR website."
               ]
             },
             {
               label: "2025",
               paragraphs: [
-                "The 2025 document is organized as topic-based modules such as hypersensitivity, CA-AKI, dialysis, extravasation, waiting times, laboratory interference, systemic diseases, HSG, and CO₂.",
-                "It is also described as an electronic, annually updated document and a permanent work in progress."
+                "The 2025 contents list topic sections including hypersensitivity reactions, prevention of CA-AKI, dialysis, extravasation, waiting times, laboratory interference, and systemic diseases. Under Miscellaneous recommendations and topics, the contents also list CO₂ and HSG.",
+                "The 2025 preface announces that, from now on, the guidelines will also be published in electronic form on the ESUR webpage and updated annually. It describes the guidelines as a permanent work in progress."
               ]
             },
             {
-              label: "Practical impact",
+              label: "Scope of comparison",
               paragraphs: [
-                "The newer structure is easier to map to concrete clinical questions and should not be read as a simple static reprint of the 2018 booklet."
+                "The two editions group their contents differently. This structural comparison does not establish whether an individual clinical recommendation changed."
               ],
               variant: "impact"
             }
           ],
           refs: [
-            "Source: ESUR 10.0 guideline",
-            "Source: ESUR 2025 summary guideline"
+            "Source: ESUR Guidelines 10.0 (2018 EN), Preface p. 2 / PDF p. 3; Quick Guide p. 3 / PDF p. 4; Contents pp. 4–5 / PDF pp. 5–6",
+            "Source: ESUR Guidelines 10.0 (2018 DE), Einleitung and Kurzanleitung, unnumbered / PDF p. 3; Inhalt, unnumbered / PDF pp. 4–5",
+            "Source: ESUR CMSC Guidelines 2025, Preface p. 3 / PDF p. 3; Contents pp. 4–5 / PDF pp. 4–5"
           ]
         },
         action: {
           sections: [
             {
-              label: "ESUR 2025 action points",
+              label: "Source notes",
               bullets: [
-                "When citing current ESUR contrast safety guidance, use the 2025 electronic guidance rather than treating it as a conventional booklet update.",
-                "Expect topic-based modules and yearly electronic updates when checking whether a practice point has changed."
+                "The 2025 preface says that the guidelines summarize key recommendations and encourages readers to consult the original ESUR CMSC guideline publications for a complete understanding of each topic.",
+                "The 2025 preface announces that, from now on, the guidelines will also be published in electronic form on the ESUR webpage and updated annually."
               ],
               variant: "action"
             },
             {
               label: "Why this matters",
               paragraphs: [
-                "This is a structural change in how the guidance is maintained and accessed, even where the underlying clinical rule has not dramatically changed."
+                "The 2025 preface names, among others, updated sections on contrast agent hypersensitivity and extravasation. Its contents alone do not show how an individual clinical recommendation changed."
               ]
             }
           ],
           refs: [
-            "Source: ESUR 2025 summary guideline",
-            "Source: ESUR 10.0 guideline"
+            "Source: ESUR CMSC Guidelines 2025, Preface and Note, p. 3 / PDF p. 3; Contents pp. 4–5 / PDF pp. 4–5"
           ]
         }
       },
@@ -1616,13 +1616,13 @@ arrest: [
         icon: "document",
         title: "Publikationsmodell und Struktur",
         summary:
-          "2025 verschiebt sich die Guidance von einer Booklet-artigen Versionslogik zu einem elektronischen, modularen und jährlich aktualisierten Rahmen.",
+          "Die Kurzanleitung der Version 10 von 2018 gliedert die Themen in drei Hauptabschnitte. Das Inhaltsverzeichnis 2025 enthält thematische Überschriften; die Einleitung kündigt an, dass die Leitlinien auch in elektronischer Form auf der ESUR-Website erscheinen und jährlich aktualisiert werden sollen.",
         keywords: [
           "publikation",
           "struktur",
           "elektronisch",
           "jährliche aktualisierung",
-          "modular",
+          "thematische abschnitte",
           "permanent work in progress"
         ],
         compare: {
@@ -1630,49 +1630,49 @@ arrest: [
             {
               label: "2018",
               paragraphs: [
-                "ESUR 10.0 war als klassisches Leitlinien-Booklet aufgebaut, mit den grossen Bereichen General adverse reactions, Renal adverse reactions (PC-AKI) und Miscellaneous."
+                "Die Version 10.0 (2018) wurde als Broschüre vorgestellt. Ihre Kurzanleitung gliedert die Themen in Allgemeine unerwünschte Wirkungen, Renale unerwünschte Wirkungen (PC-AKI) und Verschiedenes. Die offizielle deutsche Ausgabe von 2018 erwähnt bereits elektronische Versionen dieser Leitlinien auf der ESUR-Website."
               ]
             },
             {
               label: "2025",
               paragraphs: [
-                "Die 2025er Guidance ist themenbasiert modular aufgebaut, etwa zu Hypersensitivität, CA-AKI, Dialyse, Extravasation, Wartezeiten, Laborinterferenz, systemischen Erkrankungen, HSG und CO₂.",
-                "Sie wird zudem als elektronisches, jährlich aktualisiertes Dokument und als permanent work in progress beschrieben."
+                "Das Inhaltsverzeichnis 2025 nennt thematische Abschnitte unter anderem zu Hypersensitivitätsreaktionen, Prävention von CA-AKI, Dialyse, Extravasation, Wartezeiten, Laborinterferenz und systemischen Erkrankungen. Unter der Überschrift „Miscellaneous recommendations and topics“ stehen außerdem CO₂ und HSG.",
+                "Die Einleitung 2025 kündigt an, dass die Leitlinien von nun an auch in elektronischer Form auf der ESUR-Website erscheinen und jährlich aktualisiert werden sollen. Sie beschreibt die Leitlinien als permanent work in progress."
               ]
             },
             {
-              label: "Praktische Bedeutung",
+              label: "Gegenstand des Vergleichs",
               paragraphs: [
-                "Die neuere Struktur lässt sich direkter auf konkrete klinische Fragen abbilden und sollte nicht als einfacher statischer Nachdruck des 2018er Booklets gelesen werden."
+                "Die beiden Ausgaben gliedern ihre Inhalte unterschiedlich. Aus diesem Strukturvergleich lässt sich nicht ableiten, ob sich eine einzelne klinische Empfehlung geändert hat."
               ],
               variant: "impact"
             }
           ],
           refs: [
-            "Quelle: ESUR 10.0 Guideline",
-            "Quelle: ESUR 2025 Summary Guideline"
+            "Quelle: ESUR-Leitlinien 10.0 (2018 EN), Preface S. 2 / PDF S. 3; Quick Guide S. 3 / PDF S. 4; Contents S. 4–5 / PDF S. 5–6",
+            "Quelle: ESUR-Leitlinien 10.0 (2018 DE), Einleitung und Kurzanleitung, unnummeriert / PDF S. 3; Inhalt, unnummeriert / PDF S. 4–5",
+            "Quelle: ESUR CMSC Guidelines 2025, Preface S. 3 / PDF S. 3; Contents S. 4–5 / PDF S. 4–5"
           ]
         },
         action: {
           sections: [
             {
-              label: "ESUR-2025-Kernaussagen",
+              label: "Hinweise zu den Quellen",
               bullets: [
-                "Wenn du aktuelle ESUR-Kontrastmittel-Guidance zitierst oder vermittelst, sollte die elektronische 2025er Guidance als Referenz dienen und nicht nur ein klassisches Booklet-Update.",
-                "Es sollte erwartet werden, dass topic-basierte Module und jährliche elektronische Aktualisierungen relevant sind, wenn ein Praxispunkt neu überprüft wird."
+                "Laut Einleitung fasst die Ausgabe 2025 zentrale Empfehlungen zusammen und regt an, für ein vollständiges Verständnis des jeweiligen Themas die ursprünglichen ESUR-CMSC-Leitlinienpublikationen heranzuziehen.",
+                "Die Einleitung 2025 kündigt an, dass die Leitlinien von nun an auch in elektronischer Form auf der ESUR-Website erscheinen und jährlich aktualisiert werden sollen."
               ],
               variant: "action"
             },
             {
               label: "Warum das wichtig ist",
               paragraphs: [
-                "Das ist eine strukturelle Änderung in der Pflege und Zugänglichkeit der Guidance, auch dort, wo sich die zugrunde liegende klinische Regel nicht dramatisch verändert hat."
+                "Die Einleitung 2025 nennt unter anderem aktualisierte Abschnitte zu Kontrastmittel-Hypersensitivität und Extravasation. Das Inhaltsverzeichnis allein zeigt nicht, wie sich eine einzelne klinische Empfehlung geändert hat."
               ]
             }
           ],
           refs: [
-            "Quelle: ESUR 2025 Summary Guideline",
-            "Quelle: ESUR 10.0 Guideline"
+            "Quelle: ESUR CMSC Guidelines 2025, Preface und Note, S. 3 / PDF S. 3; Contents S. 4–5 / PDF S. 4–5"
           ]
         }
       },
