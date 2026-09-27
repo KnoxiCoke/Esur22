@@ -1,111 +1,1021 @@
-# PROJECT_STATE
+# ESUR Project State
 
-Last verified: 2026-09-27
+> **SINGLE AUTHORITATIVE PROJECT STATE**
+> Canonical location: `KnoxiCoke/Esur22` → `main` → `PROJECT_STATE.md`.
+> Branch copies, chat history, memories, local worktrees and handoff artifacts are secondary and must not override this file without live GitHub verification.
 
-## 1. Repository roles
+## HARD START RULE — mandatory for every ESUR task
 
-### `KnoxiCoke/Esur22` — controlled source of truth
-This repository is the controlled project repository for:
-- medical/source QA,
-- Human Medical Affairs review,
-- regulatory work,
-- regression tests,
-- reviewed implementation branches and pull requests.
+Before **any** ESUR work — analysis, source review, Medical review, Regulatory work, design, coding, GitHub writes, testing, prompt handoff or implementation — every agent (ChatGPT, Work, Grok, Codex or another tool/agent) must:
 
-Medical or clinical changes must not be treated as approved merely because they are visible in a draft PR.
+1. Read the current `PROJECT_STATE.md` from `Esur22/main`.
+2. Verify the live GitHub state of every affected branch / PR / commit before relying on recorded SHAs.
+3. If live GitHub conflicts with this file, **STOP implementation**, report the conflict, reconcile the state, and update this file first.
+4. Respect all scope, Medical, Regulatory, test, merge and release boundaries recorded here.
+5. After every verified milestone that changes project state — e.g. merge, new/updated PR, Medical decision, RA decision, verified CI result, new preview integration state, accepted design milestone, release/status change — update this file on `main`.
+6. Do not treat a chat summary or memory as a substitute for reading this file.
 
-### `KnoxiCoke/Esur2` — live preview / design sandbox
-`Esur2` is intentionally **not** the source of truth.
+GitHub remote state is authoritative for code and refs. This file is the authoritative human/AI project-status interpretation of that verified remote state.
 
-Its purpose is to provide a single browser-visible integration build in which draft states from `Esur22` can be combined for review and design work.
+Last remote verification: 2026-09-27
 
-Rules:
-- `Esur2/main` may contain combined draft content that is not yet merged in `Esur22`.
-- Content visible in `Esur2` does **not** imply Medical approval, Regulatory approval, technical release, Go Live, or conformity.
-- Design experiments may be made directly on `Esur2/main` so they can be reviewed visually.
-- Once a design is accepted, the final presentation-only diff must be transferred back to `Esur22` as a separate reviewed UI branch / Draft PR.
-- Medical strings, medical logic, doses, thresholds, rules and source mappings remain governed in `Esur22`, not in `Esur2`.
+## Current verified baseline
 
-## 2. Controlled baseline in Esur22
+- Repository: `KnoxiCoke/Esur22`
+- Main state-consolidation parent verified before this documentation update: `ae4bb66aeefddbeda659e3c71a914c0cb7fa8ab5`. The current application/code baseline on `main` remains `1ebbe97b555673dd59c5c708532d39040291c303`, which includes merged card PRs `#14`–`#19` and provenance-only PR `#20`. Subsequent commits that only maintain `PROJECT_STATE.md` / `AGENTS.md` do not change that application/code baseline.
+- Refactor branch: `refactor/modularize-script` (Draft PR `#12`, open, not merged). Current docs-only branch HEAD after marking its PROJECT_STATE copy non-authoritative: `155ccd40dbfef5bd062a704d4806bd3780f10ed8`. PR `#12` is behind the current application baseline after `#16`–`#20` and requires reconciliation plus renewed verification before any merge.
+- Independently verified Medical integration code commit: `0cba0542fef7b590bcbf5fa588088728bc78dc1b`; verified code tree: `615ef4a303f614c80321862e487cd57aa2661e37`.
+- At that code milestone, GitHub's virtual merge of `main` and PR `#12` was `77a8f135b6e3bd78ed26e236de27e70bdda2004f` with the same code tree. This is historical verification, not a current virtual merge reference.
+- Code-milestone CI: run `35919339082`, successful, `94/94 passed`. Subsequent documentation-only commit `071830ce74e66fc277124169acdcc43b79a2aa41`: CI run `35921260615`, successful, `94/94 passed`.
+- Historical ENG-09 reference branch HEAD: `dc9ea4d00d89d47660f8d7b2293a713cb8a98439`. Historical Waiting Times production-code milestone: `dc8cd213d9329bcf49313544bb6cc51972ee5ebf`.
 
-Clinical/application baseline before this documentation-only commit:
+## Live preview / design sandbox
 
-`main = 1ebbe97b555673dd59c5c708532d39040291c303`
+- Repository: `KnoxiCoke/Esur2`.
+- Role: browser-visible integration and design sandbox only; it is **not** the controlled source of truth.
+- Current verified `Esur2/main`: `4f028580077ca7b5612ed2acf6da158fcd5115e2`.
+- That preview combines the `Esur22` application baseline `1ebbe97b555673dd59c5c708532d39040291c303`, Draft PR `#21`, and Draft PR `#22`.
+- `Esur2/main` may intentionally contain unmerged draft content so the Product Owner can inspect the whole product in one browser build.
+- Visibility in `Esur2` is **not** evidence of Source QA, Internal Medical Lock, Human Medical Affairs approval, Regulatory approval, technical validation, merge approval, release, conformity, or Go Live.
+- Design experiments may be iterated directly on `Esur2/main`. After Product Owner acceptance, the final presentation-only diff must be transferred back to `Esur22` as a separate reviewed UI Draft PR.
+- Medical strings, medical logic, doses, thresholds, pathways, source mappings and formal approvals remain governed in `Esur22`.
 
-This baseline contains the merged Practice Changes cards through PR #20.
+## Pull requests
 
-No Medical Freeze, Human Medical Affairs final sign-off, Rule 11 classification, software release, or Go Live approval exists at this point.
+- `#12` — modularization; open Draft, not merged. R1–R2M and the recorded earlier integration milestones were technically verified historically. The branch is now behind the current application baseline and must be reconciled/reverified before any merge.
+- `#14` — Extravasation; merged into `main` as `9bd716cc23dd4457c89f6be186a94e5e0418c8a5`.
+- `#15` — Laboratory Interference; merged into `main` as `179d58b73a7798e06a1573211fd0ed594d7acdd2`.
+- `#16` — `publication_structure`; merged into `main` as `6a53eb6590b7b9db3db728c8ed4aae9fecc7331d`.
+- `#17` — `dialysis_refinement`; merged into `main` as `912d67e5d932f695197118f568b96c4770b23f2f`.
+- `#18` — `new_clinical_scenarios`; merged into `main` as `ef74c4a8843b36316a0a181d37776369cb2d51bd`.
+- `#19` — `other_reorganized_topics`; merged into `main` as `a6bf6a144f8e78c3395849d65c5681d843e58b83`.
+- `#20` — source-locator provenance only; merged into `main` as `1ebbe97b555673dd59c5c708532d39040291c303`.
+- `#21` — revised `hypersensitivity` and `ca_aki_terminology` EN/DE Practice Changes objects; open Draft at `b388923110abe828fea6de469e71a5dd7a255880`, not merged. Independent source QA: PASS. No new Internal Medical Lock and no Human Medical Affairs sign-off.
+- `#22` — UI-01 neutral case entry; open Draft at `ddc9de09232b1d6d26baaa87e0a0bd33b496243b`, not merged. F02 and F11 start without preselected case characteristics. Medical strings/rules were intended to remain unchanged. Official CI run `36334687034` failed: `58 passed / 17 failed`; the failures are concentrated in NIHR tests that still assume preselected fields. PR `#22` is therefore **not technically verified** and must not be merged until corrected and green.
+- `#13` — separate Laboratory Interference Draft, open at `8996ee5eebb21996444e4a300f7514c1e7758701`. Its EN/DE card objects match the later merged content; check the remaining smoke-test dependency before disposition. Do not close or merge automatically.
+- `#11` — earlier HSR Draft, open at `87655d75e6a75812cf643dbd3539b78e8ffb004a`. It contains distinct deferred HSR overlay content; inventory and decide its disposition separately. Do not merge automatically.
+- `#4` — earlier HSR terminology PR, open at `125c5a909715cdfe6bd98e2ae5e3d6558ada86c3`. Its NIHR labels/brand mapping remain distinct; resolve that mapping before disposition. Do not close or merge automatically.
 
-## 3. Open Draft PRs relevant to the current visible build
+## Local worktree caution
 
-### PR #21 — Practice Changes medical wording package
-- State: Draft / open
-- Head: `b388923110abe828fea6de469e71a5dd7a255880`
-- Scope: revised Practice Changes content, especially Hypersensitivity and CA-AKI terminology
-- Source QA completed against the authorized project sources
-- No new Internal Medical Lock
-- No Human Medical Affairs sign-off
-- Must not be treated as merged or approved
+Per Product Owner report, the original Windows worktree `C:\Users\stroj\Documents\GitHub\Esur22` most recently contained eight uncommitted changes of unresolved origin. Do not automatically discard, overwrite, stash or commit them. Check the current status again before any future work in that directory; this report does not establish its present state.
 
-### PR #22 — UI-01 neutral case entry
-- State: Draft / open
-- Branch: `ui/neutral-case-entry-20260927`
-- Head: `ddc9de09232b1d6d26baaa87e0a0bd33b496243b`
-- F02 Previous reaction starts without a preselected situation/severity
-- F11 NIHR Check starts without preselected severity / contrast class / culprit-known state
-- Existing medical paths appear only after deliberate case selection
-- No intended medical wording, dose, threshold, pathway or source change
-- This is **not** the visual redesign; it is only the neutral-start UX change
+## Medical status
 
-## 4. Current Esur2 integration build
+The five HSR modules have completed the current manual source/Q&A review pass in EN/DE:
 
-Current verified `Esur2/main`:
+- Previous reaction — reviewed
+- Acute management — reviewed
+- Switch — reviewed
+- Tryptase — reviewed
+- NIHR — reviewed
 
-`4f028580077ca7b5612ed2acf6da158fcd5115e2`
+This does **not** mean final Medical Affairs approval or medical validation.
 
-It combines:
-1. `Esur22/main` at `1ebbe97b555673dd59c5c708532d39040291c303`
-2. the full content of Draft PR #21 at `b388923110abe828fea6de469e71a5dd7a255880`
-3. UI-01 from Draft PR #22 at `ddc9de09232b1d6d26baaa87e0a0bd33b496243b`
+Review layers must remain distinct:
 
-This combined state exists so the Product Owner can inspect the current overall product in one place.
+- **Source QA** checks whether EN/DE statements are supported by the authorized sources. A PASS is a source finding, not approval of the wording.
+- **Internal Medical Lock** fixes exact reviewed wording for implementation under the project workflow. It is not Human Medical Affairs sign-off.
+- **Human Medical Affairs** provides the human medical confirmation/correction of clinical correctness, applicability, limits and prerequisites. This sign-off is still pending.
 
-It must never be used as evidence that PR #21 or PR #22 has been approved or merged into `Esur22`.
+### MED-01 Medical Review Pack
 
-## 5. Design workflow from now on
+A compact Human Medical Affairs review pack now exists for the five patient-specific modules:
 
-For visible design work:
-
-1. First develop/review the design concept without changing Medical content.
-2. After Product Owner approval of the concept, implement the design on `Esur2/main` for immediate browser review.
-3. Iterate there until the Product Owner accepts the visual result.
-4. Only then transfer the final presentation-only changes to a new UI Draft PR in `Esur22`.
-5. Before that PR is accepted, verify that medical strings / `changesLibrary` / medical logic are unchanged from the intended `Esur22` basis.
-
-`Esur2` is therefore the **visual integration sandbox**; `Esur22` remains the **controlled project record**.
-
-## 6. Medical review package
-
-`MED-01` contains review sheets for:
 - F02 Previous reaction
 - F05 Acute management
 - F07 Switch
 - F09 Tryptase Rule
 - F11 NIHR Check
 
-It is intended for Human Medical Affairs review with CONFIRM / CHANGE / NOT APPLICABLE decisions plus the five common Medical questions.
+The pack uses existing project source mappings; **no new source audit was performed for MED-01**. Each module asks Human Medical Affairs for `CONFIRM`, `CHANGE` or `NOT APPLICABLE` plus comments, followed by five common Medical questions. PR `#21` is a separate Medical package and is not part of the MED-01 baseline.
 
-PR #21 is a separate Medical package and is not part of the MED-01 baseline.
+### Known medical/source clarifications
 
-## 7. Governance reminder
+1. Part 1 literally contains a hypotension positioning rule involving prone positioning / raising the legs. It is intentionally not implemented in the UI and remains `MEDICAL CLARIFICATION REQUIRED`.
+2. The published acute source states salbutamol nebulization `2.5–5 µg`. The UI currently preserves the published unit and the item remains flagged for medical verification.
 
-Keep the following concepts separate:
-- Source QA
-- Internal Medical Lock
-- Human Medical Affairs sign-off
-- Regulatory assessment / classification
-- Technical validation
-- Merge status
-- Software release / Go Live
+### Practice Changes 2018 → 2025
 
-None of these should be inferred from the others.
+- Remains in the application as an informational/work-aid tab.
+- All nine prior card-level workflows were completed under their accepted processes through merged PRs `#14`–`#19`.
+- Draft PR `#21` proposes revised wording for `hypersensitivity` and `ca_aki_terminology`. That revision has independent source-QA PASS only; it has no new Internal Medical Lock and no Human Medical Affairs sign-off.
+- Human Medical Affairs sign-off remains outstanding for the overall Practice Changes content.
+
+Card status:
+
+- `hypersensitivity` — existing `main` wording completed/verified under the accepted prior workflow; revised EN/DE wording in Draft PR `#21`: source-QA PASS only.
+- `ca_aki_terminology` — existing `main` wording completed/verified under the accepted prior workflow (`STANDARD_AUDIT`); revised EN/DE wording in Draft PR `#21`: source-QA PASS only.
+- `waiting_times` — `BLIND_REQUIRED`; source-audited / Medical-Locked / technically verified at `dc8cd213d9329bcf49313544bb6cc51972ee5ebf`; Human Medical Affairs sign-off pending.
+- `extravasation` — source-audited / Medical-Locked / independently challenged; merged via `#14`; Human Medical Affairs sign-off pending.
+- `laboratory_interference` — source-audited / Medical-Locked / independently challenged; merged via `#15`; Human Medical Affairs sign-off pending.
+- `publication_structure`, `dialysis_refinement`, `new_clinical_scenarios`, `other_reorganized_topics` — card workflows completed and merged through `#16`–`#19`; Human Medical Affairs sign-off pending.
+
+The completed `waiting_times` workflow includes the Grok blind source pass, Work primary source audit, Grok challenge, ChatGPT exact EN/DE Medical Lock, Codex exact implementation, independent patch/scope verification, remote implementation verification and official GitHub CI verification.
+
+The independently verified PR `#12` Medical integration code commit `0cba0542fef7b590bcbf5fa588088728bc78dc1b` copied both merged EN/DE Medical card objects from `main` without rewriting them. All 18 EN/DE Practice Changes objects were compared against the intended branch versions; the other three audited branch cards remained unchanged. The accompanying smoke-test change replaced a search token that the updated Laboratory Interference card no longer contains. These are content-integrity and software-test findings, not a new source audit or Medical Affairs approval.
+
+### Practice Changes audit governance
+
+- Audit classes are `BLIND_REQUIRED` and `STANDARD_AUDIT`; they are workflow classes and are **not** the Practice Changes UI `level`.
+- Any audit trigger makes a card automatically `BLIND_REQUIRED`. Triggers include numbers/time windows/thresholds/doses; strong recommendation language such as `DO NOT`, `avoid`, `must` or equivalent; severity-specific pathways; elective/emergency splits; population-specific rules; switch/avoidance rules; source conflicts; EN↔DE meaning/strength differences; or 2018→2025 claims of clinical change.
+- If classification is disputed or unclear, use `BLIND_REQUIRED`. `STANDARD_AUDIT` is allowed only when no trigger is present.
+- For `BLIND_REQUIRED`, Grok performs a blind source pass before seeing the Work audit, then challenges the Work audit afterwards. Grok is reviewer only: it does not write the Medical Lock and does not implement.
+- Work performs the structured primary source audit. ChatGPT independently reviews the sources and writes the exact EN/DE Medical Lock. Codex implements only that Lock.
+- Final post-implementation verification is a yes/no check against the Lock, scope, tests and remote HEAD; it must not rewrite or “improve” Medical wording.
+- Bruno is Product Owner: he decides work order, start/pause, product scope, authorized source set and when material is handed to Medical Affairs. He does not decide Medical claim correctness, recommendation strength, population applicability or audit-class disputes.
+- Human Medical Affairs sign-off is required before claiming a Medical Freeze/final medical approval. The separately authorized card-only merges `#14`–`#19` occurred while that sign-off remained pending; those merges do not constitute Medical Affairs approval. PR `#20` changed source-locator provenance only. PRs `#21` and `#22` remain Draft.
+- `hypersensitivity` and `ca_aki_terminology` are completed under the accepted prior workflow and are not to be rolled back solely because this governance was introduced later. `ca_aki_terminology` is `STANDARD_AUDIT`.
+- Historical Practice Changes code HEAD before the earlier docs-only governance update: `fa9dd1ec814aec83b5ca9acd012b52b0fe453e62`.
+
+### Future versioned content architecture
+
+After the 2025 Medical content has completed its source audit and Content Freeze, introduce a separately scoped `VERSIONED_CONTENT_ARCHITECTURE`. Audited ESUR guideline releases should become immutable versioned content packages referenced through a single manifest `currentVersionId`; historical guidance must not be overwritten. Stable topic and claim identifiers plus audited change events should support both “current guidance” and “what changed since the previous ESUR version.” The initial 2018 package must remain limited to the content required by audited 2018→2025 change events and must not expand into a second full Version 10 medical audit. `medicalAffairsStatus` is traceability metadata only, not an application lock. This architecture is not authorized for implementation before the 2025 Content Freeze.
+
+## Plan snapshot
+
+- Engineering: R1–R2M modularization and the earlier Medical-card integration milestones on PR `#12` are historical VERIFIED milestones. PR `#12` is behind the current application baseline after `#16`–`#20` and requires reconciliation plus renewed verification before merge.
+- Current `main` application baseline: `1ebbe97b555673dd59c5c708532d39040291c303`. Official HSR Regression run `36321577992`: successful, `74/74 passed`.
+- Medical Freeze / `v0.9.0-medical-review`: still open. No Human Medical Affairs final sign-off.
+- Practice Changes 2018→2025: nine prior card workflows completed; Draft PR `#21` revises two cards with source-QA PASS only.
+- MED-01: prepared for Human Medical Affairs; review/answers still pending.
+- Regulatory/intended-use preparation: RA-01 functional inventory, RA-02 intended-use decision sheet and RA-03 Product-Owner intended-use draft have been prepared. They do not constitute Regulatory qualification.
+- Product-Owner intent currently recorded: voluntary professional work aid for radiology professionals; learning/lookup plus support in real clinical cases. F05 may also be used during an acute reaction. Clinical responsibility remains with the medical professional.
+- Formal Bayer RA/Legal qualification/classification: **not performed**. No MDSW qualification or Rule-11 class conclusion is recorded.
+- UI-01 / PR `#22`: visible neutral-start change exists but official CI is red (`58 passed / 17 failed`), so it is not technically verified.
+- `Esur2`: current visual integration/design sandbox; it combines draft states for browser review and is not approval evidence.
+- R2K: VERIFIED.
+- R2L: VERIFIED.
+- R2M: VERIFIED.
+- R2N: NOT REQUIRED / NOT STARTED.
+- No new refactor strand is authorized automatically.
+
+## Regulatory status
+
+No formal regulatory qualification has been made. No MDSW qualification or Rule-11 classification is recorded.
+
+The project has moved beyond the earlier blank regulatory-gate stage in one limited sense: the Product Owner has documented intended-use decisions and the project now has preparatory RA artifacts:
+
+- RA-01 — functional inventory of the current application;
+- RA-02 — intended-use decision sheet;
+- RA-03 — intended-use / intended-purpose draft based on Product-Owner decisions.
+
+These documents are **inputs for Medical and Regulatory review**, not a Bayer RA/Legal decision.
+
+Current Product-Owner intent is that the app may be used voluntarily by radiology professionals for learning/lookup and to support real clinical cases. That includes F02, F05, F07, F09 and F11 as described in RA-03; F05 may be used during an ongoing acute reaction. The responsible medical professional retains the clinical decision.
+
+Do **not** infer regulatory status from disclaimers, naming, deployment location, `Esur2`, or the existence of RA-01/02/03. Intended purpose plus actual function must be assessed by Bayer RA/Legal.
+
+Do **not** pre-empt RA by deleting adrenaline doses, tryptase interpretation, switch mapping or HSR rule trees solely to force a regulatory outcome.
+
+The next formal regulatory step comes after Medical has clarified the clinical applicability/limits of the five modules: Bayer RA/Legal evaluates the consolidated intended purpose, software qualification and any applicable Rule-11 classification.
+
+Keep three questions separate:
+
+- Medical: is the statement covered by the uploaded ESUR sources?
+- Engineering: does the software do exactly the reviewed behaviour?
+- Regulatory: may Bayer provide that function with that intended purpose?
+
+## Regression protection
+
+- Tests are regression guardrails for technical behaviour, not proof of medical correctness.
+- Historical PR `#12` regression inventory at its documented Medical-integration milestone: `94 tests`; run `35919339082` succeeded `94/94`.
+- Current `main` application baseline `1ebbe97b555673dd59c5c708532d39040291c303`: HSR Regression run `36321577992` succeeded `74/74 passed`.
+- Draft PR `#22` adds the UI-01 neutral-start test, producing a 75-test attempt. Official run `36334687034` failed with `58 passed / 17 failed`.
+- The PR `#22` failures are concentrated in existing NIHR regression tests that do not select all newly required neutral-start fields before expecting a pathway. Until the implementation/tests are reconciled and official CI is green, PR `#22` is not VERIFIED.
+- Shared fixtures continue to treat browser `pageerror` / `console.error` as failures where applicable.
+- `tests/waiting-times.spec.js` protects the exact EN/DE Compare and Action Waiting-Times Medical-Lock content on the refactor branch.
+
+Current runtime files:
+
+- `js/content/i18n.js`
+- `js/app/utils.js`
+- `js/app/icons.js`
+- `js/app/nav.js`
+- `js/app/i18nApply.js`
+- `js/app/disclaimer.js`
+- `js/app/changeLabels.js`
+- `js/hsr/acute.js`
+- `js/hsr/nihr.js`
+- `js/hsr/previous.js`
+- `js/hsr/switch.js`
+- `js/hsr/tryptase.js`
+- `script.js`
+
+## Refactor status
+
+### R1 — VERIFIED
+
+Commit: `0c9b967a1fa84f716a754831649a4fdda7259f72`
+
+- Existing i18n content mechanically extracted from `script.js` to `js/content/i18n.js`.
+- `script.js` now reads `window.ESUR.i18n`.
+- No medical content change.
+
+Integrity reference:
+
+- i18n object body SHA-256: `eac3710cd43a82604f8864e8af521cbba6fcf6e3e7c73fdba6402a5cbe65b08c`
+
+### R2A — VERIFIED
+
+Commit: `6a42b7f05499063208403a381975f0096ae053bc`
+
+Only the pure helpers were extracted:
+
+- `escapeHtml()`
+- `fmt()`
+
+New file:
+
+- `js/app/utils.js`
+
+R2A production blobs:
+
+- `index.html`: `5be1a4ab55a48c94363eaa44964cefe1ecf28dab`
+- `js/app/utils.js`: `4365d30f8a9e73e1d4c0bbd397446cbe12e7d2a7`
+- `script.js`: `31cc51f80d50d51fe7ba4f4f9e1782e9a2abebb2`
+- `js/content/i18n.js`: unchanged from R1 (`e5f4543ae41eb2e55c4a7b98a3b63db522c389be`)
+- `style.css`: unchanged (`78c4f94b2ee7a42ff38190889a974f5067f7c35f`)
+
+`changesLibrary` remained in `script.js` and was not modified by R2A.
+
+### R2B — VERIFIED
+
+Commit: `d244ae6ad13ffa9629ba47ee5ad2ae1a6b2087ef`
+
+Only the pure SVG helper was extracted:
+
+- `iconSvg()`
+
+New file:
+
+- `js/app/icons.js`
+
+R2B production blobs:
+
+- `index.html`: `1285d7b40e485beee20d1fc891b416107a373a36`
+- `js/app/icons.js`: `6c0eb8e8bd14cc68c12c7882a2cfd35f1cad769f`
+- `script.js`: `9babf856050d873691bd5df7fcd95708bbc5feec`
+- `js/app/utils.js`: unchanged (`4365d30f8a9e73e1d4c0bbd397446cbe12e7d2a7`)
+- `js/content/i18n.js`: unchanged (`e5f4543ae41eb2e55c4a7b98a3b63db522c389be`)
+- `style.css`: unchanged (`78c4f94b2ee7a42ff38190889a974f5067f7c35f`)
+
+R2B exact code diff versus its parent:
+
+- `index.html`: +1 / -0
+- `js/app/icons.js`: +83 / -0
+- `script.js`: +1 / -80
+
+`changesLibrary` remains in `script.js` and was not modified by R2B.
+
+### R2C — VERIFIED
+
+Code commit: `0b2c94e24471fa87436f8d8b0a577e2636554299`
+
+Only the Acute-specific list renderer helper was extracted:
+
+- `renderAcuteList()`
+
+New file:
+
+- `js/hsr/acute.js`
+
+Important: `js/hsr/acute.js` is **not yet the complete Acute module**. R2C moved this one helper only.
+
+R2C production blobs:
+
+- `index.html`: `922b23cc32b4689346b43c93a1d085dd91d7a9a0`
+- `js/hsr/acute.js`: `e29e1294c62fb3c41720bac34dc785164343aae9`
+- `script.js`: `89dc940912b804e31eb0fbe36390e7e8c1fbc75c`
+
+R2C exact net code diff versus the last verified R2B status commit `282240b6b3b218dfec7f13a43e4cf87b6b16c85b`:
+
+- `index.html`: +1 / -0
+- `js/hsr/acute.js`: +12 / -0
+- `script.js`: +1 / -3
+
+`changesLibrary` remains in `script.js` and was not modified by the R2C net code change.
+
+### R2D — VERIFIED
+
+Code commit: `45b444128206a98465b35cbf6882e3e36db80af6`
+CI verification commit (tree-identical): `7174a1792e03bd20a6a0db494f8672019efd99d3`
+
+Only the NIHR-specific list renderer helper was extracted:
+
+- `renderNihrList()`
+
+New file:
+
+- `js/hsr/nihr.js`
+
+Important: `js/hsr/nihr.js` is **not yet the complete NIHR module**. R2D moved this one helper only.
+
+R2D runtime load order at that milestone:
+
+1. `js/content/i18n.js`
+2. `js/app/utils.js`
+3. `js/app/icons.js`
+4. `js/hsr/acute.js`
+5. `js/hsr/nihr.js`
+6. `script.js`
+
+R2D production blobs:
+
+- `index.html`: `04530f8d0606fa6cccb87fa7f2c639b06e405cc6`
+- `js/hsr/nihr.js`: `cf37be95193dcf835d93227de3298c6cf1b05de2`
+- `script.js`: `477a1778880c9172d728acc7f4ba5711051fbf31`
+
+R2D exact net code diff versus the last verified R2C status commit `ceab1429da169b1601f46e3eda16f3f6571ebdd1`:
+
+- `index.html`: +1 / -0
+- `js/hsr/nihr.js`: +14 / -0
+- `script.js`: +1 / -2
+
+The CI verification commit is tree-identical to the R2D code commit. `changesLibrary`, i18n, utils, icons, acute, style, tests, package files and the normal CI workflow were not modified by the R2D net code change.
+
+### R2E — VERIFIED
+
+Code commit: `3ba92834d940537b00363adb1bb04e14717f71eb`
+CI verification commit (tree-identical): `ab14f0326f8cbb40c6a572245b511ecafd0f7aed`
+Official PR CI run: `33623219011`
+
+App-Chrome / navigation was extracted as the first larger coherent refactor package:
+
+- `views`
+- `hsrTabs`
+- `setBodyMode()`
+- `showMainView()`
+- `showHsrTab()`
+- `clearButtons()`
+
+New file:
+
+- `js/app/nav.js`
+
+Implementation boundary:
+
+- `window.ESUR.app.nav.init(state)` closes over the same existing `state` object.
+- The existing document click / `requestAnimationFrame(setBodyMode)` listener remains in `script.js` after the nav init destructure.
+- `setSegment`, `resetAll`, `renderAll`, `defaultAcutePattern`, translations, HSR renderers and Practice Changes were not moved as part of R2E.
+
+R2E production blobs:
+
+- `js/app/nav.js`: `f25ee452dd65891ad4a581ea6c12fcb69a50637c`
+- `index.html`: `93d22d701c899b079a2b4ce29ccbd5ce86e636f2`
+- `script.js`: `ce51293940e83824d5b99ce5dca44d97bbdff36a`
+
+R2E exact net code diff versus R2D status commit `b52a8fb7d176b0eb1a6fa8ab0df306f6e02ae646`:
+
+- `index.html`: +1 / -0
+- `js/app/nav.js`: +74 / -0
+- `script.js`: +1 / -61
+
+The CI verification commit is tree-identical to the R2E code commit. The official run loaded `js/app/nav.js` successfully and finished `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `17.6 s`.
+
+Medical content changed: **NO**.
+Practice Changes medical content changed: **NO**.
+
+### R2F — VERIFIED
+
+Code commit: `256ae0d6b7eebd9b0b3bc6e3517f3dc0a5dbac30`
+CI verification commit (tree-identical): `cc146fe6ed69b2657869295fd71def25c8916bb5`
+Official PR CI run: `33625550511`
+
+Static i18n application was extracted as one coherent low-risk package:
+
+- `t()`
+- `applyStaticTranslations()`
+- `fillSwitchPrinciples()` as a private helper inside the module
+
+New file:
+
+- `js/app/i18nApply.js`
+
+Implementation boundary:
+
+- `window.ESUR.app.i18nApply.init({ state, i18n, escapeHtml, changesSearchInput })` closes over the existing references.
+- Only `t` and `applyStaticTranslations` are returned to `script.js`; `fillSwitchPrinciples` remains private.
+- Initialization occurs after `changesSearchInput` is declared and before `levelLabel()` / other remaining `t()` consumers.
+- The existing `(ng/mL)` placeholder literal was preserved unchanged.
+- `js/content/i18n.js` remained unchanged.
+- No Medical renderer, severity/routing logic, Tryptase calculation, Practice Changes content, `renderAll`, `resetAll`, `setSegment` or `defaultAcutePattern` moved in R2F.
+
+R2F runtime load order at that milestone:
+
+1. `js/content/i18n.js`
+2. `js/app/utils.js`
+3. `js/app/icons.js`
+4. `js/app/nav.js`
+5. `js/app/i18nApply.js`
+6. `js/hsr/acute.js`
+7. `js/hsr/nihr.js`
+8. `script.js`
+
+R2F production blobs:
+
+- `js/app/i18nApply.js`: `f8ea96afb22c55ed7c083383f4013890ae8af020`
+- `index.html`: `ff1c6e276bb9bb9dfcfa80a03370d757e74649a0`
+- `script.js`: `1bf0afedd0bf7f830f53e683001be21845f2a20d`
+- `js/content/i18n.js`: unchanged (`e5f4543ae41eb2e55c4a7b98a3b63db522c389be`)
+
+R2F exact net code diff versus R2E status commit `549507ca69899bf2b62a8f62546670ad73009b38`:
+
+- `index.html`: +1 / -0
+- `js/app/i18nApply.js`: +106 / -0
+- `script.js`: +6 / -94
+
+The CI verification commit is tree-identical to the R2F code commit. The official run loaded `js/app/i18nApply.js` successfully and finished `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `19.5 s`.
+
+Medical content changed: **NO**.
+Practice Changes medical content changed: **NO**.
+
+### R2G — VERIFIED
+
+Code commit: `33da3635ab701ed218d548a3b7400670b0debfd0`
+CI verification commit (tree-identical): `09511a04a3f39686d1da32132acff1764d306d7f`
+Official PR CI run: `33628922510`
+
+Only the Previous-Reaction flow renderer was mechanically extracted:
+
+- `renderFlow()`
+
+New file:
+
+- `js/hsr/previous.js`
+
+Implementation boundary:
+
+- `window.ESUR.hsr.previous.init({ state, t, escapeHtml, flowOutput, flowSafety })` closes over the same existing references.
+- `renderFlow()` reads only `state.situation` and `state.reaction`; it does not write state.
+- The lookups `t("flow_titles")[key]`, `t("flow_bullets")[key]` and `t("flow_safety")` were preserved without a fallback.
+- The existing `renderFlow();` call inside `renderAll()` remained unchanged.
+- `setSegment`, `defaultAcutePattern`, Acute, Switch, Tryptase, NIHR, reset/orchestration, listeners, i18n content and Practice Changes were not moved or changed in R2G.
+
+R2G runtime load order at that milestone:
+
+1. `js/content/i18n.js`
+2. `js/app/utils.js`
+3. `js/app/icons.js`
+4. `js/app/nav.js`
+5. `js/app/i18nApply.js`
+6. `js/hsr/acute.js`
+7. `js/hsr/nihr.js`
+8. `js/hsr/previous.js`
+9. `script.js`
+
+R2G production blobs:
+
+- `js/hsr/previous.js`: `53487ae796e84f0b7c65ba66a63b8729268d3d7c`
+- `index.html`: `e5cc1e1e553b4c63b6f43e3e3726c101fa4e4503`
+- `script.js`: `0fe821c4639be492bb673cd59b18a1b38e91e6a1`
+- `js/content/i18n.js`: unchanged (`e5f4543ae41eb2e55c4a7b98a3b63db522c389be`)
+
+R2G exact net code diff versus regulatory docs baseline `ef66d8bb9c0102566e7687451d6ce37f537fa79f`:
+
+- `index.html`: +1 / -0
+- `js/hsr/previous.js`: +23 / -0
+- `script.js`: +7 / -14
+
+The CI verification commit is tree-identical to the R2G code commit. The official run loaded `js/hsr/previous.js` successfully and finished `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `19.8 s`.
+
+Medical content changed: **NO**.
+Practice Changes medical content changed: **NO**.
+
+### R2H — VERIFIED
+
+Code commit: `766e156e83d6418d85dcd55064f64b3809859519`
+CI verification commit (tree-identical): `8896887b20949b75c89858ae260405cebf96a6af`
+Official PR CI run: `33631632945`
+
+Only the Switch renderer was mechanically extracted:
+
+- `renderSwitch()`
+
+New file:
+
+- `js/hsr/switch.js`
+
+Implementation boundary:
+
+- `window.ESUR.hsr.switch.init({ state, t, escapeHtml, switchOutput, icmCard, gbcaCard })` closes over the same existing references.
+- `renderSwitch()` reads `state.cmtype`, `state.icm` and `state.gbca`; it does not write state.
+- The lookups `switch_placeholder_icm`, `switch_placeholder_gbca`, `icm_rules` and `gbca_rules` were preserved without content changes.
+- The three existing host calls remain: `renderAll()`, the ICM group listener and the GBCA group listener.
+- Existing `setSegment("cmtype")` card-visibility writes were deliberately left unchanged; no cleanup or deduplication was performed.
+- `fillSwitchPrinciples()` remains private in `js/app/i18nApply.js`.
+- Listeners, brands, i18n values, Medical content, Practice Changes and unrelated renderers were not moved or changed in R2H.
+
+R2H runtime load order at that milestone:
+
+1. `js/content/i18n.js`
+2. `js/app/utils.js`
+3. `js/app/icons.js`
+4. `js/app/nav.js`
+5. `js/app/i18nApply.js`
+6. `js/hsr/acute.js`
+7. `js/hsr/nihr.js`
+8. `js/hsr/previous.js`
+9. `js/hsr/switch.js`
+10. `script.js`
+
+R2H production blobs:
+
+- `js/hsr/switch.js`: `2e7a98f19f40d3f6d563217defde9daba177c93f`
+- `index.html`: `67f58775723b8dfcc2288faa6eef4e8b2399d344`
+- `script.js`: `6c16f61d76afda63a6067b26a1a2d93870305f80`
+- `js/content/i18n.js`: unchanged (`e5f4543ae41eb2e55c4a7b98a3b63db522c389be`)
+
+R2H exact net code diff versus R2G docs baseline `816bd9e98b06233d00580cdfa78fea6245ae61d8`:
+
+- `index.html`: +1 / -0
+- `js/hsr/switch.js`: +45 / -0
+- `script.js`: +8 / -36
+
+The CI verification commit is tree-identical to the R2H code commit. The official run loaded `js/hsr/switch.js` successfully and finished `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `20.5 s`.
+
+Medical content changed: **NO**.
+Practice Changes medical content changed: **NO**.
+
+### R2I — VERIFIED
+
+Code commit: `2bede43edd6ae6490743fb40f5b43f0781036a62`
+CI verification commit (tree-identical): `b6d4ec568bb7e7dec7408e1b6b95a330d41d7a98`
+Official PR CI run: `33636536231`
+
+The Tryptase display renderer and calculator were mechanically extracted together as one coherent package:
+
+- `renderTryptase()`
+- `calcTryptase()`
+
+New file:
+
+- `js/hsr/tryptase.js`
+
+Implementation boundary:
+
+- `window.ESUR.hsr.tryptase.init({ t, escapeHtml, fmt, tryptaseOutput })` closes over the same existing references.
+- `renderTryptase()` still uses `tryptaseOutput.dataset.ready` exactly as before.
+- `calcTryptase()` still obtains `baseline` and `acute` with `document.getElementById(...)` inside the function body.
+- Blank input remains invalid; explicit numeric zero remains valid.
+- The formula remains exactly `(1.2 * baseline) + 2` and significance remains `acute >= threshold`.
+- The literal ` ng/mL`, all existing `t()` keys, formatting calls and output structure were preserved.
+- Existing invalid branches still return without deleting/resetting `dataset.ready`; no readiness cleanup was introduced.
+- `renderAll()`, `refreshComputedModulesAfterLanguageChange()`, `resetAll()` including `delete tryptaseOutput.dataset.ready`, the calculator button listener and language listeners remain in `script.js`.
+- No Medical content, i18n values, tests, Practice Changes or unrelated HSR logic moved or changed in R2I.
+
+R2I runtime load order at that milestone:
+
+1. `js/content/i18n.js`
+2. `js/app/utils.js`
+3. `js/app/icons.js`
+4. `js/app/nav.js`
+5. `js/app/i18nApply.js`
+6. `js/hsr/acute.js`
+7. `js/hsr/nihr.js`
+8. `js/hsr/previous.js`
+9. `js/hsr/switch.js`
+10. `js/hsr/tryptase.js`
+11. `script.js`
+
+R2I production blobs:
+
+- `js/hsr/tryptase.js`: `d1bf579eb71ca5fbef07a6365b2a0af508ec51b0`
+- `index.html`: `e76d5dba8968de92d273f0e0cfb866448b6b67bc`
+- `script.js`: `b1537046d1d023e245d0e0c2083954e2d4d9b1e0`
+- `js/content/i18n.js`: unchanged (`e5f4543ae41eb2e55c4a7b98a3b63db522c389be`)
+
+R2I exact net code diff versus standing-authorization docs baseline `b3a017aeb371ea358a2d0a3db9ca62ac37ee7052`:
+
+- `index.html`: +1 / -0
+- `js/hsr/tryptase.js`: +52 / -0
+- `script.js`: +6 / -43
+
+The CI verification commit is tree-identical to the R2I code commit. The official run loaded `js/hsr/tryptase.js` successfully and finished `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `18.5 s`.
+
+Medical content changed: **NO**.
+Practice Changes medical content changed: **NO**.
+
+### R2J — VERIFIED
+
+Code commit: `beb299cdb9884b1542406e6ed3fa4e5c5cfc9fc4`
+CI verification commit (tree-identical): `c5aba6d599746dfc56f6b712f110b70a3dfa24b6`
+Official PR CI run: `33639546466`
+
+The NIHR renderer was mechanically extracted into the existing NIHR module:
+
+- `renderNihr()`
+
+Existing file expanded:
+
+- `js/hsr/nihr.js`
+
+Implementation boundary:
+
+- `window.ESUR.hsr.nihr.init({ state, t, escapeHtml, nihrOutput })` now owns the existing private `renderNihrList()` and the extracted `renderNihr()`.
+- `renderNihrList()` preserves its existing body and is now private to the NIHR module.
+- `renderNihr()` still reads `.nihr-check` directly and reads only `state.nihrSeverity`, `state.nihrCulpritKnown` and `state.nihrCmtype`; it does not write state.
+- The existing mild, moderate, severe-with-danger-sign SCAR and scope-guard branch ordering and return points were preserved.
+- The conditional `nihr_choose_different` action and GBCA / unknown / ICM class-rule selection were preserved.
+- `renderAll()`, `refreshComputedModulesAfterLanguageChange()`, `resetAll()`, `.nihr-check` listeners and `setSegment()` remain in `script.js`.
+- `index.html` and runtime load order were unchanged.
+- No Medical content, i18n values, tests, Practice Changes or unrelated HSR logic moved or changed in R2J.
+
+Current runtime load order:
+
+1. `js/content/i18n.js`
+2. `js/app/utils.js`
+3. `js/app/icons.js`
+4. `js/app/nav.js`
+5. `js/app/i18nApply.js`
+6. `js/hsr/acute.js`
+7. `js/hsr/nihr.js`
+8. `js/hsr/previous.js`
+9. `js/hsr/switch.js`
+10. `js/hsr/tryptase.js`
+11. `script.js`
+
+R2J production blobs:
+
+- `js/hsr/nihr.js`: `e526e30054276a468d6de57ed24444f07bab0e71`
+- `script.js`: `878cd4e5d9b58e2b9227e80d02638fe1240e1a7b`
+- `index.html`: unchanged (`e76d5dba8968de92d273f0e0cfb866448b6b67bc`)
+- `js/content/i18n.js`: unchanged (`e5f4543ae41eb2e55c4a7b98a3b63db522c389be`)
+
+R2J exact net code diff versus R2I docs baseline `d8894ddd710bf5a749d063257630c8daa0cbfd86`:
+
+- `js/hsr/nihr.js`: +95 / -9
+- `script.js`: +6 / -88
+- `index.html`: unchanged
+
+The CI verification commit is tree-identical to the R2J code commit. The official run loaded `js/hsr/nihr.js` successfully, exercised the NIHR mild/moderate/SCAR/scope-guard/class-specific paths, and finished `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `19.9 s`.
+
+Medical content changed: **NO**.
+Practice Changes medical content changed: **NO**.
+
+
+### R2K — VERIFIED
+
+Code commit: `4647917fb6bf2d1a0b8aae6f8a8a71dcf56b759f`
+Parent: `f861338a49f42dc2f17efa5b8917807f2343ceca`
+CI verification commit (tree-identical): `1bde6259a1161640b3e24c9aa56c0c70fc0d1950`
+Official PR CI run: `33643757974`
+
+The Acute management renderer was mechanically extracted into the existing Acute module:
+
+- `renderAcuteManagement()`
+
+Existing file expanded:
+
+- `js/hsr/acute.js`
+
+Implementation boundary:
+
+- `window.ESUR.hsr.acute.init({ state, t, escapeHtml, defaultAcutePattern, acuteImmediateOutput, acuteOutput })` returns `{ renderAcuteManagement }`.
+- `renderAcuteList()` preserves its existing body and is now private to the Acute module.
+- `defaultAcutePattern()` and `setSegment()` remain in `script.js`. `defaultAcutePattern` is injected as a function dependency.
+- Existing Acute logic, translation keys, markup, Immediate-block indentation, fallback write to `state.acutePattern`, pattern/severity button `hidden`/`active` behaviour, `|| []` fallbacks, dose display and pattern-state behaviour were preserved.
+- `renderAll()`, `resetAll()`, language listeners and generic segment listeners remain in `script.js`.
+- `index.html` and runtime load order were unchanged.
+- No Medical content, i18n values, tests, Practice Changes or unrelated HSR logic moved or changed in R2K.
+
+Historical note: the final `js/hsr/acute.js` blob was already present on the direct parent `f861338a49f42dc2f17efa5b8917807f2343ceca`. The code commit `4647917fb6bf2d1a0b8aae6f8a8a71dcf56b759f` wired the renderer in `script.js` and removed the temporary helper workflow. Document R2K from the net diff versus `e668c5b9…` and the final tree, not as if the entire `acute.js` rewrite lived only inside `4647917…`.
+
+Current runtime load order:
+
+1. `js/content/i18n.js`
+2. `js/app/utils.js`
+3. `js/app/icons.js`
+4. `js/app/nav.js`
+5. `js/app/i18nApply.js`
+6. `js/hsr/acute.js`
+7. `js/hsr/nihr.js`
+8. `js/hsr/previous.js`
+9. `js/hsr/switch.js`
+10. `js/hsr/tryptase.js`
+11. `script.js`
+
+R2K production blobs:
+
+- `js/hsr/acute.js`: `816cf5e433f820ce0a96cac3e663aba90dfb1422`
+- `script.js`: `2d5121de4405d8efe820007287a796d925bddd6c`
+- `index.html`: unchanged (`e76d5dba8968de92d273f0e0cfb866448b6b67bc`)
+- `js/content/i18n.js`: unchanged (`e5f4543ae41eb2e55c4a7b98a3b63db522c389be`)
+
+R2K exact net code diff versus hybrid-workflow docs baseline `e668c5b95b3f6df602c031ddbea1f77aa3fd4754`:
+
+- `js/hsr/acute.js`: +78 / -5
+- `script.js`: +8 / -67
+- `index.html`: unchanged
+
+No other production files changed in that net code diff. The temporary `.github/workflows/r2k-wire.yml` is not present in the final tree.
+
+The CI verification commit is tree-identical to the R2K code commit. The official run loaded `js/hsr/acute.js` successfully (HTTP 200), exercised the Acute immediate/pattern/dose/unit scenarios, and finished `82/82 passed`, `0 failed`, `0 skipped`, `2 workers`, `19.8 s`.
+
+Medical content changed: **NO**.
+Practice Changes medical content changed: **NO**.
+
+
+### R2L — VERIFIED
+
+Code commit: `5ecbf18dc47605701bd97e4a6df53b3a7109e1c0`
+Parent: `c8590597892765df1ea15c44c32efc863a4bda8d`
+CI verification commit (tree-identical): `31d4474f3f22084db37aae040af38c9a20ace533`
+Official PR CI run: `33681177366`
+
+The sticky disclaimer interaction was mechanically extracted from `script.js` into a dedicated app-chrome module:
+
+- `js/app/disclaimer.js`
+
+Implementation boundary:
+
+- `window.ESUR.app.disclaimer.init()` owns only the existing `#stickyDisclaimer` interaction.
+- Existing `role="button"`, `tabindex="0"`, initial `aria-expanded="false"`, `is-open` toggling, click behaviour, Enter behaviour, Space behaviour and `preventDefault()` semantics were preserved.
+- The host call remains inside the existing `DOMContentLoaded` flow, after `resetAll()` is defined and before the Main-nav listeners.
+- Disclaimer wording, markup, i18n keys/values and CSS were unchanged.
+- `defaultAcutePattern`, `setSegment`, `renderAll`, `resetAll`, `refreshComputedModulesAfterLanguageChange`, `changesLibrary`, Practice Changes content and all HSR modules were unchanged.
+
+R2L runtime load order:
+
+1. `js/content/i18n.js`
+2. `js/app/utils.js`
+3. `js/app/icons.js`
+4. `js/app/nav.js`
+5. `js/app/i18nApply.js`
+6. `js/app/disclaimer.js`
+7. `js/hsr/acute.js`
+8. `js/hsr/nihr.js`
+9. `js/hsr/previous.js`
+10. `js/hsr/switch.js`
+11. `js/hsr/tryptase.js`
+12. `script.js`
+
+R2L production/test blobs:
+
+- `index.html`: `24c222ef988c07fb9d7cd10db1817802331624e7`
+- `js/app/disclaimer.js`: `b27e92b4cb6c3713198967696a48d74f2ad73b88`
+- `script.js`: `252f88fff95c482b84c43de24ef0026f803f1847`
+- `tests/disclaimer.spec.js`: `4c2bb39a33d01d75d32068a523f13bec6adc2127`
+
+R2L exact code diff versus `c8590597892765df1ea15c44c32efc863a4bda8d`:
+
+- `index.html`: +1 / -0
+- `js/app/disclaimer.js`: +28 / -0
+- `script.js`: +1 / -21
+- `tests/disclaimer.spec.js`: +52 / -0
+
+The four new characterization tests protect initial accessibility attributes plus click, Enter and Space toggling. The official run loaded `js/app/disclaimer.js` successfully (HTTP 200) and finished `86/86 passed`, `0 failed`, `0 skipped`, `2 workers`, `18.5 s`.
+
+The original Grok-local R2L commit `46802374a70b13c8d08f938d89048a4f58abeb6d` was lost with its sandbox before it could be pushed. The preserved artifact ZIP was independently verified against all four expected blob SHAs. The authoritative remote R2L code commit is therefore `5ecbf18dc47605701bd97e4a6df53b3a7109e1c0`; it has the verified target tree/content even though its commit SHA differs from the lost local commit.
+
+Medical content changed: **NO**.
+Practice Changes medical content changed: **NO**.
+
+### R2M — VERIFIED
+
+Authoritative remote code commit: `fe26cc94687f940ab0725b71b1087fb0aef4bdf1`
+Parent: `e952ad58b7178a7af0c68bcd40628243cdef8964`
+CI verification commit (tree-identical): `c7105e2fd11b1c27f591ed051e5b69317422514b`
+Official PR CI run: `33685124875`
+
+The two existing Practice Changes label helpers were mechanically extracted from `script.js` into:
+
+- `js/app/changeLabels.js`
+
+Implementation boundary:
+
+- `window.ESUR.app.changeLabels.init({ t })` returns the existing `levelLabel` and `modeLabel` helpers.
+- `levelLabel`: `high` → `badge_practice_changing`, `medium` → `badge_refined`, all other values → `badge_structural`.
+- `modeLabel`: `action` → `changes_action_mode_badge`, all other values → `changes_compare_mode_badge`.
+- Existing i18n keys and values were unchanged, including the existing German `changes_action_mode_badge: "Action mode"` value.
+- `changesLibrary`, all Practice Changes renderers/content, HSR modules, state routing and global orchestration were unchanged.
+
+R2M runtime load order:
+
+1. `js/content/i18n.js`
+2. `js/app/utils.js`
+3. `js/app/icons.js`
+4. `js/app/nav.js`
+5. `js/app/i18nApply.js`
+6. `js/app/disclaimer.js`
+7. `js/app/changeLabels.js`
+8. `js/hsr/acute.js`
+9. `js/hsr/nihr.js`
+10. `js/hsr/previous.js`
+11. `js/hsr/switch.js`
+12. `js/hsr/tryptase.js`
+13. `script.js`
+
+R2M production/test blobs:
+
+- `index.html`: `aff4953149dbb6b53d930bfb0ebf13b44d75b7a1`
+- `js/app/changeLabels.js`: `860705e5bf17e0e2dfbb18b94ff1ccb61bea0993`
+- `script.js`: `c4383ea790ba11ec0e74c3a721acfbd008c59ff8`
+- `tests/change-labels.spec.js`: `570120bb91f67ea782b81f878fa8ae7a0bc52f8e`
+
+R2M exact code diff versus `e952ad58b7178a7af0c68bcd40628243cdef8964`:
+
+- `index.html`: +1 / -0
+- `js/app/changeLabels.js`: +23 / -0
+- `script.js`: +1 / -9
+- `tests/change-labels.spec.js`: +80 / -0
+
+The four new characterization tests protect EN/DE level-label mapping and Compare/Action-mode labels without freezing Practice Changes topic inventory, card IDs, card order or medical claims. The local handoff reported `4/4` characterization tests green against the untouched baseline before extraction and `90/90` local full-suite tests after extraction. Official PR CI run `33685124875` completed successfully on the tree-identical verification commit; the accessible Actions metadata confirms the full HSR Playwright job and regression-test step succeeded. The total 90-test inventory is derived from the unchanged verified 86-test baseline plus the four new characterization tests.
+
+The Grok-local implementation commit `b6b141e81f073a9e52a494f16bf541ee0e59a1ad` is handoff metadata only and was not pushed. The authoritative milestone is the independently verified remote tree above. The temporary R2M wire branch/workflow was removed and is not present in the refactor branch tree.
+
+Medical content changed: **NO**.
+Practice Changes medical content changed: **NO**.
+`changesLibrary` changed: **NO**.
+i18n values changed: **NO**.
+HSR behaviour changed: **NO**.
+
+## Refactor closeout — VERIFIED
+
+The R1–R2M modularization strand is technically complete at remote tree `5deee2920f23d68d09d6318293ba4c6c95e3500d`.
+
+Independent closeout review found no remaining mandatory FAST extraction and no structural blocker requiring another R2 package.
+
+The following responsibilities intentionally remain in `script.js`:
+
+- `state` ownership;
+- `defaultAcutePattern` severity-to-pattern routing;
+- `setSegment` state/DOM orchestration;
+- `renderAll` global render orchestration;
+- `refreshComputedModulesAfterLanguageChange` language-refresh orchestration;
+- `resetAll` global state/DOM reset;
+- global application listeners;
+- `changesLibrary` and the Practice Changes renderer shell. Card-level audited content changes after the refactor closeout are recorded above.
+
+This is intentional host orchestration, not an unresolved refactor defect. The existing `renderChangeSummary()` helper is currently unused; it is documented as optional later dead-code cleanup and is not removed in this behaviour-preserving refactor strand.
+
+The runtime remains one-directional with no inter-module cycle: i18n → utils → icons → nav → i18nApply → disclaimer → changeLabels → acute → nihr → previous → switch → tryptase → `script.js`. HSR modules receive their required state/helpers/DOM dependencies through their established `init(...)` boundaries and do not import one another.
+
+The regression inventory at the R2M closeout was 90 tests. The current inventory is 94 tests. These tests are regression guardrails for technical behaviour, not proof of medical correctness.
+
+Closeout governance:
+
+- Medical content changed: **NO**.
+- Practice Changes medical content changed: **NO**.
+- `changesLibrary` changed: **NO**.
+- i18n values changed: **NO**.
+- HSR behaviour changed: **NO**.
+- decision/routing behaviour changed: **NO**.
+- existing tests weakened: **NO**.
+- R2N implementation: **NOT STARTED / NOT REQUIRED**.
+
+## Next permitted action
+
+Do **not** continue the old card-audit sequence described in earlier versions of this file; that sequence is complete through PR `#19`.
+
+Current parallel workstreams are:
+
+1. **Human Medical Affairs:** review MED-01 for F02/F05/F07/F09/F11; PR `#21` remains a separate Medical review package.
+2. **UI-01:** correct/reconcile PR `#22` so the neutral F02/F11 start behaviour has regression coverage and official CI is green. Do not merge it while CI is red.
+3. **Design:** use `Esur2/main` as the visual design/integration sandbox. Medical strings and medical logic are frozen during design iteration. After Product Owner acceptance, transfer the final presentation-only diff back to `Esur22` as a separate Draft UI PR.
+4. **PR #12:** no merge. Reconcile against current `main` and reverify only when/if the modularized branch is brought forward.
+5. **Regulatory:** after Medical clarifies applicability/limits, hand the consolidated intended purpose/function package to Bayer RA/Legal for qualification/classification.
+
+Do not treat the `Esur2` integration build, a Source-QA PASS, a green technical test, or a Draft PR as a Medical/Regulatory approval.
+
+## Governance rules
+
+- During refactor: no medical wording, recommendation-strength, units, routing, decision logic, or source meaning may change.
+- Do not weaken, delete, bypass, or rewrite regression tests to make a refactor pass.
+- Every structural package must pass the full Playwright suite and official PR CI before being marked VERIFIED.
+- ChatGPT independently verifies remote blobs/diff/CI rather than relying only on implementation reports.
+- Change Practice Changes Medical content only through the applicable card-level source audit and Medical Lock; preserve the unaudited cards until their workflows are complete.
+- Do not full-replace the large `script.js` through the unreliable file-API path; use a safe Git/blob/patch/server-side method.
+- PR `#12` stays Draft.
+- Do not merge to `main` without explicit approval.
+- Tests are regression guardrails, not proof of medical correctness.
+- Regulatory work must not alter Medical content or refactor scope before a Bayer RA/Legal vote. No MDSW class is recorded in this file.
+
+
+## Remote handoff / single-writer rule
+
+GitHub is the authoritative source of truth. Local sandboxes, `/tmp` clones and unpushed commit SHAs are temporary implementation state, not project milestones.
+
+For the current multi-agent setup, use exactly one remote writer per package:
+
+- **Grok implements and tests locally. ChatGPT is the current Remote Writer and independent remote verifier.**
+- Grok must not promise or report a remote HEAD, pushed commit, official CI result or completed remote milestone unless its environment actually has working GitHub authentication and has verified that remote state.
+- After a green local implementation, Grok must preserve the handoff outside ephemeral `/tmp`: provide the exact baseline/parent, local commit SHA if one exists, changed-file list, target blob SHAs and a persistent artifact/ZIP containing the final files or patch material needed for recovery.
+- A local commit that has not reached GitHub is not a completed milestone. If its sandbox disappears, recover from the preserved artifact and target blob SHAs; do not treat the lost local SHA as authoritative.
+- ChatGPT may publish the verified artifact/patch to the remote branch only through a safe Git/Git-Data/server-side path that preserves the approved bytes and boundaries. If that cannot be done safely, return `STOP`; do not improvise a large-file full replacement.
+- Do **not** use the GitHub Contents/File API to full-replace large existing files such as `script.js` or `PROJECT_STATE.md`. Small new temporary helper files may be created only when necessary for a controlled server-side wire and must not remain in the final refactor tree.
+- Code package order is strict: local implementation/tests → remote write → ChatGPT remote diff/blob verification → official full CI → `VERIFIED PASS` → separate docs-only `PROJECT_STATE.md` update.
+- Do not combine an unverified code package and its milestone documentation into the same completion step.
+- Temporary helper branches/workflows used for recovery or wiring must be removed after successful use and must not remain in the final refactor branch tree.
+- The authoritative commit for a milestone is the verified **remote** commit/tree recorded here, even if a lost local implementation commit had a different SHA but identical verified content.
+
+## Standing technical refactor authorization
+
+The user has granted standing authorization for the ongoing purely technical, behaviour-preserving refactor on Draft PR `#12`.
+
+- A separate one-word user `GO` is **not required** for each technical refactor package.
+- ChatGPT acts as the independent technical reviewer/orchestrator and may issue `GO`, `MODIFY` or `STOP` after a read-only scope review.
+- ChatGPT `GO` authorizes Grok to implement exactly the approved technical scope without waiting for another user message.
+- If ChatGPT returns `MODIFY` or `STOP`, Grok must not implement until the issue is resolved and a new technical `GO` is issued.
+- After implementation, Grok must stop and report the exact local handoff: baseline/parent, local commit SHA if available, changed-file list, target blob SHAs, persistent artifact/ZIP, targeted-test result and local full-suite result. ChatGPT, as current Remote Writer, publishes through the safe remote path and then independently verifies the GitHub diff/blobs and official CI.
+- After ChatGPT marks a package `VERIFIED PASS`, a docs-only `PROJECT_STATE.md` milestone update is authorized without another user `GO`.
+- This standing authorization is for the agreed incremental refactor only; it is not authorization to expand scope autonomously or chain multiple unreviewed packages.
+
+Standing authorization does **not** cover:
+
+- Medical wording, source meaning, recommendation strength, doses, units, thresholds or Medical decision/routing changes;
+- source interpretation or source-conflict resolution;
+- weakening, deleting or changing regression tests to make an implementation pass;
+- Regulatory, Intended Purpose or claim decisions;
+- major architecture changes outside the agreed incremental refactor;
+- merging PR `#12` to `main`;
+- release or deployment decisions.
+
+Those require explicit user approval.
+
+## Hybrid refactor workflow
+
+The refactor uses a risk-adaptive hybrid workflow to reduce coordination overhead without removing the independent post-implementation verification.
+
+### Default fast path
+
+Use this for clearly bounded, mechanically straightforward packages with low or manageable coupling:
+
+**ChatGPT scope from the live remote → Grok local implementation/tests + persistent artifact handoff → ChatGPT remote write + independent verification → full regression CI**
+
+- ChatGPT inspects the current remote code, defines the exact package, dependencies, invariants and out-of-scope boundary, and provides the ready-to-copy implementation prompt directly.
+- Grok implements exactly that approved package, runs the required local tests, preserves the final handoff artifact outside ephemeral `/tmp`, reports the target blob SHAs and stops.
+- ChatGPT is the current Remote Writer: it publishes the approved handoff through the safe remote path, then independently verifies the actual GitHub diff/blobs and official CI rather than relying on Grok's report.
+- The full Playwright suite remains required for every structural package before `VERIFIED PASS`.
+- No separate user `GO` is required for these routine technical packages under the standing authorization.
+
+### Expanded-scope path
+
+Use this when a package is unusually coupled, stateful, cross-cutting, ambiguous, or otherwise materially riskier to scope correctly. Examples include `defaultAcutePattern`, `setSegment`, `renderAll`, `resetAll`, or similarly coupled orchestration/state logic.
+
+**Grok read-only scope → ChatGPT independent scope review (`GO / MODIFY / STOP`) → Grok local implementation/tests + persistent artifact handoff → ChatGPT remote write + independent verification → full regression CI**
+
+- The extra Grok scope pass is deliberate redundancy before implementation.
+- ChatGPT independently checks the proposed boundary against the live remote before issuing technical `GO`.
+- Medical sensitivity alone does not automatically require this longer path; the decision is based on the concrete combination of coupling, state mutation, routing/orchestration reach, boundary ambiguity and extraction risk.
+- ChatGPT may escalate any package from the fast path to the expanded-scope path whenever independent pre-build redundancy is warranted.
+
+### Package discipline
+
+- Default principle: **fast by default, extra scope redundancy only when the concrete risk justifies it**.
+- One coherent package at a time. Do not chain multiple unreviewed packages.
+- A package is not complete until the implementation is on GitHub, ChatGPT has independently verified the remote implementation, and the full official CI is green.
+- After `VERIFIED PASS`, the routine docs-only `PROJECT_STATE.md` milestone update remains authorized without another user `GO`.
+- This hybrid workflow does not relax any Medical, Regulatory, test, merge or release exclusions listed above.
+
+ChatGPT decides which path applies to each technical package and must state that choice explicitly in the next-step handoff.
+
+## AI handoff rule
+
+Before doing anything, read `PROJECT_STATE.md` and treat it as the authoritative project status.
+
+If chat history, a local workspace, an artifact handoff, or an earlier report conflicts with this file, verify the current GitHub branch and CI before proceeding. GitHub remote state is authoritative. Update this file only after a milestone has been independently verified.
+
+Every reviewer/orchestrator response in this refactor workflow must also end with the **exact next permitted step**. When another model needs to act, provide a ready-to-copy prompt instead of making the user ask what to do next.
+
+### Prompt routing rule
+
+- Every ready-to-copy AI handoff prompt must state its exact destination prominently before the prompt: `CHATGPT CHAT`, `CHATGPT WORK`, `GROK`, or `CODEX`.
+- Bruno must never need to infer which system receives the next prompt.
+- Results from `CHATGPT WORK`, `GROK`, or `CODEX` return to `CHATGPT CHAT` unless the handoff explicitly states otherwise.
+
+## Current design workflow — Esur2
+
+- Design work is currently separated from Medical/content work.
+- Phase 1: show/review the design concept without changing GitHub.
+- After Product Owner approval of a concept, implementation may be iterated directly on `KnoxiCoke/Esur2/main` for immediate browser review.
+- `Esur2` may combine Draft PR content for visibility; this does not change approval status.
+- Once the Product Owner accepts the visual result, transfer only the final presentation-layer diff back to `Esur22` in a separate UI Draft PR.
+- During this design track, `changesLibrary` and all medical strings/logic must remain unchanged unless a separately governed Medical change explicitly authorizes otherwise.
+
+## Practice Changes UX decision — `UX_CHANGES_01`
+
+Long-term UX decision is stored in `docs/ux/PRACTICE_CHANGES_UX.md`.
+
+Phase 1 is behaviour-preserving presentation only:
+
+- one primary Practice Changes card view;
+- remove Compare/Action mode control;
+- remove level filters from user controls;
+- keep search;
+- keep the current level only as a card badge;
+- place existing Action content in the same card without rewriting it;
+- collapse 2018 / Why / Sources by default;
+- present Waiting Times through three collapsible sub-blocks: MRI + CT/angiography, two ICM administrations, and two GBCA administrations.
+
+Medical/content boundary before the relevant audit is complete:
+
+- existing EN/DE Medical strings remain unchanged;
+- no shortening, merging, paraphrasing, reclassification, recommendation-strength change, number/unit/threshold change, source-claim change or decision/routing change;
+- moving existing text is allowed only inside an explicitly behaviour-preserving scope.
+
+`UX_CHANGES_01` does **not** itself authorize implementation. Before code changes, ChatGPT must write a behaviour-preserving scope covering untouched strings/fields, controls, disclosure behaviour, state/DOM dependencies, regression invariants and explicit out-of-scope Medical/content changes. That scope must be reviewed first.
+
+Editorial compression or rewriting is a separate Phase 2 after the relevant Practice Changes Medical/source audit and is not authorized by this decision.
+
+This docs-only decision changes no production code, Medical wording, recommendation strength or decision logic.
