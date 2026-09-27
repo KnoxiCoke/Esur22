@@ -1472,9 +1472,9 @@ arrest: [
         id: "new_clinical_scenarios",
         level: "medium",
         icon: "layers",
-        title: "New clinical scenarios: myasthenia gravis, HSG, CO₂",
+        title: "Dedicated ESUR 2025 sections: myasthenia gravis, HSG and CO₂ angiography",
         summary:
-          "2025 explicitly adds or foregrounds topics that were absent or not separately framed in the 2018 booklet.",
+          "The 2018 EN and DE booklets do not address myasthenia gravis or HSG; both name carbon dioxide only in the terminology definition. The 2025 booklet contains dedicated subsections for all three topics.",
         keywords: [
           "myasthenia gravis",
           "HSG",
@@ -1488,49 +1488,50 @@ arrest: [
             {
               label: "2018",
               paragraphs: [
-                "The 2018 booklet did not have dedicated practice chapters for myasthenia gravis, hysterosalpingography, or CO₂ as an alternative intravascular contrast option."
+                "Neither 2018 edition addresses myasthenia gravis or HSG. Both mention carbon dioxide only as an example of an X-ray contrast medium in the terminology section; neither contains a CO₂ angiography subsection."
               ]
             },
             {
               label: "2025",
               paragraphs: [
-                "The 2025 guidance explicitly includes myasthenia gravis within systemic diseases and adds dedicated sections for HSG and for CO₂ as an alternative to iodine-based contrast media in vascular procedures."
+                "Myasthenia gravis appears under “Safe use of contrast agents in patients with systemic diseases”. HSG and CO₂ angiography appear as separate subsections under “Miscellaneous recommendations and topics”."
               ]
             },
             {
               label: "Practical impact",
               paragraphs: [
-                "These areas are easier to find and use in the 2025 guidance, rather than requiring extrapolation from broader sections."
+                "This comparison establishes a change in the booklet’s coverage and section structure."
               ],
               variant: "impact"
             }
           ],
           refs: [
-            "Source: ESUR 2025 summary guideline",
-            "Source: ESUR 10.0 guideline"
+            "Source: ESUR Guidelines on Contrast Agents, Version 10.0 (2018 EN), Contents C.1–C.11, printed pp. 4–5 / PDF pp. 5–6; Terminology: Contrast agents and contrast media, printed p. 5 / PDF p. 6.",
+            "Source: Official German ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018 DE), Inhalt C.1–C.11, PDF pp. 4–5; Terminologie: Kontrastmittel und Röntgenkontrastmittel, printed pp. 10–11 / PDF p. 6.",
+            "Source: ESUR Contrast Media Safety Committee Guidelines 2025, Contents, printed/PDF p. 5; Safe use of contrast agents in patients with myasthenia gravis, p. 29; CO₂ and HSG subsections, p. 31."
           ]
         },
         action: {
           sections: [
             {
-              label: "ESUR 2025 action points",
+              label: "ESUR 2025 statements",
               bullets: [
-                "Use the 2025 guidance when questions arise about myasthenia gravis and contrast use, because this topic is now explicitly addressed.",
-                "Use the 2025 dedicated section for hysterosalpingography rather than extrapolating from general contrast rules.",
-                "Use the 2025 CO₂ section when considering CO₂ as an alternative to iodine-based contrast in vascular procedures."
+                "For myasthenia gravis, the 2025 booklet states that intravenous low- or iso-osmolar iodine-based contrast media can be associated with symptom exacerbation within the first 24 hours after administration, probably in fewer than 5% of patients receiving these agents intravenously; gadolinium-based contrast agents are described as safe for myasthenia gravis patients.",
+                "The 2025 HSG subsection notes limited external validity because some contrast media used in the past are no longer on the market. Compared with water-based contrast media, oil-based contrast media are associated with approximately 10% more pregnancies and live births and significantly better image quality; intravasation occurs with equal frequency. Oil-based contrast media can remain in the abdominal cavity for a prolonged period and have a significantly greater inflammatory effect on the peritoneum; the clinical consequences are unknown, and caution is advised. In every woman receiving oil-based contrast media, thyroid function should be tested before HSG and monitored for 6 months afterwards; routine additional neonatal thyroid function tests after HSG are not indicated.",
+                "The 2025 booklet describes the evidence for CO₂ angiography as an alternative to iodine-based contrast media as limited. CO₂ angiography seems to be a safe alternative in vascular procedures and may reduce CA-AKI risk, especially in PAD procedures, while specific contraindications and safety measures and the higher incidence of non-serious adverse events need to be considered. More large-scale RCTs are needed to confirm these findings and further investigate CA-AKI risk factors in EVAR and interventional procedures for PAD."
               ],
               variant: "action"
             },
             {
               label: "Why this matters",
               paragraphs: [
-                "These are genuine additions or newly explicit topic areas, not just cosmetic rearrangements."
+                "These are dedicated subsections in the 2025 booklet; carbon dioxide was already named in the 2018 terminology sections."
               ]
             }
           ],
           refs: [
-            "Source: ESUR 2025 summary guideline",
-            "Source: ESUR 10.0 guideline"
+            "Source: ESUR Contrast Media Safety Committee Guidelines 2025, Safe use of contrast agents in patients with myasthenia gravis, printed/PDF p. 29.",
+            "Source: ESUR Contrast Media Safety Committee Guidelines 2025, Safety of CO₂ as an alternative to iodine-based contrast media in vascular procedures; Safe use of contrast agents in hysterosalpingography (HSG), printed/PDF p. 31."
           ]
         }
       },
@@ -2209,9 +2210,9 @@ arrest: [
         id: "new_clinical_scenarios",
         level: "medium",
         icon: "layers",
-        title: "Neue klinische Szenarien: Myasthenia gravis, HSG, CO₂",
+        title: "Eigene ESUR-2025-Abschnitte: Myasthenia gravis, HSG und CO₂-Angiographie",
         summary:
-          "2025 werden Themen explizit ergänzt oder hervorgehoben, die im 2018er Booklet fehlten oder nicht separat gerahmt waren.",
+          "Die englische und die offizielle deutsche Ausgabe von 2018 behandeln Myasthenia gravis und HSG nicht; beide nennen Kohlendioxid nur in der Terminologie. Das Booklet 2025 enthält zu allen drei Themen eigene Unterabschnitte.",
         keywords: [
           "myasthenia gravis",
           "HSG",
@@ -2225,49 +2226,50 @@ arrest: [
             {
               label: "2018",
               paragraphs: [
-                "Das 2018er Booklet hatte keine eigenen Praxis-Kapitel zu Myasthenia gravis, Hysterosalpingographie oder CO₂ als alternative intravaskuläre Kontrastoption."
+                "Keine der beiden Ausgaben von 2018 behandelt Myasthenia gravis oder HSG. Beide nennen Kohlendioxid nur als Beispiel eines Röntgenkontrastmittels in der Terminologie; ein Unterabschnitt zur CO₂-Angiographie fehlt."
               ]
             },
             {
               label: "2025",
               paragraphs: [
-                "Die 2025er Guidance enthält Myasthenia gravis explizit im Block zu systemischen Erkrankungen und ergänzt eigene Abschnitte zu HSG sowie zu CO₂ als Alternative zu iodhaltigen Kontrastmitteln bei vaskulären Eingriffen."
+                "Myasthenia gravis steht unter „Safe use of contrast agents in patients with systemic diseases“. HSG und CO₂-Angiographie stehen als getrennte Unterabschnitte unter „Miscellaneous recommendations and topics“."
               ]
             },
             {
               label: "Praktische Bedeutung",
               paragraphs: [
-                "Diese Themen sind in der 2025er Guidance leichter auffindbar und nutzbar, anstatt aus breiteren Abschnitten abgeleitet werden zu müssen."
+                "Dieser Vergleich belegt eine Änderung der im Booklet behandelten Themen und ihrer Gliederung."
               ],
               variant: "impact"
             }
           ],
           refs: [
-            "Quelle: ESUR 2025 Summary Guideline",
-            "Quelle: ESUR 10.0 Guideline"
+            "Quelle: ESUR Guidelines on Contrast Agents, Version 10.0 (2018 EN), Inhaltsverzeichnis C.1–C.11, Drucks. 4–5 / PDF-S. 5–6; „Terminology: Contrast agents and contrast media“, Drucks. 5 / PDF-S. 6.",
+            "Quelle: Offizielle deutsche ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018 DE), Inhalt C.1–C.11, PDF-S. 4–5; „Terminologie: Kontrastmittel und Röntgenkontrastmittel“, Drucks. 10–11 / PDF-S. 6.",
+            "Quelle: ESUR Contrast Media Safety Committee Guidelines 2025, Inhaltsverzeichnis, Druck-/PDF-S. 5; „Safe use of contrast agents in patients with myasthenia gravis“, S. 29; CO₂- und HSG-Unterabschnitte, S. 31."
           ]
         },
         action: {
           sections: [
             {
-              label: "ESUR-2025-Kernaussagen",
+              label: "Aussagen der ESUR 2025",
               bullets: [
-                "Bei Fragen zu Myasthenia gravis und Kontrastmittel sollte die 2025er Guidance verwendet werden, weil dieses Thema jetzt explizit adressiert wird.",
-                "Für HSG sollte der dedizierte 2025er Abschnitt verwendet werden, statt nur von allgemeinen Kontrastmittelregeln auszugehen.",
-                "Wenn CO₂ als Alternative zu iodhaltigem Kontrastmittel bei vaskulären Eingriffen erwogen wird, sollte der 2025er CO₂-Abschnitt herangezogen werden."
+                "Bei Myasthenia gravis können laut Booklet 2025 intravenös verabreichte niedrig- oder iso-osmolare iodhaltige Röntgenkontrastmittel innerhalb der ersten 24 Stunden nach der Gabe mit einer Verschlechterung der Symptome verbunden sein, wahrscheinlich bei weniger als 5 % der Patientinnen und Patienten, die diese Mittel intravenös erhalten; gadoliniumhaltige Kontrastmittel werden für Patientinnen und Patienten mit Myasthenia gravis als sicher beschrieben.",
+                "Der HSG-Unterabschnitt von 2025 weist darauf hin, dass die externe Validität begrenzt ist, weil einige früher verwendete Kontrastmittel nicht mehr auf dem Markt sind. Im Vergleich zu wasserbasierten Kontrastmitteln treten nach HSG mit ölbasierten Kontrastmitteln etwa 10 % mehr Schwangerschaften und Lebendgeburten auf und die Bildqualität ist signifikant besser; Intravasationen treten gleich häufig auf. Ölbasierte Kontrastmittel können längere Zeit in der Bauchhöhle verbleiben und haben einen signifikant stärkeren entzündlichen Effekt auf das Peritoneum; die klinischen Folgen sind unbekannt und bei der Anwendung ist Vorsicht geboten. Bei jeder Frau, die ein ölbasiertes Kontrastmittel erhält, soll die Schilddrüsenfunktion vor der HSG geprüft und danach 6 Monate lang überwacht werden; routinemässige zusätzliche Schilddrüsenfunktionstests beim Neugeborenen nach HSG sind nicht indiziert.",
+                "Das Booklet 2025 bezeichnet die Evidenz zur CO₂-Angiographie als Alternative zu iodhaltigen Röntgenkontrastmitteln als begrenzt. CO₂ scheint bei vaskulären Eingriffen eine sichere Alternative zu sein und könnte das CA-AKI-Risiko insbesondere bei PAD-Eingriffen senken; dabei sind spezifische Kontraindikationen und Sicherheitsmassnahmen sowie die höhere Häufigkeit nicht schwerwiegender unerwünschter Ereignisse zu berücksichtigen. Weitere grosse RCTs sind erforderlich, um diese Ergebnisse zu bestätigen und CA-AKI-Risikofaktoren bei EVAR und interventionellen Eingriffen wegen PAD weiter zu untersuchen."
               ],
               variant: "action"
             },
             {
               label: "Warum das wichtig ist",
               paragraphs: [
-                "Das sind echte Ergänzungen bzw. neu explizit gemachte Themenbereiche und nicht nur kosmetische Umstellungen."
+                "Dies sind eigene Unterabschnitte im Booklet 2025; Kohlendioxid wurde bereits 2018 in der Terminologie genannt."
               ]
             }
           ],
           refs: [
-            "Quelle: ESUR 2025 Summary Guideline",
-            "Quelle: ESUR 10.0 Guideline"
+            "Quelle: ESUR Contrast Media Safety Committee Guidelines 2025, „Safe use of contrast agents in patients with myasthenia gravis“, Druck-/PDF-S. 29.",
+            "Quelle: ESUR Contrast Media Safety Committee Guidelines 2025, „Safety of CO₂ as an alternative to iodine-based contrast media in vascular procedures“ und „Safe use of contrast agents in hysterosalpingography (HSG)“, Druck-/PDF-S. 31."
           ]
         }
       },
