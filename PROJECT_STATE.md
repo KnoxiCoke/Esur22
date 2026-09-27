@@ -33,7 +33,8 @@ Last remote verification: 2026-09-27
 
 - Repository: `KnoxiCoke/Esur2`.
 - Role: browser-visible integration and design sandbox only; it is **not** the controlled source of truth.
-- Current verified `Esur2/main`: `4f028580077ca7b5612ed2acf6da158fcd5115e2`.
+- Current verified `Esur2/main`: `0053b2b0a0bc92ced7c3de5672d00bbc328eb57b`.
+- Commit `0053b2b0a0bc92ced7c3de5672d00bbc328eb57b` adds only a standalone `prototype.html` design-prototype page; the live application files were not changed by that commit.
 - That preview combines the `Esur22` application baseline `1ebbe97b555673dd59c5c708532d39040291c303`, Draft PR `#21`, and Draft PR `#22`.
 - `Esur2/main` may intentionally contain unmerged draft content so the Product Owner can inspect the whole product in one browser build.
 - Visibility in `Esur2` is **not** evidence of Source QA, Internal Medical Lock, Human Medical Affairs approval, Regulatory approval, technical validation, merge approval, release, conformity, or Go Live.
