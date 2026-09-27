@@ -3,26 +3,44 @@
 > Authoritative current project status for humans and AI assistants.
 > Read this file before proposing or implementing further ESUR changes.
 
-Last remote verification: 2026-09-23
+Last remote verification: 2026-09-27
 
 ## Current verified baseline
 
 - Repository: `KnoxiCoke/Esur22`
-- Current `main`: `179d58b73a7798e06a1573211fd0ed594d7acdd2` (merged Laboratory Interference PR `#15`; Extravasation PR `#14` was merged immediately before it).
-- Refactor branch: `refactor/modularize-script` (Draft PR `#12`, open, not merged). Check the live GitHub PR for its current HEAD.
+- Current `main`: `ae4bb66aeefddbeda659e3c71a914c0cb7fa8ab5` (documentation-only `PROJECT_STATE.md` commit). The current application/code baseline on `main` remains `1ebbe97b555673dd59c5c708532d39040291c303`, which includes merged card PRs `#14`–`#19` and provenance-only PR `#20`.
+- Refactor branch: `refactor/modularize-script` (Draft PR `#12`, open, not merged). Pre-update branch HEAD for this state refresh: `bef4c45f8637c01feba55d1d071bf015a5434a7f`. PR `#12` is behind the current application baseline after `#16`–`#20` and requires reconciliation plus renewed verification before any merge.
 - Independently verified Medical integration code commit: `0cba0542fef7b590bcbf5fa588088728bc78dc1b`; verified code tree: `615ef4a303f614c80321862e487cd57aa2661e37`.
 - At that code milestone, GitHub's virtual merge of `main` and PR `#12` was `77a8f135b6e3bd78ed26e236de27e70bdda2004f` with the same code tree. This is historical verification, not a current virtual merge reference.
 - Code-milestone CI: run `35919339082`, successful, `94/94 passed`. Subsequent documentation-only commit `071830ce74e66fc277124169acdcc43b79a2aa41`: CI run `35921260615`, successful, `94/94 passed`.
 - Historical ENG-09 reference branch HEAD: `dc9ea4d00d89d47660f8d7b2293a713cb8a98439`. Historical Waiting Times production-code milestone: `dc8cd213d9329bcf49313544bb6cc51972ee5ebf`.
 
+## Live preview / design sandbox
+
+- Repository: `KnoxiCoke/Esur2`.
+- Role: browser-visible integration and design sandbox only; it is **not** the controlled source of truth.
+- Current verified `Esur2/main`: `4f028580077ca7b5612ed2acf6da158fcd5115e2`.
+- That preview combines the `Esur22` application baseline `1ebbe97b555673dd59c5c708532d39040291c303`, Draft PR `#21`, and Draft PR `#22`.
+- `Esur2/main` may intentionally contain unmerged draft content so the Product Owner can inspect the whole product in one browser build.
+- Visibility in `Esur2` is **not** evidence of Source QA, Internal Medical Lock, Human Medical Affairs approval, Regulatory approval, technical validation, merge approval, release, conformity, or Go Live.
+- Design experiments may be iterated directly on `Esur2/main`. After Product Owner acceptance, the final presentation-only diff must be transferred back to `Esur22` as a separate reviewed UI Draft PR.
+- Medical strings, medical logic, doses, thresholds, pathways, source mappings and formal approvals remain governed in `Esur22`.
+
 ## Pull requests
 
-- `#12` — modularization; open Draft, not merged. Medical integration code milestone `0cba0542fef7b590bcbf5fa588088728bc78dc1b` and later docs-only milestone `071830ce74e66fc277124169acdcc43b79a2aa41` are verified; check the live PR for its current HEAD.
+- `#12` — modularization; open Draft, not merged. R1–R2M and the recorded earlier integration milestones were technically verified historically. The branch is now behind the current application baseline and must be reconciled/reverified before any merge.
 - `#14` — Extravasation; merged into `main` as `9bd716cc23dd4457c89f6be186a94e5e0418c8a5`.
 - `#15` — Laboratory Interference; merged into `main` as `179d58b73a7798e06a1573211fd0ed594d7acdd2`.
-- `#13` — separate Laboratory Interference Draft, still open at `8996ee5eebb21996444e4a300f7514c1e7758701`. Its relationship to the already merged `#15` requires a separate disposition; do not merge it automatically.
-- `#11` — earlier HSR Draft, still open at `87655d75e6a75812cf643dbd3539b78e8ffb004a`; separate disposition required.
-- `#4` — earlier HSR terminology PR, still open at `125c5a909715cdfe6bd98e2ae5e3d6558ada86c3`; separate disposition required.
+- `#16` — `publication_structure`; merged into `main` as `6a53eb6590b7b9db3db728c8ed4aae9fecc7331d`.
+- `#17` — `dialysis_refinement`; merged into `main` as `912d67e5d932f695197118f568b96c4770b23f2f`.
+- `#18` — `new_clinical_scenarios`; merged into `main` as `ef74c4a8843b36316a0a181d37776369cb2d51bd`.
+- `#19` — `other_reorganized_topics`; merged into `main` as `a6bf6a144f8e78c3395849d65c5681d843e58b83`.
+- `#20` — source-locator provenance only; merged into `main` as `1ebbe97b555673dd59c5c708532d39040291c303`.
+- `#21` — revised `hypersensitivity` and `ca_aki_terminology` EN/DE Practice Changes objects; open Draft at `b388923110abe828fea6de469e71a5dd7a255880`, not merged. Independent source QA: PASS. No new Internal Medical Lock and no Human Medical Affairs sign-off.
+- `#22` — UI-01 neutral case entry; open Draft at `ddc9de09232b1d6d26baaa87e0a0bd33b496243b`, not merged. F02 and F11 start without preselected case characteristics. Medical strings/rules were intended to remain unchanged. Official CI run `36334687034` failed: `58 passed / 17 failed`; the failures are concentrated in NIHR tests that still assume preselected fields. PR `#22` is therefore **not technically verified** and must not be merged until corrected and green.
+- `#13` — separate Laboratory Interference Draft, open at `8996ee5eebb21996444e4a300f7514c1e7758701`. Its EN/DE card objects match the later merged content; check the remaining smoke-test dependency before disposition. Do not close or merge automatically.
+- `#11` — earlier HSR Draft, open at `87655d75e6a75812cf643dbd3539b78e8ffb004a`. It contains distinct deferred HSR overlay content; inventory and decide its disposition separately. Do not merge automatically.
+- `#4` — earlier HSR terminology PR, open at `125c5a909715cdfe6bd98e2ae5e3d6558ada86c3`. Its NIHR labels/brand mapping remain distinct; resolve that mapping before disposition. Do not close or merge automatically.
 
 ## Local worktree caution
 
@@ -40,6 +58,24 @@ The five HSR modules have completed the current manual source/Q&A review pass in
 
 This does **not** mean final Medical Affairs approval or medical validation.
 
+Review layers must remain distinct:
+
+- **Source QA** checks whether EN/DE statements are supported by the authorized sources. A PASS is a source finding, not approval of the wording.
+- **Internal Medical Lock** fixes exact reviewed wording for implementation under the project workflow. It is not Human Medical Affairs sign-off.
+- **Human Medical Affairs** provides the human medical confirmation/correction of clinical correctness, applicability, limits and prerequisites. This sign-off is still pending.
+
+### MED-01 Medical Review Pack
+
+A compact Human Medical Affairs review pack now exists for the five patient-specific modules:
+
+- F02 Previous reaction
+- F05 Acute management
+- F07 Switch
+- F09 Tryptase Rule
+- F11 NIHR Check
+
+The pack uses existing project source mappings; **no new source audit was performed for MED-01**. Each module asks Human Medical Affairs for `CONFIRM`, `CHANGE` or `NOT APPLICABLE` plus comments, followed by five common Medical questions. PR `#21` is a separate Medical package and is not part of the MED-01 baseline.
+
 ### Known medical/source clarifications
 
 1. Part 1 literally contains a hypotension positioning rule involving prone positioning / raising the legs. It is intentionally not implemented in the UI and remains `MEDICAL CLARIFICATION REQUIRED`.
@@ -47,17 +83,19 @@ This does **not** mean final Medical Affairs approval or medical validation.
 
 ### Practice Changes 2018 → 2025
 
-- Remains in the application as an informational tab.
-- Practice Changes retains technical smoke-test coverage; `waiting_times` additionally has exact EN/DE Medical-Lock regression coverage.
-- Medical/source audit remains in progress overall; five cards have completed their card workflows and four remain open.
-- Do not change an unaudited Practice Changes card before its source audit and Medical Lock.
+- Remains in the application as an informational/work-aid tab.
+- All nine prior card-level workflows were completed under their accepted processes through merged PRs `#14`–`#19`.
+- Draft PR `#21` proposes revised wording for `hypersensitivity` and `ca_aki_terminology`. That revision has independent source-QA PASS only; it has no new Internal Medical Lock and no Human Medical Affairs sign-off.
+- Human Medical Affairs sign-off remains outstanding for the overall Practice Changes content.
 
-- `hypersensitivity` — completed / verified under the accepted prior workflow.
-- `ca_aki_terminology` — completed / verified; `STANDARD_AUDIT`.
+Card status:
+
+- `hypersensitivity` — existing `main` wording completed/verified under the accepted prior workflow; revised EN/DE wording in Draft PR `#21`: source-QA PASS only.
+- `ca_aki_terminology` — existing `main` wording completed/verified under the accepted prior workflow (`STANDARD_AUDIT`); revised EN/DE wording in Draft PR `#21`: source-QA PASS only.
 - `waiting_times` — `BLIND_REQUIRED`; source-audited / Medical-Locked / technically verified at `dc8cd213d9329bcf49313544bb6cc51972ee5ebf`; Human Medical Affairs sign-off pending.
-- `extravasation` — source-audited / Medical-Locked / independently challenged; merged via `#14` into `main` and carried unchanged into PR `#12`; technical verification complete, Human Medical Affairs sign-off pending.
-- `laboratory_interference` — source-audited / Medical-Locked / independently challenged; merged via `#15` into `main` and carried unchanged into PR `#12`; technical verification complete, Human Medical Affairs sign-off pending.
-- Still open for card-level source audit: `publication_structure`, `dialysis_refinement`, `new_clinical_scenarios`, `other_reorganized_topics`.
+- `extravasation` — source-audited / Medical-Locked / independently challenged; merged via `#14`; Human Medical Affairs sign-off pending.
+- `laboratory_interference` — source-audited / Medical-Locked / independently challenged; merged via `#15`; Human Medical Affairs sign-off pending.
+- `publication_structure`, `dialysis_refinement`, `new_clinical_scenarios`, `other_reorganized_topics` — card workflows completed and merged through `#16`–`#19`; Human Medical Affairs sign-off pending.
 
 The completed `waiting_times` workflow includes the Grok blind source pass, Work primary source audit, Grok challenge, ChatGPT exact EN/DE Medical Lock, Codex exact implementation, independent patch/scope verification, remote implementation verification and official GitHub CI verification.
 
@@ -72,7 +110,7 @@ The independently verified PR `#12` Medical integration code commit `0cba0542fef
 - Work performs the structured primary source audit. ChatGPT independently reviews the sources and writes the exact EN/DE Medical Lock. Codex implements only that Lock.
 - Final post-implementation verification is a yes/no check against the Lock, scope, tests and remote HEAD; it must not rewrite or “improve” Medical wording.
 - Bruno is Product Owner: he decides work order, start/pause, product scope, authorized source set and when material is handed to Medical Affairs. He does not decide Medical claim correctness, recommendation strength, population applicability or audit-class disputes.
-- Human Medical Affairs sign-off is required before merging the full PR `#12` into `main` or claiming a Medical Freeze/final medical approval. The separately authorized card-only merges `#14` and `#15` already occurred while that sign-off remained pending; those merges do not constitute Medical Affairs approval.
+- Human Medical Affairs sign-off is required before claiming a Medical Freeze/final medical approval. The separately authorized card-only merges `#14`–`#19` occurred while that sign-off remained pending; those merges do not constitute Medical Affairs approval. PR `#20` changed source-locator provenance only. PRs `#21` and `#22` remain Draft.
 - `hypersensitivity` and `ca_aki_terminology` are completed under the accepted prior workflow and are not to be rolled back solely because this governance was introduced later. `ca_aki_terminology` is `STANDARD_AUDIT`.
 - Historical Practice Changes code HEAD before the earlier docs-only governance update: `fa9dd1ec814aec83b5ca9acd012b52b0fe453e62`.
 
@@ -82,10 +120,16 @@ After the 2025 Medical content has completed its source audit and Content Freeze
 
 ## Plan snapshot
 
-- Engineering: R1–R2M modularization is technically complete / VERIFIED; subsequent integration of the two merged Medical cards into PR `#12` is also technically verified. Neither is a Medical Freeze.
-- Medical Freeze / v0.9.0: still open (known source exceptions remain; no Medical Affairs sign-off).
-- Practice Changes 2018→2025 audit: four card workflows remain open; Human Medical Affairs sign-off remains outstanding for the completed cards.
-- Regulatory Gate: scheduled in the master plan, **not performed**. No MDSW classification and no Rule-11 class estimate.
+- Engineering: R1–R2M modularization and the earlier Medical-card integration milestones on PR `#12` are historical VERIFIED milestones. PR `#12` is behind the current application baseline after `#16`–`#20` and requires reconciliation plus renewed verification before merge.
+- Current `main` application baseline: `1ebbe97b555673dd59c5c708532d39040291c303`. Official HSR Regression run `36321577992`: successful, `74/74 passed`.
+- Medical Freeze / `v0.9.0-medical-review`: still open. No Human Medical Affairs final sign-off.
+- Practice Changes 2018→2025: nine prior card workflows completed; Draft PR `#21` revises two cards with source-QA PASS only.
+- MED-01: prepared for Human Medical Affairs; review/answers still pending.
+- Regulatory/intended-use preparation: RA-01 functional inventory, RA-02 intended-use decision sheet and RA-03 Product-Owner intended-use draft have been prepared. They do not constitute Regulatory qualification.
+- Product-Owner intent currently recorded: voluntary professional work aid for radiology professionals; learning/lookup plus support in real clinical cases. F05 may also be used during an acute reaction. Clinical responsibility remains with the medical professional.
+- Formal Bayer RA/Legal qualification/classification: **not performed**. No MDSW qualification or Rule-11 class conclusion is recorded.
+- UI-01 / PR `#22`: visible neutral-start change exists but official CI is red (`58 passed / 17 failed`), so it is not technically verified.
+- `Esur2`: current visual integration/design sandbox; it combines draft states for browser review and is not approval evidence.
 - R2K: VERIFIED.
 - R2L: VERIFIED.
 - R2M: VERIFIED.
@@ -94,22 +138,23 @@ After the 2025 Medical content has completed its source audit and Content Freeze
 
 ## Regulatory status
 
-No regulatory qualification has been made. Educational disclaimers, renaming outputs, or deployment location do **not** exclude MDSW. Intended purpose plus actual function decide that — Bayer RA/Legal, not this repo.
+No formal regulatory qualification has been made. No MDSW qualification or Rule-11 classification is recorded.
 
-Do **not** pre-empt RA by removing adrenaline doses, tryptase interpretation, switch mapping, or HSR rule trees. Do not treat “educational use only” as a regulatory solution. Do not mix Regulatory claim/UX changes into Medical or refactor packages.
+The project has moved beyond the earlier blank regulatory-gate stage in one limited sense: the Product Owner has documented intended-use decisions and the project now has preparatory RA artifacts:
 
-Planned sequence after a stable, regression-protected HSR baseline:
+- RA-01 — functional inventory of the current application;
+- RA-02 — intended-use decision sheet;
+- RA-03 — intended-use / intended-purpose draft based on Product-Owner decisions.
 
-1. Regulatory Gate
-2. Function matrix to Bayer RA/Legal
-3. RA/Legal sets intended purpose and qualification
-4. Only then any required claim/UX/function changes
+These documents are **inputs for Medical and Regulatory review**, not a Bayer RA/Legal decision.
 
-Later docs (not created in this commit):
+Current Product-Owner intent is that the app may be used voluntarily by radiology professionals for learning/lookup and to support real clinical cases. That includes F02, F05, F07, F09 and F11 as described in RA-03; F05 may be used during an ongoing acute reaction. The responsible medical professional retains the clinical decision.
 
-- `REGULATORY_FUNCTION_MATRIX.md` — columns: Module | Inputs | Processing | Output | Intended Use | RA-Qualification (last two stay blank until RA)
-- `CLAIM_REGISTER.md`
-- optional `REGULATORY_GATE.md`
+Do **not** infer regulatory status from disclaimers, naming, deployment location, `Esur2`, or the existence of RA-01/02/03. Intended purpose plus actual function must be assessed by Bayer RA/Legal.
+
+Do **not** pre-empt RA by deleting adrenaline doses, tryptase interpretation, switch mapping or HSR rule trees solely to force a regulatory outcome.
+
+The next formal regulatory step comes after Medical has clarified the clinical applicability/limits of the five modules: Bayer RA/Legal evaluates the consolidated intended purpose, software qualification and any applicable Rule-11 classification.
 
 Keep three questions separate:
 
@@ -119,12 +164,13 @@ Keep three questions separate:
 
 ## Regression protection
 
-- Playwright regression inventory: `94 tests`
-- Shared fixture fails on browser `pageerror` and `console.error`.
-- Medical integration code milestone `0cba0542fef7b590bcbf5fa588088728bc78dc1b`: `HSR Regression` run `35919339082` (run number `129`), successful (`94/94 passed`). Its code tree `615ef4a303f614c80321862e487cd57aa2661e37` matched the locally tested tree and the virtual merge tree at that milestone.
-- Subsequent documentation-only commit `071830ce74e66fc277124169acdcc43b79a2aa41`: `HSR Regression` run `35921260615` (run number `130`), successful (`94/94 passed`). Documentation-only commits have their own trees; they are not asserted to match the earlier code tree.
-- The follow-up commit changed only `script.js` (+67/-60) and `tests/changes-smoke.spec.js` (+9/-6); the new search term has one Laboratory Interference match in each language, and the EN/DE language-switch smoke test checks the result count.
-- `tests/waiting-times.spec.js` protects the exact EN/DE Compare and Action Waiting-Times Medical-Lock content.
+- Tests are regression guardrails for technical behaviour, not proof of medical correctness.
+- Historical PR `#12` regression inventory at its documented Medical-integration milestone: `94 tests`; run `35919339082` succeeded `94/94`.
+- Current `main` application baseline `1ebbe97b555673dd59c5c708532d39040291c303`: HSR Regression run `36321577992` succeeded `74/74 passed`.
+- Draft PR `#22` adds the UI-01 neutral-start test, producing a 75-test attempt. Official run `36334687034` failed with `58 passed / 17 failed`.
+- The PR `#22` failures are concentrated in existing NIHR regression tests that do not select all newly required neutral-start fields before expecting a pathway. Until the implementation/tests are reconciled and official CI is green, PR `#22` is not VERIFIED.
+- Shared fixtures continue to treat browser `pageerror` / `console.error` as failures where applicable.
+- `tests/waiting-times.spec.js` protects the exact EN/DE Compare and Action Waiting-Times Medical-Lock content on the refactor branch.
 
 Current runtime files:
 
@@ -806,11 +852,17 @@ Closeout governance:
 
 ## Next permitted action
 
-Do **not** continue the R2 modularization sequence automatically. R1–R2M is the accepted technical closeout point for this refactor strand.
+Do **not** continue the old card-audit sequence described in earlier versions of this file; that sequence is complete through PR `#19`.
 
-The next Medical/content workstream is the remaining **Practice Changes / Changes 2018→2025 card-level source audit**: `publication_structure`, `dialysis_refinement`, `new_clinical_scenarios` and `other_reorganized_topics`. Select and scope one card at a time, beginning with read-only source mapping and audit-class assessment. Do not change an unaudited card's wording, claims, recommendation strength or routing until its audit workflow and exact target wording are approved.
+Current parallel workstreams are:
 
-PR `#12` remains Draft and must not be merged as part of this closeout. Human Medical Affairs sign-off, the Bayer RA/Legal regulatory decision, disposition of other open PRs, merge/release and optional dead-code cleanup remain separate later decisions.
+1. **Human Medical Affairs:** review MED-01 for F02/F05/F07/F09/F11; PR `#21` remains a separate Medical review package.
+2. **UI-01:** correct/reconcile PR `#22` so the neutral F02/F11 start behaviour has regression coverage and official CI is green. Do not merge it while CI is red.
+3. **Design:** use `Esur2/main` as the visual design/integration sandbox. Medical strings and medical logic are frozen during design iteration. After Product Owner acceptance, transfer the final presentation-only diff back to `Esur22` as a separate Draft UI PR.
+4. **PR #12:** no merge. Reconcile against current `main` and reverify only when/if the modularized branch is brought forward.
+5. **Regulatory:** after Medical clarifies applicability/limits, hand the consolidated intended purpose/function package to Bayer RA/Legal for qualification/classification.
+
+Do not treat the `Esur2` integration build, a Source-QA PASS, a green technical test, or a Draft PR as a Medical/Regulatory approval.
 
 ## Governance rules
 
@@ -917,6 +969,15 @@ Every reviewer/orchestrator response in this refactor workflow must also end wit
 - Every ready-to-copy AI handoff prompt must state its exact destination prominently before the prompt: `CHATGPT CHAT`, `CHATGPT WORK`, `GROK`, or `CODEX`.
 - Bruno must never need to infer which system receives the next prompt.
 - Results from `CHATGPT WORK`, `GROK`, or `CODEX` return to `CHATGPT CHAT` unless the handoff explicitly states otherwise.
+
+## Current design workflow — Esur2
+
+- Design work is currently separated from Medical/content work.
+- Phase 1: show/review the design concept without changing GitHub.
+- After Product Owner approval of a concept, implementation may be iterated directly on `KnoxiCoke/Esur2/main` for immediate browser review.
+- `Esur2` may combine Draft PR content for visibility; this does not change approval status.
+- Once the Product Owner accepts the visual result, transfer only the final presentation-layer diff back to `Esur22` in a separate UI Draft PR.
+- During this design track, `changesLibrary` and all medical strings/logic must remain unchanged unless a separately governed Medical change explicitly authorizes otherwise.
 
 ## Practice Changes UX decision — `UX_CHANGES_01`
 
