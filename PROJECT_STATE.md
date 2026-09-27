@@ -154,7 +154,7 @@ After the 2025 Medical content has completed its source audit and Content Freeze
 - Current `main` application baseline: `1ebbe97b555673dd59c5c708532d39040291c303`. Official HSR Regression run `36321577992`: successful, `74/74 passed`.
 - Medical Freeze / `v0.9.0-medical-review`: still open. No Human Medical Affairs final sign-off.
 - Practice Changes 2018→2025: nine prior card workflows completed; Draft PR `#21` revises two cards with source-QA PASS only.
-- MED-01 Revision 2: prepared for Human Medical Affairs after independent blind source challenge and reconciliation; review/answers still pending. This remains source-QA support, not Human Medical Affairs approval.
+- MED-01 Revision 2: **independent Gemini closure audit completed** with result `READY FOR HUMAN MEDICAL AFFAIRS REVIEW`; revised source locators were reported correct, F02 known/unknown culprit and F05 adult-population boundaries were correctly left as Human Medical Affairs questions, F09 was confirmed as compatible source detail rather than a source contradiction, and no hard failures were reported. Human Medical Affairs review/answers are still pending. This remains source-QA support, not Human Medical Affairs approval.
 - Regulatory/intended-use preparation: RA-01 functional inventory, RA-02 intended-use decision sheet and RA-03 Product-Owner intended-use draft have been prepared. They do not constitute Regulatory qualification.
 - Product-Owner intent currently recorded: voluntary professional work aid for radiology professionals; learning/lookup plus support in real clinical cases. F05 may also be used during an acute reaction. Clinical responsibility remains with the medical professional.
 - Formal Bayer RA/Legal qualification/classification: **not performed**. No MDSW qualification or Rule-11 class conclusion is recorded.
@@ -886,7 +886,7 @@ Do **not** continue the old card-audit sequence described in earlier versions of
 
 Current parallel workstreams are:
 
-1. **Human Medical Affairs:** review MED-01 Revision 2 for F02/F05/F07/F09/F11; PR `#21` remains a separate Medical review package. A Gemini Revision-2 closure audit may be used as an additional independent source-QA check before handoff, but it does not replace Human Medical Affairs.
+1. **Human Medical Affairs:** MED-01 Revision 2 has completed independent closure QA and is ready to send for F02/F05/F07/F09/F11 review. Human Medical Affairs confirmation/corrections remain pending; the Gemini result does not replace that sign-off. PR `#21` remains a separate Medical review package.
 2. **UI-01:** regression repair is complete and official CI is green (`75/75`). Keep PR `#22` Draft unless/until the Product Owner explicitly authorizes its controlled next disposition; technical verification does not imply Medical/Regulatory approval.
 3. **Design:** use `Esur2/main` as the visual design/integration sandbox. Medical strings and medical logic are frozen during design iteration. Per the Product Owner decision of 2026-09-27, accepted visual-design work remains in `Esur2`; do not transfer it to `Esur22` unless the Product Owner gives new explicit authorization.
 4. **PR #12:** no merge. Reconcile against current `main` and reverify only when/if the modularized branch is brought forward.
