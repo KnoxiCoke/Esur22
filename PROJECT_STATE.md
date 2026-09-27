@@ -1055,3 +1055,13 @@ This Product Owner decision changes the approved `Esur2` presentation behaviour 
 - Narrow layouts stack the selected-topic detail view and the Compare columns instead of preserving the desktop split.
 - GitHub Pages run `36341470585` for exact HEAD `ad1c4b9cb9cd546b99f24fce85ae1712aa8ec739` completed successfully.
 - This is a preview/UI milestone only. It is not a new Medical Lock, Human Medical Affairs approval, Regulatory approval, merge approval or Go-Live authorization.
+
+### Waiting Times Compare refinement — Product Owner decision (2026-09-27)
+
+- In `Compare`, show the existing top-level 2018, 2025 and Practical impact sections directly.
+- If an existing `compare.nested` block is present, keep all of it unchanged but place it behind one collapsed neutral disclosure labelled `Additional comparison details` / `Weitere Vergleichsdetails`.
+- Do not create that disclosure where `compare.nested` is absent.
+- `Action` remains unchanged and continues to show its existing scenario-specific nested blocks.
+- `changesLibrary` strings, IDs, levels, refs, recommendation strength, numbers, units and source mappings must remain unchanged.
+- The observed EN/DE Waiting Times structure difference is a separate Medical/source review point: EN currently has no `compare.nested`; DE currently has three `compare.nested` scenario blocks that overlap in subject matter with Action. Do not harmonize, delete or rewrite that structure during this UI pass.
+- This is presentation-only in `Esur2`; no design transfer to `Esur22` is authorized.
