@@ -1001,25 +1001,44 @@ Every reviewer/orchestrator response in this refactor workflow must also end wit
 
 The authoritative `UX_CHANGES_01` decision is currently the text in this `PROJECT_STATE.md`. The referenced `docs/ux/PRACTICE_CHANGES_UX.md` file is not present on `main` as of the 2026-09-27 live verification; do not treat that missing path as an additional source of requirements.
 
-Phase 1 is behaviour-preserving presentation only:
+### Product Owner decision — Variant B (2026-09-27)
 
-- one primary Practice Changes card view;
-- remove Compare/Action mode control;
+The Product Owner explicitly replaced the earlier Variant-A presentation decision with **Variant B** for the `Esur2` Practice Changes preview:
+
+- one topic is selected at a time from a compact topic navigator;
+- the selected topic opens in one primary detail area;
+- `Compare` / `Action` remains available **locally at the selected topic**, not as a global page-level mode;
+- `Compare` presents existing 2018 and 2025 content side by side on desktop;
+- `Action` presents the existing Action content for the selected topic;
 - remove level filters from user controls;
 - keep search;
-- keep the current level only as a card badge;
-- place existing Action content in the same card without rewriting it;
-- collapse 2018 / Why / Sources by default;
-- present Waiting Times through three collapsible sub-blocks: MRI + CT/angiography, two ICM administrations, and two GBCA administrations.
+- keep existing level metadata only as a small navigation/status signal; do not reclassify levels;
+- Sources are collapsed by default;
+- any layout lead/summary must reuse an already existing field from the selected locked object; no new Medical summary text may be created for presentation;
+- existing 2018, 2025, Action, Why/impact and Source strings must remain unchanged;
+- Waiting Times remains a special presentation case using its three existing content blocks — MRI + CT/angiography, two ICM administrations, and two GBCA administrations — without rewriting their Medical text;
+- on narrow/mobile viewports, the topic navigator becomes compact/stacked and the same selected-topic detail content is shown below; no desktop-only behaviour is acceptable.
+
+### Behaviour-preserving requirement before implementation
+
+`UX_CHANGES_01` still does **not** by itself authorize immediate code changes. Before implementation, ChatGPT must write a behaviour-preserving scope that is reviewed first and covers:
+
+- untouched `changesLibrary` strings and fields;
+- local Compare/Action control behaviour and default state;
+- source/disclosure behaviour;
+- topic-selection and search behaviour;
+- Waiting Times special handling;
+- state/DOM dependencies and selectors;
+- regression invariants;
+- explicit out-of-scope Medical/content changes.
 
 Medical/content boundary before the relevant audit is complete:
 
 - existing EN/DE Medical strings remain unchanged;
 - no shortening, merging, paraphrasing, reclassification, recommendation-strength change, number/unit/threshold change, source-claim change or decision/routing change;
-- moving existing text is allowed only inside an explicitly behaviour-preserving scope.
+- moving existing text is allowed only inside the reviewed behaviour-preserving scope;
+- no new Medical claims may be introduced by UI labels, helper text, summaries or layout-specific copy.
 
-`UX_CHANGES_01` does **not** itself authorize implementation. Before code changes, ChatGPT must write a behaviour-preserving scope covering untouched strings/fields, controls, disclosure behaviour, state/DOM dependencies, regression invariants and explicit out-of-scope Medical/content changes. That scope must be reviewed first.
+Editorial compression or rewriting remains a separate future Medical/source-governed phase and is not authorized by this decision.
 
-Editorial compression or rewriting is a separate Phase 2 after the relevant Practice Changes Medical/source audit and is not authorized by this decision.
-
-This docs-only decision changes no production code, Medical wording, recommendation strength or decision logic.
+This Product Owner decision changes the approved `Esur2` presentation behaviour only. It does not change Medical approval status, recommendation strength, decision logic, Source-QA status, Human Medical Affairs status, Regulatory status, merge status or release/Go-Live status.
