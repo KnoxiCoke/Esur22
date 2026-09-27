@@ -118,6 +118,7 @@ test("LANG_05 NIHR SCAR GBCA state persists across EN-DE-EN", async ({ page }) =
   await openHsrTab(page, "nihr");
   await clickSeg(page, "nihrSeverity", "severe");
   await clickSeg(page, "nihrCmtype", "gbca");
+  await clickSeg(page, "nihrCulpritKnown", "known");
   await page.locator('.nihr-check[value="erosion"]').check();
   await expect(nihrOutput(page)).toContainText("Avoid all gadolinium-based contrast agents");
   await setLang(page, "de");
