@@ -1112,4 +1112,19 @@ Scope/findings:
 - `CT`, `MRI`/`MRT`, `EN`, `DE`, `PDF` and `CO₂` are not treated as priority terminology defects in this audit; they are modality/language/source metadata or a chemical formula. `CO₂` is also described as carbon dioxide/Kohlendioxid within the Practice Changes topic.
 - No app code or Medical wording was changed by this audit.
 
-Remediation is not yet authorized. Prefer a single consistent first-use/glossary strategy over isolated acronym patches. Any change to an existing Medical string remains separately governed; presentation-only explanations/tooltips must use only source-supported expansions and must not alter recommendation meaning or decision logic.
+Remediation is authorized only for the Product Owner-approved presentation-only subset recorded below; any change to an existing locked Medical sentence remains separately governed.
+
+### UX_ABBREV_01 presentation-only implementation authorization — Product Owner (2026-09-27)
+
+Authorized only in `KnoxiCoke/Esur2`:
+
+- add source-supported EN/DE first-seen or immediately adjacent abbreviation explanations for the READY presentation-only items;
+- permitted READY items: `ESUR`, `CMSC`, `IHR`, `NIHR`, `ICM`, `GBCA`, `eGFR`, `SCAR`, `NSF`, `HSG`, `EAACI`, `ACR`, `CPR`, `PAD`, `EVAR`;
+- existing locked Medical sentences, `changesLibrary`, recommendation strength, numbers, units, thresholds, source mappings and decision logic must remain byte-identical;
+- EN and DE explanations must be added at parallel locations;
+- use local explanation/disclosure UI rather than rewriting locked content;
+- specifically prohibited from this implementation: changing or expanding `HSR`, `CM`/`KM`, `CAPD`, `PC-AKI`/`CA-AKI`, `NKF`, `ABCDE`, or `RCTs`;
+- `CT`, `MRI`/`MRT`, `IV`/`IM`, `EN`, `DE`, `PDF`, and `CO₂` remain unchanged for this pass;
+- after implementation, verify scope diff, desktop/mobile responsive behavior structurally, GitHub Pages deployment, and update this state file.
+
+This authorization is UI/terminology presentation only. It is not a Medical Lock, Human Medical Affairs sign-off, Regulatory approval, merge approval or Go-Live authorization.
