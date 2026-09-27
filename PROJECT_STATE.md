@@ -1177,3 +1177,17 @@ This authorization supersedes only the placement/display behavior of the prior U
 - GitHub Pages run `36345705818` for exact HEAD `ce28de6219a8f40af0ffb455ee944112ac227360` completed successfully.
 - PR `#21` remained open Draft at `b388923110abe828fea6de469e71a5dd7a255880`; PR `#22` remained open Draft at `969af23b108e49d5794c1d65f95b862b9dfebf04`; neither was changed.
 - This is a preview/UI terminology refinement only. It is not a new Medical Lock, Human Medical Affairs approval, Regulatory approval, merge approval or Go-Live authorization.
+
+### UX_ABBREV_01 Phase 2F regression finding — verified, fix pending
+
+Product Owner visual inspection of the deployed Phase 2F preview identified two regressions at exact `Esur2/main` HEAD `ce28de6219a8f40af0ffb455ee944112ac227360`:
+
+- Abbreviation disclosures cannot stay open. Verified code cause: the document-level `toggle` listener calls `updateContextualAbbreviations()`; that function clears and re-renders the abbreviation slot via `slot.innerHTML`, recreating the native `<details>` element in its default-closed state immediately after a user opens it.
+- HSR two-column layout, visibly Switch, is broken by the new abbreviation slot placement. Verified code cause: `#hsr-tab-switch` and the other Phase-2 HSR subviews are direct-child CSS grids whose placement rules were written for direct `.card` children. The newly inserted direct-child `.abbr-slot` participates in that grid as an additional item and shifts subsequent cards/output into unintended grid cells.
+
+Status:
+- Phase 2F deployment is technically deployed but **visually regressed and not accepted**.
+- Do not treat `ce28de6219a8f40af0ffb455ee944112ac227360` as the accepted abbreviation UX.
+- No Medical/content defect is implied by these UI regressions; existing locked Medical strings and `changesLibrary` remain protected.
+- No further direct patching should be performed without browser-level visual verification across EN/DE, desktop/mobile, and all HSR tabs.
+- Preferred next execution path: browser-capable ChatGPT Work or an equivalent coding agent with repository access, live-page inspection, and explicit visual regression verification before commit.
