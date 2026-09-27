@@ -1203,3 +1203,23 @@ Status:
 - **Narrow/mobile graphical browser QA remains unverified.** This cloud browser exposes a fixed 1363 CSS px viewport; available responsive/zoom keyboard actions did not change it, and no supported viewport-resize API is exposed. Static HTML/CSS inspection confirms all HSR subviews again have only the original direct `.card` children and the existing `max-width: 768px` grid stacking rules remain unchanged, but this is not a substitute for the requested narrow-viewport browser inspection. Do not mark this repair fully visually accepted until that check is performed.
 - PR `#21` remained open Draft at `b388923110abe828fea6de469e71a5dd7a255880`; PR `#22` remained open Draft at `969af23b108e49d5794c1d65f95b862b9dfebf04`; neither was touched.
 - This is a preview/UI-only deployment and desktop technical QA. It is **not** Source-QA approval, Internal Medical Lock, Human Medical Affairs sign-off, Regulatory approval, merge/release approval or Go Live.
+
+### UX_ABBREV_01 repair visual rejection — Product Owner (2026-09-27)
+
+The Product Owner visually inspected the deployed repair at `Esur2/main` `05b5589ab008786b64ab0c4a519e8dbe2977b179` and **rejected the abbreviation UX / surrounding layout**.
+
+Observed in Product Owner screenshots:
+- desktop disclaimer/header became visually overloaded by the added ESUR/CMSC expansion line;
+- abbreviation disclosure placement is intrusive and visually detached from the content hierarchy;
+- an EAACI disclosure appears inside/at the bottom of the Previous-reaction recommendation area, creating poor spacing and an unintended extension of the recommendation surface;
+- NIHR shows an empty `Abkürzungen` disclosure where no useful abbreviation content is currently shown;
+- spacing around abbreviation blocks and adjacent content is inconsistent;
+- Switch/selector presentation still looks visually degraded in the Product Owner's view, including cramped/awkward spacing around the contrast-class controls.
+
+Governance consequence:
+- `05b5589ab008786b64ab0c4a519e8dbe2977b179` is **not Product Owner accepted** despite the prior desktop browser-QA report.
+- The prior statement “desktop QA verified” remains a record of the agent's technical/browser check, not Product Owner visual acceptance.
+- The last Product Owner-accepted preview before the abbreviation-layer work is `Esur2/main` `63b3f9035fcffd66da947ab06417d80477c8ecc1` (Waiting Times Compare refinement).
+- Recommended recovery path: restore the preview to the accepted `63b3f903...` visual baseline first, then redesign the abbreviation help as a smaller, explicitly reviewed presentation layer. Do not continue stacking fixes on the rejected abbreviation implementation.
+- No Medical/content defect is implied. Medical strings, `changesLibrary`, recommendation strength, source mappings and clinical logic remain separately governed.
+- No rollback has yet been authorized or executed by this state update.
