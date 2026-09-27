@@ -1003,7 +1003,7 @@ arrest: [
         icon: "warningDrop",
         title: "Hypersensitivity",
         summary:
-          "The 2025 guidance defines IHR and NIHR and details acute management, documentation, allergy assessment, and pathways for preventing recurrent reactions.",
+          "For adults, the 2025 guidance defines IHR and NIHR and details acute management, documentation, allergy assessment, and pathways for preventing recurrent reactions.",
         keywords: [
           "hypersensitivity",
           "immediate",
@@ -1054,7 +1054,7 @@ arrest: [
               label: "ESUR 2025 action points",
               bullets: [
                 "Refer patients with moderate or severe HSR, recurrent HSR of any severity, or HSR to multiple iodine-based or gadolinium-based contrast agents to a drug allergy specialist; referral after mild HSR is optional when specialist capacity permits.",
-                "When contrast medium is administered in the listed IHR and mild or moderate NIHR pathways without danger signs, observe the patient for at least 30 min with the IV line in place.",
+                "In the listed IHR pathways and the mild or moderate NIHR pathways without danger signs, observe the patient for at least 30 min with the IV line in place when contrast medium is administered.",
                 "If specialist advice is unavailable, choose a different agent when the culprit is known after mild IHR or mild or moderate NIHR without danger signs. In emergencies after moderate or severe IHR, choose a different agent if the culprit is known. For elective examinations after moderate or severe IHR, postpone imaging for allergy-analysis results and apply specialist advice.",
                 "After severe NIHR with danger signs (SCAR), urgently refer to a drug allergy specialist, choose alternative imaging, and avoid all agents in the involved class (iodine-based or gadolinium-based); if the culprit class is unknown, individualize after multidisciplinary consultation.",
                 "Measure serum tryptase within 1–4 h from the start of all moderate-to-severe IHR; a second measurement after ≥24 h serves as a baseline."
@@ -1695,7 +1695,7 @@ arrest: [
         icon: "warningDrop",
         title: "Hypersensitivität",
         summary:
-          "Die 2025er Guidance definiert IHR und NIHR und beschreibt Akutmanagement, Dokumentation, allergologische Abklärung und Wege zur Prävention erneuter Reaktionen.",
+          "Für Erwachsene definiert die 2025er Guidance IHR und NIHR und beschreibt Akutmanagement, Dokumentation, allergologische Abklärung und Wege zur Prävention erneuter Reaktionen.",
         keywords: [
           "hypersensitivität",
           "immediate",
