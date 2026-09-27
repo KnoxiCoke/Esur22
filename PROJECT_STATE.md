@@ -1293,3 +1293,24 @@ Product Owner mobile screenshots of deployed `Esur2/main` `d135d43ebbe44cca7588e
 - The adult scope in Part 1/2025 booklet is supported, but adding an `Adults ≥18 years` information line would not by itself resolve whether F02 needs age gating for real-case use. That applicability question remains separate for Human Medical Affairs.
 - Exact EN/DE F02 severity-help strings remain **NOT MEDICAL-LOCKED and NOT IMPLEMENTED**. Before a preview code change, the authorized Medical review must decide which source wording controls F02's severity selector, how to represent each material variant, and the adult-use boundary; then record an exact EN/DE Internal Medical Lock with source mapping. This finding does not change the existing F02 logic or retroactively reclassify the current code.
 - Remote state remained `Esur2/main` `ef6116677ad36664d6e9a850a806ad1287cb7038`; PR `#21` and `#22` remained open Draft at `b388923110abe828fea6de469e71a5dd7a255880` and `969af23b108e49d5794c1d65f95b862b9dfebf04`. Only this governance note was added to `Esur22/main/PROJECT_STATE.md`.
+
+### F02 previous-IHR severity help — Part 2 Fig. 1 Internal Medical Lock (2026-09-28)
+
+- The Product Owner chose the authorized 2025 HSR **Part 2 Fig. 1** (printed p. 6814 / PDF p. 4) as the controlling wording for an at-selector explanation of *previous immediate hypersensitivity reaction* severity in F02. The figure expressly labels its Mild/Moderate/Severe list as according to the American College of Radiology. This is a source-selection decision for this F02 help only; Part 1 Table 1 / booklet p. 6 remain separately documented variants and are not silently harmonized. The Part 2 paper explicitly concerns adults.
+- Independent source read confirmed all Figure 1 items, including `limited cutaneous oedema`, `diffuse erythema with stable vital signs`, `throat tightness/hoarseness without dyspnoea`, `mild wheezing/bronchospasm`, `laryngeal oedema with stridor`, and `generalized anaphylactic reaction/shock`. No Part 1 substitutions such as `laryngeal oedema with hypoxia` or `mild bronchospasm without hypoxia` enter this Lock.
+- **INTERNAL MEDICAL LOCK — exact source-faithful EN/DE strings for F02 severity help only:**
+
+```text
+EN flow_severity_scope = Previous immediate hypersensitivity reaction in adults (ACR classification).
+EN flow_severity_mild_help = Scattered urticaria/pruritus; limited cutaneous oedema; itchy/scratchy throat; nasal congestion; sneezing/conjunctivitis/rhinorrhoea.
+EN flow_severity_moderate_help = Diffuse urticaria/pruritus; diffuse erythema with stable vital signs; facial oedema without dyspnoea; throat tightness/hoarseness without dyspnoea; mild wheezing/bronchospasm.
+EN flow_severity_severe_help = Diffuse erythema with hypotension; diffuse/facial oedema with dyspnoea; laryngeal oedema with stridor; severe wheezing/bronchospasm with hypoxia; generalized anaphylactic reaction/shock; cardiopulmonary arrest.
+DE flow_severity_scope = Frühere unmittelbare Hypersensitivitätsreaktion bei Erwachsenen (ACR-Klassifikation).
+DE flow_severity_mild_help = Vereinzelte Urtikaria/Pruritus; begrenztes kutanes Ödem; Jucken/Kratzen im Hals; nasale Kongestion; Niesen/Konjunktivitis/Rhinorrhö.
+DE flow_severity_moderate_help = Diffuse Urtikaria/Pruritus; diffuses Erythem bei stabilen Vitalzeichen; Gesichtsödem ohne Dyspnoe; Engegefühl im Hals oder Heiserkeit, jeweils ohne Dyspnoe; mildes Giemen/milder Bronchospasmus.
+DE flow_severity_severe_help = Diffuses Erythem mit Hypotonie; diffuses Ödem oder Gesichtsödem, jeweils mit Dyspnoe; Larynxödem mit Stridor; schweres Giemen oder schwerer Bronchospasmus, jeweils mit Hypoxie; generalisierte anaphylaktische Reaktion/Schock; kardiopulmonaler Stillstand.
+```
+
+- Traceability: `F02-SEV-SCOPE` → Part 2 title (printed p. 6811 / PDF p. 1) + Fig. 1 (p. 6814 / PDF p. 4), EN `SUPPORTED — CLOSE PARAPHRASE`, DE `SUPPORTED — TRANSLATION`; `F02-SEV-MILD/MOD/SEV` → Part 2 Fig. 1 severity legend (p. 6814 / PDF p. 4), EN `DIRECTLY SUPPORTED` (punctuation/segmentation only), DE `SUPPORTED — TRANSLATION`. All symptoms and the specified qualifiers are retained; slash groupings are preserved or translated with `jeweils` to retain shared conditions.
+- These strings are locked for presentation-only F02 help; implementation may add i18n keys, a compact three-row display, and selection highlighting without changing existing Medical strings, F02 severity/routing logic, doses, outputs, source mappings or PR `#21`/`#22`. The adult scope line is informational; whether F02 requires an explicit age gate for real-case use remains a separate Human Medical Affairs question. No Human Medical Affairs sign-off, Regulatory assessment, merge/release approval or Go Live is implied.
+- At this Lock milestone, no app code or PR was changed; `Esur2/main` remained `ef6116677ad36664d6e9a850a806ad1287cb7038` and PR `#21`/`#22` remained Draft at their recorded heads.
