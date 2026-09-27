@@ -51,7 +51,7 @@ Last remote verification: 2026-09-27
 - `#19` — `other_reorganized_topics`; merged into `main` as `a6bf6a144f8e78c3395849d65c5681d843e58b83`.
 - `#20` — source-locator provenance only; merged into `main` as `1ebbe97b555673dd59c5c708532d39040291c303`.
 - `#21` — revised `hypersensitivity` and `ca_aki_terminology` EN/DE Practice Changes objects; open Draft at `b388923110abe828fea6de469e71a5dd7a255880`, not merged. Independent source QA: PASS. No new Internal Medical Lock and no Human Medical Affairs sign-off.
-- `#22` — UI-01 neutral case entry; open Draft at `ddc9de09232b1d6d26baaa87e0a0bd33b496243b`, not merged. F02 and F11 start without preselected case characteristics. Medical strings/rules were intended to remain unchanged. Official CI run `36334687034` failed: `58 passed / 17 failed`; the failures are concentrated in NIHR tests that still assume preselected fields. PR `#22` is therefore **not technically verified** and must not be merged until corrected and green.
+- `#22` — UI-01 neutral case entry; open Draft at `969af23b108e49d5794c1d65f95b862b9dfebf04`, not merged. F02 and F11 start without preselected case characteristics. Medical strings/rules are unchanged by the UI-01 implementation. The old NIHR regressions were updated to make the newly required case selections explicit rather than relying on historical defaults; `FORB_05` was strengthened so an empty output cannot pass vacuously. Official HSR Regression run `36337880603` succeeded: `75/75 passed`. PR `#22` is now **TECHNICALLY VERIFIED for UI-01**, but remains Draft and is not Medical/Regulatory approval or merge authorization.
 - `#13` — separate Laboratory Interference Draft, open at `8996ee5eebb21996444e4a300f7514c1e7758701`. Its EN/DE card objects match the later merged content; check the remaining smoke-test dependency before disposition. Do not close or merge automatically.
 - `#11` — earlier HSR Draft, open at `87655d75e6a75812cf643dbd3539b78e8ffb004a`. It contains distinct deferred HSR overlay content; inventory and decide its disposition separately. Do not merge automatically.
 - `#4` — earlier HSR terminology PR, open at `125c5a909715cdfe6bd98e2ae5e3d6558ada86c3`. Its NIHR labels/brand mapping remain distinct; resolve that mapping before disposition. Do not close or merge automatically.
@@ -142,7 +142,7 @@ After the 2025 Medical content has completed its source audit and Content Freeze
 - Regulatory/intended-use preparation: RA-01 functional inventory, RA-02 intended-use decision sheet and RA-03 Product-Owner intended-use draft have been prepared. They do not constitute Regulatory qualification.
 - Product-Owner intent currently recorded: voluntary professional work aid for radiology professionals; learning/lookup plus support in real clinical cases. F05 may also be used during an acute reaction. Clinical responsibility remains with the medical professional.
 - Formal Bayer RA/Legal qualification/classification: **not performed**. No MDSW qualification or Rule-11 class conclusion is recorded.
-- UI-01 / PR `#22`: visible neutral-start change exists but official CI is red (`58 passed / 17 failed`), so it is not technically verified.
+- UI-01 / PR `#22`: neutral-start behaviour for F02/F11 is TECHNICALLY VERIFIED at head `969af23b108e49d5794c1d65f95b862b9dfebf04`; official run `36337880603` succeeded `75/75`. PR remains Draft and not merged.
 - `Esur2`: current visual integration/design sandbox; it combines draft states for browser review and is not approval evidence.
 - R2K: VERIFIED.
 - R2L: VERIFIED.
@@ -181,7 +181,7 @@ Keep three questions separate:
 - Tests are regression guardrails for technical behaviour, not proof of medical correctness.
 - Historical PR `#12` regression inventory at its documented Medical-integration milestone: `94 tests`; run `35919339082` succeeded `94/94`.
 - Current `main` application baseline `1ebbe97b555673dd59c5c708532d39040291c303`: HSR Regression run `36321577992` succeeded `74/74 passed`.
-- Draft PR `#22` adds the UI-01 neutral-start test, producing a 75-test attempt. Official run `36334687034` failed with `58 passed / 17 failed`.
+- Draft PR `#22` now has a 75-test UI-01 regression inventory. After adapting the existing NIHR tests to the deliberate neutral-entry workflow, official run `36337880603` succeeded `75/75 passed` at head `969af23b108e49d5794c1d65f95b862b9dfebf04`.
 - The PR `#22` failures are concentrated in existing NIHR regression tests that do not select all newly required neutral-start fields before expecting a pathway. Until the implementation/tests are reconciled and official CI is green, PR `#22` is not VERIFIED.
 - Shared fixtures continue to treat browser `pageerror` / `console.error` as failures where applicable.
 - `tests/waiting-times.spec.js` protects the exact EN/DE Compare and Action Waiting-Times Medical-Lock content on the refactor branch.
@@ -871,7 +871,7 @@ Do **not** continue the old card-audit sequence described in earlier versions of
 Current parallel workstreams are:
 
 1. **Human Medical Affairs:** review MED-01 for F02/F05/F07/F09/F11; PR `#21` remains a separate Medical review package.
-2. **UI-01:** correct/reconcile PR `#22` so the neutral F02/F11 start behaviour has regression coverage and official CI is green. Do not merge it while CI is red.
+2. **UI-01:** regression repair is complete and official CI is green (`75/75`). Keep PR `#22` Draft unless/until the Product Owner explicitly authorizes its controlled next disposition; technical verification does not imply Medical/Regulatory approval.
 3. **Design:** use `Esur2/main` as the visual design/integration sandbox. Medical strings and medical logic are frozen during design iteration. After Product Owner acceptance, transfer the final presentation-only diff back to `Esur22` as a separate Draft UI PR.
 4. **PR #12:** no merge. Reconcile against current `main` and reverify only when/if the modularized branch is brought forward.
 5. **Regulatory:** after Medical clarifies applicability/limits, hand the consolidated intended purpose/function package to Bayer RA/Legal for qualification/classification.
