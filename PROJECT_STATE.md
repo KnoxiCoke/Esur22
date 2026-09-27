@@ -876,7 +876,7 @@ Current parallel workstreams are:
 
 1. **Human Medical Affairs:** review MED-01 for F02/F05/F07/F09/F11; PR `#21` remains a separate Medical review package.
 2. **UI-01:** regression repair is complete and official CI is green (`75/75`). Keep PR `#22` Draft unless/until the Product Owner explicitly authorizes its controlled next disposition; technical verification does not imply Medical/Regulatory approval.
-3. **Design:** use `Esur2/main` as the visual design/integration sandbox. Medical strings and medical logic are frozen during design iteration. After Product Owner acceptance, transfer the final presentation-only diff back to `Esur22` as a separate Draft UI PR.
+3. **Design:** use `Esur2/main` as the visual design/integration sandbox. Medical strings and medical logic are frozen during design iteration. Per the Product Owner decision of 2026-09-27, accepted visual-design work remains in `Esur2`; do not transfer it to `Esur22` unless the Product Owner gives new explicit authorization.
 4. **PR #12:** no merge. Reconcile against current `main` and reverify only when/if the modularized branch is brought forward.
 5. **Regulatory:** after Medical clarifies applicability/limits, hand the consolidated intended purpose/function package to Bayer RA/Legal for qualification/classification.
 
@@ -1075,3 +1075,29 @@ This Product Owner decision changes the approved `Esur2` presentation behaviour 
 - EN Waiting Times still has no `compare.nested`; DE Waiting Times still has its existing three `compare.nested` blocks. No harmonization was performed.
 - GitHub Pages run `36342396957` for exact HEAD `63b3f9035fcffd66da947ab06417d80477c8ecc1` completed successfully.
 - PR `#21` and PR `#22` were not changed. This remains a preview/UI milestone only, not a Medical, Regulatory, merge or Go-Live approval.
+
+
+## Terminology / abbreviation UX audit — `UX_ABBREV_01`
+
+Read-only audit performed 2026-09-27 against the live `KnoxiCoke/Esur2/main` preview at `63b3f9035fcffd66da947ab06417d80477c8ecc1`, using only the authorized ESUR sources for Medical/scientific terminology. `prototype.html` was excluded because it is not referenced by the live app entry point.
+
+Scope/findings:
+
+- User-visible abbreviations/short forms inventoried: `ESUR`, `HSR`, `IHR`, `NIHR`, `CMSC`, `ICM`, `GBCA`, `CM`/`KM`, `eGFR`, `CA-AKI`, `PC-AKI`, `HSG`, `CAPD`, `NSF`, `SCAR`, `ACR`, `ACR/NKF`, `ABCDE`, `CPR`, `EAACI`, `IV`/`IM`, `PAD`, `EVAR`, `RCTs`, plus common modality/source metadata such as `CT`, `MRI`/`MRT`, `EN`, `DE`, `PDF`, and the formula `CO₂`.
+- Clear UX introduction gaps with an authorized-source-supported expansion available: `ESUR`, `CMSC`, `IHR`, `NIHR`, `ICM`, `GBCA`, `eGFR`, `HSG`, `CAPD`, `NSF`, `SCAR`, `ACR`, `CPR`, `EAACI`, `IV`, `IM`, `PAD`, and `EVAR`. Several are explained later or only in another module/source disclosure rather than at first visible use.
+- `CMSC`: the app contains the full phrase `ESUR Contrast Media Safety Committee` in the disclaimer but does not bind it to `(CMSC)`; later screens use `CMSC` directly.
+- `HSR`: used as the main navigation/title without an explicit in-app expansion. The authorized HSR sources use the HSR acronym contextually, but the reviewed authorized source material did not provide a clean abbreviation-list entry mapping `HSR = ...`; do not silently invent a formal expansion in production wording.
+- `NIHR`: explicitly expanded in the NIHR module title, but is already used earlier on the HSR landing view. `IHR` is explicitly defined in the authorized Part 2 figure/abbreviation material but is not consistently introduced before use in the app.
+- `ICM` and `GBCA`: Switch partially introduces them as `ICM (iodine-based)` / `GBCA (gadolinium-based)`; the authorized source definitions are `iodine-based contrast medium` and `gadolinium-based contrast agent`. Other modules use the acronyms without the local mapping.
+- `CM` / `KM`: used in NIHR labels (`Culprit CM known` / `Auslösendes KM bekannt`). `CM` is explicitly defined in authorized Part 2 as contrast medium/media. No explicit `KM` abbreviation definition was found in the authorized source set; using the full word `Kontrastmittel` would avoid an unsupported abbreviation expansion.
+- `eGFR`: used repeatedly with clinical thresholds but not expanded in the live app. The authorized 2018 and 2025 booklets explicitly define `estimated glomerular filtration rate (eGFR)`.
+- `CA-AKI` and `PC-AKI`: expanded within the dedicated terminology card, but can also appear in other Practice Changes content where a user may encounter the acronym without first reading that card.
+- `HSG`, `CAPD`, `NSF`, `EAACI`, `PAD`, and `EVAR`: visible abbreviations are not expanded in the normal visible app content at first use; their full forms are supported by the authorized sources. Some full forms appear only in collapsed source text or source references, which is not treated as adequate first-use explanation.
+- `SCAR`: the current NIHR wording `severe non-immediate hypersensitivity reaction ... with danger signs (SCAR)` mirrors the authorized Part 2 pathway phrasing. The authorized sources separately define `SCAR` as `severe cutaneous adverse reaction`; the app does not display that expansion. This is an explanation gap, not a finding that the current pathway is contradicted.
+- `ACR/NKF`: the authorized 2025 booklet itself uses `ACR/NKF Consensus 2020`. `ACR` is explicitly expanded in the authorized HSR sources; no `NKF` full-name expansion was found in the authorized ESUR source set. Do not add an NKF expansion to controlled Medical content without separate authorization for external research or another authorized source.
+- `ABCDE` and `RCTs`: the authorized 2025 booklet uses these short forms without providing a reviewed full-form expansion in the authorized source set used for this audit. Do not silently expand them under Source-only mode.
+- `CPR`, `IV` and `IM` have explicit full forms in HSR Part 1's abbreviation material; the German app partially clarifies CPR as `Reanimationsteam`, while the English acute view uses CPR directly.
+- `CT`, `MRI`/`MRT`, `EN`, `DE`, `PDF` and `CO₂` are not treated as priority terminology defects in this audit; they are modality/language/source metadata or a chemical formula. `CO₂` is also described as carbon dioxide/Kohlendioxid within the Practice Changes topic.
+- No app code or Medical wording was changed by this audit.
+
+Remediation is not yet authorized. Prefer a single consistent first-use/glossary strategy over isolated acronym patches. Any change to an existing Medical string remains separately governed; presentation-only explanations/tooltips must use only source-supported expansions and must not alter recommendation meaning or decision logic.
