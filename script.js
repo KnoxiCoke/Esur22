@@ -1044,8 +1044,8 @@ arrest: [
             }
           ],
           refs: [
-            "Source: ESUR 10.0 guideline",
-            "Source: ESUR 2025 hypersensitivity guidance"
+            "Source: ESUR Guidelines on Contrast Agents, Version 10.0 (2018 EN), A.1 Acute adverse reactions, A.2 Late adverse reactions and A.3 Very late adverse reactions, printed pp. 6–16 / PDF pp. 7–17.",
+            "Source: ESUR Contrast Media Safety Committee Guidelines 2025, Hypersensitivity reactions to contrast agents (in adults), printed/PDF pp. 6–14; van der Molen et al., Part 1, European Radiology 2025;35:6798–6810 (PDF pp. 1–13); Part 2, European Radiology 2025;35:6811–6825 (PDF pp. 1–15)."
           ]
         },
         action: {
@@ -1069,8 +1069,8 @@ arrest: [
             }
           ],
           refs: [
-            "Source: ESUR 2025 hypersensitivity guidance",
-            "Source: ESUR 10.0 guideline"
+            "Source: ESUR Contrast Media Safety Committee Guidelines 2025, Hypersensitivity reactions to contrast agents (in adults), printed/PDF pp. 6–14; van der Molen et al., Part 1, European Radiology 2025;35:6798–6810 (PDF pp. 1–13); Part 2, European Radiology 2025;35:6811–6825 (PDF pp. 1–15).",
+            "Source: ESUR Guidelines on Contrast Agents, Version 10.0 (2018 EN), A.1 Acute adverse reactions, A.2 Late adverse reactions and A.3 Very late adverse reactions, printed pp. 6–16 / PDF pp. 7–17."
           ]
         }
       },
@@ -1112,8 +1112,8 @@ arrest: [
             }
           ],
           refs: [
-            "Source: ESUR 10.0 guideline",
-            "Source: ESUR 2025 CA-AKI guidance"
+            "Source: ESUR Guidelines on Contrast Agents, Version 10.0 (2018 EN), B. Renal adverse reactions (post-contrast acute kidney injury, PC-AKI), definition, printed p. 17 / PDF p. 18.",
+            "Source: ESUR Contrast Media Safety Committee Guidelines 2025, Prevention of contrast-associated acute kidney injury (CA-AKI) when administering iodine-based contrast media — terminology note and definitions, printed/PDF p. 15."
           ]
         },
         action: {
@@ -1134,8 +1134,8 @@ arrest: [
             }
           ],
           refs: [
-            "Source: ESUR 2025 CA-AKI guidance",
-            "Source: ESUR 10.0 guideline"
+            "Source: ESUR Contrast Media Safety Committee Guidelines 2025, Prevention of contrast-associated acute kidney injury (CA-AKI) when administering iodine-based contrast media — terminology note and definitions, printed/PDF p. 15.",
+            "Source: ESUR Guidelines on Contrast Agents, Version 10.0 (2018 EN), B. Renal adverse reactions (post-contrast acute kidney injury, PC-AKI), definition, printed p. 17 / PDF p. 18."
           ]
         }
       },
@@ -1180,8 +1180,8 @@ arrest: [
             }
           ],
           refs: [
-            "Source: ESUR 10.0 guideline",
-            "Source: ESUR 2025 waiting-time guidance"
+            "Source: ESUR Guidelines on Contrast Agents, Version 10.0 (2018 EN), B.6 same-day iodine- and gadolinium-based administration and B.7–B.8 repeat administrations, printed pp. 24–25 / PDF pp. 25–26.",
+            "Source: ESUR Contrast Media Safety Committee Guidelines 2025, Safe time intervals between contrast agent injections, printed/PDF pp. 21–22."
           ]
         },
         action: {
@@ -1248,8 +1248,8 @@ arrest: [
             }
           ],
           refs: [
-            "Source: ESUR 2025 waiting-time guidance",
-            "Source: ESUR 10.0 guideline"
+            "Source: ESUR Contrast Media Safety Committee Guidelines 2025, Safe time intervals between contrast agent injections, printed/PDF pp. 21–22.",
+            "Source: ESUR Guidelines on Contrast Agents, Version 10.0 (2018 EN), B.6 same-day iodine- and gadolinium-based administration and B.7–B.8 repeat administrations, printed pp. 24–25 / PDF pp. 25–26."
           ]
         }
       },
@@ -1736,8 +1736,8 @@ arrest: [
             }
           ],
           refs: [
-            "Quelle: ESUR 10.0 Guideline",
-            "Quelle: ESUR 2025 Hypersensitivitäts-Guidance"
+            "Quelle: Offizielle deutsche ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018 DE), A.1 Akute unerwünschte Wirkungen, A.2 Späte unerwünschte Wirkungen und A.3 Sehr späte unerwünschte Wirkungen, Drucks. 12–26 / PDF-S. 7–14.",
+            "Quelle: ESUR Contrast Media Safety Committee Guidelines 2025, „Hypersensitivity reactions to contrast agents (in adults)“, Druck-/PDF-S. 6–14; van der Molen et al., Part 1, European Radiology 2025;35:6798–6810 (PDF-S. 1–13); Part 2, European Radiology 2025;35:6811–6825 (PDF-S. 1–15)."
           ]
         },
         action: {
@@ -1761,8 +1761,8 @@ arrest: [
             }
           ],
           refs: [
-            "Quelle: ESUR 2025 Hypersensitivitäts-Guidance",
-            "Quelle: ESUR 10.0 Guideline"
+            "Quelle: ESUR Contrast Media Safety Committee Guidelines 2025, „Hypersensitivity reactions to contrast agents (in adults)“, Druck-/PDF-S. 6–14; van der Molen et al., Part 1, European Radiology 2025;35:6798–6810 (PDF-S. 1–13); Part 2, European Radiology 2025;35:6811–6825 (PDF-S. 1–15).",
+            "Quelle: Offizielle deutsche ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018 DE), A.1 Akute unerwünschte Wirkungen, A.2 Späte unerwünschte Wirkungen und A.3 Sehr späte unerwünschte Wirkungen, Drucks. 12–26 / PDF-S. 7–14."
           ]
         }
       },
@@ -1804,8 +1804,8 @@ arrest: [
             }
           ],
           refs: [
-            "Quelle: ESUR 10.0 Guideline",
-            "Quelle: ESUR 2025 CA-AKI-Guidance"
+            "Quelle: Offizielle deutsche ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018 DE), B. Renale unerwünschte Wirkungen (Kontrastmittel-assoziierte akute Nierenschädigung, PC-AKI), Definition, Drucks. 27 / PDF-S. 14.",
+            "Quelle: ESUR Contrast Media Safety Committee Guidelines 2025, „Prevention of contrast-associated acute kidney injury (CA-AKI) when administering iodine-based contrast media“ — Terminologiehinweis und Definitionen, Druck-/PDF-S. 15."
           ]
         },
         action: {
@@ -1826,8 +1826,8 @@ arrest: [
             }
           ],
           refs: [
-            "Quelle: ESUR 2025 CA-AKI-Guidance",
-            "Quelle: ESUR 10.0 Guideline"
+            "Quelle: ESUR Contrast Media Safety Committee Guidelines 2025, „Prevention of contrast-associated acute kidney injury (CA-AKI) when administering iodine-based contrast media“ — Terminologiehinweis und Definitionen, Druck-/PDF-S. 15.",
+            "Quelle: Offizielle deutsche ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018 DE), B. Renale unerwünschte Wirkungen (Kontrastmittel-assoziierte akute Nierenschädigung, PC-AKI), Definition, Drucks. 27 / PDF-S. 14."
           ]
         }
       },
@@ -1930,8 +1930,8 @@ arrest: [
             }
           ],
           refs: [
-            "Quelle: ESUR 10.0 Guideline",
-            "Quelle: ESUR 2025 Wartezeiten-Guidance"
+            "Quelle: Offizielle deutsche ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018 DE), B.6 gleichzeitige Iod-/Gadolinium-Gabe und B.7–B.8 wiederholte Gaben, Drucks. 34–35 / PDF-S. 18.",
+            "Quelle: ESUR Contrast Media Safety Committee Guidelines 2025, „Safe time intervals between contrast agent injections“, Druck-/PDF-S. 21–22."
           ]
         },
         action: {
@@ -1998,8 +1998,8 @@ arrest: [
             }
           ],
           refs: [
-            "Quelle: ESUR 2025 Wartezeiten-Guidance",
-            "Quelle: ESUR 10.0 Guideline"
+            "Quelle: ESUR Contrast Media Safety Committee Guidelines 2025, „Safe time intervals between contrast agent injections“, Druck-/PDF-S. 21–22.",
+            "Quelle: Offizielle deutsche ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018 DE), B.6 gleichzeitige Iod-/Gadolinium-Gabe und B.7–B.8 wiederholte Gaben, Drucks. 34–35 / PDF-S. 18."
           ]
         }
       },
