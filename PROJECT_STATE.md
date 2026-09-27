@@ -17,7 +17,7 @@ Before **any** ESUR work — analysis, source review, Medical review, Regulatory
 
 GitHub remote state is authoritative for code and refs. This file is the authoritative human/AI project-status interpretation of that verified remote state.
 
-Last remote verification: 2026-09-27
+Last remote verification: 2026-09-28
 
 ## Current verified baseline
 
@@ -33,7 +33,7 @@ Last remote verification: 2026-09-27
 
 - Repository: `KnoxiCoke/Esur2`.
 - Role: browser-visible integration and design sandbox only; it is **not** the controlled source of truth.
-- Current verified `Esur2/main`: `d135d43ebbe44cca7588ef32bbe7dbede0a5a504` (inline abbreviation preview; desktop QA completed, narrow/mobile browser QA and Product Owner visual acceptance pending).
+- Current verified `Esur2/main`: `ef6116677ad36664d6e9a850a806ad1287cb7038` (NIHR severity presentation preview; deployed browser QA and Product Owner mobile visual acceptance pending).
 - Commit `0053b2b0a0bc92ced7c3de5672d00bbc328eb57b` adds only a standalone `prototype.html` design-prototype page; the live application files were not changed by that commit.
 - Product Owner accepted the Phase-1 V2 design direction. Phase 2 was implemented in the preview sandbox at `4d54d522930d8ecfdf6fad797cbcd248039ffc82` as a presentation-only `style.css` change. `index.html` and `script.js` remained byte-identical to the pre-Phase-2 preview state; therefore `changesLibrary`, Medical strings/logic, IDs and UI-01 neutral-entry behavior were not changed by this implementation. This preview milestone is not Human Medical Affairs, Regulatory, merge or release approval.
 - GitHub Pages run `36338704007` for that exact commit completed successfully. The deploy job reported environment URL `https://knoxicoke.github.io/Esur2/`.
@@ -1259,3 +1259,12 @@ Product Owner mobile screenshots of deployed `Esur2/main` `d135d43ebbe44cca7588e
 - **German Acute CPR wording:** current DE app wording remains `CPR-Team (Reanimationsteam) rufen.` / `CPR starten.`. Source review confirms the authorized 2025 acute source is English and states `Call the CPR team.` / `Start CPR.`; Part 1 explicitly defines `CPR = cardiopulmonary resuscitation`. The authorized official German 2018 ESUR source uses German terminology such as `Reanimationsteam verständigen` / `Reanimation` and no `CPR` occurrence was found in that German source. Because 2018 and 2025 must remain source-separated, the 2018 wording must not be used to silently rewrite the 2025 DE translation. The current DE CPR wording is therefore a **translation/Medical-string review point**, not a presentation-only abbreviation fix.
 - No code change is authorized by this finding alone.
 
+
+### NIHR severity presentation preview — verified commit; browser QA pending (2026-09-28)
+
+- The Product Owner explicitly authorized a Preview-QA commit for the prepared NIHR patch on `KnoxiCoke/Esur2/main`. The new remote HEAD is `ef6116677ad36664d6e9a850a806ad1287cb7038`, parent `d135d43ebbe44cca7588ef32bbe7dbede0a5a504`, tree `dc715da57c6edda9c16cf1905dda724417140c79`.
+- Only `script.js` and `style.css` changed. The remote blobs `edf7b5710a0d88e0c007b16f9a59e053b366086a` and `f7c2a7142a46b786b4bae0217bba188346259bea` matched the prepared local commit exactly. `index.html` and `abbreviations.js` were untouched.
+- The renderer splits the existing `nihr_severity_hint` from the existing translated Mild/Moderate/Severe labels into three compact rows and subtly marks the selected row. No i18n source string or NIHR decision state/logic was edited. Removing only the new renderer and its call reconstructs the original `script.js` byte-for-byte. Local EN/DE render checks reconstructed the exact original `textContent` in neutral and each selected state; JS syntax and diff checks passed.
+- The authorized 2025 Part 1 Table 3 (printed p. 6805 / PDF p. 8) states `Call the CPR team.` and `Start CPR.`; its abbreviation list (printed p. 6807 / PDF p. 10) defines CPR as `cardiopulmonary resuscitation`. Official German 2018 (printed p. 17 / PDF p. 9) states `Reanimationsteam verständigen.` for its own generalized reaction context. There is no authorized official German 2025 source in the set. The current app DE CPR strings were assessed read-only as `SUPPORTED — TRANSLATION`; candidate replacements remain unimplemented and require Product Owner / Medical review.
+- At documentation time, no GitHub Pages workflow run was returned for the new commit. Desktop and narrow/mobile graphical QA of the new deployed build are pending. No Product Owner visual acceptance or new Medical/Regulatory approval is implied.
+- PR `#21` remained open Draft at `b388923110abe828fea6de469e71a5dd7a255880`; PR `#22` remained open Draft at `969af23b108e49d5794c1d65f95b862b9dfebf04`. Neither was changed.
