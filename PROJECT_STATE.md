@@ -33,7 +33,7 @@ Last remote verification: 2026-09-27
 
 - Repository: `KnoxiCoke/Esur2`.
 - Role: browser-visible integration and design sandbox only; it is **not** the controlled source of truth.
-- Current verified `Esur2/main`: `101828bac267e9b9ba13726485e7337fa90c0eb3`.
+- Current verified `Esur2/main`: `ad1c4b9cb9cd546b99f24fce85ae1712aa8ec739`.
 - Commit `0053b2b0a0bc92ced7c3de5672d00bbc328eb57b` adds only a standalone `prototype.html` design-prototype page; the live application files were not changed by that commit.
 - Product Owner accepted the Phase-1 V2 design direction. Phase 2 was implemented in the preview sandbox at `4d54d522930d8ecfdf6fad797cbcd248039ffc82` as a presentation-only `style.css` change. `index.html` and `script.js` remained byte-identical to the pre-Phase-2 preview state; therefore `changesLibrary`, Medical strings/logic, IDs and UI-01 neutral-entry behavior were not changed by this implementation. This preview milestone is not Human Medical Affairs, Regulatory, merge or release approval.
 - GitHub Pages run `36338704007` for that exact commit completed successfully. The deploy job reported environment URL `https://knoxicoke.github.io/Esur2/`.
@@ -1042,3 +1042,16 @@ Medical/content boundary before the relevant audit is complete:
 Editorial compression or rewriting remains a separate future Medical/source-governed phase and is not authorized by this decision.
 
 This Product Owner decision changes the approved `Esur2` presentation behaviour only. It does not change Medical approval status, recommendation strength, decision logic, Source-QA status, Human Medical Affairs status, Regulatory status, merge status or release/Go-Live status.
+
+### Variant B preview implementation — verified
+
+- Implemented only in `KnoxiCoke/Esur2/main` at `ad1c4b9cb9cd546b99f24fce85ae1712aa8ec739` (`UI Phase 2C: rebuild Practice Changes workspace`).
+- Changed files: `index.html`, `script.js`, `style.css`.
+- `changesLibrary` was compared pre/post and remained byte-identical. PR `#21` and PR `#22` remained open Draft at their prior verified heads.
+- The first existing object in the current Practice Changes array is `publication_structure`; therefore the reviewed “default = first existing object” rule resolves to that topic, not to a newly chosen priority topic.
+- Compare remains the default local mode. Search filters the topic navigator. Sources are collapsed by default.
+- Waiting Times retains its three existing nested blocks; they render as collapsed disclosures in Action mode without rewriting their text.
+- Why / Practical impact content is not dropped: all existing sections in the selected mode are rendered unchanged.
+- Narrow layouts stack the selected-topic detail view and the Compare columns instead of preserving the desktop split.
+- GitHub Pages run `36341470585` for exact HEAD `ad1c4b9cb9cd546b99f24fce85ae1712aa8ec739` completed successfully.
+- This is a preview/UI milestone only. It is not a new Medical Lock, Human Medical Affairs approval, Regulatory approval, merge approval or Go-Live authorization.
