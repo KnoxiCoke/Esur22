@@ -1540,9 +1540,9 @@ arrest: [
         id: "other_reorganized_topics",
         level: "medium",
         icon: "stack",
-        title: "Other reorganized or continued topics",
+        title: "Selected 2018 topics in the 2025 booklet",
         summary:
-          "Several subjects are retained, regrouped, or expanded in 2025 without always becoming headline changes.",
+          "The 2025 booklet contains some 2018 topics with differences in wording or placement, uses a different classification for others, and does not reproduce some 2018 topics. Each topic therefore has to be compared separately.",
         keywords: [
           "pregnancy",
           "lactation",
@@ -1558,53 +1558,64 @@ arrest: [
         compare: {
           sections: [
             {
-              label: "2018",
-              paragraphs: [
-                "Pregnancy / lactation, paediatric use, metformin, gadolinium retention, warming / fasting, and several older miscellaneous topics already existed in the 2018 booklet.",
-                "Some topics such as late reactions, very late reactions, sickle cell disease, and effects on blood / endothelium were more separately visible in the older structure."
+              label: "Present in both booklets",
+              bullets: [
+                "Pregnancy and lactation, paediatric use, metformin, gadolinium retention, warming and fasting are addressed in both booklets. Their wording and/or placement is not identical.",
+                "In 2025, metformin appears under systemic diseases. Warming and fasting remain separate topics under “Miscellaneous”; the 2025 fasting text also includes ultrasound contrast agents.",
+                "The 2025 paediatric section does not reproduce the 2018 bullets stating that non-ionic iodine-based contrast media should be used and that high-risk gadolinium-based agents should be avoided."
               ]
             },
             {
-              label: "2025",
-              paragraphs: [
-                "Many of these topics remain, but are regrouped differently. Pregnancy / lactation and paediatric use continue, metformin is embedded within systemic diseases, gadolinium retention remains, and nonvascular iodine administration is described in more detail.",
-                "At the same time, some 2018 topics are less separately foregrounded in the 2025 summary structure."
+              label: "Classification or scope changed",
+              bullets: [
+                "The 2018 “late adverse reactions” section defined late reactions as occurring 1 hour to 1 week after intravascular iodine-based contrast medium. In 2025, non-immediate/delayed hypersensitivity reactions are handled within the adult HSR section; these are not the same document classification.",
+                "The 2018 “very late adverse reactions” umbrella is not retained as such in 2025. Iodine-induced hyperthyroidism is addressed under systemic diseases, while NSF remains present as a dedicated body section.",
+                "For extravascular iodine-based contrast administration, the 2018 booklet gave a general precaution when systemic absorption or leakage was possible. The 2025 booklet contains a more detailed HSR-specific paragraph on nonvascular administration and management of hypersensitivity reactions."
               ]
             },
             {
-              label: "Practical impact",
+              label: "Not found in the 2025 booklet",
+              bullets: [
+                "The 2018 sickle cell disease section was not found in the complete 2025 booklet.",
+                "The 2018 recommendations on effects of contrast media on blood and endothelium, including thrombosis, were not found in the complete 2025 booklet."
+              ]
+            },
+            {
+              label: "Scope limit",
               paragraphs: [
-                "Absence from the 2025 table of contents should not automatically be interpreted as “removed.” In several cases the content is retained but reorganized."
+                "“Not found in the 2025 booklet” describes only this booklet comparison and does not mean that ESUR has withdrawn the topic from all guidance. A missing table-of-contents entry alone is not evidence of absence from the body; NSF is present in the 2025 body without its own contents line."
               ],
               variant: "impact"
             }
           ],
           refs: [
-            "Source: ESUR 10.0 guideline",
-            "Source: ESUR 2025 summary guideline"
+            "Source: ESUR Guidelines on Contrast Agents, Version 10.0 (2018 EN): A.1.3–A.1.5, printed p. 11 / PDF p. 12; A.2, printed p. 12 / PDF p. 13; A.3, printed p. 13 onward / PDF p. 14 onward; B.4, printed p. 22 / PDF p. 23; C.3–C.3.2, printed pp. 27–28 / PDF pp. 28–29; C.5, printed p. 29 / PDF p. 30; C.7, printed pp. 31–32 / PDF pp. 32–33; C.10, printed p. 35 / PDF p. 36.",
+            "Source: Official German ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018 DE): A.1.3–A.1.5 body text, printed pp. 18–19 / PDF p. 10 (the A.1.3 heading in the DE source is mismatched); A.2, printed pp. 20–21 / PDF p. 11; A.3, printed pp. 22–23 / PDF p. 12 onward; B.4, printed p. 33 / PDF p. 17; C.3–C.3.2, printed pp. 37–38 / PDF pp. 19–20; C.5, printed pp. 39–40 / PDF pp. 20–21; C.7, printed pp. 42–43 / PDF p. 22; C.10, printed p. 46 / PDF p. 24.",
+            "Source: ESUR Contrast Media Safety Committee Guidelines 2025: nonvascular iodine administration, printed/PDF p. 10; NSF, pp. 24–26; pregnancy/lactation, pp. 26–27; paediatric use, p. 27; metformin and iodine-induced hyperthyroidism, pp. 27–28; gadolinium retention, pp. 29–30; fasting and warming, pp. 31–32; guidelines currently being updated, p. 33."
           ]
         },
         action: {
           sections: [
             {
-              label: "ESUR 2025 action points",
+              label: "Source-concordant comparison",
               bullets: [
-                "Do not assume that a topic is gone just because it is less separately visible in the 2025 summary structure.",
-                "Use the systemic-diseases block in 2025 for regrouped items such as metformin and other disease-related topics.",
-                "Use the 2025 text if you need the expanded wording on nonvascular iodine-based contrast administration."
+                "Present in both booklets, with wording and/or placement differences: pregnancy and lactation, paediatric use, metformin, gadolinium retention, warming and fasting.",
+                "Classification or scope changed: late and very late adverse reactions, and the nonvascular/extravascular iodine-based contrast passages.",
+                "Not found in the complete 2025 booklet: the 2018 sickle cell disease section and the 2018 blood/endothelium/thrombosis recommendations."
               ],
               variant: "action"
             },
             {
-              label: "Why this matters",
+              label: "Interpretation limit",
               paragraphs: [
-                "Not every difference between 2018 and 2025 is a new rule. Some are changes in framing, grouping, or level of emphasis."
+                "The comparison describes the authorized 2018 and 2025 booklet texts. It does not establish that a topic absent from the 2025 booklet has been withdrawn from all ESUR guidance."
               ]
             }
           ],
           refs: [
-            "Source: ESUR 2025 summary guideline",
-            "Source: ESUR 10.0 guideline"
+            "Source: ESUR Guidelines on Contrast Agents, Version 10.0 (2018 EN), sections A.1.3–A.3, B.4, C.3–C.3.2, C.5, C.7 and C.10; printed pp. 11–35 / corresponding PDF pp. 12–36.",
+            "Source: Official German ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018 DE), corresponding sections A.1.3–A.3, B.4, C.3–C.3.2, C.5, C.7 and C.10; PDF pp. 10–24.",
+            "Source: ESUR Contrast Media Safety Committee Guidelines 2025, relevant body sections on pp. 10 and 24–33."
           ]
         }
       }
@@ -2278,9 +2289,9 @@ arrest: [
         id: "other_reorganized_topics",
         level: "medium",
         icon: "stack",
-        title: "Weitere reorganisierte oder fortgeführte Themen",
+        title: "Ausgewählte Themen von 2018 im Booklet 2025",
         summary:
-          "Mehrere Inhalte bleiben erhalten, werden umgruppiert oder ausgebaut, ohne dass sie immer als grosse Headline-Änderungen erscheinen.",
+          "Einige Themen aus 2018 sind auch im Booklet 2025 enthalten, teils mit anderem Wortlaut oder an anderer Stelle. Andere werden anders klassifiziert, und einige Themen aus 2018 werden im Booklet 2025 nicht wiedergegeben. Deshalb ist jedes Thema einzeln zu vergleichen.",
         keywords: [
           "schwangerschaft",
           "laktation",
@@ -2296,53 +2307,64 @@ arrest: [
         compare: {
           sections: [
             {
-              label: "2018",
-              paragraphs: [
-                "Schwangerschaft / Laktation, pädiatrische Anwendung, Metformin, Gadolinium-Retention, Warming / Fasting und mehrere ältere Miscellaneous-Themen waren bereits im 2018er Booklet enthalten.",
-                "Einige Themen wie late reactions, very late reactions, sickle cell disease und effects on blood / endothelium waren im älteren Aufbau stärker separat sichtbar."
+              label: "In beiden Booklets enthalten",
+              bullets: [
+                "Schwangerschaft und Stillzeit, Pädiatrie, Metformin, Gadoliniumretention, Erwärmen und Nüchternheit werden in beiden Booklets behandelt. Wortlaut und/oder Einordnung sind nicht identisch.",
+                "2025 steht Metformin unter systemischen Erkrankungen. Erwärmen und Nüchternheit bleiben getrennte Themen unter „Miscellaneous“; der 2025-Text zur Nüchternheit nennt zusätzlich Ultraschall-Kontrastmittel.",
+                "Der Pädiatrie-Abschnitt 2025 gibt die 2018er Aussagen, dass bei iodhaltigen Röntgenkontrastmitteln nicht-ionische Mittel verwendet und bei gadoliniumhaltigen Kontrastmitteln Hochrisikomittel vermieden werden sollen, nicht wieder."
               ]
             },
             {
-              label: "2025",
-              paragraphs: [
-                "Viele dieser Inhalte bleiben erhalten, werden aber anders gruppiert. Schwangerschaft / Laktation und Pädiatrie bleiben, Metformin ist in systemische Erkrankungen eingebettet, Gadolinium-Retention bleibt, und die nichtvaskuläre Gabe iodhaltiger Kontrastmittel wird breiter beschrieben.",
-                "Gleichzeitig werden manche 2018 prominenter sichtbaren Themen im 2025er Summary-Aufbau weniger separat hervorgehoben."
+              label: "Geänderte Klassifikation oder Aussageebene",
+              bullets: [
+                "Der 2018er Abschnitt zu „späten unerwünschten Wirkungen“ definierte diese als Reaktionen 1 Stunde bis 1 Woche nach intravaskulärer Gabe iodhaltiger Röntgenkontrastmittel. 2025 werden nicht unmittelbare/verzögerte HSR im Erwachsenen-HSR-Abschnitt behandelt; dies ist nicht dieselbe Dokumentklassifikation.",
+                "Die 2018er Oberkategorie „sehr späte unerwünschte Wirkungen“ wird 2025 nicht als solche fortgeführt. Jodinduzierte Hyperthyreose steht unter systemischen Erkrankungen; NSF ist weiterhin als eigener Abschnitt im Fließtext vorhanden.",
+                "Bei extravaskulärer Gabe iodhaltiger Röntgenkontrastmittel enthielt das Booklet 2018 eine allgemeine Vorsichtsregel, wenn eine systemische Aufnahme oder Leckage möglich war. Das Booklet 2025 enthält einen detaillierteren HSR-spezifischen Absatz zur nichtvaskulären Gabe und zum Management von Überempfindlichkeitsreaktionen."
               ]
             },
             {
-              label: "Praktische Bedeutung",
+              label: "Im Booklet 2025 nicht gefunden",
+              bullets: [
+                "Der 2018er Abschnitt zur Sichelzellanämie wurde im vollständigen Booklet 2025 nicht gefunden.",
+                "Die 2018er Empfehlungen zu Wirkungen von Kontrastmitteln auf Blut und Endothel einschließlich Thrombose wurden im vollständigen Booklet 2025 nicht gefunden."
+              ]
+            },
+            {
+              label: "Begrenzung",
               paragraphs: [
-                "Dass ein Thema im 2025er Inhaltsverzeichnis weniger prominent erscheint, bedeutet nicht automatisch, dass es inhaltlich entfernt wurde. In mehreren Fällen wurde es fortgeführt, aber umgruppiert."
+                "„Im Booklet 2025 nicht gefunden“ beschreibt nur diesen Booklet-Vergleich und bedeutet nicht, dass ESUR das Thema aus sämtlichen Leitlinien zurückgezogen hat. Ein fehlender Eintrag im Inhaltsverzeichnis belegt für sich allein keine Abwesenheit im Fließtext; NSF ist im 2025er Fließtext vorhanden, obwohl es keine eigene Inhaltsverzeichniszeile hat."
               ],
               variant: "impact"
             }
           ],
           refs: [
-            "Quelle: ESUR 10.0 Guideline",
-            "Quelle: ESUR 2025 Summary Guideline"
+            "Quelle: ESUR Guidelines on Contrast Agents, Version 10.0 (2018 EN): A.1.3–A.1.5, Drucks. 11 / PDF-S. 12; A.2, Drucks. 12 / PDF-S. 13; A.3, ab Drucks. 13 / ab PDF-S. 14; B.4, Drucks. 22 / PDF-S. 23; C.3–C.3.2, Drucks. 27–28 / PDF-S. 28–29; C.5, Drucks. 29 / PDF-S. 30; C.7, Drucks. 31–32 / PDF-S. 32–33; C.10, Drucks. 35 / PDF-S. 36.",
+            "Quelle: Offizielle deutsche ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018 DE): Fließtext A.1.3–A.1.5, Drucks. 18–19 / PDF-S. 10 (die Überschrift A.1.3 ist in der DE-Quelle abweichend); A.2, Drucks. 20–21 / PDF-S. 11; A.3, ab Drucks. 22–23 / ab PDF-S. 12; B.4, Drucks. 33 / PDF-S. 17; C.3–C.3.2, Drucks. 37–38 / PDF-S. 19–20; C.5, Drucks. 39–40 / PDF-S. 20–21; C.7, Drucks. 42–43 / PDF-S. 22; C.10, Drucks. 46 / PDF-S. 24.",
+            "Quelle: ESUR Contrast Media Safety Committee Guidelines 2025: nichtvaskuläre iodhaltige Kontrastmittelgabe, Druck-/PDF-S. 10; NSF, S. 24–26; Schwangerschaft/Stillzeit, S. 26–27; Pädiatrie, S. 27; Metformin und jodinduzierte Hyperthyreose, S. 27–28; Gadoliniumretention, S. 29–30; Nüchternheit und Erwärmen, S. 31–32; aktuell in Überarbeitung befindliche Guidelines, S. 33."
           ]
         },
         action: {
           sections: [
             {
-              label: "ESUR-2025-Kernaussagen",
+              label: "Quellenkonformer Vergleich",
               bullets: [
-                "Es sollte nicht automatisch angenommen werden, dass ein Thema verschwunden ist, nur weil es im 2025er Summary-Aufbau weniger separat sichtbar ist.",
-                "Für umgruppierte Inhalte wie Metformin und weitere krankheitsbezogene Themen sollte in 2025 der Block zu systemischen Erkrankungen genutzt werden.",
-                "Wenn die breitere Formulierung zur nichtvaskulären Gabe iodhaltiger Kontrastmittel gebraucht wird, sollte der 2025er Text verwendet werden."
+                "In beiden Booklets enthalten, mit Unterschieden in Wortlaut und/oder Einordnung: Schwangerschaft und Stillzeit, Pädiatrie, Metformin, Gadoliniumretention, Erwärmen und Nüchternheit.",
+                "Geänderte Klassifikation oder Aussageebene: späte und sehr späte unerwünschte Wirkungen sowie die Passagen zur nichtvaskulären/extravaskulären Gabe iodhaltiger Röntgenkontrastmittel.",
+                "Im vollständigen Booklet 2025 nicht gefunden: der 2018er Abschnitt zur Sichelzellanämie sowie die 2018er Empfehlungen zu Blut/Endothel/Thrombose."
               ],
               variant: "action"
             },
             {
-              label: "Warum das wichtig ist",
+              label: "Interpretationsgrenze",
               paragraphs: [
-                "Nicht jede Differenz zwischen 2018 und 2025 ist eine neue Regel. Teilweise geht es um Framing, Gruppierung oder unterschiedliche Betonung."
+                "Der Vergleich beschreibt die autorisierten Booklet-Texte von 2018 und 2025. Er belegt nicht, dass ein im Booklet 2025 fehlendes Thema aus sämtlichen ESUR-Leitlinien zurückgezogen wurde."
               ]
             }
           ],
           refs: [
-            "Quelle: ESUR 2025 Summary Guideline",
-            "Quelle: ESUR 10.0 Guideline"
+            "Quelle: ESUR Guidelines on Contrast Agents, Version 10.0 (2018 EN), Abschnitte A.1.3–A.3, B.4, C.3–C.3.2, C.5, C.7 und C.10; Drucks. 11–35 / entsprechende PDF-S. 12–36.",
+            "Quelle: Offizielle deutsche ESUR Leitlinien für Kontrastmittel, Version 10.0 (2018 DE), entsprechende Abschnitte A.1.3–A.3, B.4, C.3–C.3.2, C.5, C.7 und C.10; PDF-S. 10–24.",
+            "Quelle: ESUR Contrast Media Safety Committee Guidelines 2025, einschlägige Abschnitte auf S. 10 und 24–33."
           ]
         }
       }
