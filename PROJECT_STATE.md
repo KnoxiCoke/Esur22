@@ -94,6 +94,18 @@ A compact Human Medical Affairs review pack now exists for the five patient-spec
 
 The pack uses existing project source mappings; **no new source audit was performed for MED-01**. Each module asks Human Medical Affairs for `CONFIRM`, `CHANGE` or `NOT APPLICABLE` plus comments, followed by five common Medical questions. PR `#21` is a separate Medical package and is not part of the MED-01 baseline.
 
+#### Independent blind audit — Gemini, 2026-09-27
+
+A read-only independent blind source audit was run against the MED-01 pack using only the authorized 2025 ESUR sources for the five modules. Gemini had no live GitHub access; ChatGPT subsequently re-verified the live Esur22 state and independently reconciled the reported findings against the authorized sources.
+
+- Overall third-review result: **SOURCE-CONCORDANT WITH FINDINGS**; no item was identified as `NOT SUPPORTED BY THE AUTHORIZED ESUR SOURCES` or `CONTRADICTED BY SOURCE`.
+- F02: source-locator coverage should include Part 2 Fig. 1 in addition to Table 2. The source text states that routine premedication is not recommended and that premedication is optional in emergency situations where an unidentified culprit CM led to a severe HR. The current F02 UI has no explicit culprit-known/unknown input; its severe-emergency output includes the source limitation in explanatory text and conditions alternative-CM wording on a known culprit. Whether an explicit culprit-known/unknown case gate is required remains **Human Medical Affairs review required** rather than an automatically authorized Medical/code change.
+- F05: Part 1 / Table 3 is explicitly for immediate/acute hypersensitivity reactions **in adults**. MED-01 already records that age/weight are not captured and already asks Medical which patients/prerequisites are permitted; Human Medical Affairs should explicitly resolve the adult-use boundary. Add Part 1 Fig. 2 as a more precise reaction-pattern locator alongside Table 3.
+- F07: no new hard source issue identified by the blind audit.
+- F09: the blind report's proposed "source conflict" between `within 4 h`, `1–4 h`, `ideally 1–2 h`, and the detailed three-sample sequence was **not confirmed as a contradiction**. The authorized sources present different levels of detail that can coexist: Part 1 gives an acute-management "ideally 1–2 h" statement; Part 2 requires moderate/severe IHR measurement within 1–4 h and gives the detailed three-sample sequence; the booklet says within 4 h. MED-01 already keeps these source statements separate and asks Medical to define the prerequisites for using real values. No automatic harmonization is authorized.
+- F11: no new hard source issue identified by the blind audit.
+- Human Medical Affairs sign-off remains pending. This blind audit is source QA support only and does not create an Internal Medical Lock, Medical Affairs approval, Regulatory approval, merge authorization or Go Live status.
+
 ### Known medical/source clarifications
 
 1. Part 1 literally contains a hypotension positioning rule involving prone positioning / raising the legs. It is intentionally not implemented in the UI and remains `MEDICAL CLARIFICATION REQUIRED`.
