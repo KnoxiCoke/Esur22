@@ -33,7 +33,7 @@ Last remote verification: 2026-09-27
 
 - Repository: `KnoxiCoke/Esur2`.
 - Role: browser-visible integration and design sandbox only; it is **not** the controlled source of truth.
-- Current verified `Esur2/main`: `63b3f9035fcffd66da947ab06417d80477c8ecc1`.
+- Current verified `Esur2/main`: `842e16ae44546061c70f291b92c2345f05049442`.
 - Commit `0053b2b0a0bc92ced7c3de5672d00bbc328eb57b` adds only a standalone `prototype.html` design-prototype page; the live application files were not changed by that commit.
 - Product Owner accepted the Phase-1 V2 design direction. Phase 2 was implemented in the preview sandbox at `4d54d522930d8ecfdf6fad797cbcd248039ffc82` as a presentation-only `style.css` change. `index.html` and `script.js` remained byte-identical to the pre-Phase-2 preview state; therefore `changesLibrary`, Medical strings/logic, IDs and UI-01 neutral-entry behavior were not changed by this implementation. This preview milestone is not Human Medical Affairs, Regulatory, merge or release approval.
 - GitHub Pages run `36338704007` for that exact commit completed successfully. The deploy job reported environment URL `https://knoxicoke.github.io/Esur2/`.
@@ -1128,3 +1128,18 @@ Authorized only in `KnoxiCoke/Esur2`:
 - after implementation, verify scope diff, desktop/mobile responsive behavior structurally, GitHub Pages deployment, and update this state file.
 
 This authorization is UI/terminology presentation only. It is not a Medical Lock, Human Medical Affairs sign-off, Regulatory approval, merge approval or Go-Live authorization.
+
+### UX_ABBREV_01 presentation-only implementation — verified
+
+- Implemented only in `KnoxiCoke/Esur2/main` at `842e16ae44546061c70f291b92c2345f05049442` (`UI Phase 2E: add abbreviation explanations`).
+- Changed files: `index.html`, `script.js`, `style.css`.
+- Existing `i18n` Medical/content strings were verified byte-identical to the preceding `63b3f903...` preview. `changesLibrary` was verified byte-identical. The existing Action renderer was verified byte-identical.
+- The implementation is additive: source-supported abbreviation data live in a separate presentation object; existing locked Medical sentences were not replaced or rewritten.
+- Added source-supported presentation explanations for the authorized READY set: `ESUR`, `CMSC`, `IHR`, `NIHR`, `ICM`, `GBCA`, `eGFR`, `SCAR`, `NSF`, `HSG`, `EAACI`, `ACR`, `CPR`, `PAD`, and `EVAR`.
+- No new expansion was added for the prohibited/deferred set: `HSR`, `CM`/`KM`, `CAPD`, `PC-AKI`/`CA-AKI`, `NKF`, `ABCDE`, or `RCTs`; `CT`, `MRI`/`MRT`, `IV`/`IM`, `EN`, `DE`, `PDF`, and `CO₂` remained unchanged.
+- EN/DE are implemented at parallel UI locations: HSR first-seen disclosure; Switch and NIHR class disclosures; Previous-reaction EAACI disclosure; Acute CPR disclosure; and topic-local Practice Changes disclosures for hypersensitivity, waiting times, dialysis refinement, and new clinical scenarios.
+- First-seen structure was checked in the live source: HSR abbreviation disclosure precedes the HSR subtitle; Switch disclosure precedes ICM/GBCA controls; NIHR disclosure precedes ICM/GBCA controls; Practice Changes explanations are inserted between selected-topic header and mode/body content.
+- All new abbreviation disclosures are default-closed. Desktop and mobile responsive behavior was structurally checked in the committed DOM/CSS, including the existing `max-width: 820px` mobile breakpoint and one-column abbreviation rows on narrow viewports. No graphical browser screenshot QA was completed in this environment because the headless runtime could not resolve the deployed site; Product Owner visual inspection remains the final preview check.
+- GitHub Pages run `36344710032` for exact HEAD `842e16ae44546061c70f291b92c2345f05049442` completed successfully.
+- PR `#21` remained open Draft at `b388923110abe828fea6de469e71a5dd7a255880`; PR `#22` remained open Draft at `969af23b108e49d5794c1d65f95b862b9dfebf04`; neither was changed.
+- This remains a preview/UI terminology milestone only. It is not a new Medical Lock, Human Medical Affairs approval, Regulatory approval, merge approval or Go-Live authorization.
