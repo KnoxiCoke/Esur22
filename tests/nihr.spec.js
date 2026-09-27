@@ -98,7 +98,7 @@ test("NIHR_06 severe + no danger sign returns source scope guard", async ({ page
 test("NIHR_DS_01 severe + erosive lesions alone triggers SCAR", async ({ page }) => {
   await openApp(page);
   await openNihr(page);
-  await clickSeg(page, "nihrSeverity", "severe");
+  await selectNihrCase(page, "severe");
   await clearDanger(page);
   await setDanger(page, "erosion", true);
   await expect(nihrOutput(page)).toContainText(SCAR_STATUS);
