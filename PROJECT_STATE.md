@@ -40,7 +40,7 @@ Last remote verification: 2026-09-27
 - That preview combines the `Esur22` application baseline `1ebbe97b555673dd59c5c708532d39040291c303`, Draft PR `#21`, and Draft PR `#22`.
 - `Esur2/main` may intentionally contain unmerged draft content so the Product Owner can inspect the whole product in one browser build.
 - Visibility in `Esur2` is **not** evidence of Source QA, Internal Medical Lock, Human Medical Affairs approval, Regulatory approval, technical validation, merge approval, release, conformity, or Go Live.
-- Design experiments may be iterated directly on `Esur2/main`. After Product Owner acceptance, the final presentation-only diff must be transferred back to `Esur22` as a separate reviewed UI Draft PR.
+- Design experiments and accepted visual-design work remain in `KnoxiCoke/Esur2/main`. Per Product Owner decision on 2026-09-27, the Phase-2 design must **not** be transferred back to `KnoxiCoke/Esur22`; no UI/design PR in `Esur22` is authorized. A future transfer would require a new explicit Product Owner authorization.
 - Medical strings, medical logic, doses, thresholds, pathways, source mappings and formal approvals remain governed in `Esur22`.
 
 ## Pull requests
