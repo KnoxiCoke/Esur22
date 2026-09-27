@@ -1,7 +1,11 @@
 # ESUR Project State
 
-> Authoritative current project status for humans and AI assistants.
-> Read this file before proposing or implementing further ESUR changes.
+> Historical branch project-state copy for refactor context.
+
+> **NON-AUTHORITATIVE BRANCH COPY.**
+> The single authoritative project state is `PROJECT_STATE.md` on `Esur22/main`.
+> Before any work on this branch, read the current `main/PROJECT_STATE.md` first and verify the live GitHub state.
+> This branch copy exists only for historical/refactor context and must not override the main-branch project state.
 
 Last remote verification: 2026-09-27
 
