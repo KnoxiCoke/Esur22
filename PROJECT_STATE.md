@@ -185,7 +185,7 @@ Keep three questions separate:
 - Historical PR `#12` regression inventory at its documented Medical-integration milestone: `94 tests`; run `35919339082` succeeded `94/94`.
 - Current `main` application baseline `1ebbe97b555673dd59c5c708532d39040291c303`: HSR Regression run `36321577992` succeeded `74/74 passed`.
 - Draft PR `#22` now has a 75-test UI-01 regression inventory. After adapting the existing NIHR tests to the deliberate neutral-entry workflow, official run `36337880603` succeeded `75/75 passed` at head `969af23b108e49d5794c1d65f95b862b9dfebf04`.
-- The PR `#22` failures are concentrated in existing NIHR regression tests that do not select all newly required neutral-start fields before expecting a pathway. Until the implementation/tests are reconciled and official CI is green, PR `#22` is not VERIFIED.
+- The original PR `#22` regression failure was caused by existing NIHR tests that did not select all newly required neutral-start fields before expecting a pathway. That test adaptation is now complete; official run `36337880603` succeeded `75/75`, so UI-01 is technically VERIFIED while PR `#22` remains Draft and unmerged.
 - Shared fixtures continue to treat browser `pageerror` / `console.error` as failures where applicable.
 - `tests/waiting-times.spec.js` protects the exact EN/DE Compare and Action Waiting-Times Medical-Lock content on the refactor branch.
 
