@@ -1404,42 +1404,43 @@ arrest: [
         icon: "dialysis",
         title: "Dialysis-related refinement",
         summary:
-          "2025 refines the dialysis section, especially for GBCA, and differentiates more clearly between macrocyclic and linear agents.",
+          "The 2025 dialysis section explicitly distinguishes macrocyclic and linear GBCA within separate haemodialysis and CAPD sections.",
         keywords: [
           "dialysis",
           "haemodialysis",
           "macrocyclic",
           "linear",
           "GBCA",
-          "CAPD",
-          "rest diuresis"
+          "CAPD"
         ],
         compare: {
           sections: [
             {
               label: "2018",
               paragraphs: [
-                "The 2018 guideline was more general: no special timing with dialysis for iodine-based contrast, and dialysis correlation / extra haemodialysis was recommended more broadly for GBCA."
+                "ESUR 10.0 already separated haemodialysis from CAPD and iodine-based contrast from GBCA. In haemodialysis, timing coordination and an extra session were unnecessary for iodine-based contrast; for GBCA, timing coordination and an extra haemodialysis session as soon as possible after administration were recommended.",
+                "In CAPD, haemodialysis to remove iodine-based contrast was unnecessary; after GBCA, the need for haemodialysis was to be discussed with the referring physician."
               ]
             },
             {
               label: "2025",
               paragraphs: [
-                "The newer guidance is more explicit: after macrocyclic GBCA, immediate dialysis is not required, whereas after linear agents immediate dialysis is described and repetition on the following two days is advised.",
-                "It also highlights the relevance of remnant renal function and CAPD-specific trade-offs."
+                "For patients on haemodialysis, an immediate dialysis session is not needed after macrocyclic GBCA; after linear agents (e.g., liver-specific agents), it is indicated and needs to be repeated on the following two days.",
+                "For patients on CAPD, an immediate dialysis session is not needed after macrocyclic GBCA; with linear GBCA, the NSF risk should be weighed against the risk of placing a temporary haemodialysis catheter in consultation with the referring physician."
               ]
             },
             {
               label: "Practical impact",
               paragraphs: [
-                "The dialysis section is no longer just “dialyse soon after GBCA.” It is more agent-specific and more nuanced."
+                "Compared with 2018, the 2025 GBCA guidance adds an explicit macrocyclic-versus-linear distinction. The immediate-dialysis instructions differ by dialysis type and GBCA class."
               ],
               variant: "impact"
             }
           ],
           refs: [
-            "Source: ESUR 10.0 guideline",
-            "Source: ESUR 2025 dialysis guidance"
+            "Source: ESUR Guidelines on Contrast Agents 10.0 (2018 EN), § B.5 Dialysis and contrast medium administration, printed p. 23 / PDF p. 24.",
+            "Source: ESUR Leitlinien für Kontrastmittel 10.0 (official DE), § B.5 Dialyse und Kontrastmittelgabe, printed pp. 33–34 / PDF pp. 17–18.",
+            "Source: ESUR Contrast Media Safety Committee Guidelines 2025, Safe use of contrast agent administration in patients on dialysis, printed/PDF p. 19."
           ]
         },
         action: {
@@ -1447,23 +1448,22 @@ arrest: [
             {
               label: "ESUR 2025 action points",
               bullets: [
-                "After macrocyclic GBCA, immediate dialysis is not described as necessary.",
-                "After linear GBCA, immediate dialysis is described and repetition on the following two days is advised.",
-                "In CAPD and similar settings, the guideline describes weighing the NSF risk of linear agents against the risk of temporary haemodialysis access.",
-                "For iodine-based contrast in end-stage renal failure, the role of remnant diuresis is highlighted more clearly."
+                "For iodine-based contrast in patients on haemodialysis, coordinating injection with the haemodialysis session or sessions is unnecessary, and extra haemodialysis sessions to remove the contrast medium are not recommended. In CAPD, additional haemodialysis to remove iodine-based contrast is unnecessary.",
+                "After macrocyclic GBCA, an immediate dialysis session is not needed in haemodialysis or CAPD.",
+                "After linear GBCA in patients on haemodialysis, an immediate dialysis session is indicated and needs to be repeated on the following two days.",
+                "For CAPD and linear GBCA, the NSF risk should be weighed against the risk of placing a temporary haemodialysis catheter in consultation with the referring physician."
               ],
               variant: "action"
             },
             {
               label: "Why this matters",
               paragraphs: [
-                "The 2025 section is more specific and avoids lumping all GBCA into one dialysis rule."
+                "The 2025 GBCA instructions differ by dialysis type and GBCA class."
               ]
             }
           ],
           refs: [
-            "Source: ESUR 2025 dialysis guidance",
-            "Source: ESUR 10.0 guideline"
+            "Source: ESUR Contrast Media Safety Committee Guidelines 2025, Safe use of contrast agent administration in patients on dialysis — Patients on haemodialysis; Patients on continuous ambulatory peritoneal dialysis, printed/PDF p. 19."
           ]
         }
       },
@@ -2141,42 +2141,43 @@ arrest: [
         icon: "dialysis",
         title: "Dialyse-bezogene Präzisierung",
         summary:
-          "2025 wird der Dialyse-Abschnitt insbesondere für GBCA klarer und unterscheidet deutlicher zwischen makrozyklischen und linearen Mitteln.",
+          "Der Dialyseabschnitt von 2025 unterscheidet innerhalb getrennter Abschnitte für Hämodialyse und CAPD ausdrücklich zwischen makrozyklischen und linearen GBCA.",
         keywords: [
           "dialyse",
           "hämodialyse",
           "makrozyklisch",
           "linear",
           "GBCA",
-          "CAPD",
-          "restdiurese"
+          "CAPD"
         ],
         compare: {
           sections: [
             {
               label: "2018",
               paragraphs: [
-                "Die 2018er Guideline war allgemeiner: für iodhaltige Kontrastmittel keine spezielle zeitliche Abstimmung mit Dialyse, und für GBCA eher breitere Empfehlungen zur Korrelation mit Dialyse bzw. zusätzlicher Hämodialyse."
+                "ESUR 10.0 unterschied bereits Hämodialyse und CAPD sowie iodhaltige Röntgenkontrastmittel und GBCA. Bei Hämodialyse waren für iodhaltige Röntgenkontrastmittel die Abstimmung mit der Hämodialysesitzung nicht erforderlich und eine zusätzliche Hämodialyse zur Elimination nicht notwendig; bei gadoliniumhaltigen Kontrastmitteln wurde empfohlen, die Gabe mit dem Hämodialysezeitpunkt abzustimmen, und nach der Gabe sollte so früh wie möglich eine Hämodialyse durchgeführt werden.",
+                "Bei CAPD war eine Hämodialyse zur Elimination iodhaltiger Röntgenkontrastmittel nicht notwendig; nach gadoliniumhaltigen Kontrastmitteln sollte die Notwendigkeit einer Hämodialyse mit dem überweisenden Arzt besprochen werden."
               ]
             },
             {
               label: "2025",
               paragraphs: [
-                "Die neuere Guidance ist konkreter: nach makrozyklischen GBCA ist keine sofortige Dialyse nötig, nach linearen Mitteln wird eine sofortige Dialyse beschrieben und eine Wiederholung an den folgenden zwei Tagen empfohlen.",
-                "Zudem werden Restfunktion der Niere und CAPD-spezifische Abwägungen klarer betont."
+                "Bei Patientinnen und Patienten unter Hämodialyse ist nach makrozyklischen GBCA keine sofortige Dialysesitzung erforderlich; nach linearen Mitteln (z. B. leberspezifischen Mitteln) ist sie angezeigt und muss an den folgenden zwei Tagen wiederholt werden.",
+                "Bei Patientinnen und Patienten unter CAPD ist nach makrozyklischen GBCA keine sofortige Dialysesitzung erforderlich; bei linearen GBCA sollte das NSF-Risiko gegen das Risiko der Anlage eines temporären Hämodialysekatheters abgewogen werden, in Rücksprache mit dem überweisenden Arzt."
               ]
             },
             {
               label: "Praktische Bedeutung",
               paragraphs: [
-                "Der Dialyse-Abschnitt ist nicht mehr einfach „nach GBCA möglichst rasch dialysieren“. Er ist mittel- und situationsspezifischer geworden."
+                "Gegenüber 2018 ergänzt die GBCA-Guidance 2025 eine ausdrückliche Unterscheidung zwischen makrozyklischen und linearen Mitteln. Die Vorgaben zur sofortigen Dialyse unterscheiden sich nach Dialyseart und GBCA-Klasse."
               ],
               variant: "impact"
             }
           ],
           refs: [
-            "Quelle: ESUR 10.0 Guideline",
-            "Quelle: ESUR 2025 Dialyse-Guidance"
+            "Quelle: ESUR Guidelines on Contrast Agents 10.0 (2018 EN), § B.5 Dialysis and contrast medium administration, Druckseite 23 / PDF-Seite 24.",
+            "Quelle: ESUR Leitlinien für Kontrastmittel 10.0 (offizielle DE-Fassung), § B.5 Dialyse und Kontrastmittelgabe, Druckseiten 33–34 / PDF-Seiten 17–18.",
+            "Quelle: ESUR Contrast Media Safety Committee Guidelines 2025, Safe use of contrast agent administration in patients on dialysis, Druck-/PDF-Seite 19."
           ]
         },
         action: {
@@ -2184,23 +2185,22 @@ arrest: [
             {
               label: "ESUR-2025-Kernaussagen",
               bullets: [
-                "Nach makrozyklischen GBCA wird eine sofortige Dialyse nicht als notwendig beschrieben.",
-                "Nach linearen GBCA wird eine sofortige Dialyse beschrieben, mit Wiederholung an den folgenden zwei Tagen.",
-                "Bei CAPD und ähnlichen Situationen beschreibt die Guideline eine Abwägung zwischen NSF-Risiko linearer Mittel und dem Risiko eines temporären Hämodialysezugangs.",
-                "Für iodhaltige Kontrastmittel bei terminalem Nierenversagen wird die Bedeutung der Restdiurese klarer hervorgehoben."
+                "Bei iodhaltigen Röntgenkontrastmitteln ist für Hämodialysepatienten keine zeitliche Abstimmung der Injektion mit der Hämodialysesitzung oder den Hämodialysesitzungen erforderlich; zusätzliche Hämodialysesitzungen zur Entfernung des Kontrastmittels werden nicht empfohlen. Bei CAPD ist eine zusätzliche Hämodialyse zur Elimination iodhaltigen Röntgenkontrastmittels nicht notwendig.",
+                "Nach makrozyklischen GBCA ist bei Hämodialyse oder CAPD keine sofortige Dialysesitzung erforderlich.",
+                "Nach linearen GBCA ist bei Patientinnen und Patienten unter Hämodialyse eine sofortige Dialysesitzung angezeigt und muss an den folgenden zwei Tagen wiederholt werden.",
+                "Bei CAPD und linearen GBCA sollte das NSF-Risiko in Rücksprache mit dem überweisenden Arzt gegen das Risiko der Anlage eines temporären Hämodialysekatheters abgewogen werden."
               ],
               variant: "action"
             },
             {
               label: "Warum das wichtig ist",
               paragraphs: [
-                "Die 2025er Guidance ist hier deutlich spezifischer und behandelt nicht mehr alle GBCA unter derselben Dialyse-Regel."
+                "Die GBCA-Anweisungen von 2025 unterscheiden sich nach Dialyseart und GBCA-Klasse."
               ]
             }
           ],
           refs: [
-            "Quelle: ESUR 2025 Dialyse-Guidance",
-            "Quelle: ESUR 10.0 Guideline"
+            "Quelle: ESUR Contrast Media Safety Committee Guidelines 2025, Safe use of contrast agent administration in patients on dialysis — Patients on haemodialysis; Patients on continuous ambulatory peritoneal dialysis, Druck-/PDF-Seite 19."
           ]
         }
       },
