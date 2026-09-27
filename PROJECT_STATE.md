@@ -33,7 +33,7 @@ Last remote verification: 2026-09-27
 
 - Repository: `KnoxiCoke/Esur2`.
 - Role: browser-visible integration and design sandbox only; it is **not** the controlled source of truth.
-- Current verified `Esur2/main`: `ad1c4b9cb9cd546b99f24fce85ae1712aa8ec739`.
+- Current verified `Esur2/main`: `63b3f9035fcffd66da947ab06417d80477c8ecc1`.
 - Commit `0053b2b0a0bc92ced7c3de5672d00bbc328eb57b` adds only a standalone `prototype.html` design-prototype page; the live application files were not changed by that commit.
 - Product Owner accepted the Phase-1 V2 design direction. Phase 2 was implemented in the preview sandbox at `4d54d522930d8ecfdf6fad797cbcd248039ffc82` as a presentation-only `style.css` change. `index.html` and `script.js` remained byte-identical to the pre-Phase-2 preview state; therefore `changesLibrary`, Medical strings/logic, IDs and UI-01 neutral-entry behavior were not changed by this implementation. This preview milestone is not Human Medical Affairs, Regulatory, merge or release approval.
 - GitHub Pages run `36338704007` for that exact commit completed successfully. The deploy job reported environment URL `https://knoxicoke.github.io/Esur2/`.
@@ -1065,3 +1065,13 @@ This Product Owner decision changes the approved `Esur2` presentation behaviour 
 - `changesLibrary` strings, IDs, levels, refs, recommendation strength, numbers, units and source mappings must remain unchanged.
 - The observed EN/DE Waiting Times structure difference is a separate Medical/source review point: EN currently has no `compare.nested`; DE currently has three `compare.nested` scenario blocks that overlap in subject matter with Action. Do not harmonize, delete or rewrite that structure during this UI pass.
 - This is presentation-only in `Esur2`; no design transfer to `Esur22` is authorized.
+
+### Waiting Times Compare refinement — verified implementation
+
+- Implemented in `KnoxiCoke/Esur2/main` at `63b3f9035fcffd66da947ab06417d80477c8ecc1` (`UI Phase 2D: collapse extra Compare details`).
+- Changed files: `script.js`, `style.css`; `index.html` remained unchanged.
+- `changesLibrary` was verified byte-identical to the preceding `ad1c4b9...` preview. The Action renderer was also verified byte-identical.
+- Compare still renders the existing top-level 2018, 2025 and Practical impact sections directly. Any existing `compare.nested` content is preserved and placed behind one default-closed neutral disclosure: `Additional comparison details` / `Weitere Vergleichsdetails`.
+- EN Waiting Times still has no `compare.nested`; DE Waiting Times still has its existing three `compare.nested` blocks. No harmonization was performed.
+- GitHub Pages run `36342396957` for exact HEAD `63b3f9035fcffd66da947ab06417d80477c8ecc1` completed successfully.
+- PR `#21` and PR `#22` were not changed. This remains a preview/UI milestone only, not a Medical, Regulatory, merge or Go-Live approval.
