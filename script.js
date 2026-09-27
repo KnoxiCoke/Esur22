@@ -1056,7 +1056,7 @@ arrest: [
                 "Refer patients with moderate or severe HSR, recurrent HSR of any severity, or HSR to multiple iodine-based or gadolinium-based contrast agents to a drug allergy specialist; referral after mild HSR is optional when specialist capacity permits.",
                 "In the listed IHR pathways and the mild or moderate NIHR pathways without danger signs, observe the patient for at least 30 min with the IV line in place when contrast medium is administered.",
                 "If specialist advice is unavailable, choose a different agent when the culprit is known after mild IHR or mild or moderate NIHR without danger signs. In emergencies after moderate or severe IHR, choose a different agent if the culprit is known. For elective examinations after moderate or severe IHR, postpone imaging for allergy-analysis results and apply specialist advice.",
-                "After severe NIHR with danger signs (SCAR), urgently refer to a drug allergy specialist, choose alternative imaging, and avoid all agents in the involved class (iodine-based or gadolinium-based); if the culprit class is unknown, individualize after multidisciplinary consultation.",
+                "After severe NIHR with danger signs (SCAR), urgently refer to a drug allergy specialist, choose alternative imaging, and avoid all agents in the involved class (iodine-based or gadolinium-based); after a severe reaction to an unknown contrast agent, individualize after multidisciplinary consultation.",
                 "Measure serum tryptase within 1–4 h from the start of all moderate-to-severe IHR; a second measurement after ≥24 h serves as a baseline."
               ],
               variant: "action"
@@ -1720,7 +1720,7 @@ arrest: [
               label: "2025",
               bullets: [
                 "Ausdrückliche Definition von immediate hypersensitivity reactions (IHR) und non-immediate hypersensitivity reactions (NIHR).",
-                "Die Guidance von 2025 nennt ACR und Ring & Messmer; Ring & Messmer stand bereits in der Akuteinteilung von 2018.",
+                "Das ESUR CMSC 2025 befürwortet sowohl die ACR- als auch die Ring-&-Messmer-Klassifikation; Ring & Messmer war bereits in der Akuteinteilung von 2018 enthalten.",
                 "Das Akutmanagement beschreibt ABCDE-Beurteilung, Beobachtung nach Behandlung, Belassen des IV-Zugangs während der Beobachtung sowie symptomabhängige Lagerung und Supportivmaßnahmen.",
                 "Konkretisierte Tryptase-Probenahme, detaillierte Reaktionsdokumentation und Wege zur Prävention erneuter Reaktionen.",
                 "Wege nach Schweregrad; bei früherer moderater oder schwerer IHR getrennte Wege für elektive und notfallmäßige Untersuchungen."
@@ -1748,7 +1748,7 @@ arrest: [
                 "Patienten mit moderater oder schwerer HSR, wiederkehrender HSR jeder Schwere oder HSR auf mehrere iodhaltige oder gadoliniumhaltige Kontrastmittel an einen Spezialisten für Arzneimittelallergien überweisen; nach milder HSR ist die Überweisung bei ausreichender Kapazität optional.",
                 "Bei erneuter Kontrastmittelgabe in den beschriebenen IHR-Pfaden und den Pfaden für milde oder moderate NIHR ohne Gefahrenzeichen mindestens 30 min mit liegendem IV-Zugang beobachten.",
                 "Wenn keine allergologische Empfehlung vorliegt, nach milder IHR oder milder oder moderater NIHR ohne Gefahrenzeichen bei bekanntem Auslöser ein anderes Mittel wählen. Im Notfall nach moderater oder schwerer IHR bei bekanntem Auslöser ebenfalls ein anderes Mittel wählen. Elektive Untersuchungen nach moderater oder schwerer IHR bis zum Ergebnis der Allergieanalyse verschieben und die allergologische Empfehlung anwenden.",
-                "Nach schwerer NIHR mit Gefahrenzeichen (SCAR) dringend an einen Spezialisten für Arzneimittelallergien überweisen, eine alternative Bildgebung wählen und alle Mittel der betroffenen Klasse (iodhaltig oder gadoliniumhaltig) vermeiden; bei unbekannter Klasse das Vorgehen nach multidisziplinärer Beratung individualisieren.",
+                "Nach schwerer NIHR mit Gefahrenzeichen (SCAR) dringend an einen Spezialisten für Arzneimittelallergien überweisen, eine alternative Bildgebung wählen und alle Mittel der betroffenen Klasse (iodhaltig oder gadoliniumhaltig) vermeiden; nach schwerer Reaktion auf ein unbekanntes Kontrastmittel das Vorgehen nach multidisziplinärer Beratung individualisieren.",
                 "Bei allen moderaten bis schweren IHR Serumtryptase innerhalb von 1–4 h ab Reaktionsbeginn bestimmen; eine zweite Messung nach ≥24 h dient als Baseline."
               ],
               variant: "action"
