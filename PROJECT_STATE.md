@@ -33,10 +33,11 @@ Last remote verification: 2026-09-27
 
 - Repository: `KnoxiCoke/Esur2`.
 - Role: browser-visible integration and design sandbox only; it is **not** the controlled source of truth.
-- Current verified `Esur2/main`: `4d54d522930d8ecfdf6fad797cbcd248039ffc82`.
+- Current verified `Esur2/main`: `101828bac267e9b9ba13726485e7337fa90c0eb3`.
 - Commit `0053b2b0a0bc92ced7c3de5672d00bbc328eb57b` adds only a standalone `prototype.html` design-prototype page; the live application files were not changed by that commit.
 - Product Owner accepted the Phase-1 V2 design direction. Phase 2 was implemented in the preview sandbox at `4d54d522930d8ecfdf6fad797cbcd248039ffc82` as a presentation-only `style.css` change. `index.html` and `script.js` remained byte-identical to the pre-Phase-2 preview state; therefore `changesLibrary`, Medical strings/logic, IDs and UI-01 neutral-entry behavior were not changed by this implementation. This preview milestone is not Human Medical Affairs, Regulatory, merge or release approval.
 - GitHub Pages run `36338704007` for that exact commit completed successfully. The deploy job reported environment URL `https://knoxicoke.github.io/Esur2/`.
+- Phase 2B unified the visual workspace pattern across all five HSR modules in `Esur2/main`: Previous reaction, Acute management, Switch, Tryptase and NIHR now use the same compact dark workspace hierarchy with left-side context/inputs and a dominant right-side result pane where applicable. Commits `59b28cb905e8bb2f582b8b31134299c8d5c6e754` and `101828bac267e9b9ba13726485e7337fa90c0eb3` changed only `style.css`; `index.html` remained at blob `55c59c834d8c9d487bcb3fc86c5293841d33d072` and `script.js` at blob `428c801581f6074b0293f8a30d3d03a4f0477946`. Therefore Medical strings, `changesLibrary`, Medical IDs, calculations and pathway logic were not changed by Phase 2B. GitHub Pages run `36339920349` for final Phase-2B HEAD `101828bac267e9b9ba13726485e7337fa90c0eb3` completed successfully.
 - That preview combines the `Esur22` application baseline `1ebbe97b555673dd59c5c708532d39040291c303`, Draft PR `#21`, and Draft PR `#22`.
 - `Esur2/main` may intentionally contain unmerged draft content so the Product Owner can inspect the whole product in one browser build.
 - Visibility in `Esur2` is **not** evidence of Source QA, Internal Medical Lock, Human Medical Affairs approval, Regulatory approval, technical validation, merge approval, release, conformity, or Go Live.
