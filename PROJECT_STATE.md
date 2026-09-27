@@ -33,7 +33,7 @@ Last remote verification: 2026-09-27
 
 - Repository: `KnoxiCoke/Esur2`.
 - Role: browser-visible integration and design sandbox only; it is **not** the controlled source of truth.
-- Current verified `Esur2/main`: `842e16ae44546061c70f291b92c2345f05049442`.
+- Current verified `Esur2/main`: `ce28de6219a8f40af0ffb455ee944112ac227360`.
 - Commit `0053b2b0a0bc92ced7c3de5672d00bbc328eb57b` adds only a standalone `prototype.html` design-prototype page; the live application files were not changed by that commit.
 - Product Owner accepted the Phase-1 V2 design direction. Phase 2 was implemented in the preview sandbox at `4d54d522930d8ecfdf6fad797cbcd248039ffc82` as a presentation-only `style.css` change. `index.html` and `script.js` remained byte-identical to the pre-Phase-2 preview state; therefore `changesLibrary`, Medical strings/logic, IDs and UI-01 neutral-entry behavior were not changed by this implementation. This preview milestone is not Human Medical Affairs, Regulatory, merge or release approval.
 - GitHub Pages run `36338704007` for that exact commit completed successfully. The deploy job reported environment URL `https://knoxicoke.github.io/Esur2/`.
@@ -1158,3 +1158,22 @@ Authorized only in `KnoxiCoke/Esur2`:
 - this is a presentation-only refinement in `Esur2`; no design transfer to `Esur22` is authorized.
 
 This authorization supersedes only the placement/display behavior of the prior UX_ABBREV_01 presentation layer. It does not authorize any new abbreviation expansion or Medical content change.
+
+### UX_ABBREV_01 contextual refinement — verified
+
+- Implemented only in `KnoxiCoke/Esur2/main` at `ce28de6219a8f40af0ffb455ee944112ac227360` (`UI Phase 2F: contextualize abbreviation help`).
+- Changed files: `index.html`, `script.js`; `style.css` remained unchanged from the preceding Phase 2E preview.
+- Existing `i18n` Medical/content strings were verified byte-identical to `842e16ae...`. `changesLibrary` was verified byte-identical. The existing Action renderer was verified byte-identical.
+- The global HSR-level IHR/NIHR abbreviation block was removed.
+- Abbreviation disclosures now filter against the currently rendered visible text in the active language. Hidden subviews, hidden elements and content inside default-closed `details` are excluded from the visibility scan.
+- Previous reaction: EAACI appears only when the currently visible Previous-reaction content contains `EAACI`.
+- Acute: EN can show CPR only when the currently visible Acute content contains `CPR`; DE has no separate CPR disclosure.
+- Switch: ICM/GBCA help remains available only while those acronyms are present in the visible Switch content.
+- Tryptase: an IHR disclosure slot was added and becomes populated only when the currently visible Tryptase content contains `IHR`.
+- NIHR: ICM/GBCA/SCAR are filtered against the currently visible NIHR content; NIHR itself is not redundantly added to the disclosure because the existing NIHR title already expands the term.
+- Practice Changes: topic-local abbreviation candidates are now filtered against the currently visible selected-topic content and current Compare/Action state instead of being shown solely by topic membership; closed nested details do not trigger an abbreviation disclosure until opened.
+- Existing source-supported organization mapping for ESUR/CMSC remains in the global source/disclaimer presentation layer.
+- Desktop/mobile behavior was structurally rechecked against the unchanged responsive CSS; the existing abbreviation layout and `max-width: 820px` mobile behavior remain intact.
+- GitHub Pages run `36345705818` for exact HEAD `ce28de6219a8f40af0ffb455ee944112ac227360` completed successfully.
+- PR `#21` remained open Draft at `b388923110abe828fea6de469e71a5dd7a255880`; PR `#22` remained open Draft at `969af23b108e49d5794c1d65f95b862b9dfebf04`; neither was changed.
+- This is a preview/UI terminology refinement only. It is not a new Medical Lock, Human Medical Affairs approval, Regulatory approval, merge approval or Go-Live authorization.
