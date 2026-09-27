@@ -1143,3 +1143,18 @@ This authorization is UI/terminology presentation only. It is not a Medical Lock
 - GitHub Pages run `36344710032` for exact HEAD `842e16ae44546061c70f291b92c2345f05049442` completed successfully.
 - PR `#21` remained open Draft at `b388923110abe828fea6de469e71a5dd7a255880`; PR `#22` remained open Draft at `969af23b108e49d5794c1d65f95b862b9dfebf04`; neither was changed.
 - This remains a preview/UI terminology milestone only. It is not a new Medical Lock, Human Medical Affairs approval, Regulatory approval, merge approval or Go-Live authorization.
+
+### UX_ABBREV_01 contextual refinement authorization — Product Owner (2026-09-27)
+
+Authorized only in `KnoxiCoke/Esur2`:
+
+- abbreviation explanations must be context- and language-dependent;
+- show an explanation only when the abbreviation is present in the currently visible content in the current language and is not already sufficiently introduced there;
+- remove the global HSR-level IHR/NIHR abbreviation block;
+- EN CPR may be explained only when the currently visible Acute output contains `CPR`; DE must not add a separate CPR disclosure because the existing German Medical string already includes `Reanimationsteam`;
+- EAACI and other dynamic abbreviations must likewise appear only when the currently visible rendered content contains the abbreviation;
+- topic-local Practice Changes abbreviation help must follow the same currently-visible-content rule, not just topic membership;
+- existing locked Medical strings, `changesLibrary`, recommendation strength, numbers, units, thresholds, source mappings and decision logic must remain byte-identical;
+- this is a presentation-only refinement in `Esur2`; no design transfer to `Esur22` is authorized.
+
+This authorization supersedes only the placement/display behavior of the prior UX_ABBREV_01 presentation layer. It does not authorize any new abbreviation expansion or Medical content change.
