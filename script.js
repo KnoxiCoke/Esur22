@@ -1003,7 +1003,7 @@ arrest: [
         icon: "warningDrop",
         title: "Hypersensitivity",
         summary:
-          "This is the strongest clinical redesign in the 2025 guidance: clearer classification, stronger allergy work-up, and more structured re-exposure pathways.",
+          "The 2025 guidance defines IHR and NIHR and details acute management, documentation, allergy assessment, and pathways for preventing recurrent reactions.",
         keywords: [
           "hypersensitivity",
           "immediate",
@@ -1020,25 +1020,25 @@ arrest: [
             {
               label: "2018",
               paragraphs: [
-                "The 2018 guideline already addressed acute, late, and very late adverse reactions, but the structure was less centered on modern allergy work-up and formal re-exposure pathways.",
-                "Classification and management were less explicitly separated into immediate and non-immediate hypersensitivity reactions."
+                "The 2018 guideline addressed acute and late adverse reactions and already included allergy testing, documentation, and measures to reduce repeat reactions. Very late adverse reactions were covered separately.",
+                "The 2018 guideline separated acute and late reactions. The 2025 guidance explicitly defines IHR and NIHR and sets out separate prevention pathways."
               ]
             },
             {
               label: "2025",
               bullets: [
-                "Distinguishes immediate and non-immediate hypersensitivity reactions more clearly.",
-                "Explicitly uses both ACR and Ring & Messmer classification frameworks.",
-                "Expands acute management, including structured observation, IV access, ABCDE-style thinking, and clearer positioning / supportive measures.",
-                "Strengthens tryptase use, documentation, and prevention of recurrent reactions.",
-                "Separates recurrent-reaction management by severity and by elective versus emergency situations."
+                "Explicitly defines immediate (IHR) and non-immediate (NIHR) hypersensitivity reactions.",
+                "Endorses both ACR and Ring & Messmer classification; Ring & Messmer was already included in the 2018 acute classification.",
+                "Specifies ABCDE assessment, observation after treatment, keeping IV access during observation, and symptom-specific positioning and supportive measures.",
+                "Specifies tryptase sampling, detailed reaction documentation, and pathways for preventing recurrent reactions.",
+                "Sets out pathways by severity; for previous moderate or severe IHR, it distinguishes elective from emergency examinations."
               ]
             },
             {
               label: "Practical impact",
               paragraphs: [
-                "Compared with 2018, the 2025 framework is more allergy-oriented and more structured for future contrast decisions, especially after moderate or severe reactions.",
-                "Documentation of the exact agent and the reaction details becomes much more important because later testing and re-exposure planning depend on it."
+                "The 2025 guidance sets out specialist assessment and severity-specific planning for future contrast examinations, particularly after moderate or severe reactions.",
+                "Agent-specific documentation was already required in 2018. The 2025 guidance specifies additional reaction details for allergy assessment and later contrast-agent selection."
               ],
               variant: "impact"
             }
@@ -1053,18 +1053,18 @@ arrest: [
             {
               label: "ESUR 2025 action points",
               bullets: [
-                "ESUR 2025 recommends formal allergy assessment after moderate or severe reactions and after clinically relevant non-immediate reactions.",
-                "During future contrast administration, observation for at least 30 min with IV access in place is described.",
-                "If the culprit agent is known and no allergy-based recommendation is available, use of a different contrast agent may be considered.",
-                "For severe NIHR / SCAR, avoidance of the involved contrast agent class is described.",
-                "Tryptase sampling is described within 4 h, with a baseline sample after ≥24 h."
+                "Refer patients with moderate or severe HSR, recurrent HSR of any severity, or HSR to multiple iodine-based or gadolinium-based contrast agents to a drug allergy specialist; referral after mild HSR is optional when specialist capacity permits.",
+                "When contrast medium is administered in the listed IHR and mild or moderate NIHR pathways without danger signs, observe the patient for at least 30 min with the IV line in place.",
+                "If specialist advice is unavailable, choose a different agent when the culprit is known after mild IHR or mild or moderate NIHR without danger signs. In emergencies after moderate or severe IHR, choose a different agent if the culprit is known. For elective examinations after moderate or severe IHR, postpone imaging for allergy-analysis results and apply specialist advice.",
+                "After severe NIHR with danger signs (SCAR), urgently refer to a drug allergy specialist, choose alternative imaging, and avoid all agents in the involved class (iodine-based or gadolinium-based); if the culprit class is unknown, individualize after multidisciplinary consultation.",
+                "Measure serum tryptase within 1–4 h from the start of all moderate-to-severe IHR; a second measurement after ≥24 h serves as a baseline."
               ],
               variant: "action"
             },
             {
               label: "Why this matters",
               paragraphs: [
-                "This part of the guideline is no longer just about labeling a prior reaction. It is now built around structured risk documentation, specialist work-up, and better-controlled re-exposure decisions."
+                "The 2025 guidance links detailed reaction documentation, specialist assessment, and severity-specific planning when another contrast examination is considered."
               ]
             }
           ],
@@ -1081,7 +1081,7 @@ arrest: [
         icon: "kidney",
         title: "Renal terminology: PC-AKI → CA-AKI",
         summary:
-          "The renal section is renamed and aligned with newer terminology, but the core preventive framework is not completely rebuilt.",
+          "In the 2025 iodine-based renal prevention section, the CMSC uses CA-AKI in place of PC-AKI, following the ACR/NKF Consensus 2020.",
         keywords: [
           "pc-aki",
           "ca-aki",
@@ -1106,7 +1106,7 @@ arrest: [
             {
               label: "Practical impact",
               paragraphs: [
-                "This mainly affects terminology, communication, and alignment with newer literature. It should not be mistaken for the strongest practical change in the renal section."
+                "The PC-AKI-to-CA-AKI change identifies the terminology used by the ESUR CMSC from 2025 onward."
               ],
               variant: "impact"
             }
@@ -1119,17 +1119,17 @@ arrest: [
         action: {
           sections: [
             {
-              label: "ESUR 2025 action points",
+              label: "Terminology note",
               bullets: [
-                "Use the term CA-AKI in current communication and documentation when referring to the updated ESUR framework.",
-                "Do not overstate this wording change as a major new bedside rule."
+                "From 2025 onward, the ESUR CMSC uses CA-AKI in place of PC-AKI, following the ACR/NKF Consensus 2020.",
+                "The terminology note does not itself state a separate clinical intervention."
               ],
               variant: "action"
             },
             {
               label: "Why this matters",
               paragraphs: [
-                "The terminology change aligns ESUR with newer nephrology / radiology consensus language, while much of the underlying risk framework remains familiar."
+                "The 2025 guidance explicitly attributes the terminology change to the ACR/NKF Consensus 2020; renal risk and prevention measures are described separately."
               ]
             }
           ],
@@ -1695,7 +1695,7 @@ arrest: [
         icon: "warningDrop",
         title: "Hypersensitivität",
         summary:
-          "Das ist der stärkste klinische Umbau der 2025er Guidance: klarere Klassifikation, stärkerer allergologischer Fokus und strukturiertere Re-Exposure-Pfade.",
+          "Die 2025er Guidance definiert IHR und NIHR und beschreibt Akutmanagement, Dokumentation, allergologische Abklärung und Wege zur Prävention erneuter Reaktionen.",
         keywords: [
           "hypersensitivität",
           "immediate",
@@ -1712,25 +1712,25 @@ arrest: [
             {
               label: "2018",
               paragraphs: [
-                "Die 2018er Guideline behandelte akute, späte und sehr späte Reaktionen bereits, war aber weniger um moderne allergologische Abklärung und formalisierte Re-Exposure-Pfade herum aufgebaut.",
-                "Klassifikation und Management waren weniger explizit in immediate und non-immediate hypersensitivity reactions getrennt."
+                "Die Leitlinie von 2018 behandelte akute und späte unerwünschte Wirkungen und enthielt bereits Allergietests, Dokumentation und Maßnahmen gegen erneute Reaktionen. Sehr späte unerwünschte Wirkungen wurden gesondert behandelt.",
+                "Die Leitlinie von 2018 trennte akute und späte Reaktionen. Die Guidance von 2025 definiert IHR und NIHR ausdrücklich und beschreibt getrennte Präventionswege."
               ]
             },
             {
               label: "2025",
               bullets: [
-                "Klare Trennung zwischen immediate und non-immediate hypersensitivity reactions.",
-                "Explizite Nutzung sowohl der ACR- als auch der Ring-&-Messmer-Klassifikation.",
-                "Deutlich ausgebautes Akutmanagement mit strukturierter Beobachtung, liegendem IV-Zugang, ABCDE-Denke sowie präziserer Lagerung / Supportivmassnahmen.",
-                "Stärkerer Fokus auf Tryptase, Dokumentation und Prävention erneuter Reaktionen.",
-                "Getrennte Re-Exposure-Logik nach Schweregrad sowie nach elektiver versus notfallmässiger Situation."
+                "Ausdrückliche Definition von immediate hypersensitivity reactions (IHR) und non-immediate hypersensitivity reactions (NIHR).",
+                "Die Guidance von 2025 nennt ACR und Ring & Messmer; Ring & Messmer stand bereits in der Akuteinteilung von 2018.",
+                "Das Akutmanagement beschreibt ABCDE-Beurteilung, Beobachtung nach Behandlung, Belassen des IV-Zugangs während der Beobachtung sowie symptomabhängige Lagerung und Supportivmaßnahmen.",
+                "Konkretisierte Tryptase-Probenahme, detaillierte Reaktionsdokumentation und Wege zur Prävention erneuter Reaktionen.",
+                "Wege nach Schweregrad; bei früherer moderater oder schwerer IHR getrennte Wege für elektive und notfallmäßige Untersuchungen."
               ]
             },
             {
               label: "Praktische Bedeutung",
               paragraphs: [
-                "Im Vergleich zu 2018 ist die 2025er Guidance deutlich allergologischer und strukturierter, vor allem nach moderaten oder schweren Reaktionen.",
-                "Die exakte Dokumentation des auslösenden Kontrastmittels und der Reaktionsdetails wird viel wichtiger, weil spätere Tests und Re-Exposure-Entscheidungen davon abhängen."
+                "Die Guidance von 2025 beschreibt die allergologische Abklärung und die Planung künftiger Kontrastmitteluntersuchungen nach Schweregrad, insbesondere nach moderaten oder schweren Reaktionen.",
+                "Die Dokumentation des konkreten Kontrastmittels war schon 2018 vorgesehen. Die Guidance von 2025 präzisiert weitere Reaktionsdetails für die allergologische Abklärung und spätere Kontrastmittelauswahl."
               ],
               variant: "impact"
             }
@@ -1745,18 +1745,18 @@ arrest: [
             {
               label: "ESUR-2025-Kernaussagen",
               bullets: [
-                "Nach moderaten oder schweren Reaktionen sowie nach klinisch relevanten NIHR beschreibt ESUR 2025 eine formelle allergologische Abklärung.",
-                "Bei zukünftiger Kontrastmittelgabe wird eine Beobachtung von mindestens 30 min mit liegendem IV-Zugang beschrieben.",
-                "Wenn das auslösende Mittel bekannt ist und keine allergologisch basierte Empfehlung vorliegt, kann die Verwendung eines anderen Kontrastmittels erwogen werden.",
-                "Bei schweren NIHR / SCAR wird die Vermeidung der betroffenen Kontrastmittelklasse beschrieben.",
-                "Eine Tryptase-Bestimmung innerhalb von 4 h sowie eine Baseline-Bestimmung nach ≥24 h werden beschrieben."
+                "Patienten mit moderater oder schwerer HSR, wiederkehrender HSR jeder Schwere oder HSR auf mehrere iodhaltige oder gadoliniumhaltige Kontrastmittel an einen Spezialisten für Arzneimittelallergien überweisen; nach milder HSR ist die Überweisung bei ausreichender Kapazität optional.",
+                "Bei erneuter Kontrastmittelgabe in den beschriebenen IHR-Pfaden und den Pfaden für milde oder moderate NIHR ohne Gefahrenzeichen mindestens 30 min mit liegendem IV-Zugang beobachten.",
+                "Wenn keine allergologische Empfehlung vorliegt, nach milder IHR oder milder oder moderater NIHR ohne Gefahrenzeichen bei bekanntem Auslöser ein anderes Mittel wählen. Im Notfall nach moderater oder schwerer IHR bei bekanntem Auslöser ebenfalls ein anderes Mittel wählen. Elektive Untersuchungen nach moderater oder schwerer IHR bis zum Ergebnis der Allergieanalyse verschieben und die allergologische Empfehlung anwenden.",
+                "Nach schwerer NIHR mit Gefahrenzeichen (SCAR) dringend an einen Spezialisten für Arzneimittelallergien überweisen, eine alternative Bildgebung wählen und alle Mittel der betroffenen Klasse (iodhaltig oder gadoliniumhaltig) vermeiden; bei unbekannter Klasse das Vorgehen nach multidisziplinärer Beratung individualisieren.",
+                "Bei allen moderaten bis schweren IHR Serumtryptase innerhalb von 1–4 h ab Reaktionsbeginn bestimmen; eine zweite Messung nach ≥24 h dient als Baseline."
               ],
               variant: "action"
             },
             {
               label: "Warum das wichtig ist",
               paragraphs: [
-                "Dieser Guideline-Teil dreht sich nicht mehr nur um das Etikett einer früheren Reaktion. Er ist jetzt auf strukturierte Risikodokumentation, Fachabklärung und kontrolliertere Re-Exposure-Entscheidungen ausgerichtet."
+                "Die Guidance von 2025 verbindet eine detaillierte Reaktionsdokumentation mit allergologischer Abklärung und einer Planung nach Schweregrad, wenn eine weitere Kontrastmitteluntersuchung erwogen wird."
               ]
             }
           ],
@@ -1773,7 +1773,7 @@ arrest: [
         icon: "kidney",
         title: "Renale Terminologie: PC-AKI → CA-AKI",
         summary:
-          "Der renale Abschnitt wird umbenannt und an neuere Terminologie angepasst, ohne dass das präventive Grundgerüst komplett neu gebaut wird.",
+          "Im Abschnitt zur renalen Prävention bei iodhaltigen Kontrastmitteln verwendet das ESUR CMSC ab 2025 CA-AKI statt PC-AKI gemäß dem ACR/NKF Consensus 2020.",
         keywords: [
           "pc-aki",
           "ca-aki",
@@ -1786,7 +1786,7 @@ arrest: [
             {
               label: "2018",
               paragraphs: [
-                "Die 2018er Guideline verwendete im renalen Kapitel den Begriff PC-AKI (post-contrast acute kidney injury)."
+                "Die offizielle deutsche ESUR-Fassung von 2018 verwendet das Kürzel PC-AKI und bezeichnet es als „Kontrastmittel-assoziierte akute Nierenschädigung“. Die englische Fassung löst PC-AKI als „post-contrast acute kidney injury“ auf."
               ]
             },
             {
@@ -1798,7 +1798,7 @@ arrest: [
             {
               label: "Praktische Bedeutung",
               paragraphs: [
-                "Das betrifft vor allem Terminologie, Kommunikation und den Anschluss an die neuere Literatur. Es sollte nicht als grösste praktische Änderung des renalen Abschnitts fehlinterpretiert werden."
+                "Der Wechsel von PC-AKI zu CA-AKI bezeichnet die vom ESUR CMSC ab 2025 verwendete Terminologie."
               ],
               variant: "impact"
             }
@@ -1811,17 +1811,17 @@ arrest: [
         action: {
           sections: [
             {
-              label: "ESUR-2025-Kernaussagen",
+              label: "Hinweis zur Terminologie",
               bullets: [
-                "In aktueller Kommunikation und Dokumentation sollte im aktualisierten ESUR-Rahmen der Begriff CA-AKI verwendet werden.",
-                "Diese sprachliche Änderung sollte nicht als grosser neuer klinischer Bedside-Algorithmus überbewertet werden."
+                "Ab 2025 verwendet das ESUR CMSC gemäß dem ACR/NKF Consensus 2020 CA-AKI anstelle von PC-AKI.",
+                "Der Terminologiehinweis formuliert für sich genommen keine gesonderte klinische Maßnahme."
               ],
               variant: "action"
             },
             {
               label: "Warum das wichtig ist",
               paragraphs: [
-                "Die Terminologie wird an neuere nephrologische / radiologische Konsenssprache angepasst, während grosse Teile des zugrunde liegenden Risikorahmens vertraut bleiben."
+                "Die Guidance von 2025 begründet den Terminologiewechsel ausdrücklich mit dem ACR/NKF Consensus 2020; renale Risiko- und Präventionsmaßnahmen werden gesondert beschrieben."
               ]
             }
           ],
