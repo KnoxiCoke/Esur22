@@ -1323,11 +1323,11 @@ DE flow_severity_severe_help = Diffuses Erythem mit Hypotonie; diffuses Ödem od
 - Narrow/mobile browser QA was unavailable in this cloud browser; Product Owner mobile inspection and F02 visual acceptance remain pending. This preview milestone does not constitute Human Medical Affairs sign-off, Regulatory assessment, merge/release approval or Go Live. The separate age-gating question remains open.
 - PR `#21` and PR `#22` were re-verified open Draft and unchanged at `b388923110abe828fea6de469e71a5dd7a255880` and `969af23b108e49d5794c1d65f95b862b9dfebf04`; `Esur22/main` application baseline remains `1ebbe97b555673dd59c5c708532d39040291c303`.
 
-### F05 acute selector ACR + separate Ring–Messmer reference — Internal text lock (2026-09-28)
+### F05 ACR + Ring–Messmer proposal — superseded before implementation (2026-09-28)
 
 - Product Owner chose ACR severity definitions at the existing F05 Mild/Moderate/Severe selector and a separate, non-routing Ring–Messmer Grades I–IV reference. Authorized source: 2025 HSR Part 1 Table 1 (printed p. 6800 / PDF p. 3), Table 2 (printed p. 6801 / PDF p. 4), Part 1 classification rationale (printed p. 6799 / PDF p. 2), and 2025 ESUR booklet p. 6. Part 1 says the systems do not fully overlap and uses ACR for radiological acute management; an ACR-to-Ring grade mapping is prohibited. The Part 2 Fig. 1 F02 wording remains separate.
 - Source QA: the ACR lists retain every Table 1 symptom and discriminating qualifier, and the scope/note retains the strongest-symptom rule. The Ring reference retains every Table 2 entry in Skin, Abdomen, Airways and Cardiovascular columns for all four grades, including both numerical thresholds and the rule that no symptom is mandatory. EN is `SUPPORTED — CLOSE PARAPHRASE` for punctuation/segmentation and the explicit UI separation note; DE is `SUPPORTED — TRANSLATION`. No official German 2025 source is in the authorized project set.
-- **INTERNAL TEXT LOCK for this F05 presentation only** (not Human Medical Affairs sign-off):
+- **Historical EN/DE source-reviewed draft, superseded for UI scope before implementation** (not Human Medical Affairs sign-off):
 
 ```text
 EN acute_severity_scope = Acute immediate hypersensitivity reactions in adults (ACR classification). Use the most intense symptom for classification.
@@ -1352,5 +1352,24 @@ DE acute_ring_iii = Haut: Juckreiz, Flush, Urtikaria, Angioödem; Abdomen: Erbre
 DE acute_ring_iv = Haut: Juckreiz, Flush, Urtikaria, Angioödem; Abdomen: Erbrechen, Defäkation; Atemwege: Atemstillstand; Herz-Kreislauf: Herzstillstand.
 ```
 
-- Permitted Preview implementation: three compact ACR help rows beside the existing severity buttons; the selected ACR row may be highlighted; a separate Ring–Messmer reference may use a compact disclosure and four grade rows. The reference must not change F05 state, decision/routing, management, existing Medical text, doses, thresholds or source mappings. F05 adult-age gating remains a separate Human Medical Affairs question. No PR #21/#22 or Esur22 application change is authorized by this text lock.
+- This proposed Preview scope was superseded before implementation: three compact ACR help rows beside the existing severity buttons; the selected ACR row may be highlighted; a separate Ring–Messmer reference was initially contemplated but is now excluded. The reference must not change F05 state, decision/routing, management, existing Medical text, doses, thresholds or source mappings. F05 adult-age gating remains a separate Human Medical Affairs question. No PR #21/#22 or Esur22 application change is authorized by this text lock.
 - At this documentation milestone, `Esur2/main` remained `dc6b469ee6c7d99e5c180cc76ef79a1570d5a6de`; PR #21/#22 remained open Draft at `b388923110abe828fea6de469e71a5dd7a255880` and `969af23b108e49d5794c1d65f95b862b9dfebf04`.
+
+### F05 selector — ACR-only final Preview text lock (2026-09-28)
+
+- The Product Owner superseded the separate Ring–Messmer reference proposal **before any F05 app implementation**. F05 is an acute radiological ACR Mild/Moderate/Severe management interface; 2025 HSR Part 1 explicitly uses ACR for this context (printed p. 6799 / PDF p. 2). Part 1 Table 1 (printed p. 6800 / PDF p. 3) and the 2025 booklet p. 6 control the at-selector F05 text. Ring–Messmer Table 2 is not added to the F05 UI. F02 remains separately controlled by Part 2 Fig. 1 (printed p. 6814 / PDF p. 4).
+- The Part 1 Table 1 vs Part 2 Fig. 1 English source variants are preserved within their respective F05 and F02 contexts. Examples: `laryngeal oedema with hypoxia` (F05) vs `with stridor` (F02); `throat hoarseness without dyspnoea` (F05) vs `throat tightness/hoarseness without dyspnoea` (F02); `diffuse erythema without hypotension` (F05) vs `with stable vital signs` (F02). Do not silently harmonize. ACR remains the classification in both; the lists are source variants, not byte-identical definitions.
+- **ACTIVE INTERNAL TEXT LOCK — only these eight EN/DE F05 strings:**
+
+```text
+EN acute_severity_scope = Acute immediate hypersensitivity reactions in adults (ACR classification). Use the most intense symptom for classification.
+EN acute_severity_mild_help = Nasal congestion; sneezing/conjunctivitis/rhinorrhoea; limited/scattered urticaria and pruritus; cutaneous oedema; limited itchy/scratchy throat.
+EN acute_severity_moderate_help = Diffuse urticaria and pruritus; diffuse erythema without hypotension; facial oedema without dyspnoea; throat hoarseness without dyspnoea; mild bronchospasm without hypoxia.
+EN acute_severity_severe_help = Diffuse/facial oedema with dyspnoea; diffuse erythema with hypotension; laryngeal oedema with hypoxia; severe bronchospasm with hypoxia; anaphylactic shock; cardiopulmonary arrest.
+DE acute_severity_scope = Akute unmittelbare Hypersensitivitätsreaktionen bei Erwachsenen (ACR-Klassifikation). Für die Einstufung das am stärksten ausgeprägte Symptom verwenden.
+DE acute_severity_mild_help = Nasale Kongestion; Niesen/Konjunktivitis/Rhinorrhö; begrenzte/vereinzelte Urtikaria und Pruritus; kutanes Ödem; begrenztes Jucken/Kratzen im Hals.
+DE acute_severity_moderate_help = Diffuse Urtikaria und Pruritus; diffuses Erythem ohne Hypotonie; Gesichtsödem ohne Dyspnoe; Heiserkeit ohne Dyspnoe; milder Bronchospasmus ohne Hypoxie.
+DE acute_severity_severe_help = Diffuses Ödem oder Gesichtsödem, jeweils mit Dyspnoe; diffuses Erythem mit Hypotonie; Larynxödem mit Hypoxie; schwerer Bronchospasmus mit Hypoxie; anaphylaktischer Schock; kardiopulmonaler Stillstand.
+```
+
+- EN: `SUPPORTED — CLOSE PARAPHRASE` (punctuation/compact list), DE: `SUPPORTED — TRANSLATION`. No official German 2025 source in the authorized set. Implementation may add only these keys and compact three-row presentation/highlighting. Existing F05 state, logic, outputs, medical wording, doses, source mapping and PR #21/#22 remain unchanged. Adult applicability/gating remains a separate Human Medical Affairs question. No Human Medical Affairs/Regulatory sign-off is implied.
