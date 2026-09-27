@@ -33,7 +33,7 @@ Last remote verification: 2026-09-27
 
 - Repository: `KnoxiCoke/Esur2`.
 - Role: browser-visible integration and design sandbox only; it is **not** the controlled source of truth.
-- Current verified `Esur2/main`: `ce28de6219a8f40af0ffb455ee944112ac227360`.
+- Current verified `Esur2/main`: `ef336d83d915f0c908ee7aaba3f35af6bbab05a8`.
 - Commit `0053b2b0a0bc92ced7c3de5672d00bbc328eb57b` adds only a standalone `prototype.html` design-prototype page; the live application files were not changed by that commit.
 - Product Owner accepted the Phase-1 V2 design direction. Phase 2 was implemented in the preview sandbox at `4d54d522930d8ecfdf6fad797cbcd248039ffc82` as a presentation-only `style.css` change. `index.html` and `script.js` remained byte-identical to the pre-Phase-2 preview state; therefore `changesLibrary`, Medical strings/logic, IDs and UI-01 neutral-entry behavior were not changed by this implementation. This preview milestone is not Human Medical Affairs, Regulatory, merge or release approval.
 - GitHub Pages run `36338704007` for that exact commit completed successfully. The deploy job reported environment URL `https://knoxicoke.github.io/Esur2/`.
@@ -1222,4 +1222,19 @@ Governance consequence:
 - The last Product Owner-accepted preview before the abbreviation-layer work is `Esur2/main` `63b3f9035fcffd66da947ab06417d80477c8ecc1` (Waiting Times Compare refinement).
 - Recommended recovery path: restore the preview to the accepted `63b3f903...` visual baseline first, then redesign the abbreviation help as a smaller, explicitly reviewed presentation layer. Do not continue stacking fixes on the rejected abbreviation implementation.
 - No Medical/content defect is implied. Medical strings, `changesLibrary`, recommendation strength, source mappings and clinical logic remain separately governed.
-- No rollback has yet been authorized or executed by this state update.
+- Rollback was subsequently authorized by the Product Owner and executed as recorded below.
+
+### Abbreviation-layer rollback to accepted visual baseline — verified (2026-09-27)
+
+- Product Owner explicitly authorized restoration of `KnoxiCoke/Esur2` to the last accepted pre-abbreviation visual baseline `63b3f9035fcffd66da947ab06417d80477c8ecc1`.
+- Rollback was implemented as a new history-preserving commit on `Esur2/main`: `ef336d83d915f0c908ee7aaba3f35af6bbab05a8` (`Rollback abbreviation UI to accepted 63b3f903 baseline`), parent `05b5589ab008786b64ab0c4a519e8dbe2977b179`. No force-reset was used.
+- The new rollback commit tree is **exactly identical** to the target `63b3f903...` tree: `3bfd0aeff139743af0caf7a558ee35ed4c83b905`.
+- Exact file/blob equivalence to `63b3f903...` was verified for the live app files:
+  - `index.html` = `9a0649e15780cd76197445fa892c5ea10c86b34c`
+  - `script.js` = `a1ceb62b4a2606ce60a4ce1e65f715ea4b510582`
+  - `style.css` = `d756072af176bee976269a589ebb60e17c3e94c8`
+- Therefore the Phase 2E/2F abbreviation-layer code and the rejected repair are no longer present in the currently served application tree. The accepted Waiting Times Compare refinement from Phase 2D remains.
+- GitHub Pages run `36347882253` for exact rollback HEAD `ef336d83d915f0c908ee7aaba3f35af6bbab05a8` completed `success`.
+- PR `#21` remains open Draft at `b388923110abe828fea6de469e71a5dd7a255880`; PR `#22` remains open Draft at `969af23b108e49d5794c1d65f95b862b9dfebf04`; neither was changed.
+- This rollback restores the Product Owner-accepted visual/content tree. It does not itself confer any new Source-QA, Internal Medical Lock, Human Medical Affairs, Regulatory, merge/release, conformity or Go-Live approval.
+- Any future abbreviation UX must start from this restored baseline and require a new explicitly reviewed design approach before implementation.
