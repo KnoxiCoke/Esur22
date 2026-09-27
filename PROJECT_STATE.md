@@ -994,12 +994,12 @@ Every reviewer/orchestrator response in this refactor workflow must also end wit
 - Phase 1: show/review the design concept without changing GitHub.
 - After Product Owner approval of a concept, implementation may be iterated directly on `KnoxiCoke/Esur2/main` for immediate browser review.
 - `Esur2` may combine Draft PR content for visibility; this does not change approval status.
-- Once the Product Owner accepts the visual result, transfer only the final presentation-layer diff back to `Esur22` in a separate UI Draft PR.
+- Product Owner decision 2026-09-27: accepted visual-design work remains in `KnoxiCoke/Esur2`; do not transfer the design back to `Esur22` and do not create a UI/design PR there unless the Product Owner gives a new explicit authorization.
 - During this design track, `changesLibrary` and all medical strings/logic must remain unchanged unless a separately governed Medical change explicitly authorizes otherwise.
 
 ## Practice Changes UX decision — `UX_CHANGES_01`
 
-Long-term UX decision is stored in `docs/ux/PRACTICE_CHANGES_UX.md`.
+The authoritative `UX_CHANGES_01` decision is currently the text in this `PROJECT_STATE.md`. The referenced `docs/ux/PRACTICE_CHANGES_UX.md` file is not present on `main` as of the 2026-09-27 live verification; do not treat that missing path as an additional source of requirements.
 
 Phase 1 is behaviour-preserving presentation only:
 
