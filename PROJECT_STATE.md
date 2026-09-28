@@ -17,7 +17,7 @@ Before **any** ESUR work — analysis, source review, Medical review, Regulatory
 
 GitHub remote state is authoritative for code and refs. This file is the authoritative human/AI project-status interpretation of that verified remote state.
 
-Last remote verification: 2026-09-28
+Last remote verification: 2026-09-29
 
 ## Current verified baseline
 
@@ -211,6 +211,28 @@ The independently verified PR `#12` Medical integration code commit `0cba0542fef
 ### Future versioned content architecture
 
 After the 2025 Medical content has completed its source audit and Content Freeze, introduce a separately scoped `VERSIONED_CONTENT_ARCHITECTURE`. Audited ESUR guideline releases should become immutable versioned content packages referenced through a single manifest `currentVersionId`; historical guidance must not be overwritten. Stable topic and claim identifiers plus audited change events should support both “current guidance” and “what changed since the previous ESUR version.” The initial 2018 package must remain limited to the content required by audited 2018→2025 change events and must not expand into a second full Version 10 medical audit. `medicalAffairsStatus` is traceability metadata only, not an application lock. This architecture is not authorized for implementation before the 2025 Content Freeze.
+
+
+### Future product candidate — DOC-01 Documents & Templates (Product Owner decision, 2026-09-29)
+
+- The Product Owner wants the product roadmap to retain a small **Documents & Templates** area as a future usability feature. This is a recorded product candidate only; it is **not** authorization to implement downloads, generate production documents, change Medical content, or add patient-data handling.
+- Authorized 2025 source basis already exists in `Guidelines-2025-ESUR-vf.pdf`, section **Questionnaires and Letters**:
+  - example letter for the patient to take to an allergy consultation (printed pp. 34–35);
+  - questionnaire for intravascular iodine-based contrast media administration to be completed by the referring clinician (printed pp. 36–38);
+  - questionnaire for intravascular gadolinium-based contrast agent administration to be completed by the referring clinician (printed pp. 39–40).
+- The allergy-consultation example contains structured fields including patient/date, examination, contrast-agent type/name, dose, route, time to symptom onset, symptom description, Ring & Messmer grade, treatment, outcome, tryptase testing/results and previous contrast-agent reaction, and asks the allergy consultation to categorize the reaction, assess cross-reactivity and identify a safer future alternative.
+- Initial product concept for a compact `Documents & Templates` area:
+  1. **Allergy consultation referral / Allergologie-Überweisung**
+  2. **Contrast-agent reaction documentation sheet / Dokumentation KM-Reaktion**
+  3. **ICM pre-administration questionnaire / ICM-Fragebogen**
+  4. **GBCA pre-administration questionnaire / GBCA-Fragebogen**
+  Presentation concept: small utility area rather than a new large clinical tab; EN/DE; PDF first, with editable document formats considered later.
+- A reaction-documentation sheet may be derived only from source-supported ESUR documentation fields and requirements; it must not add clinical questions, thresholds, classifications or advice from model knowledge. Initial concept is a one-page structured form suitable for print or local document systems.
+- A later **Extravasation documentation** template is a separate Phase-2 candidate. The authorized 2025 booklet states that moderate/severe cases may need radiographic documentation and that extravasation should be recorded as a complication in the radiology report and local incident-reporting system. This candidate requires its own source audit before drafting.
+- Initial privacy/product boundary: do **not** design persistent patient-data storage or automatic clinical pre-filling as part of DOC-01. Any future patient-data workflow requires separate privacy, security, Regulatory and intended-purpose review.
+- EN/DE governance: the authorized 2025 source set contains the English 2025 booklet but no official German 2025 guideline. Any DE template must therefore be treated as a controlled translation of source-supported content, with recommendation strength and field meaning preserved; it must not be presented as an official ESUR German 2025 form.
+- **Next authorized step: DOC-01 source audit only, no code.** Inventory the exact official 2025 template fields and surrounding documentation requirements, map every proposed EN/DE field to source/page, classify each item as VERBATIM / CLOSE PARAPHRASE / TRANSLATION / LOGIC TRANSFORMATION where applicable, identify unsupported additions, and produce a Product Owner mockup proposal. Do not create production download files until that audit is reviewed and separately authorized.
+- Publication/redistribution format and branding/licensing are not decided by this product note and should be checked before shipping copied or adapted source documents.
 
 ## Plan snapshot
 
