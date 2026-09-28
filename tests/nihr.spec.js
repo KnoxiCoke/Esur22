@@ -25,10 +25,16 @@ async function clearDanger(page) {
   }
 }
 
+async function selectNihrCase(page, severity, cmtype = "icm", culpritKnown = "known") {
+  await clickSeg(page, "nihrSeverity", severity);
+  await clickSeg(page, "nihrCmtype", cmtype);
+  await clickSeg(page, "nihrCulpritKnown", culpritKnown);
+}
+
 test("NIHR_01 mild + no danger signs follows mild path", async ({ page }) => {
   await openApp(page);
   await openNihr(page);
-  await clickSeg(page, "nihrSeverity", "mild");
+  await selectNihrCase(page, "mild");
   await clearDanger(page);
   const out = nihrOutput(page);
   await expect(out).toContainText("Mild NIHR without danger signs");
@@ -41,7 +47,7 @@ test("NIHR_01 mild + no danger signs follows mild path", async ({ page }) => {
 test("NIHR_02 moderate + no danger signs follows moderate path", async ({ page }) => {
   await openApp(page);
   await openNihr(page);
-  await clickSeg(page, "nihrSeverity", "moderate");
+  await selectNihrCase(page, "moderate");
   await clearDanger(page);
   const out = nihrOutput(page);
   await expect(out).toContainText("Moderate NIHR without danger signs");
@@ -54,7 +60,7 @@ test("NIHR_02 moderate + no danger signs follows moderate path", async ({ page }
 test("NIHR_03 severe + at least one danger sign follows SCAR path", async ({ page }) => {
   await openApp(page);
   await openNihr(page);
-  await clickSeg(page, "nihrSeverity", "severe");
+  await selectNihrCase(page, "severe");
   await clearDanger(page);
   await setDanger(page, "erosion", true);
   const out = nihrOutput(page);
@@ -65,7 +71,7 @@ test("NIHR_03 severe + at least one danger sign follows SCAR path", async ({ pag
 test("NIHR_04 mild + danger sign returns source scope guard", async ({ page }) => {
   await openApp(page);
   await openNihr(page);
-  await clickSeg(page, "nihrSeverity", "mild");
+  await selectNihrCase(page, "mild");
   await setDanger(page, "erosion", true);
   await expect(nihrOutput(page)).toContainText(GUARD);
   await expect(nihrOutput(page)).not.toContainText(SCAR_STATUS);
@@ -74,7 +80,7 @@ test("NIHR_04 mild + danger sign returns source scope guard", async ({ page }) =
 test("NIHR_05 moderate + danger sign returns source scope guard", async ({ page }) => {
   await openApp(page);
   await openNihr(page);
-  await clickSeg(page, "nihrSeverity", "moderate");
+  await selectNihrCase(page, "moderate");
   await setDanger(page, "mucosa", true);
   await expect(nihrOutput(page)).toContainText(GUARD);
   await expect(nihrOutput(page)).not.toContainText(SCAR_STATUS);
@@ -83,7 +89,7 @@ test("NIHR_05 moderate + danger sign returns source scope guard", async ({ page 
 test("NIHR_06 severe + no danger sign returns source scope guard", async ({ page }) => {
   await openApp(page);
   await openNihr(page);
-  await clickSeg(page, "nihrSeverity", "severe");
+  await selectNihrCase(page, "severe");
   await clearDanger(page);
   await expect(nihrOutput(page)).toContainText(GUARD);
   await expect(nihrOutput(page)).not.toContainText(SCAR_STATUS);
@@ -92,7 +98,7 @@ test("NIHR_06 severe + no danger sign returns source scope guard", async ({ page
 test("NIHR_DS_01 severe + erosive lesions alone triggers SCAR", async ({ page }) => {
   await openApp(page);
   await openNihr(page);
-  await clickSeg(page, "nihrSeverity", "severe");
+  await selectNihrCase(page, "severe");
   await clearDanger(page);
   await setDanger(page, "erosion", true);
   await expect(nihrOutput(page)).toContainText(SCAR_STATUS);
@@ -101,7 +107,7 @@ test("NIHR_DS_01 severe + erosive lesions alone triggers SCAR", async ({ page })
 test("NIHR_DS_02 severe + blistering alone triggers SCAR", async ({ page }) => {
   await openApp(page);
   await openNihr(page);
-  await clickSeg(page, "nihrSeverity", "severe");
+  await selectNihrCase(page, "severe");
   await clearDanger(page);
   await setDanger(page, "blister_skin", true);
   await expect(nihrOutput(page)).toContainText(SCAR_STATUS);
@@ -110,7 +116,7 @@ test("NIHR_DS_02 severe + blistering alone triggers SCAR", async ({ page }) => {
 test("NIHR_DS_03 severe + mucosal involvement alone triggers SCAR", async ({ page }) => {
   await openApp(page);
   await openNihr(page);
-  await clickSeg(page, "nihrSeverity", "severe");
+  await selectNihrCase(page, "severe");
   await clearDanger(page);
   await setDanger(page, "mucosa", true);
   await expect(nihrOutput(page)).toContainText(SCAR_STATUS);
@@ -119,7 +125,7 @@ test("NIHR_DS_03 severe + mucosal involvement alone triggers SCAR", async ({ pag
 test("NIHR_DS_04 severe + extracutaneous involvement alone triggers SCAR", async ({ page }) => {
   await openApp(page);
   await openNihr(page);
-  await clickSeg(page, "nihrSeverity", "severe");
+  await selectNihrCase(page, "severe");
   await clearDanger(page);
   await setDanger(page, "extracutaneous", true);
   await expect(nihrOutput(page)).toContainText(SCAR_STATUS);
@@ -128,8 +134,7 @@ test("NIHR_DS_04 severe + extracutaneous involvement alone triggers SCAR", async
 test("NIHR_SCAR_ICM avoid all ICM and not all GBCA", async ({ page }) => {
   await openApp(page);
   await openNihr(page);
-  await clickSeg(page, "nihrSeverity", "severe");
-  await clickSeg(page, "nihrCmtype", "icm");
+  await selectNihrCase(page, "severe", "icm", "known");
   await setDanger(page, "erosion", true);
   const out = nihrOutput(page);
   await expect(out).toContainText(AVOID_ICM);
@@ -139,8 +144,7 @@ test("NIHR_SCAR_ICM avoid all ICM and not all GBCA", async ({ page }) => {
 test("NIHR_SCAR_GBCA avoid all GBCA and not all ICM", async ({ page }) => {
   await openApp(page);
   await openNihr(page);
-  await clickSeg(page, "nihrSeverity", "severe");
-  await clickSeg(page, "nihrCmtype", "gbca");
+  await selectNihrCase(page, "severe", "gbca", "known");
   await setDanger(page, "erosion", true);
   const out = nihrOutput(page);
   await expect(out).toContainText(AVOID_GBCA);
@@ -150,8 +154,7 @@ test("NIHR_SCAR_GBCA avoid all GBCA and not all ICM", async ({ page }) => {
 test("NIHR_SCAR_UNK individualize after multidisciplinary consultation", async ({ page }) => {
   await openApp(page);
   await openNihr(page);
-  await clickSeg(page, "nihrSeverity", "severe");
-  await clickSeg(page, "nihrCmtype", "unknown");
+  await selectNihrCase(page, "severe", "unknown", "unknown");
   await setDanger(page, "erosion", true);
   const out = nihrOutput(page);
   await expect(out).toContainText("multidisciplinary consultation");
@@ -162,10 +165,8 @@ test("NIHR_SCAR_UNK individualize after multidisciplinary consultation", async (
 test("NIHR_SCAR_TOGGLE culprit known does not override SCAR class rule", async ({ page }) => {
   await openApp(page);
   await openNihr(page);
-  await clickSeg(page, "nihrSeverity", "severe");
-  await clickSeg(page, "nihrCmtype", "icm");
+  await selectNihrCase(page, "severe", "icm", "known");
   await setDanger(page, "erosion", true);
-  await clickSeg(page, "nihrCulpritKnown", "known");
   await expect(nihrOutput(page)).toContainText(AVOID_ICM);
   await expect(nihrOutput(page)).not.toContainText(CHOOSE_DIFFERENT);
   await clickSeg(page, "nihrCulpritKnown", "unknown");
@@ -176,9 +177,8 @@ test("NIHR_SCAR_TOGGLE culprit known does not override SCAR class rule", async (
 test("NIHR mild known shows conditional different-CM action; unknown does not", async ({ page }) => {
   await openApp(page);
   await openNihr(page);
-  await clickSeg(page, "nihrSeverity", "mild");
+  await selectNihrCase(page, "mild", "icm", "known");
   await clearDanger(page);
-  await clickSeg(page, "nihrCulpritKnown", "known");
   await expect(nihrOutput(page)).toContainText(CHOOSE_DIFFERENT);
   await clickSeg(page, "nihrCulpritKnown", "unknown");
   await expect(nihrOutput(page)).not.toContainText(CHOOSE_DIFFERENT);
@@ -187,9 +187,8 @@ test("NIHR mild known shows conditional different-CM action; unknown does not", 
 test("NIHR moderate known shows conditional different-CM action; unknown does not", async ({ page }) => {
   await openApp(page);
   await openNihr(page);
-  await clickSeg(page, "nihrSeverity", "moderate");
+  await selectNihrCase(page, "moderate", "icm", "known");
   await clearDanger(page);
-  await clickSeg(page, "nihrCulpritKnown", "known");
   await expect(nihrOutput(page)).toContainText(CHOOSE_DIFFERENT);
   await clickSeg(page, "nihrCulpritKnown", "unknown");
   await expect(nihrOutput(page)).not.toContainText(CHOOSE_DIFFERENT);
@@ -198,9 +197,10 @@ test("NIHR moderate known shows conditional different-CM action; unknown does no
 test("FORB_05 NIHR SCAR does not include mild/moderate observation and written-instruction bundle", async ({ page }) => {
   await openApp(page);
   await openNihr(page);
-  await clickSeg(page, "nihrSeverity", "severe");
+  await selectNihrCase(page, "severe");
   await setDanger(page, "erosion", true);
   const out = nihrOutput(page);
+  await expect(out).toContainText(SCAR_STATUS);
   await expect(out).not.toContainText("observe the patient for at least 30 min");
   await expect(out).not.toContainText("written instructions");
 });
@@ -208,7 +208,7 @@ test("FORB_05 NIHR SCAR does not include mild/moderate observation and written-i
 test("FORB_08 mild or moderate plus danger sign does not silently become SCAR", async ({ page }) => {
   await openApp(page);
   await openNihr(page);
-  await clickSeg(page, "nihrSeverity", "mild");
+  await selectNihrCase(page, "mild");
   await setDanger(page, "blister_skin", true);
   await expect(nihrOutput(page)).toContainText(GUARD);
   await expect(nihrOutput(page)).not.toContainText(SCAR_STATUS);
