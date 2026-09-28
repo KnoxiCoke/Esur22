@@ -265,6 +265,22 @@ After the 2025 Medical content has completed its source audit and Content Freeze
 - **Status:** DOC-01 is now **SOURCE-AUDITED FOR PRODUCT PLANNING**, but is **not Medical-Locked, not Human Medical Affairs approved, not Regulatory assessed and not implementation-ready**.
 - **Current DOC-01 next-step status after Product Owner V2 acceptance:** no further DOC-01 implementation is authorized by this acceptance alone. Any move toward production documents/downloads requires a separately authorized follow-up covering the unresolved D03/D04 source-adjudication points, controlled DE wording, Medical review and publication/redistribution permissions. Patient-data handling remains out of scope unless separately reviewed and authorized.
 
+### Future product candidates — POSTER-01 / POSTER-02 wall posters (Product Owner decision, 2026-09-29)
+
+- This is a **separate product-candidate package from DOC-01 Documents & Templates**. It does not change DOC-01 scope or status.
+- **POSTER-01 — Acute HSR Management:** future printable wall poster for radiology departments, intended for rapid orientation during an acute contrast-agent hypersensitivity reaction without requiring the digital tool. Candidate source scope: authorized 2025 HSR booklet material for acute management plus HSR Part 1.
+- **POSTER-02 — Previous HSR / Next Examination:** future printable wall poster for radiology departments, intended for rapid orientation when planning a subsequent contrast-enhanced examination after a previous hypersensitivity reaction. Candidate source scope: authorized 2025 prevention material plus HSR Part 2.
+- **PRODUCT CANDIDATE ONLY.** No production PDF, Esur2 implementation, Medical Affairs approval, Regulatory approval, merge/release approval or Go Live follows from this entry. Branding/logo use is not authorized by this entry.
+- Before any poster wording or layout can be locked, every Medical field and decision branch requires a **blind source audit** against the authorized 2025 ESUR sources. Poster content must not become a third independent Medical pathway beside the controlled modules and sources.
+- The traffic-light concept may be used only as a **presentation layer for the existing ACR Mild / Moderate / Severe categories**. It must not introduce a new symptom score, automatic symptom-to-severity algorithm, or independent Medical classification.
+- Layout may reserve space for source-supported emergency doses, but dose content is **not Human Medical Affairs approved** by this product-candidate decision and must remain subject to the same source audit and Human Medical Affairs review as other Medical content.
+- The authorized source wording for hypotension, including `prone position, raise legs`, must **not** be silently corrected, normalized, or reinterpreted during poster drafting. Any unresolved source oddity or clarification remains explicit.
+- Previously generated AI poster images/mockups are **design exploration only and are not a Medical/content baseline**.
+- Preferred traceability table for the poster audit:
+  `ID | Poster location | Candidate wording/logic | Source | Page | Section/Table/Figure | Source basis | Transformation | Status`
+- EN Medical wording should be source-locked first; any DE poster text is a controlled translation unless an independently authorized German source exists for the exact claim. Translation must preserve recommendation strength and logic.
+- No poster audit, final wording, design lock, PDF generation or Preview implementation is authorized merely by this state entry.
+
 ## Plan snapshot
 
 - Engineering: R1–R2M modularization and the earlier Medical-card integration milestones on PR `#12` are historical VERIFIED milestones. PR `#12` is behind the current application baseline after `#16`–`#20` and requires reconciliation plus renewed verification before merge.
