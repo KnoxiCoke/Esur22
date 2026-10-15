@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", function () {
     hsrTab: "guidance",      // guidance | acute | switch | tryptase | nihr
 
     // HSR
-    situation: "elective",
-    reaction: "moderate",    // mild | moderate | severe
+    situation: null,
+    reaction: null,          // mild | moderate | severe
     cmtype: "icm",
-    nihrCmtype: "icm",
-    nihrSeverity: "mild",
-    nihrCulpritKnown: "known",
+    nihrCmtype: null,
+    nihrSeverity: null,
+    nihrCulpritKnown: null,
     acuteSeverity: "mild",   // mild | moderate | severe
     acutePattern: "mild_general",
     icm: null,
@@ -2656,6 +2656,16 @@ arrest: [
   }
 
   function renderFlow() {
+    const outputCard = flowOutput ? flowOutput.closest(".card") : null;
+    const hasCaseSelection = Boolean(state.situation && state.reaction);
+
+    if (outputCard) outputCard.hidden = !hasCaseSelection;
+    if (!hasCaseSelection) {
+      if (flowOutput) flowOutput.innerHTML = "";
+      if (flowSafety) flowSafety.textContent = t("flow_safety");
+      return;
+    }
+
     const key = `${state.situation}_${state.reaction}`;
     const title = t("flow_titles")[key];
     const bullets = t("flow_bullets")[key];
@@ -2841,6 +2851,17 @@ ${renderAcuteList(content.arrest)}
 
   function renderNihr() {
     if (!nihrOutput) return;
+
+    const outputCard = nihrOutput.closest(".card");
+    const hasCaseSelection = Boolean(
+      state.nihrSeverity && state.nihrCmtype && state.nihrCulpritKnown
+    );
+
+    if (outputCard) outputCard.hidden = !hasCaseSelection;
+    if (!hasCaseSelection) {
+      nihrOutput.innerHTML = "";
+      return;
+    }
 
     const hasDangerSigns = Array.from(document.querySelectorAll(".nihr-check")).some((el) => el.checked);
     const severity = state.nihrSeverity;
@@ -3171,12 +3192,12 @@ ${renderAcuteList(content.arrest)}
     state.mainNav = "hsr";
     state.hsrTab = "guidance";
 
-    state.situation = "elective";
-    state.reaction = "moderate";
+    state.situation = null;
+    state.reaction = null;
     state.cmtype = "icm";
-    state.nihrCmtype = "icm";
-    state.nihrSeverity = "mild";
-    state.nihrCulpritKnown = "known";
+    state.nihrCmtype = null;
+    state.nihrSeverity = null;
+    state.nihrCulpritKnown = null;
     state.acuteSeverity = "mild";
     state.acutePattern = "mild_general";
     state.icm = null;
@@ -3192,12 +3213,12 @@ ${renderAcuteList(content.arrest)}
     document.body.classList.remove("emergency");
 
     const defaults = {
-      situation: "elective",
-      reaction: "moderate",
+      situation: null,
+      reaction: null,
       cmtype: "icm",
-      nihrCmtype: "icm",
-      nihrSeverity: "mild",
-      nihrCulpritKnown: "known",
+      nihrCmtype: null,
+      nihrSeverity: null,
+      nihrCulpritKnown: null,
       acuteSeverity: "mild",
       acutePattern: "mild_general",
     };

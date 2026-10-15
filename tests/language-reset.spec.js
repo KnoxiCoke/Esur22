@@ -15,6 +15,33 @@ const {
   resetApp,
 } = require("./helpers/ui");
 
+
+test("UI_01 F02 and F11 start neutral and render only after deliberate case selection", async ({ page }) => {
+  await openApp(page);
+
+  await openHsrTab(page, "guidance");
+  await expect(page.locator('.seg__btn[data-seg="situation"].active')).toHaveCount(0);
+  await expect(page.locator('.seg__btn[data-seg="reaction"].active')).toHaveCount(0);
+  await expect(flowOutput(page)).toBeEmpty();
+
+  await clickSeg(page, "situation", "elective");
+  await expect(flowOutput(page)).toBeEmpty();
+  await clickSeg(page, "reaction", "moderate");
+  await expect(flowOutput(page)).not.toBeEmpty();
+
+  await openHsrTab(page, "nihr");
+  await expect(page.locator('.seg__btn[data-seg="nihrSeverity"].active')).toHaveCount(0);
+  await expect(page.locator('.seg__btn[data-seg="nihrCmtype"].active')).toHaveCount(0);
+  await expect(page.locator('.seg__btn[data-seg="nihrCulpritKnown"].active')).toHaveCount(0);
+  await expect(nihrOutput(page)).toBeEmpty();
+
+  await clickSeg(page, "nihrSeverity", "mild");
+  await clickSeg(page, "nihrCmtype", "icm");
+  await expect(nihrOutput(page)).toBeEmpty();
+  await clickSeg(page, "nihrCulpritKnown", "known");
+  await expect(nihrOutput(page)).not.toBeEmpty();
+});
+
 test("LANG_01 previous elective moderate persists across EN-DE-EN", async ({ page }) => {
   await openApp(page);
   await openHsrTab(page, "guidance");
@@ -91,6 +118,7 @@ test("LANG_05 NIHR SCAR GBCA state persists across EN-DE-EN", async ({ page }) =
   await openHsrTab(page, "nihr");
   await clickSeg(page, "nihrSeverity", "severe");
   await clickSeg(page, "nihrCmtype", "gbca");
+  await clickSeg(page, "nihrCulpritKnown", "known");
   await page.locator('.nihr-check[value="erosion"]').check();
   await expect(nihrOutput(page)).toContainText("Avoid all gadolinium-based contrast agents");
   await setLang(page, "de");
@@ -107,7 +135,7 @@ test("LANG_05 NIHR SCAR GBCA state persists across EN-DE-EN", async ({ page }) =
   await expect(nihrOutput(page)).toContainText("Avoid all gadolinium-based contrast agents");
 });
 
-test("RESET_01 dirty HSR state returns to current production defaults without changing language", async ({ page }) => {
+test("RESET_01 dirty HSR state returns to neutral case-entry defaults without changing language", async ({ page }) => {
   await openApp(page);
   await setLang(page, "de");
   await openHsrTab(page, "guidance");
@@ -133,8 +161,9 @@ test("RESET_01 dirty HSR state returns to current production defaults without ch
   await expect(page.locator("#view-hsr")).toBeVisible();
   await expect(page.locator("#hsr-tab-guidance")).toBeVisible();
   await expect(page.locator('[data-hsr-tab="guidance"]')).toHaveClass(/active/);
-  await expectSegActive(page, "situation", "elective");
-  await expectSegActive(page, "reaction", "moderate");
+  await expect(page.locator('.seg__btn[data-seg="situation"].active')).toHaveCount(0);
+  await expect(page.locator('.seg__btn[data-seg="reaction"].active')).toHaveCount(0);
+  await expect(flowOutput(page)).toBeEmpty();
   await expect(page.locator("#lang-de")).toHaveClass(/active/);
 
   await openHsrTab(page, "acute");
@@ -147,9 +176,10 @@ test("RESET_01 dirty HSR state returns to current production defaults without ch
   await expect(page.locator('.seg__btn[data-seg="gbca"].active')).toHaveCount(0);
 
   await openHsrTab(page, "nihr");
-  await expectSegActive(page, "nihrSeverity", "mild");
-  await expectSegActive(page, "nihrCmtype", "icm");
-  await expectSegActive(page, "nihrCulpritKnown", "known");
+  await expect(page.locator('.seg__btn[data-seg="nihrSeverity"].active')).toHaveCount(0);
+  await expect(page.locator('.seg__btn[data-seg="nihrCmtype"].active')).toHaveCount(0);
+  await expect(page.locator('.seg__btn[data-seg="nihrCulpritKnown"].active')).toHaveCount(0);
+  await expect(nihrOutput(page)).toBeEmpty();
   for (const value of ["erosion", "blister_skin", "mucosa", "extracutaneous"]) {
     await expect(page.locator(`.nihr-check[value="${value}"]`)).not.toBeChecked();
   }
